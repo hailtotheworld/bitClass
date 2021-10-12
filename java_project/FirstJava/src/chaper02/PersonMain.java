@@ -3,17 +3,17 @@ package chaper02;
 public class PersonMain {
 	public static void main(String[] args) {
 		
-		// Person Å¬·¡½ºÀÇ ÀÎ½ºÅÏ½º »ı¼º
+		// Person í´ë˜ìŠ¤ì˜ ì¸ìŠ¤í„´ìŠ¤ ìƒì„±
 		Person p = new Person();
 		
-		// p.memberName = "¾È³çÈ÷";
-		p.setMemberName("¾È³çÈ÷");
+		// p.memberName = "ì•ˆë…•íˆ";
+		p.setMemberName("ì•ˆë…•íˆ");
 		p.setPhoneNumber("010-7777-7777");
 		p.setJuminNumber(991211111111L);
 		
-		System.out.println("ÀÌ¸§:" + p.getMemberName());
-		System.out.println("ÀüÈ­¹øÈ£:" + p.getPhoneNumber());
-		System.out.println("ÁÖ¹Î¹øÈ£:" + p.getJuminNumber());
+		System.out.println("ì´ë¦„:" + p.getMemberName());
+		System.out.println("ì „í™”ë²ˆí˜¸:" + p.getPhoneNumber());
+		System.out.println("ì£¼ë¯¼ë²ˆí˜¸:" + p.getJuminNumber());
 		
 		System.out.println("------------------------------");
 		p.printData();

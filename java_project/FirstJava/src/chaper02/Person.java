@@ -2,27 +2,27 @@ package chaper02;
 
 public class Person {
 	/*
-	2. Person Å¬·¡½º¸¦ ¸¸µé¾î º¸°í, ¾Æ·¡ÀÇ È¸¿ø Á¤º¸¸¦ ÀúÀåÇÏ´Â º¯¼öµéÀ» ¼±¾ğÇØº¾½Ã´Ù. 
-	º¯¼öÀÌ¸§À» ÀÛ¼ºÇÏ´Â ±ÔÄ¢¿¡ ¸Â°Ô Á÷Á¢ º¯¼ö ÀÌ¸§À» Á¤ÀÇÇØ º¸¼¼¿ä. 
-	¨ç È¸¿øÀÌ¸§À» ÀúÀåÇÏ´Â º¯¼ö
-	¨è È¸¿ø ÀüÈ­¹øÈ£ ( 000-0000-0000 )¸¦ ÀúÀåÇÏ´Â º¯¼ö
-	¨é È¸¿ø ÁÖ¹Îµî·Ï¹øÈ£ ( 000000-0000000 ¶Ç´Â 0000000000000 )¸¦ ÀúÀåÇÏ´Â º¯¼ö
+	2. Person í´ë˜ìŠ¤ë¥¼ ë§Œë“¤ì–´ ë³´ê³ , ì•„ë˜ì˜ íšŒì› ì •ë³´ë¥¼ ì €ì¥í•˜ëŠ” ë³€ìˆ˜ë“¤ì„ ì„ ì–¸í•´ë´…ì‹œë‹¤. 
+	ë³€ìˆ˜ì´ë¦„ì„ ì‘ì„±í•˜ëŠ” ê·œì¹™ì— ë§ê²Œ ì§ì ‘ ë³€ìˆ˜ ì´ë¦„ì„ ì •ì˜í•´ ë³´ì„¸ìš”. 
+	â‘  íšŒì›ì´ë¦„ì„ ì €ì¥í•˜ëŠ” ë³€ìˆ˜
+	â‘¡ íšŒì› ì „í™”ë²ˆí˜¸ ( 000-0000-0000 )ë¥¼ ì €ì¥í•˜ëŠ” ë³€ìˆ˜
+	â‘¢ íšŒì› ì£¼ë¯¼ë“±ë¡ë²ˆí˜¸ ( 000000-0000000 ë˜ëŠ” 0000000000000 )ë¥¼ ì €ì¥í•˜ëŠ” ë³€ìˆ˜
 	*/
 	
 	
-	// private: Å¬·¡½º ³»ºÎ¿¡¼­ ¸â¹öµé¸¸ ÂüÁ¶°¡ °¡´ÉÇÏµµ·Ï ÇÏ´Â Á¢±ÙÁ¦¾îÀÚ
-	private String memberName;  // È¸¿øÀÇ ÀÌ¸§
-	private String phoneNumber; // ÀüÈ­¹øÈ£
-	// String juminNumber; // ÁÖ¹Îµî·Ï¹øÈ£
+	// private: í´ë˜ìŠ¤ ë‚´ë¶€ì—ì„œ ë©¤ë²„ë“¤ë§Œ ì°¸ì¡°ê°€ ê°€ëŠ¥í•˜ë„ë¡ í•˜ëŠ” ì ‘ê·¼ì œì–´ì
+	private String memberName;  // íšŒì›ì˜ ì´ë¦„
+	private String phoneNumber; // ì „í™”ë²ˆí˜¸
+	// String juminNumber; // ì£¼ë¯¼ë“±ë¡ë²ˆí˜¸
 	private long juminNumber;
 
-	// setter / getter (setter °ªÀ» ¼³Á¤ / getter °ªÀ» °¡Á®¿Í)
-	// setter => °ªÀ» ¹Ş¾Æ¼­ º¯¼ö¿¡ ÀúÀå
+	// setter / getter (setter ê°’ì„ ì„¤ì • / getter ê°’ì„ ê°€ì ¸ì™€)
+	// setter => ê°’ì„ ë°›ì•„ì„œ ë³€ìˆ˜ì— ì €ì¥
 	public void setMemberName(String name) {
 		memberName=name;
 	}
 		
-	// getter => ÀÎ½ºÅÏ½º º¯¼ö¸¦ º¯È¯
+	// getter => ì¸ìŠ¤í„´ìŠ¤ ë³€ìˆ˜ë¥¼ ë³€í™˜
 	public String getMemberName() {
 		return memberName;
 	}
@@ -45,11 +45,11 @@ public class Person {
 		return juminNumber;
 	}
 	
-	// ÀüÃ¼ µ¥ÀÌÅÍ Ãâ·Â
+	// ì „ì²´ ë°ì´í„° ì¶œë ¥
 	public void printData() {
-		System.out.println("ÀÌ¸§:" + memberName);
-		System.out.println("ÀüÈ­¹øÈ£:"+ phoneNumber);
-		System.out.println("ÁÖ¹Î¹øÈ£:"+juminNumber);
+		System.out.println("ì´ë¦„:" + memberName);
+		System.out.println("ì „í™”ë²ˆí˜¸:"+ phoneNumber);
+		System.out.println("ì£¼ë¯¼ë²ˆí˜¸:"+juminNumber);
 	}
 	
 	
