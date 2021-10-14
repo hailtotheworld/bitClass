@@ -1,4 +1,4 @@
-package chaper01;
+package chapter01;
 
 public class FirstJava {
 
