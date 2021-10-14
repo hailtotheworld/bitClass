@@ -15,7 +15,7 @@ public class Ex06 {
 		StringBuffer reverse1 = new StringBuffer(str1);
 		String reversedStr = reverse1.reverse().toString();
 		System.out.println(reversedStr);
-		
+				
 		// 문제2
 		String str2 = "990929-1010123";
 		str2 = str2.replace("-", "");
