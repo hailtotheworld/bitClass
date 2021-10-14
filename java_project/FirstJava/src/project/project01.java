@@ -73,6 +73,7 @@ public class project01 {
 		System.out.println("그룹: " + this.group);
 	}
 	
+
 	
 	
 
