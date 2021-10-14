@@ -9,6 +9,11 @@ public class MemberMain {
 
 	// 객체의 정보(데이터들) 출력
 		member1.showData();
+		
+		System.out.println("-------------------------");
+		
+		Member member2 = new Member("이둘둘", "010-2222-2222", "경제", 2, "heool@nmail.com");
+		member2.showData();
 	
 	
 	

@@ -42,8 +42,8 @@ public class Member {
 //	this.major=major;
 //	this.grade=grade;
 //	this.email=email;
-		this(name, phoneNumber, major, grade, email, null, null);
-//		this(name, phoneNumber, major, grade, email, "생일정보 없음", "주소정보 없음");
+//		this(name, phoneNumber, major, grade, email, null, null);
+		this(name, phoneNumber, major, grade, email, "생일정보 없음", "주소정보 없음");
 	}
 
 	// 기본 생성자
