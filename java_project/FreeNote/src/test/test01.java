@@ -10,6 +10,8 @@ public class test01 {
 		int str2length = str2.length();
 		System.out.println(str2.length());
 		// 띄어쓰기도 문자열에 포함되는구나.
+	
+
 		
 	
 	}
