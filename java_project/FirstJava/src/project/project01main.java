@@ -37,7 +37,7 @@ public class project01main {
 			
 
 		// 객체의 정보(데이터들) 출력
-		project01.showData();
+		// project01.showData();
 		
 	}
 
