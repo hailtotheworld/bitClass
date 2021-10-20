@@ -5,6 +5,9 @@ public class equals {
 		String str = "abs";
 		String str2 = new String("aBs");
 		
+		boolean result = str.equals(str2);
+		System.out.println(result);
+		
 		System.out.printf("%b",str.equalsIgnoreCase(str2));
 		
 		

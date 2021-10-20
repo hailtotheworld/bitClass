@@ -1,6 +1,6 @@
 package ch03;
 
-class Ex3_2 {
+class ppmm {
 	public static void main(String args[]) {
 		int i=5, j=0;
 
