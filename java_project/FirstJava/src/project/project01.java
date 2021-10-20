@@ -63,7 +63,7 @@ public class project01 {
 		this.group = group;
 	}
 	
-	
+
 	public void showData() {
 		System.out.println("이름: " + this.name);
 		System.out.println("전화번호: " + this.phoneNumber);
@@ -73,9 +73,57 @@ public class project01 {
 		System.out.println("그룹: " + this.group);
 	}
 	
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		
+		project01 p = new project01();
+		
+		System.out.println("이름: " + p.getName());
+		System.out.println("전화번호: " + p.phoneNumber);
+		System.out.println("이메일: " + p.email);
+		System.out.println("주소: " + p.address);
+		System.out.println("생일: " + p.birthday);
+		System.out.println("그룹: " + p.group);
+		
+		System.out.println("이름을 입력하십시오.>");
+		p.setName(scanner.nextLine());
+		
+		System.out.println("전화번호를 입력하십시오.>");
+		p.setPhoneNumber(scanner.nextLine());
+		
+		System.out.println("이메일을 입력하십시오.>");
+		p.setemail(scanner.nextLine());
+		
+		System.out.println("주소를 입력하십시오.>");
+		p.setAddress(scanner.nextLine());
+		
+		System.out.println("생일을 입력하십시오.>");
+		p.setBirthday(scanner.nextLine());
+		
+		System.out.println("그룹을 입력하십시오.>");
+		p.setGroup(scanner.nextLine());
+		
+		// 입력받은 값을 출력
+		System.out.println("이름: " + p.getName());
+		System.out.println("전화번호: " + p.phoneNumber);
+		System.out.println("이메일: " + p.email);
+		System.out.println("주소: " + p.address);
+		System.out.println("생일: " + p.birthday);
+		System.out.println("그룹: " + p.group);
+
+
+		
+		
+	}
 
 	
 	
 
 }
 	
+
+
+
+
+
+
