@@ -1,6 +1,6 @@
 package ch03;
 
-public class free2 {
+public class charAt {
 	public static void main(String[] args) {
 		
 	
