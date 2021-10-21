@@ -20,6 +20,7 @@ public class HashSetTest1 {
 			System.out.println(itr.next());
 		}
 		
+		
 		// HashSet은 같은걸 저장하지는 않는구나.
 
 		
