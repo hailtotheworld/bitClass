@@ -156,11 +156,20 @@ public class SmartPhone {
 		if(index<0) {
 			System.out.println("삭제하고자 하는 이름 " + name + "의 데이터가 존재하지 않습니다.");
 		} else {
-			// 삭제 처리: index 위치의 참조값을 index+1 위치의 값으로 치환, 시프트
-			for(int i=index; i<cnt-1;i++) {
-				contacts[index] = contacts[index+1];
+			
+			if(cnt==1 && index==0) {
+				contacts[0] = null;
 				cnt--;
+			} else {
+				// 삭제 처리: index 위치의 참조값을 index+1 위치의 값으로 치환, 시프트
+				for(int i=index; i<cnt-1;i++) {
+					contacts[i] = contacts[i+1];
+					cnt--;
+				}
+				
 			}
+			
+
 			
 			System.out.println(name + "의 데이터가 삭제되었습니다.");
 			
@@ -199,13 +208,51 @@ public class SmartPhone {
 			System.out.println("그룹 >>");
 			String group = scanner.nextLine();
 			
-			// Contact c
-			contacts[index].setName(ename);
-			contacts[index].setPhoneNumber(phoneNumber);
-			contacts[index].setEmail(email);
-			contacts[index].setAddress(address);
-			contacts[index].setBirthday(birthday);
-			contacts[index].setGroup(group);
+			// 회사 동료인지 고객인지 분기
+			if(contacts[index] instanceof CompanyContact) {
+				CompanyContact contact = (CompanyContact) contacts[index];
+				System.out.println("회사이름을 입력하세요. >>");
+				String companyName = scanner.nextLine();
+				System.out.println("부서이름을 입력하세요. >>");
+				String divName = scanner.nextLine();
+				System.out.println("직급을 입력사세요. >>");
+				String job = scanner.nextLine();
+				
+				contact.setName(name);
+				contact.setPhoneNumber(phoneNumber);
+				contact.setEmail(email);
+				contact.setAddress(address);
+				contact.setBirthday(birthday);
+				contact.setGroup(group);
+				contact.setCompanyName(companyName);
+				contact.setDivName(divName);
+				contact.setJob(job);
+				
+				
+			} else { // CustomerContact
+				
+				CustomerContact contact = (CustomerContact) contacts [index];
+				// (CustomerContact) 하위타입 사용하기 위해서↑ 형변환해준다!!!
+				System.out.println("거래처 회사이름을 입력하세요. >>");
+				String companyName = scanner.nextLine();
+				System.out.println("거래품목을 입력하세요. >>");
+				String product = scanner.nextLine();
+				System.out.println("담당자의 직급을 입력하세요. >>");
+				String job = scanner.nextLine();
+				
+				contact.setName(name);
+				contact.setPhoneNumber(phoneNumber);
+				contact.setEmail(email);
+				contact.setAddress(address);
+				contact.setBirthday(birthday);
+				contact.setGroup(group);
+				contact.setCompanyName(companyName);
+				contact.setProduct(product);
+				contact.setJob(job);
+				
+				
+			}
+
 			
 			System.out.println(name + " 의 정보가 수정되었습니다.");
 		}
