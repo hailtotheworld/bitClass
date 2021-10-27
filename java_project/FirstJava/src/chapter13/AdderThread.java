@@ -1,0 +1,25 @@
+package chapter13;
+
+public class AdderThread extends sum implements Runnable {
+
+	int start;
+	int end;
+	
+	public AdderThread(int start, int end) {
+		this.start = start;
+		this.end = end;
+	}
+
+	@Override
+	public void run() {
+		
+		for(int i=this.start; i<=this.end; i++) {
+			addNum(i);
+		}
+		
+	}
+
+	
+	
+
+}
