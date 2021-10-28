@@ -176,6 +176,43 @@ from emp
 where comm is not null and comm !=0
 ;
 
+-- 정렬을 위한 order by 절
+-- order by 컬럼명 {[asc] | desc}, asc(오름차순), desc(내림차순)
+
+-- 급여 컬럼을 기준으로 오름차순으로 정렬
+select *
+from emp
+--order by sal asc
+--order by sal --기본정렬은 asc이구나.
+order by sal desc
+;
+
+-- 사원 이름순으로 정렬
+select *
+from emp
+order by ename
+;
+
+-- 입사일 순 정렬
+select *
+from emp
+order by hiredate, sal asc
+;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
