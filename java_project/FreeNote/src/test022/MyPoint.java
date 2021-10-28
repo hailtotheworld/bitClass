@@ -9,8 +9,8 @@ public class MyPoint {
 	this.y = y;
 	}
 
-	double getDistance(int x1, int y1) { // 인스턴스 메서드
-		return Math.sqrt((x - x1) * (x - x1) + (y - y1) * (y - y1)); // x, y는 인스턴스 변수
+	double getDistance(int x1, int y1) {
+		return Math.sqrt((x-x1)*(x-x1)+(y-y1)*(y-y1));
 	}
 }
 
