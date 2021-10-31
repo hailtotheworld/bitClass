@@ -1,9 +1,10 @@
 package ch06;
 
-public class ex64Q {
+public class ex64  {
 	static double getDistance(int x, int y, int x1, int y1) { // (x,y) (x1,y1) . 두 점 와 간의 거리를 구한다
 		//////////////////////////////////////////////////
-		return x; //이거 지우고 풀어.
+		return Math.sqrt(((x-x1)*(x-x1)+(y-y1)*(y-y1)));
+
 		//////////////////////////////////////////////////
 		
 
