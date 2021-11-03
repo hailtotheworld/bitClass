@@ -10,25 +10,18 @@ public class ex619Q {
 	final int MIN_CHANNEL = 1;
 
 	void turnOnOff() {
-
 	}
 
 	void volumeUp() {
-
-
 	}
 
 	void volumeDown() {
-
-
 	}
 
 	void channelUp() {
-
 	}
 
 	void channelDown() {
-
 	}
 } // class MyTv
 
