@@ -351,7 +351,7 @@ public  List<Book> randomBook() {
 			rs = stmt.executeQuery(sql);
 
 
-			while (rs.next()) {
+			if (rs.next()) {
 				result.add(new Book(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getString(4), rs.getString(5),
 						rs.getInt(6), rs.getInt(7)));
 			}
