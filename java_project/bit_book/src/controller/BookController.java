@@ -21,35 +21,12 @@ public class BookController {
 		
 		for(Book b : bookList) {
 			System.out.println("---------------------------------------");
-			System.out.println("NO. " + b.getBookid() + "\t\t제목: " + b.getBookName());
-			System.out.println("지은이: " + b.getWriter() + "\t출판사: " + b.getPublisher());
+			b.showInfo();
 		}
 		
 		System.out.println("=======================================\n");
-
-//		for (int i = 0; i < bookList.size(); i++) {
-//			System.out.println("--------------------------------------------------");
-//			System.out.println("NO." + bookList.get(i).getBookid());
-//			System.out.println("이름 : " + bookList.get(i).getBookName());
-//		}
-
 	}
 	
-	// 목록 간단하게 출력
-	public void printBasicInfo() {
-		List<Book> bookList = new ArrayList<>();
-		bookList = bookDao.selectAllList();
-		
-		System.out.println("=======================================");
-		System.out.println("\t\t도서 리스트");
-		for(Book b : bookList) {
-			System.out.println("---------------------------------------");
-			b.basicInfo();
-		}
-		System.out.println("=======================================\n");
-		
-	}
-
 	// 전체 목록 출력
 	public void showAll() {
 		List<Book> bookList = new ArrayList<>();
@@ -81,7 +58,7 @@ public class BookController {
 	// 출판사명으로 검색
 	public void selectByPublisher(String publisher) {
 		List<Book> bookList = new ArrayList<>();
-		bookList = bookDao.selectByWriter(publisher);
+		bookList = bookDao.selectByPublisher(publisher);
 		printList(bookList);
 	}
 
@@ -101,8 +78,9 @@ public class BookController {
 	}
 
 	// 책 구입 메소드(오버로딩) -- 지명근
-	public boolean buyBook(int bookId) {
+	public boolean buyBook(int bookId) {		
 		boolean result = false;
+		
 		// 책 재고확인
 		if (bookDao.isThereBook(bookId)) {
 			result = true; // 남아있을시 구입
@@ -150,8 +128,7 @@ public class BookController {
 		book = bookDao.randomBook();
 		System.out.println("서점에 있는 책 중에서 무작위로 추천드리겠습니다.");
 		System.out.println("==================================================");
-		System.out.println("책이름 : " + book.getBookName() + "\t가격 : " + book.getPrice() + "\n지은이 : " + book.getWriter()
-					+ "\t출판사 : " + book.getPublisher());
+		book.showInfo();
 		System.out.println("==================================================\n");
 	}
 

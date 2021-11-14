@@ -65,7 +65,6 @@ public class BookDao {
 		List<Book> result = new ArrayList<Book>();
 
 		String sql = "select * from bit_book where categoryid = ?";
-		// 결과 -> 1또는0행
 
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -120,7 +119,7 @@ public class BookDao {
 	public List<Book> selectByWriter(String writer) {
 
 		// 검색 결과 : 도서 정보
-		List<Book> result = new ArrayList<>();
+		List<Book> result = new ArrayList<Book>();
 
 		String sql = "select * from bit_book where writer LIKE '%' || ? || '%'";
 
@@ -130,7 +129,7 @@ public class BookDao {
 
 			rs = pstmt.executeQuery();
 
-			if (rs.next()) {
+			while (rs.next()) {
 				result.add(new Book(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getString(4), rs.getString(5),
 						rs.getInt(6), rs.getInt(7)));
 			}
@@ -149,9 +148,9 @@ public class BookDao {
 	public List<Book> selectByPublisher(String publisher) {
 
 		// 검색 결과 : 도서 정보
-		List<Book> result = new ArrayList<>();
+		List<Book> result = new ArrayList<Book>();
 
-		String sql = "select * from book where publisher LIKE '%' || ? || '%'";
+		String sql = "select * from bit_book where publisher LIKE '%' || ? || '%'";
 
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -159,12 +158,13 @@ public class BookDao {
 
 			rs = pstmt.executeQuery();
 
-			if (rs.next()) {
+			while (rs.next()) {
 				result.add(new Book(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getString(4), rs.getString(5),
 						rs.getInt(6), rs.getInt(7)));
 			}
 
 		} catch (SQLException e) {
+			System.out.println(publisher + "은(는) 찾을 수 없습니다.");
 			e.printStackTrace();
 		} finally {
 			JdbcUtil.close(rs);
@@ -313,6 +313,7 @@ public class BookDao {
 	}
 	*/
 
+	/*
 	// 고객이 주문한 리스트를 전달.
 	public List<Book> printUserOrders() {
 		List<Book> list = new ArrayList<>();
@@ -332,14 +333,15 @@ public class BookDao {
 		}
 		return list;
 	}
+	*/
 
-
+	// 랜덤하게 책 한권을 추천해주는 메서드
 	public Book randomBook() {
 		Book result = new Book();
 		
 		try {
 			stmt = conn.createStatement();
-			String sql = "select * from (select * from BIT_BOOK order by DBMS_RANDOM.VALUE) where rownum <2";
+			String sql = "select * from BIT_BOOK order by DBMS_RANDOM.VALUE";
 			rs = stmt.executeQuery(sql);
 
 			if (rs.next()) {

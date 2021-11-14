@@ -78,4 +78,9 @@ public class Book {
 		System.out.println("No. " + bookid + "\t제목: " + bookName + "\t가격: " + price);
 	}
 	
+	public void showInfo() {
+		System.out.println("NO. " + bookid + "\t\t제목: " + bookName);
+		System.out.println("지은이: " + writer + "\t출판사: " + publisher);
+	}
+	
 }	

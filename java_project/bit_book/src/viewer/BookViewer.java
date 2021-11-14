@@ -1,9 +1,6 @@
 package viewer;
 
-import java.util.List;
-
 import controller.BookController;
-import object.Book;
 import util.ScannerUtil;
 
 public class BookViewer {
@@ -106,12 +103,14 @@ public class BookViewer {
 	public void showSaleBookMenu() {
 		System.out.println("구매하실 책의 번호나 이름을 입력해주세요.");
 		System.out.print("1. 책 번호로 구입 \n2. 책 이름으로 구입 \n3. 뒤로가기");
+		System.out.println("=======================================");
+		System.out.print("> ");
+		
 		boolean result = false;
 		int userChoice = ScannerUtil.scanInt();
 		
 		if( userChoice == 1 ) {
-			bookController.printBasicInfo();
-			System.out.print("책 번호를 입력해주세요.\n> ");
+			System.out.print("구입하실 책 번호를 입력해주세요.\n> ");
 			
 			int bookId = ScannerUtil.scanInt();
 
@@ -141,8 +140,4 @@ public class BookViewer {
 		
 	}
 	
-//	public void showBeforeOrder() {
-//		bookController.userOrderDetail();	
-//	}
-
 }
