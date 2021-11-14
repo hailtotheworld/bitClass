@@ -30,7 +30,6 @@ public class VarEx2 {
 		System.out.println(x*y);
 		System.out.println(x/y); 
 		// 이렇게 변수이용하는게 편리하네.
-
 	}
 
 }
