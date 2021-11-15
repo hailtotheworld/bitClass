@@ -30,6 +30,7 @@ create sequence bit_book_bookId_seq
     
 
 --  4. 주문정보 자동저장 시퀀스
+drop sequence  bit_orders_log_orderId_seq;
 create sequence bit_orders_log_orderId_seq
     start with 1
     increment by 1;

@@ -49,8 +49,8 @@ ALTER TABLE category
 
 /* 책 */
 
-DROP INDEX PK_bit_book;
-DROP TABLE bit_book CASCADE CONSTRAINTS;
+--DROP INDEX PK_bit_book;
+--DROP TABLE bit_book CASCADE CONSTRAINTS;
 
 /* 책 */
 CREATE TABLE bit_book (
@@ -141,8 +141,8 @@ ALTER TABLE bit_orders_log
 
 
 /* 주문 */
-DROP INDEX PK_bit_orders;
-DROP TABLE bit_orders CASCADE CONSTRAINTS;
+--DROP INDEX PK_bit_orders;
+--DROP TABLE bit_orders CASCADE CONSTRAINTS;
 
 /* 주문 */
 CREATE TABLE bit_orders (
@@ -189,8 +189,8 @@ ALTER TABLE bit_orders
 
 /* 유저 */
 
-DROP INDEX PK_bit_users;
-DROP TABLE bit_users CASCADE CONSTRAINTS;
+--DROP INDEX PK_bit_users;
+--DROP TABLE bit_users CASCADE CONSTRAINTS;
 
 /* 유저 */
 CREATE TABLE bit_users (
