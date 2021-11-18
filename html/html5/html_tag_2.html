@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tag</title>
+    <style>
+        div {
+            background-color: aqua;
+            /* width: 100px; */
+        }
+        #div01 {
+            width: 300px;
+            height: 100px;
+        }
+        #divin {
+            background-color: red;
+        } /* divin은 부모div01의 width300px를 가진다 */
+
+        span {
+            width: 500px;
+            height: 500px;
+            background-color: beige;
+        }
+    </style>
+</head>
+<body>
+
+    <video controls width="320" poster="buildpath2.jpg"> <!-- poster은 영상재생전 화면 -->
+        <source src="media/trailer.mp4" type="video/mp4">
+    </video>
+
+
+    <hr>
+
+    <audio src="media/old_pop.mp3" controls></audio>
+
+    <hr>
+
+    <span>tester1234</span>
+    <div><img src="images/buildpath.jpg"></div>
+    <span>tester5678</span>
+
+    <hr>
+
+    <div id="div01">
+        DIV - 1
+        <div id="divin">inner </div>
+        </div>
+    <div id="div02">DIV - 2</div>
+    
+    <h1>이미지 태그</h1>
+    
+    <img src="images/buildpath.jpg" width="500">
+    <img src="images/buildpathhey.jpg" alt="빌드패쓰이미지가 있었습니다!!">
+    <img src="images/테이블.jpg" width="750" height="200">
+
+    <img src="https://t1.daumcdn.net/daumtop_chanel/op/20200723055344399.png">
+
+
+</body>
+</html>
