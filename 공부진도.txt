@@ -1,3 +1,4 @@
-https://www.youtube.com/watch?v=TVjjNLmu08o&list=PLW2UjW795-f6xWA2_MUhEVgPauhGl3xIp&index=41
-[자바의 정석 - 기초편] ch5-1~3 배열의 생성과 선언, 배열의 인덱스
-6:14
+https://www.youtube.com/watch?v=qA0D-nAcAvQ&list=PLW2UjW795-f6xWA2_MUhEVgPauhGl3xIp&index=57
+[자바의 정석 - 기초편] ch6-11 선언위치 변수종류
+
+3:45
