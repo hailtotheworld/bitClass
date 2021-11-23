@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+
+        // 자바스크립트의 변수 특징
+        // 호이스팅 -> 변수 선언과 동시에 초기화 하지 않는 경우 자동으로 undefined
+
+        // 변수 선언 방법 => var 변수이름(식별자);
+        // var 생명주기
+        // => 함수 단위로 생명주기가 발생
+        // => 함수 밖에서 선언하면 전역 변수가 된다.
+
+        // 변수에 저장하는 데이터 타입: 숫자, 문자열, bool(논리값), 함수, 객체(배열...)
+
+        var num;
+
+        console.log("num=>", num);
+
+        // 함수 호출 (함수가 밑에있는데도 호출이 되네!!!)
+        //          (함수를 자바스크립트에서 객체로 인식하기 때문에 가능한것이다.)
+        //          (함수가 메모리에 먼저 올라간다는 의미이지. 자바에서 static같은 의미야.)
+        fn();
+
+        // 함수 정의: 프로그램이 실행 되기전에 먼저 실행된다.
+        function fn() {
+            num = 11;
+            var age = 10; // 함수 내에서 존재하는 변수
+            console.log('age1=>',age);
+            console.log('num1=>',num);
+
+            // 상수를 만드는 const => 초기화 후 값을 대입하지 못한다!!!!!!!
+            const no = 7;
+            // no = 777; 오류가 난다. const는 상수로 만드는거니까 값 변경입 불가하니까.
+
+            // let: 생명주기가 블록({})을 가준으로 생성
+            for(let i=0;i<5;i++) {
+                console.log(i);
+            }
+            // console.log('for문 밖에서 출력하는 i=>',i); 오류가난다. let의 생명주기는 블록안이니까.
+        }
+
+        // 함수 호출
+        fn();
+
+        // console.log('age2=>',age); 오류가 난다. function안에서만 존재하는거니까.
+        console.log('num2=>',num);
+
+
+        //////////////////////////////////////////////////////////////////////////
+        // alert(10+10);
+        // alert(111);
+        // alert('<a href="http://www.naver.com">');
+
+
+        if(true) {
+            console.log('if=> true');
+        } else {
+            console.log('if=> false');
+        }
+
+        console.log(true);
+        console.log(false);
+        console.log('true>false => =1>0', true>false)
+        /*
+        논리값 true/false
+        비교연산(> < >= <= == !=)
+        논리연산 ($$ || !)
+        */
+
+        console.log(111);
+        console.log('test \n tester');
+        console.log('age:',11);
+        console.log('errorCode:',404);
+        console.log(25.123);
+        // 숫자연산을 위한 산술연산 가능
+        // 숫자는 정수와 실수를 구분하지 않는다
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,4 +1,3 @@
 https://www.youtube.com/watch?v=qA0D-nAcAvQ&list=PLW2UjW795-f6xWA2_MUhEVgPauhGl3xIp&index=57
 [자바의 정석 - 기초편] ch6-11 선언위치 변수종류
-
-3:45
+15:26
