@@ -1,2 +1,2 @@
-https://www.youtube.com/watch?v=c9rXj3b9rKI&list=PLW2UjW795-f6xWA2_MUhEVgPauhGl3xIp&index=64
-[자바의 정석 - 기초편] ch6-24,25 참조형매개변수, 참조형 반환타입
+https://www.youtube.com/watch?v=Fl4TzjPKAMU&list=PLW2UjW795-f6xWA2_MUhEVgPauhGl3xIp&index=65
+[자바의 정석 - 기초편] ch6-26~29 static메서드와 인스턴스 메서드
