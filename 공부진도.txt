@@ -1,3 +1,3 @@
-https://www.youtube.com/watch?v=HXh2ZSgg-oQ&list=PLW2UjW795-f6xWA2_MUhEVgPauhGl3xIp&index=67
-[자바의 정석 - 기초편] ch6-32~35 생성자, 기본 생성자
-18:09
+https://www.youtube.com/watch?v=ayRKMT6x-ms&list=PLW2UjW795-f6xWA2_MUhEVgPauhGl3xIp&index=69
+[자바의 정석 - 기초편] ch6-38~41 변수의초기화, 멤버변수의 초기화
+16:10
