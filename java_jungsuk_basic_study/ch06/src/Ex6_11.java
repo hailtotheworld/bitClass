@@ -9,6 +9,11 @@ class Data_2 {
 	Data_2(int x) {   // 매개변수가 있는 생성자.
 		value = x;
 	}
+
+	public Data_2() {
+	}
+	
+
 	
 	
 }

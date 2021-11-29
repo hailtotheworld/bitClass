@@ -1,3 +1,3 @@
-https://www.youtube.com/watch?v=ayRKMT6x-ms&list=PLW2UjW795-f6xWA2_MUhEVgPauhGl3xIp&index=69
-[자바의 정석 - 기초편] ch6-38~41 변수의초기화, 멤버변수의 초기화
-16:10
+https://www.youtube.com/watch?v=0xzi_FQm0ek&list=PLW2UjW795-f6xWA2_MUhEVgPauhGl3xIp&index=73
+[자바의 정석 - 기초편] ch7-7~9 오버라이딩
+0:47
