@@ -2,6 +2,11 @@
 // 회원 정보를 저장 할 배열 생성
 var members = [];
 
+$(document).ready(function(){
+
+
+});
+
 window.onload = function(){
 
     // 회원 리스트 갱신
