@@ -1,3 +1,3 @@
-https://www.youtube.com/watch?v=0xzi_FQm0ek&list=PLW2UjW795-f6xWA2_MUhEVgPauhGl3xIp&index=73
-[자바의 정석 - 기초편] ch7-7~9 오버라이딩
-8:35
+https://www.youtube.com/watch?v=XT9KmsEk9f8&list=PLW2UjW795-f6xWA2_MUhEVgPauhGl3xIp&index=74
+[자바의 정석 - 기초편] ch7-10,11 참조변수 super, 생성자 super()
+20:41
