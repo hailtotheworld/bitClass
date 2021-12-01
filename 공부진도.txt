@@ -1,3 +1,2 @@
-https://www.youtube.com/watch?v=XT9KmsEk9f8&list=PLW2UjW795-f6xWA2_MUhEVgPauhGl3xIp&index=74
-[자바의 정석 - 기초편] ch7-10,11 참조변수 super, 생성자 super()
-20:41
+https://www.youtube.com/watch?v=Hmu7YH8AXmI&list=PLW2UjW795-f6xWA2_MUhEVgPauhGl3xIp&index=77
+[자바의정석 - 기초편 ] ch7-17~20 제어자, static, final, abstract
