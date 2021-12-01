@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+
+    <style>
+        div:hover {
+            background-color: aquamarine;
+        }
+        div {
+            width: 50%;
+            border: 1px solid #aaa;
+            border-radius: 5px;
+            padding: 10px;
+        }
+    </style>
+
+    <script>
+    // $('h1').hover(function() {
+    //     $(this).addClass('mover');
+    // }, function() {
+
+    //     $(this).removeClass('mover');
+
+    //     // 이벤트 연결 삭제
+    //     // $(this).off();
+    //     $(this).off('mouseleave');
+    // }
+        
+    // );
+
+    $(document).ready(function () {
+        $('div').click(function(e) {
+            // 이벤트가 발생한 div -> this
+            // $('h1',this) -> 이벤트가 발생한 엘리먼트(div) 안에 위치한 h2
+            var h2Str = $('h2',this).text();
+            var pStr = $('p',this).text();
+
+            alert(h2Str+'\n'+pStr);
+
+            console.log(e);
+        });
+
+        $('h3').click(function(){
+            $(this).html(function(index, html) {
+                return html+'+';
+            });
+        });
+
+        // trigger : 이벤트를 자동 발생
+        setInterval(function(){
+            //$('h3').trigger('click');
+        }, 1000);
+
+
+
+
+
+///////////////////////////////
+    });
+
+    </script>
+
+</head>
+<body>
+
+    <h3>Click : </h3>
+
+    <div>
+        <h2>header-0</h2>
+        <p>paragrath-0</p>
+    </div>
+    <div>
+        <h2>header-1</h2>
+        <p>paragrath-1</p>
+    </div>
+    <div>
+        <h2>header-2</h2>
+        <p>paragrath-2</p>
+    </div>
+
+    <h1>Click - 0</h1>
+    <h1>Click - 1</h1>
+    <h1>Click - 2</h1>
+
+    
+</body>
+</html>
