@@ -1,4 +1,3 @@
-
 // 회원 정보를 저장 할 배열 생성
 var members = [];
 
@@ -195,13 +194,22 @@ window.onload = function(){
         return false;
     };
 
-    resetBtn.onclick = function(){
-        epw.value=members[index.value].pw;
-        erepw.value=members[index.value].pw;
-        //eid.value=members[index.value].userId;
-        ename.value=members[index.value].userName;
+    resetBtn.click(function() {
+        // epw.value=members[index.value].pw;
+        epw.val(members[index.val()].pw);
+        // erepw.value=members[index.value].pw;
+        erepw.val(members[index.val().pw]);
+        // ename.value=members[index.value].userName;
+        ename.val(members[index.val().userName]);
 
-    }
+    });
+
+    // resetBtn.onclick = function(){
+    //     epw.value=members[index.value].pw;
+    //     erepw.value=members[index.value].pw;
+    //     //eid.value=members[index.value].userId;
+    //     ename.value=members[index.value].userName;
+    // }
 
 
     // 이벤트 설정 : 입력, 수정, 삭제
@@ -237,46 +245,63 @@ function setMemberList(){
     if(members.length==0){
         list += '<tr><td colspan="5">회원의 정보가 존재하지 않습니다.</td></tr>';
     } else {
-        for(let i=0; i<members.length; i++) {
+        // for(let i=0; i<members.length; i++) {
+        //     list += '<tr>';
+        //     list += '   <td>'+i+'</td>';
+        //     list += '   <td>'+members[i].userId+'</td>';
+        //     list += '   <td>'+members[i].pw+'</td>';
+        //     list += '   <td>'+members[i].userName+'</td>';
+        //     list += '   <td><a href="javascript:editMemberForm('+i+')">수정</a> | <a href="javascript:deleteMember('+i+')">삭제</a></td>';
+        //     list += '</tr>';
+        // }
+        $.each(members, function(index, item) {
             list += '<tr>';
-            list += '   <td>'+i+'</td>';
-            list += '   <td>'+members[i].userId+'</td>';
-            list += '   <td>'+members[i].pw+'</td>';
-            list += '   <td>'+members[i].userName+'</td>';
-            list += '   <td><a href="javascript:editMemberForm('+i+')">수정</a> | <a href="javascript:deleteMember('+i+')">삭제</a></td>';
+            list += '   <td>'+index+'</td>';
+            list += '   <td>'+item.userId+'</td>';
+            list += '   <td>'+item.pw+'</td>';
+            list += '   <td>'+item.userName+'</td>';
+            list += '   <td><a href="javascript:editMemberForm('+index+')">수정</a> | <a href="javascript:deleteMember('+index+')">삭제</a></td>';
             list += '</tr>';
-        }
+        });
     }
     //console.log(list);
 
     // tbody 캐스팅
-    document.querySelector('#memberList>table>tbody').innerHTML=list;
+    // document.querySelector('#memberList>table>tbody').innerHTML=list;
+    $('#memberList>table>tbody').html(list);
 }
 
 // 수정 영역을 보이도록 처리하는 함수 : 클릭한 인덱스의 데이터가 폼에 입력
 function editMemberForm(index){
     // 수정 폼 영역이 노출되어야 한다!
-    document.getElementById('editFormArea').style.display='block';
+    // document.getElementById('editFormArea').style.display='block';
+    $('#editFormArea').css('display','block');
 
     var member = members[index];
 
-    document.querySelector('#index').value=index;
-    document.querySelector('#eid').value=member.userId;
-    document.querySelector('#epw').value=member.pw;
-    document.querySelector('#erepw').value=member.pw;
-    document.querySelector('#ename').value=member.userName;
+    // document.querySelector('#index').value=index;
+    $('#index').val(index);
+    // document.querySelector('#eid').value=member.userId;
+    $('#eid').val(member.userId);
+    // document.querySelector('#epw').value=member.pw;
+    $('#epw').val(member.pw);
+    // document.querySelector('#erepw').value=member.pw;
+    $('#erepw').val(member.pw);
+    // document.querySelector('#ename').value=member.userName;
+    $('#ename').val(member.userName);
 
 }
 
 // 수정 영역을 닫는 함수
 function editFormClose(){
-    document.querySelector('#editFormArea').style.display='none';
+    // document.querySelector('#editFormArea').style.display='none';
+    $('#editFormArea').css('display', 'none');
 }
 
 // 배열의 데이터를 삭제하는 함수
 function deleteMember(index){
 
-    // 배열의 여소를 삭제 : splice(index, count)
+    // 배열의 요소를 삭제 : splice(index, count)
 
     if(confirm('정말 삭제하시겠습니까?')){
         members.splice(index, 1);
