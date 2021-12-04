@@ -1,3 +1,2 @@
-https://www.youtube.com/watch?v=XP8zpt-yFZs&list=PLW2UjW795-f6xWA2_MUhEVgPauhGl3xIp&index=81
-[자바의 정석 - 기초편] ch7-24,25 참조변수의형변환(1)
-16:20
+https://www.youtube.com/watch?v=9VgkoVFZvyk&list=PLW2UjW795-f6xWA2_MUhEVgPauhGl3xIp&index=86
+[자바의 정석 - 기초편] ch7-31,32 추상 클래스, 추상 메서드
