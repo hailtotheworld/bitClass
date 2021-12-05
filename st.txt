@@ -1,3 +1,4 @@
-https://www.youtube.com/watch?v=Px3u24AvadM&list=PLW2UjW795-f6xWA2_MUhEVgPauhGl3xIp&index=101
-[자바의 정석 - 기초편] ch8-11~14 예외선언하기, finally블럭
-15:58
+https://www.youtube.com/watch?v=NI6QZy6juc8&list=PLW2UjW795-f6xWA2_MUhEVgPauhGl3xIp&index=105
+[자바의 정석 - 기초편] ch9-1~3 Object클래스와 equals()
+
+13:26
