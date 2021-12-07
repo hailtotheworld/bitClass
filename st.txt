@@ -1,4 +1,2 @@
-https://www.youtube.com/watch?v=NI6QZy6juc8&list=PLW2UjW795-f6xWA2_MUhEVgPauhGl3xIp&index=105
-[자바의 정석 - 기초편] ch9-1~3 Object클래스와 equals()
-
-13:26
+https://www.youtube.com/watch?v=OXOKhCcyD6w&list=PLW2UjW795-f6xWA2_MUhEVgPauhGl3xIp&index=114
+[자바의 정석 - 기초편] ch10-1~3 날짜와시간, Calendar클래스

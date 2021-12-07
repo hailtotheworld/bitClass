@@ -8,7 +8,7 @@ class Ex9_1 {
 		else
 			System.out.println("v1과 v2는 다릅니다.");
 	} // main
-} 
+}
 
 class Value {
 	int value;
@@ -16,11 +16,16 @@ class Value {
 	Value(int value) {
 		this.value = value;
 	}
-	
+
+	// Object의 equals()를 오버라이딩해서 주소가 아닌 value를 비교
 	public boolean equals(Object obj) {
-		Value v = (Value) obj;
-		
-		return this.value == v.value;
-		
+
+		if (!(obj instanceof Value)) {
+			return false;
+		} else {
+			Value v = (Value) obj; // obj를 value로 형변환
+			return this.value == v.value;
+		}
+
 	}
 }
