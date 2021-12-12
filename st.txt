@@ -1,2 +1,4 @@
-https://www.youtube.com/watch?v=iyjGb0OOI7U&list=PLW2UjW795-f6xWA2_MUhEVgPauhGl3xIp&index=117
-[자바의 정석 - 기초편] ch10-9~12 형식화클래스
+https://www.youtube.com/watch?v=jKP2zX_p57c&list=PLW2UjW795-f6xWA2_MUhEVgPauhGl3xIp&index=126
+[자바의 정석 - 기초편] ch11-25~29 Arrays
+
+7:10
