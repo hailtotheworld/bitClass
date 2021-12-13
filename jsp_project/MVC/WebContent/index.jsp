@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -5,7 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>test 프로젝트</h1>
+
+	<h1>index.jsp</h1>
 
 </body>
 </html>
