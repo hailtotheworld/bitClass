@@ -1,4 +1,4 @@
-package ver01;
+package ver02;
 
 public class Contact {
 
@@ -77,7 +77,7 @@ public class Contact {
 	
 		
 //	  기능: 위 데이터를 출력하는 기능 (UI측면)
-	public void printContact() { // ?void를 사용한 이유는 반환값이 기본형이 아니기 때문이다?
+	public void printContact() { // void를 사용한 이유는 반환값이 기본형이 아니기 때문이다
 		System.out.println("이름: " + name);
 		System.out.println("전화번호: " + phoneNumber);
 		System.out.println("이메일: " + email);

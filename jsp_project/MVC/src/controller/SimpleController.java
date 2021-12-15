@@ -32,7 +32,7 @@ public class SimpleController extends HttpServlet {
 //		http://localhost:8080/mvc/simple?type=greeting -> 
 		
 		// 3.사용자 요청에 맞는 데이터 처리: 요청에 따른 분기
-		// 결과 데이터를 생성
+		// 결과 데이터를 생성 
 		
 		// 응답 결과 객체
 		Object result = null; // view 페이지에서 toString()으로 출력
