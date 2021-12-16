@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            background-color: aquamarine;
+            padding: 10px;
+        }
+
+        h2 {
+            border: 1px solid #000;
+            padding: 10px;
+        }
+    </style>
+
+    <script>
+
+        window.onload = function() {
+                    // 1. 이벤트 적용 : 캐스팅 -> 이벤트 속성에 이벤트 핸들러를 할당!
+        // h1 캐스팅
+        var btn1 = document.getElementById('btn1');
+        // 이벤트 속성에 핸들러 할당
+        btn1.onclick = function() {
+            alert('h1 태그 안의 영역을 마우스로 클릭');
+            console.log(this);
+
+            // 한번 클릭 이벤트가 발생하고 이벤트를 제거
+            btn1.onclick = null;
+        };
+
+        // 캐스팅.이벤트속성 = 핸들러
+        document.getElementById('btn2').onclick = function() {
+            // this => 이벤트가 발생한 객체를 가르킨다.
+            this.style.backgroundColor = 'black';
+            this.style.color = 'yellow';
+
+            // 이벤트의 강제 실행 => 프로그램 내부에서 이벤트 실행
+            btn1.onclick();
+
+        };
+
+        }
+
+
+    </script>
+</head>
+<body>
+
+    <h1 id="btn1">Click</h1>
+
+    <h2 id="btn2">Click2</h2>
+    
+</body>
+</html>

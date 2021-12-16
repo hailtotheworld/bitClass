@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>기본 선택자</title>
+    <!-- 기본 선택자 -->
+    <style>
+        /* 선택자 {속성이름:속성값;속성이름:속성값} */
+        * {
+            /* color: red; */
+            /* background-color: green; */
+        }
+
+
+        h1 {
+            background-color: aquamarine;
+        }
+
+        #title {
+            font-style: italic;
+        }
+
+        .bold {
+            font-weight: bold;
+        }
+
+        .bold1 {
+            font-weight: lighter;
+        }
+
+        p {
+            color: blue;
+        }
+
+        body,
+        h1,
+        p {
+            margin: 20px;
+        }
+
+        /* p {
+            margin: 20px; 공간을 띄워준다
+        } */
+
+        #header {
+            width: 300px;
+            height: 100px;
+
+            background-color: yellow;
+
+            /* margin: 10px 20px 30px 40px; /top right bottom left 상우하좌 */
+            /* margin: 30px 10px; 상하 좌우 */
+            margin: 0 auto;
+        }
+
+        div#contents {
+            width: 300px;
+            height: 300px;
+
+            background-color: green;
+
+            /* margin: 10px 20px 30px 40px; /top right bottom left 상우하좌 */
+            /* margin: 30px 10px; 상하 좌우 */
+            margin: 0 auto;
+        }
+
+        h1.title {
+            color: white;
+            font-weight: lighter;
+            background-color: black;
+        }
+    </style>
+
+    <!-- 속성 선택자 -->
+    <style>
+        input[type=text] {
+            border: 5x solid #685a5a;
+        }
+
+        input[type=text] {
+            background-color: blue;
+        }
+    </style>
+
+    <!-- 범위 한정 선택: 자손, 후손 -->
+    <style>
+        #header1 h1 {
+            background-color: white;
+            color: red;
+        }
+
+        #section h1 {
+            color: blueviolet
+        }
+
+        #header1>h1 {
+            color: blue;
+            font-weight: bold;
+        }
+
+        /* 동위 선택자: +, ~ */
+        #head1+h1 {
+            color: blue;
+        }
+
+        #head1~h2 {
+            background-color: orange;
+        }
+    </style>
+    
+    <!-- 반응 선택자 -->
+    <style>
+
+        h3:hover {
+            color: royalblue;
+            background-color: salmon;
+        }
+
+        h3:active {
+            color : blue;
+            background-color: chartreuse;
+        }
+
+
+    </style>
+
+    <!--  -->
+    <style>
+       #article {
+           width: 500px;
+           height: 300px;
+
+           overflow: hidden;   
+       }
+
+       input[type=checkbox]:checked+#article {
+           height: 0px;
+       }
+
+       input[type=checkbox] {
+           display: none;
+       }
+
+       li:nth-child(2n) {
+           background-color: gold;
+           color: black;
+       }
+       li:nth-child(2n+1) {
+           background-color: aquamarine;
+           color: black;
+       }
+
+       li:first-child {
+           background-color: deeppink;
+           color: white;
+           border-radius: 40px 0px 0px 40px;
+       }
+       li:last-child {
+        background-color: deeppink;
+           color: white;
+           border-radius: 0px 40px 40px 0px;
+
+       }
+
+       /* 리스트 태그를 수평방향으로 나열*/
+       ul {
+           overflow: hidden;
+
+           /* 리스트 스타일 */
+           list-style: none;
+       }
+
+       li {
+           float: left;
+           padding: 10px 30px;
+       }
+
+       #photo {
+           border-radius: 50;
+
+       }
+
+
+
+    </style>
+
+    <!-- 링크 선택자 -->
+    <style>
+        a:link {
+            color: green;
+            text-decoration: none;
+        }
+
+        a:visited {
+            color: green;
+        }
+        
+        a:hover {
+            color:  black;
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+
+<body>
+    test
+    <a>네이버</a>
+    <a href="test">네이버</a>
+    <a href="https://www.naver.com">네이버</a>
+
+
+    <hr>
+
+    <img id="photo" src="mini.jpg" alt="">
+
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+    </ul>
+
+    <label for="btn">기사 가리기</label> <input type="checkbox"> 
+    <div id="article">
+        <h1>디즈니 플러스는 9900원인데…1만7000원으로 요금 올린 넷플릭스, 왜?</h1>
+        <p>넷플릭스는 대부분의 매출을 일반 소비자의 구독료로 올리고 있다. 미국에서 온라인으로 넷플릭스 콘텐츠 관련 상품(굿즈)을 판매하는 숍을 운영 중이지만 관련 매출 규모는 크지 않다. 수익을 목적으로 하기보다 굿즈를 통해 구독자들에게 또 다른 경험을 제공한다는 취지에서 운영되기 때문이다. 넷플릭스의 전세계 가입자 수는 올해 3분기말 기준 2억1400만명 한국 가입자 수는 지난해 말 기준 380만명이다.</p>
+    </div>
+
+    <hr>
+
+    <input> <input disabled>
+
+    <h3>반응 선택자</h3>
+
+    <hr>
+
+    <div>
+        <h1 id="head1">Header1 - 1</h1>
+        <h1>Header1 - 2</h1>
+        <h2>Header2 - 1</h2>
+        <h2>Header2 - 2</h2>
+        <h2>Header2 - 3</h2>
+        <h2>Header2 - 4</h2>
+        <h2>Header2 - 5</h2>
+    </div>
+
+    <hr>
+
+    <div id="header1">
+        <h1 class="title"> 제목입니다. </h1>
+        <div id="nav">
+            <h1>네비게이션</h1>
+        </div>
+    </div>
+
+    <div id="section">
+        <h1 class="title"> 제목2입니다.</h1>
+        <p>내용이 표현됩니다.</p>
+    </div>
+
+    <hr>
+
+    <input type="text"> <input type="password">
+
+    <hr>
+
+    <div id="header">
+        <h1 class="title">HEADER</h1>
+    </div>
+    <div id="contents"></div>
+    <div id="footer"></div>
+
+    <hr>
+
+    <h1 id="title" class="bold1">애플, '셀프 서비스 수리 제도' 도입..."고객이 직접 배터리 교체"</h1>
+    <p class="bold">17일(현지시간) 미국 경제전문매체 <씨엔비씨(CNBC)>에 따르면 애플은 고객이 자신의 아이폰이나 맥을 가정에서 수리할 수 있는 부품을 구매할 수 있도록 하는 '셀프 서비스 수리
+            프로그램'을 도입할 것이라고 발표했다.</p>
+    <p>17일(현지시간) 미국 경제전문매체 <씨엔비씨(CNBC)>에 따르면 애플은 고객이 자신의 아이폰이나 맥을 가정에서 수리할 수 있는 부품을 구매할 수 있도록 하는 '셀프 서비스 수리 프로그램'을 도입할
+            것이라고 발표했다.</p>
+    <p class="bold1">테라파워는 건설 기간 동안 2000명의 노동자를 고용할 수 있을 것으로 보고 있다. 특히 석탄과 가스산업이 지배하는 이 지역에 새로운 청정에너지 일자리를 제공할 수 있을 것으로
+        기대하고 있다. </p>
+    <h1>footer</h1>
+</body>
+
+</html>
