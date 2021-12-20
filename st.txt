@@ -1,2 +1,2 @@
-https://www.youtube.com/watch?v=p7KStWk8hWU&list=PLW2UjW795-f6xWA2_MUhEVgPauhGl3xIp&index=146
-[자바의 정석 - 기초편] ch12-29~33 메타애너테이션
+[자바의 정석 - 기초편] ch14-23~25 스트림의 연산
+https://www.youtube.com/watch?v=iY8ta9upajE&list=PLW2UjW795-f6xWA2_MUhEVgPauhGl3xIp&index=165
