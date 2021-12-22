@@ -130,10 +130,18 @@ public class SmartPhone {
 			System.out.println("삭제하고자 하는 이름 "+ name +"의 정보가 존재하지 않습니다.");
 		} else {
 			// 삭제 처리: index 위치의 참조값을 index+1 위치의 값으로 치환, 시프트
-			for (int i=index;i<cnt-1;i++) {
-				contacts[index] = contacts[index+1];
-				cnt--; // 인스턴스를 참조하는게 없으면 그 데이터를 보는 방법은 없다.
+			
+			if(cnt==1 && index==0) {
+				contacts[0] = null;	
+				cnt--;
+			} else {						
+				for (int i=index;i<cnt-1;i++) {
+					contacts[i] = contacts[i+1];
+					cnt--; // 인스턴스를 참조하는게 없으면 그 데이터를 보는 방법은 없다.
+				}				
 			}
+			
+
 			System.out.println(name+"의 데이터가 삭제되었습니다.");
 		}
 	}
@@ -165,13 +173,51 @@ public class SmartPhone {
 			System.out.println("그룹 >>");
 			String group = sc.nextLine();
 			
-			// Contact c
-			contacts[index].setName(ename);
-			contacts[index].setPhoneNumber(phoneNumber);
-			contacts[index].setEmail(email);
-			contacts[index].setAddress(address);
-			contacts[index].setBirth(birth);
-			contacts[index].setGroup(group);
+			// 회사 동료인지 고객이지 분기. 형변환이 가능한지 확인해야지.
+			if(contacts[index] instanceof CompanyContact) {
+				CompanyContact contact = (CompanyContact) contacts[index];
+				System.out.println("회사이름을 입력하세요. >>");
+				String companyName = sc.nextLine();
+				System.out.println("부서이름을 입력하세요. >>");
+				String divName = sc.nextLine();
+				System.out.println("직급을 입력하세요. >>");
+				String job = sc.nextLine();
+				
+				contact.setName(ename);
+				contact.setPhoneNumber(phoneNumber);
+				contact.setEmail(email);
+				contact.setAddress(address);
+				contact.setBirth(birth);
+				contact.setGroup(group);
+				contact.setCompanyName(companyName);
+				contact.setDivName(divName);
+				contact.setJob(job);
+				
+			} else { // CustomerContact
+				
+				// 회사이름, 거래품목, 담당자직급 set메서드 사용하기 위해서 형변환
+				// 상위타입으로 묶었지만 하위타입의 인스턴스를 사용하기 위해서는(하위타입의 멤버들을 사용하기위해서는) 형변환을 해줘야한다.
+				CustomerContact cucontact = (CustomerContact) contacts[index];
+				
+				System.out.println("거래처 회사이름을 입력하세요. >>");
+				String companyName = sc.nextLine();
+				System.out.println("거래품목을 입력하세요. >>");
+				String product = sc.nextLine();
+				System.out.println("담당자의 직급을 입력하세요. >>");
+				String job = sc.nextLine();
+				
+				cucontact.setName(ename);
+				cucontact.setPhoneNumber(phoneNumber);
+				cucontact.setEmail(email);
+				cucontact.setAddress(address);
+				cucontact.setBirth(birth);
+				cucontact.setGroup(group);
+				cucontact.setCompanyName(companyName);
+				cucontact.setProduct(product);
+				cucontact.setJob(job);
+				
+			}
+			
 			
 			System.out.println(name+"의 정보가 수정되었습니다.");
 		}

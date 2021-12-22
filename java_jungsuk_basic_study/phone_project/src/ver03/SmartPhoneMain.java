@@ -23,7 +23,7 @@ public class SmartPhoneMain {
 			int select = Integer.parseInt(SmartPhone.sc.nextLine());
 			
 			switch(select) {
-			case 1: case2:
+			case 1: case 2:
 				phone.insertContact(select);
 				break;				
 			case 3:
