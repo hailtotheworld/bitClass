@@ -137,8 +137,9 @@ public class SmartPhone {
 			} else {						
 				for (int i=index;i<cnt-1;i++) {
 					contacts[i] = contacts[i+1];
-					cnt--; // 인스턴스를 참조하는게 없으면 그 데이터를 보는 방법은 없다.
-				}				
+				}		
+				cnt--; // 인스턴스를 참조하는게 없으면 그 데이터를 보는 방법은 없다.
+
 			}
 			
 
