@@ -8,7 +8,7 @@
 	<hr>
 	<ul>
 	<%
-		for(int i=0; i<5; i++) {
+		for(int i=0; i<5; i++){
 			out.println("<li>"+i+"</li>");
 		}
 	%>

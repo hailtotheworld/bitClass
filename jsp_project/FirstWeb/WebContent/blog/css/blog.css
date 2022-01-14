@@ -19,19 +19,20 @@ body {
 
 .margin_tb_5 {
     margin-top: 5px;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
 .lineheight_180per {
     line-height: 180%;
 }
 
+
 /* 타이틀 폰트 */
 .title_font {
     font-family: 'Jua', sans-serif;
 }
 
-/* main_wrap 설정*/
+/* main_wrap  설정*/
 #main_wrap {
     background-color: white;
 
@@ -45,8 +46,10 @@ body {
 
     margin: 10px auto;
 
-    box-shadow: 5px 5px 10px #ccc;
+    box-shadow: 3px 3px 10px #ccc ;
+
 }
+
 
 /* header 설정 */
 header {
@@ -75,7 +78,7 @@ nav>div {
     float: right;
 }
 
-/* 검색 영역 */
+/* 검색 영역  */
 nav input {
     border: 1px solid #ccc;
     padding: 3px 20px;
@@ -95,6 +98,7 @@ nav input[type=button] {
     margin-right: 5px;
 }
 
+
 /* Contents 영역 설정 */
 #contents_wrap {
     overflow: hidden;
@@ -110,10 +114,13 @@ nav input[type=button] {
     float: right;
 }
 
+
 #contents_wrap>section>article {
     padding: 25px;
 
     border-bottom: 1px solid #ccc;
+
+    
 }
 
 #contents_wrap>section>article>img {
@@ -125,9 +132,8 @@ nav input[type=button] {
     padding-top: 30px;
 } */
 #contents_wrap>aside>h3 {
-    margin-top: 30px;
+    margin-top:30px;
 }
-
 
 #contents_wrap>aside>ul>li {
     list-style: none;
@@ -138,5 +144,5 @@ nav input[type=button] {
 footer {
     height: 50px;
     text-align: center;
-    line-height: 30px;
-}
+    line-height: 50px;;
+} 

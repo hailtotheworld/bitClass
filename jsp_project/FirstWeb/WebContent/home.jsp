@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="ko">
+<html>
 <head>
 	<meta charset="UTF-8">
 	<title>Insert title here</title>
@@ -33,9 +33,8 @@
 	</style>
 </head>
 <body>
-<%@ include file="include/header.jsp" %>  <!-- ctrl키 눌러서 확인해볼수있음 -->
-<%@ include file="include/news.jsp" %>
-<%@ include file="include/shopping.jsp" %>
-
+	<%@ include file="include/header.jsp"%>
+	<%@ include file="include/news.jsp"%>
+	<%@ include file="include/shopping.jsp"%>
 </body>
 </html>
