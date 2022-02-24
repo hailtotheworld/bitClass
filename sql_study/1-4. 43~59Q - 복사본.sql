@@ -28,33 +28,85 @@ where empno=7499;
 --     (그룹함수 사용)
 select *
 from emp
-where sal = (select min(sal)
-from emp);
-
-select min(sal)
-from emp;
+where sal <= all(select sal from emp);
 
 -- 46. 평균급여가 가장 적은 직급의 
 --     직급 이름과 직급의 평균을 구하시오.
 
-select avg(sal)
-from emp
-GROUP BY job;
+-- 직급별 평균급여
+select avg(sal) from emp group by job;
+
+-- 평균급여가 가장적은 액수.
+select min(avg)
+from (
+    select avg(sal) as avg
+    from emp
+    group by job
+)
+;
 
 select job, avg(sal)
 from emp
 GROUP BY job
-having avg(sal) <= all (select avg(sal) from emp GROUP BY job);
+having avg(sal) = (select min(kk)
+from (select avg(sal) as kk from emp group by job));
 
+select avg(sal)
+from emp
+group by job;
 
+select min(kk)
+from (select avg(sal) as kk from emp group by job);
+
+--
+select job, avg(sal)
+from emp
+group by job
+having avg(sal) = (
+    select min(kk)
+    from (
+        select avg(sal) as kk
+        from emp
+        group by job
+        )        
+    )
+;
 -- 47. 각 부서의 최소 급여를 받는 
 --     사원의 이름, 급여, 부서번호를 표시하시오.
+
+
+-- 각 부서의 최소 급여
+select min(sal) from emp where deptno=10;
+
+select *
+from emp e1
+where sal = (
+    select min(sal) from emp e2 where e2.deptno=e1.deptno
+    )
+;
+
+select min(sal) from emp where deptno=10;
+
+select * 
+from emp e1
+where sal = (select min(sal) from emp e2 where e1.deptno=e2.deptno);
 
 -- 48. 담당업무가 ANALYST 인 사원보다 급여가 적으면서
 --     업무가 ANALYST가 아닌 
 --     사원들을 표시(사원번호, 이름, 담당 업무, 급여)하시오.
+--  담당업무가 ANALYST인 사원들의 급여
+select sal
+from emp
+where job='ANALYST';
+
+select empno, ename, job, sal
+from emp
+where sal <= all (select sal from emp where job='ANALYST')
+and job != 'ANALYST';
 
 -- 49. 부하직원이 없는 사원의 이름을 표시하시오.
+select *
+from emp;
 
 -- 50. 부하직원이 있는 사원의 이름을 표시하시오.
 
