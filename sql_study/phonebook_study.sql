@@ -11,9 +11,9 @@ CREATE table phoneInfo_basic (
 desc phoneInfo_basic;
 
 insert into phoneInfo_basic
-    values(1,'손흥민','010-0000-0001','11@gmail.com','런던',sysdate);
+    values(1,'그냥친구','010-0000-0001','11@gmail.com','런던',sysdate);
 insert into phoneInfo_basic
-    values(7,'이강인','010-0000-0002','22@gmail.com','뉴욕',sysdate);
+    values(2,'그냥친구2','010-0000-0002','22@gmail.com','뉴욕',sysdate);
 
 ---- (2) select
 select * from phoneInfo_basic;
@@ -52,12 +52,10 @@ create table phoneinfo_univ (
 -- 친구 정보를 입력: 기본 정보 + 학교 정보. 2개로 나누었음
 -- 1. 기본 정보 입력
 insert into phoneInfo_basic
-    values(3,'황희찬','010-3333-1111','33@gmail.com','런던',sysdate);
+    values(3,'대학친구','010-3333-1111','33@gmail.com','런던',sysdate);
 -- 2. 학교 정보 입력
 insert into phoneinfo_univ
     values(1,'축구','1',3);
-insert into phoneinfo_univ
-    values(2,'손축구','1',1);
 
 ---- (2) select
 select * from phoneinfo_univ u; -- 이 테이블 데이터만으로는 의미가 없다.
@@ -73,6 +71,10 @@ select b.fr_name, b.fr_phonenumber,
 from phoneinfo_basic b, phoneinfo_univ u
 where b.idx = u.fr_ref(+);
 
+select *
+from phoneinfo_basic b, phoneinfo_univ u
+where b.idx = u.fr_ref(+);
+
 ---- (3) update
 update phoneinfo_univ
 set fr_u_major='야구',fr_u_year=4 --idx, fr_ref는 변경되면 안된다!
@@ -84,7 +86,6 @@ delete from phoneinfo_univ where idx=1;
 -- delete from phoneinfo_univ where fr_ref=7; 중복될수 있으니까 지우지 않는다!!
 -- 다음에 부모 테이블의 데이터를 삭제
 delete from phoneinfo_basic where idx=3;
-
 -----------------------------------------------------------------------------------------------
 
 create table phoneinfo_com (
@@ -96,13 +97,33 @@ create table phoneinfo_com (
 ---- (1) insert
 select * from  phoneinfo_basic;
 insert into phoneinfo_basic
-        values(4, '황의조', '010-2222-1111', 'h@gmail.com', '서울', sysdate);
+        values(4, '회사친구', '010-2222-1111', 'h@gmail.com', '서울', sysdate);
 insert into phoneinfo_com
         values(1,'네이버', 4);
         
 -- 회사 친구 입력: 기본 정보 입력 -> 회사 정보 입력
 
+---- (2) select
+select *
+from phoneinfo_basic pb, phoneinfo_com pc
+where pb.idx=pc.fr_ref(+);
 
+---- (3) update
+update phoneinfo_com
+set fr_c_company = '쿠팡'
+where idx=1;
+
+---- (4) update
+-- 자식 테이블 행 먼저 삭제
+DELETE FROM phoneinfo_com WHERE idx=1;
+-- 부모 테이블 행 삭제
+DELETE FROM phoneinfo_basic WHERE idx=4;
+
+
+--- 전체 데이터 리스트 출력: 테이블 3개 JOIN
+select *
+from phoneinfo_basic pb, phoneinfo_com pc, phoneinfo_univ pu
+where pb.idx=pc.fr_ref(+) and pb.idx=pu.fr_ref(+);
 
 
 
