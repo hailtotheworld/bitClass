@@ -14,6 +14,9 @@ begin
         myInterest := price*0.05;
     end if;
     
+    -- 값을 반환
+    return myInterest;
+    
 end
 ;
 

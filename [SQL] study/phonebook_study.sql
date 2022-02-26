@@ -1,3 +1,7 @@
+drop table phoneinfo_com;
+drop table phoneinfo_univ;
+drop table phoneInfo_basic;
+
 CREATE table phoneInfo_basic (
     idx number(6) constraint pi_basic_idx_PK primary key,
     fr_name VARCHAR2(20) not null,
@@ -7,13 +11,22 @@ CREATE table phoneInfo_basic (
     fr_regdate date default sysdate
 );
 
+-- phoneInfo_basic 테이블 PK -> idx에 입력할 일련번호
+-- 시퀀스 생성
+create sequence pib_idx_seq
+    start with 1
+    increment by 1
+    minvalue 1
+    maxvalue 999999
+;
+
 ---- (1) insert: create
 desc phoneInfo_basic;
 
 insert into phoneInfo_basic
-    values(1,'그냥친구','010-0000-0001','11@gmail.com','런던',sysdate);
+    values(pib_idx_seq.nextval,'그냥친구','010-0000-0001','11@gmail.com','런던',sysdate);
 insert into phoneInfo_basic
-    values(2,'그냥친구2','010-0000-0002','22@gmail.com','뉴욕',sysdate);
+    values(pib_idx_seq.nextval,'그냥친구22','010-0000-0002','22@gmail.com','뉴욕',sysdate);
 
 ---- (2) select
 select * from phoneInfo_basic;
@@ -48,14 +61,21 @@ create table phoneinfo_univ (
     constraint pi_univ_ref_FK FOREIGN KEY (fr_ref) REFERENCES phoneInfo_basic (idx)
 );
 
+-- sequence
+create sequence piu_idx_seq
+    start with 1
+    INCREMENT by 1
+    maxvalue 999999
+;
+
 ---- (1) insert
 -- 친구 정보를 입력: 기본 정보 + 학교 정보. 2개로 나누었음
 -- 1. 기본 정보 입력
 insert into phoneInfo_basic
-    values(3,'대학친구','010-3333-1111','33@gmail.com','런던',sysdate);
+    values(PIB_IDX_SEQ.nextval,'대학친구','010-3333-1111','33@gmail.com','런던',sysdate);
 -- 2. 학교 정보 입력
 insert into phoneinfo_univ
-    values(1,'축구','1',3);
+    values(piu_idx_seq.nextval,'축구','1',PIB_IDX_SEQ.currval);
 
 ---- (2) select
 select * from phoneinfo_univ u; -- 이 테이블 데이터만으로는 의미가 없다.
@@ -94,12 +114,16 @@ create table phoneinfo_com (
     fr_ref number(6) not null constraint pi_com_ref_FK REFERENCES phoneinfo_basic (idx)
 );
 
+-- sequence
+create sequence pic_idx_seq
+    maxvalue 999999;
+
 ---- (1) insert
 select * from  phoneinfo_basic;
 insert into phoneinfo_basic
-        values(4, '회사친구', '010-2222-1111', 'h@gmail.com', '서울', sysdate);
+        values(PIB_IDX_SEQ.nextval, '회사친구', '010-2222-1111', 'h@gmail.com', '서울', sysdate);
 insert into phoneinfo_com
-        values(1,'네이버', 4);
+        values(PIC_IDX_SEQ.nextval,'네이버', PIB_IDX_SEQ.currval);
         
 -- 회사 친구 입력: 기본 정보 입력 -> 회사 정보 입력
 
@@ -125,7 +149,14 @@ select *
 from phoneinfo_basic pb, phoneinfo_com pc, phoneinfo_univ pu
 where pb.idx=pc.fr_ref(+) and pb.idx=pu.fr_ref(+);
 
+-- 뷰 만들기
+create or replace view phoneinfo_view
+as
+select pb.fr_name, pb.fr_phonenumber, pu.fr_u_major, pc.fr_c_company
+from phoneinfo_basic pb, phoneinfo_com pc, phoneinfo_univ pu
+where pb.idx=pc.fr_ref(+) and pb.idx=pu.fr_ref(+);
 
+select * from phoneinfo_view where fr_name='대학친구';
 
 
 
