@@ -1,5 +1,18 @@
 @import url("reset.css");
 
+/* 공통된거니까 위에 뒀어. 범용적일수록 위에 두고, 특화될수록 아래에 배치해 */
+.content-box{
+    height: inherit; /* 부모의 것을 그대로 사용한다 */
+
+    width: 960px;
+    margin-left: auto;
+    margin-right: auto; /* 블럭을 가운데 정렬시키는 방법  */
+
+    background-color: rgba(255, 81, 81, 0.651);
+}
+
+/* -------------------------------------------------------------------- */
+
 #header{
     height: 70px;
     background-color: #ffff00;
@@ -10,10 +23,26 @@
     background-color: rgb(0,255,0);
 }
 
+#body>.content-box {
+    display: flex;
+}
+
 #body{
     height: 300px;
     background-color: rgba(255, 0, 0, 0.513);
 }
+
+    #aside{
+        height: inherit;
+        width: 205px;
+        background-color: red;
+    }
+
+    #main{
+        height: inherit;
+        width: 755px;
+        background-color: yellow;
+    }
 
 #footer{
     height: 70px;
