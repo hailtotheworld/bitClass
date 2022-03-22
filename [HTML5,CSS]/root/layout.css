@@ -1,0 +1,47 @@
+@import url(css/reset.css);
+
+#s1 ul{
+    background-color: yellow;
+
+    /* position: relative;
+    left: 50px;
+    top: 50px; */
+}
+
+#header {
+    height: 70px;
+    background-color: blanchedalmond;
+
+    
+    position: sticky;
+    top:0px;
+    
+}
+
+#s1 li:nth-child(1){
+    background-color: red;
+
+    
+    /* position: relative;
+    right: 50px;
+    top: 30px; */
+
+    /*position: absolute;
+    width: 20px;
+    height: 100%;
+    right: 0px;
+    --bottom: 0px; */
+}
+#s1 li:nth-child(2){
+    background-color: green;
+
+    /*
+    position: fixed;
+    --left: 50px;
+    bottom: 0px;
+    width: 100%; 이렇게하면 아래에 붙어있다..!
+    */
+}
+#s1 li:nth-child(3){
+    background-color: blue;
+}
