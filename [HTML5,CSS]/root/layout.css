@@ -2,14 +2,16 @@
 
 .s1 ul{
     display: flex;
-    flex-direction: row; /* 옆으로 적재된다. */
-    --flex-direction: column; /* 아래로 적재된다. */
+    --flex-direction: row; /* 옆으로 적재된다. */
+    --flex-wrap: wrap;
+    flex-flow: column wrap;
+    /* flex-direction: column; 아래로 적재된다. */
     background-color: gray;
+    height: 250px;
 }
 
 .s1 li{
-    flex: 1 0 100px;
-    --flex-grow:1;
+    flex: 1 1 100px; /* 0 1 auto 기본값이야GSB */
 }
 
 .s1 li:nth-child(1) {
@@ -32,4 +34,4 @@
 
 .s1 li:nth-child(5) {
     background-color: lightblue;
-}
+    }
