@@ -8,21 +8,22 @@
 }
 
 .s1 li{
-    flex-basis: 100px;
-    flex-grow:1;
+    flex: 1 0 100px;
+    --flex-grow:1;
 }
 
 .s1 li:nth-child(1) {
     background-color: red;
-    flex-grow:3;
 }
 
 .s1 li:nth-child(2) {
     background-color: green;
+    --flex-grow:3;
 }
 
 .s1 li:nth-child(3) {
     background-color: blue;
+    --flex-shrink: 0; /* shrink */
 }
 
 .s1 li:nth-child(4) {
