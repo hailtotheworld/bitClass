@@ -16,8 +16,6 @@ public class Program {
 		System.out.printf("total: %d%n", total);
 		System.out.printf("avg: %.2f", avg);
 
-
-
 	}
 
 }
