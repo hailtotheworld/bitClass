@@ -25,6 +25,10 @@ public class Program {
 		System.out.println("\t총점 : 0");
 		System.out.println("\t평균 : 0.00");
 		System.out.println("────────────────────────");
+		
+//		System.out.print(80);
+		System.out.write(80);
+		System.out.flush();
 
 
 
