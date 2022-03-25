@@ -28,7 +28,7 @@ public class Program {
 		
 //		System.out.print(80);
 		System.out.write(80);
-		System.out.flush();
+		System.out.flush(); 
 
 
 
