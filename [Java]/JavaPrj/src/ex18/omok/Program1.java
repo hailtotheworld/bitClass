@@ -31,6 +31,7 @@ public class Program1 {
 			for (int x = 1; x <= 10; x++) {
 				if (x == 4 && y == 3)
 					System.out.printf("%c", '●');
+				
 				else if (x == 1 && y==1)
 					System.out.printf("%c", '┌');
 				else if (x == 10 && y==1)
@@ -39,6 +40,7 @@ public class Program1 {
 					System.out.printf("%c", '└');
 				else if (x == 10 && y==10)
 					System.out.printf("%c", '┘');
+				
 				else if (y == 1)
 					System.out.printf("%c", '┬');
 				else if (y == 10)
@@ -47,6 +49,7 @@ public class Program1 {
 					System.out.printf("%c", '├');
 				else if (x == 10)
 					System.out.printf("%c", '┤');
+				
 				else
 					System.out.printf("%c", '┼');
 			}
