@@ -9,7 +9,7 @@ public class ListProgram {
 		ExamList list = new ExamList();
 		list.exams = new Exam[3];
 		list.current = 0;
-		
+
 		int menu;
 		boolean keepLoop = true;
 
@@ -38,12 +38,16 @@ public class ListProgram {
 	}
 
 	private static void printList(ExamList list) {
+		printList(list, list.current);
+	}
+	
+	private static void printList(ExamList list, int size) {
 		System.out.println("┌──────────────────┐");
 		System.out.println("│     성적 출력    │");
 		System.out.println("└──────────────────┘");
 		System.out.println();
-		
-		int size  = list.current;
+
+		// int size = list.current;
 		Exam[] exams = list.exams;
 
 		// 이렇게 임시변수에 담지 않으면, 매변수마다 exam.kor 작성해야한다.
@@ -110,11 +114,29 @@ public class ListProgram {
 		exam.eng = eng;
 		exam.math = math;
 
-//		if(!exams의 공간이 있는지) {
+//		if(exams의 공간이 없다면) {
 //			공간을 늘려주기
 //		}
-		
-		list.exams[list.current] = exam;
+
+		Exam[] exams = list.exams;
+		int size = list.current;
+
+		// 만약에 공간이 모자라면
+		if (exams.length == size) {
+			// 1. 크기가 더 큰 새로운 배열을 생성하시오.
+			Exam[] temp = new Exam[exams.length + 5];
+
+			// 2. 값을 이주시키기
+			for (int i = 0; i < size; i++) {
+				temp[i] = exams[i];
+			}
+			
+			// 3. list.exams가 새로만든 temp 배열을 참조하도록 한다.
+			exams = temp;
+
+		}
+
+		exams[list.current] = exam;
 		list.current++;
 
 	}
