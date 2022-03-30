@@ -3,12 +3,11 @@ package part3.ex1.캡슐화;
 import java.util.Scanner;
 
 public class ExamList {
-	Exam[] exams1;
+	Exam[] exams;
 	int current;
-		
-	// 현재 배우고 있는 캡슐은 완전한 객체지향의 형태를 가지고 있는 캡슐은 아니고
-	// 구조적인 프로그래밍에서의 과도기적인 캡슐이라 생각하고 봐봐.
 	
+	// 캡슐화의 가장 큰 장점은 데이터구조의 변화, 오류가 캡슐 안에서만 발생한다는 것이다!
+
 	static void printList(ExamList list) {
 		printList(list, list.current);
 	}
@@ -111,6 +110,12 @@ public class ExamList {
 		exams[list.current] = exam;
 		list.current++;
 
+	}
+
+	public static void init(ExamList list) {
+		list.exams = new Exam[3]; //초기값을 대입하고 있다.
+		list.current = 0;
+		
 	}
 
 }

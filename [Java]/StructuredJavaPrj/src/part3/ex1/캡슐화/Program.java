@@ -7,8 +7,7 @@ public class Program {
 	public static void main(String[] args) {
 
 		ExamList list = new ExamList();
-		list.exams = new Exam[3];
-		list.current = 0;
+		ExamList.init(list);
 
 		int menu;
 		boolean keepLoop = true;
@@ -19,10 +18,11 @@ public class Program {
 
 			switch (menu) {
 			case 1:
-				inputList(list); // 같은 파일에 있었다가 다른 곳으로 가서 오류가 발생한다.
+				ExamList.inputList(list); // 같은 파일에 있었다가 다른 곳으로 가서 오류가 발생한다.
+										  // 클래스이름.함수이름();
 				break;
 			case 2:
-				printList(list);
+				ExamList.printList(list);
 				break;
 			case 3:
 				System.out.println("Bye~~");
