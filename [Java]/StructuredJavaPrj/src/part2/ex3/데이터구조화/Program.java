@@ -4,9 +4,11 @@ import java.util.Scanner;
 
 public class Program {
 
+
 	public static void main(String[] args) {
 
 		Exam[] exams = new Exam[3];
+		int current = 0;
 
 		int menu;
 		boolean keepLoop = true;
@@ -17,10 +19,10 @@ public class Program {
 
 			switch (menu) {
 			case 1:
-				inputList(exams);
+				inputList(exams,current);
 				break;
 			case 2:
-				printList(exams);
+				printList(exams,current);
 				break;
 			case 3:
 				System.out.println("Bye~~");
@@ -35,7 +37,7 @@ public class Program {
 
 	}
 
-	private static void printList(Exam[] exams) {
+	private static void printList(Exam[] exams,int size) {
 		System.out.println("┌──────────────────┐");
 		System.out.println("│     성적 출력    │");
 		System.out.println("└──────────────────┘");
@@ -43,7 +45,7 @@ public class Program {
 
 		// 이렇게 임시변수에 담지 않으면, 매변수마다 exam.kor 작성해야한다.
 		// 코드의 가독성이 떨어지기도하고 쳐야할 코드양도 많아지지.
-		for (int i = 0; i < 3; i++) {
+		for (int i = 0; i < size; i++) {
 			Exam exam = exams[i];
 
 			int kor = exam.kor;
@@ -63,7 +65,7 @@ public class Program {
 		}
 	}
 
-	private static void inputList(Exam[] exams) {
+	private static void inputList(Exam[] exams, int current) {
 		Scanner scan = new Scanner(System.in);
 
 		System.out.println("┌──────────────────┐");
@@ -71,7 +73,7 @@ public class Program {
 		System.out.println("└──────────────────┘");
 		System.out.println();
 
-		for (int i = 0; i < 3; i++) {
+	
 
 			int kor, eng, math;
 
@@ -107,8 +109,9 @@ public class Program {
 			exam.eng = eng;
 			exam.math = math;
 
-			exams[i] = exam;
-		}
+			exams[current] = exam;
+			current++;
+		
 
 	}
 
