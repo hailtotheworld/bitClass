@@ -1,18 +1,22 @@
 package part3.ex2.메소드;
 
 public class Time {
-	
-	int hour,minute,second;
-	
-	
-	public Time(int hour,int minute,int second) {
-		this.hour=hour;
+
+	int hour; 
+	int minute, second;
+
+	public Time(int h,int minute,int second) {
+		hour=h;
 		this.minute=minute;
 		this.second=second;
 	}
+//
+//	public Time() {
+//		this(12,34,56);
+//	}
 
 	public Time() {
-		this(12,34,56);
+		System.out.println("생성자 호출");
 	}
 
 }
