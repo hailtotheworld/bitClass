@@ -6,6 +6,8 @@ public class ExamList {
 	private Exam[] exams;
 	private int current;
 	
+	
+	
 	// 캡슐화의 가장 큰 장점은 데이터구조의 변화, 오류가 캡슐 안에서만 발생한다는 것이다!
 
 	public void printList() { //
@@ -31,8 +33,8 @@ public class ExamList {
 			int eng = exam.getEng();
 			int math = exam.getMath();
 
-			int total = kor + eng + math;
-			float avg = (float) total / 3;
+			int total = exam.total(); // int total = kor + eng + math;
+			float avg = exam.avg(); // float avg = (float) total / 3;
 
 			System.out.printf("국어: %d\n", kor);
 			System.out.printf("영어: %d\n", eng);
@@ -82,10 +84,14 @@ public class ExamList {
 			}
 		} while (math < 0 || 100 < math);
 
+		/*
 		Exam exam = new Exam();
 		exam.setKor(kor);//exam.kor = kor;
 		exam.setEng(eng);//exam.eng = eng;
 		exam.setMath(math);//exam.math = math;
+		*/
+		
+		Exam exam = new Exam(kor, eng, math);
 
 //		if(exams의 공간이 없다면) {
 //			공간을 늘려주기
