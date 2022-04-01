@@ -7,7 +7,6 @@ public class Program {
 	public static void main(String[] args) {
 
 		ExamList list = new ExamList();
-		list.init();
 
 		int menu;
 		boolean keepLoop = true;

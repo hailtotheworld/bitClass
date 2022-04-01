@@ -114,10 +114,10 @@ public class ExamList {
 
 	}
 
-	
-	public void init() {
-//		this.exams = new Exam[3]; //초기값을 대입하고 있다.
-//		this.current = 0;
+	// 생성자: 초기화를 위한 특별한 함수
+	// 반환값이 없다.
+	// 처음 만들 때 딱 한번만 호출이 가능하다.
+	public ExamList() { 
 		
 		// this는 무조건 받기때문에 생략이 가능하다. 지워도 되면 지워서 쓰자.
 		exams = new Exam[3]; 
