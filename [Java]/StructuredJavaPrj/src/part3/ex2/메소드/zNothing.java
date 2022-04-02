@@ -1,4 +1,4 @@
-package part3.ex2.메소드.copy;
+package part3.ex2.메소드;
 
 public class zNothing {
 	
