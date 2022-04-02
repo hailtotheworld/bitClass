@@ -5,7 +5,7 @@ package part3.ex4.UI코드분리하기;
 public class ExamList {
 	private Exam[] exams;
 	private int current;
-	
+	 
 	
 
 	// 캡슐화의 가장 큰 장점은 데이터구조의 변화, 오류가 캡슐 안에서만 발생한다는 것이다!

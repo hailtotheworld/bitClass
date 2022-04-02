@@ -4,7 +4,14 @@ import java.util.Scanner;
 
 public class ExamConsole {
 	
-	private ExamList list = new ExamList();
+	// Compositon Has A 일체형
+//	private ExamList list = new ExamList();
+	
+	private ExamList list;
+	
+	public ExamConsole() {
+		list = new ExamList();
+	}
 
 	public void printList() { //
 		// size 넣지 않았을때 전부 출력해달라고하는 의미였어
