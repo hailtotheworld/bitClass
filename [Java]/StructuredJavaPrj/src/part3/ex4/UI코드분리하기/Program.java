@@ -41,6 +41,7 @@ public class Program {
 
 
 
+	//static
 	static int inputMenu() {
 
 		Scanner scan = new Scanner(System.in);
