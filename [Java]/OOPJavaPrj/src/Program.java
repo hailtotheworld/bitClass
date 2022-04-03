@@ -4,14 +4,13 @@ public class Program {
 
 	public static void main(String[] args) {
 		
-		NewlecExam exam = new NewlecExam();
-		exam.setKor(10);
-		exam.setEng(10);
-		exam.setMath(10);
-		exam.setCom(10);
+		NewlecExam exam = new NewlecExam(10,10,10,10);
+		Exam exam2 = new NewlecExam(1,1,1,1);
 		
 		System.out.println(exam.total());
+		System.out.println(exam.avg());
+		System.out.println(exam2.total());
 		
 	}
-
+ 
 }
