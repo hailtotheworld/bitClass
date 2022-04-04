@@ -7,7 +7,7 @@ public abstract class Exam { // 여기서는 그저 설명서를 만드는 거�
 
 	// 생성자 코드 집중화
 	public Exam() {
-		this(0,0,0);
+		this(0, 0, 0);
 	}
 
 	public Exam(int kor, int eng, int math) {
@@ -42,14 +42,22 @@ public abstract class Exam { // 여기서는 그저 설명서를 만드는 거�
 	public void setMath(int math) {
 		this.math = math;
 	}
-	
 
-	public int total() {
+//	public int total() {
+//		return kor + eng + math;
+//	}
+
+//	public float avg() {
+//		return (float) total() / 3;
+//	}
+
+	public abstract int total();
+
+	// 자식에게만 공개할 수 있는 접근제어자: protected
+	protected int onTotal() {
 		return kor + eng + math;
 	}
 
-	public float avg() {
-		return (float) total() / 3;
-	}
- 
+	public abstract float avg();
+
 }

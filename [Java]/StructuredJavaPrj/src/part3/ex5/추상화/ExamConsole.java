@@ -2,7 +2,7 @@ package part3.ex5.추상화;
 
 import java.util.Scanner;
 
-public class ExamConsole {
+public abstract class ExamConsole {
 	
 	// Compositon Has A 일체형
 //	private ExamList list = new ExamList();
@@ -13,14 +13,14 @@ public class ExamConsole {
 		list = new ExamList();
 	}
 
-	public void printList() { //
+	public void print() { //
 		// size 넣지 않았을때 전부 출력해달라고하는 의미였어
 //		printList(current);
 
-		printList(list.size());
+		print(list.size());
 	}
 
-	public void printList(int size) {
+	public void print(int size) {
 		System.out.println("┌──────────────────┐");
 		System.out.println("│     성적 출력    │");
 		System.out.println("└──────────────────┘");
@@ -43,6 +43,8 @@ public class ExamConsole {
 			System.out.printf("국어: %d\n", kor);
 			System.out.printf("영어: %d\n", eng);
 			System.out.printf("수학: %d\n", math);
+			
+			onPrint(exam);
 
 			System.out.printf("총점 : %3d\n", total);
 			System.out.printf("평균 : %6.2f\n", avg);
@@ -50,7 +52,8 @@ public class ExamConsole {
 		}
 	}
 
-	public void inputList() {
+
+	public void input() {
 		Scanner scan = new Scanner(System.in);
 
 		System.out.println("┌──────────────────┐");
@@ -86,18 +89,30 @@ public class ExamConsole {
 				System.out.println("수학성적은 0~100까지의 범위만 입력이 가능합니다.");
 			}
 		} while (math < 0 || 100 < math);
+		
 
 		/*
 		 * Exam exam = new Exam(); exam.setKor(kor);//exam.kor = kor;
 		 * exam.setEng(eng);//exam.eng = eng; exam.setMath(math);//exam.math = math;
 		 */
 
-		Exam exam = new Exam(kor, eng, math);
+		// Exam exam = new Exam(kor, eng, math); 팩토리메서드구현해보자
+		Exam exam = makeExam();
+		exam.setKor(kor);
+		exam.setEng(eng);
+		exam.setMath(math);
+		onInput(exam);
 
 		//////// add//////////////////////////////////////////////////////////////////////////////////////
 
 		list.add(exam);
 
 	}
+
+	protected abstract void onInput(Exam exam);
+	
+	protected abstract void onPrint(Exam exam);
+
+	protected abstract Exam makeExam(); //public으로하면 서비스 함수가 되니까 protected로해서 자식만 구현할 수 있게해.
 
 }
