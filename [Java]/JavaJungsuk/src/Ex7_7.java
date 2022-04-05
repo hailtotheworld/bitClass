@@ -1,8 +1,14 @@
 class Ex7_7 {
 	public static void main(String args[]) {
+
+		FireEngine fe = new FireEngine();
 		Car c = new Car();
-		FireEngine fe = (FireEngine) c; // 형변환 실행 에러 java.lang.ClassCastException
-		fe.water(); // 컴파일 오케이 (컴파일러는 실제 실행했을때 어떻게 되는지 확인을 못하기 때문이다.)
+		System.out.println(c instanceof FireEngine);
+		 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+//		Car c = new Car();
+//		FireEngine fe = (FireEngine) c; // 형변환 실행 에러 java.lang.ClassCastException
+//		fe.water(); // 컴파일 오케이 (컴파일러는 실제 실행했을때 어떻게 되는지 확인을 못하기 때문이다.)
 		
 		
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
