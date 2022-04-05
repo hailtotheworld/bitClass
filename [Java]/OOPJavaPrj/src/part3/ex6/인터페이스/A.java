@@ -31,7 +31,12 @@ public class A {
 	}
 
 	public void print() {
-		int total = x.total();
+//		int total = x.total(); // 꼭 할당되게 하는거야
+		
+		int total = 0;
+		
+		if(x != null)
+		total = x.total();
 
 		System.out.printf("total is %d\n", total);
 
