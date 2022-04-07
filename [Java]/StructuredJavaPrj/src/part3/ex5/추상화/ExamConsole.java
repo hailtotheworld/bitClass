@@ -96,6 +96,7 @@ public abstract class ExamConsole {
 		 * exam.setEng(eng);//exam.eng = eng; exam.setMath(math);//exam.math = math;
 		 */
 
+		
 		// Exam exam = new Exam(kor, eng, math); 팩토리메서드구현해보자
 		Exam exam = makeExam();
 		exam.setKor(kor);
