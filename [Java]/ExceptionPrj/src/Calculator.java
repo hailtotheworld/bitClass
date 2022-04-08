@@ -3,7 +3,7 @@ public class Calculator {
 	public Calculator() {
 	}
 
-	public static int add(int x, int y) throws 천을_넘는_예외, 음수가되는예외 {
+	public static int add(int x, int y)  {
 
 		int result = x + y;
 		if (result > 1000)
