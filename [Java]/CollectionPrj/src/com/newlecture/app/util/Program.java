@@ -16,6 +16,7 @@ public class Program {
 		list.add(7);
 		int num = list.get(0);
 		System.out.printf("num : %d\n", num);
+		list.add(4);
 		num = list.get(1);
 
 

@@ -28,9 +28,9 @@ public class IntList {
 	}
 
 	public int get(int index) {
-		if(current <= index)
+		if (current <= index)
 			throw new IndexOutOfBoundsException();
-			
+
 		return nums[index];
 	}
 
