@@ -1,8 +1,3 @@
-
-
-
-
-
 class Ex9_10 {
 	public static void main(String[] args) {
 		int iVal = 100;
