@@ -23,5 +23,6 @@ class Ex4_6 {
 	//		case 12:	case 1: case 2:
 				System.out.println("현재의 계절은 겨울입니다.");
 		}
+
 	} // main의 끝
 }
