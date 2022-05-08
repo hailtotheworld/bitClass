@@ -29,6 +29,7 @@ public class superTest {
 	public static void main(String args[]) {
 		Vehicle obj = new Car1("Spark");
 		System.out.print(obj.getName());
+
 		
 	}
 }
