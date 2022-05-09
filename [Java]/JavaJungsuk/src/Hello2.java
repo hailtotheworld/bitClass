@@ -11,3 +11,6 @@ class Hello3 {} // 하나의 소스파일에는 하나의 public class만 허용
 class Hello4 {}
 
 
+
+// run configuration에서 실행할 메인메소드를 수동으로 지정해줄 수도 있다.
+// 수동으로 지정하지 않으면, 소스파일의 이름과 main메서드가 있는 클래스의 이름이 일치한 메인메서드가 실행된다.
