@@ -16,10 +16,26 @@ class Ex6_4 {
 		System.out.println("subtract(5L, 3L) = " + result2);
 		System.out.println("multiply(5L, 3L) = " + result3);
 		System.out.println("divide(5L, 3L) = " + result4);
+		
+		
+		mm.printGugudan(4);
 	}
  }
 
  class MyMath {
+	 
+	 void printGugudan(int a) {
+		 if(!(2<=a&&a<=9)) {
+			 System.out.println("0~9만 입력하시오");
+			 return;
+		 }
+		 
+		 for(int i=2;i<=9;i++) {
+			 System.out.printf("%d*%d=%d%n", i,a,a*i);
+		 }
+	 }
+	 
+	 
 	long add(long a, long b) {
 		long result = a + b;
 		return result;
