@@ -6,4 +6,6 @@ public class PackageTest {
 		System.out.println("Hello World");
 	}
 
+	// com.codechobo.book.PackageTest
 }
+
