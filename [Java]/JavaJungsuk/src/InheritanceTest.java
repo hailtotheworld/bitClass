@@ -1,4 +1,4 @@
-class MyPoint {
+class MyPoint extends Object {
 	int x;
 	int y;
 }
