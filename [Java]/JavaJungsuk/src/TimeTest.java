@@ -6,9 +6,14 @@ class Time {
 
 	// 값을 세팅(입력)하는 메서드
 	public void setHour(int hour) {
-		if (hour < 0 || hour > 23)
+		if (isNotVaildhour(hour)) // alt + shift + M 메서드 추출
 			return;
 		this.hour = hour;
+	}
+
+	// 매개변수로 넘겨진 hour가 유효한지 확인해서 알려주는 메서드
+	private boolean isNotVaildhour(int hour) {
+		return hour < 0 || hour > 23;
 	}
 
 	// 값을 읽는 메서드
