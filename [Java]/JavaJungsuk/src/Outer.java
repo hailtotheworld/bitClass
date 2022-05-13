@@ -30,12 +30,12 @@ class Outer {
 class tt {
 	void test() {
 		final int i = 2;
-		final static int k = 7;
+//		final static int k = 7;
 	}
 	
 	static void test2() {
 		final int i = 2;
-		final static int k = 7;
+//		final static int k = 7;
 	}
 }
 
