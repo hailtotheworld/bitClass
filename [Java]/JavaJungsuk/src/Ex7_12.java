@@ -22,5 +22,6 @@ class Ex7_12 {
 		System.out.println(InstanceInner.CONST); 
 		System.out.println(StaticInner.cv);
 //		System.out.println(LocalInner.CONST);
+		
 	} 
 }

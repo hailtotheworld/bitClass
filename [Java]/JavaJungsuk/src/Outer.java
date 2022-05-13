@@ -16,12 +16,13 @@ class Outer {
 	void myMethod() {
 		int lv = 0;
 		final int LV = 0;  // JDK1.8부터 final 생략 가능
+//		lv =7; // Local variable lv defined in an enclosing scope must be final or effectively final
 
 		class LocalInner {
 			int liv  = outerIv;
 			int liv2 = outerCv;
 //	외부 클래스의 지역변수는 final이 붙은 변수(상수)만 접근가능하다.
-//			int liv3 = lv;	// 에러!!!(JDK1.8부터 에러 아님)
+			int liv3 = lv;	// 에러!!!(JDK1.8부터 에러 아님)
 			int liv4 = LV;	// OK
 		}
 	}
@@ -37,8 +38,4 @@ class tt {
 		final int i = 2;
 //		final static int k = 7;
 	}
-}
-
-class ttt {
-	
 }
