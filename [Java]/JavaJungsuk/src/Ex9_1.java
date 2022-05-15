@@ -17,19 +17,43 @@ class Value {
 		this.value = value;
 	}
 
-	// Object의 equals()를 오버라이딩해서 주소가 아닌 value를 비교
-	public boolean equals(Object obj) {
-		// return this==obj; // 주소 비교. 서로 다른 객체는 항상 거짓
-		
-		// 참조변수의 형변환 전에는 반드시 instanceof로 확인해야함.
-		if (!(obj instanceof Value)) {
-			return false;
-		} else {
-			Value v = (Value) obj; // obj를 value로 형변환
-			return this.value == v.value;
-		}
-
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + value;
+		return result;
 	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Value other = (Value) obj;
+		if (value != other.value)
+			return false;
+		return true;
+	}
+
+	// Object의 equals()를 오버라이딩해서 주소가 아닌 value를 비교
+//	public boolean equals(Object obj) {
+//		// return this==obj; // 주소 비교. 서로 다른 객체는 항상 거짓
+//		
+//		// 참조변수의 형변환 전에는 반드시 instanceof로 확인해야함.
+//		if (!(obj instanceof Value)) {
+//			return false;
+//		} else {
+//			Value v = (Value) obj; // obj를 value로 형변환
+//			return this.value == v.value;
+//		}
+//
+//	}
+	
+	
 	
 	
 	

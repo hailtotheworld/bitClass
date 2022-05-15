@@ -13,15 +13,15 @@ class Card {
 		this.number = number;
 	}
 
-	// equals 오버라이딩
+	// equals() 오버라이딩
 	public boolean equals(Object obj) {
-		if (!(obj instanceof Card)) {
+		if(!(obj instanceof Card)) 
 			return false;
-		} else {
-			Card c = (Card) obj;
-			return this.kind.equals(c.kind) && this.number == c.number;
-		}
+		
+		Card c = (Card) obj;		
+		return kind.equals(c.kind) && number==c.number;		
 	}
+
 
 	// equals 오버라이딩하면 hashCode도 오버라이딩해야한다.
 	public int hashCode() {
