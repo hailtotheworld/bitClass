@@ -5,6 +5,7 @@ class Ex7_11 {
 		c.method2();
 		MyInterface.staticMethod(); 
 		MyInterface2.staticMethod();
+		
 	}
 }
 

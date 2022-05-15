@@ -10,6 +10,8 @@ class Ex6_6 {
 		change(d);
 		System.out.println("After change(d.x)");
 		System.out.println("main() : x = " + d.x);
+		
+		System.out.println(d.getClass());
 	}
 
 //	static void change(int k) {  // 기본형 매개변수
