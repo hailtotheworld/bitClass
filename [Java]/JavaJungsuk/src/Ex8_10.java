@@ -1,6 +1,7 @@
 import java.io.*;
 
 class Ex8_10 {
+	
 	public static void main(String[] args) {
 
 			File f = createFile("");
