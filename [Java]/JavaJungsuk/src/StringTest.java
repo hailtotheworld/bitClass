@@ -1,3 +1,4 @@
+import java.util.StringJoiner;
 
 public class StringTest {
 
@@ -14,6 +15,19 @@ public class StringTest {
 		
 		System.out.println(str1.equals(str2));
 		System.out.println(str3.equals(str4));
+
+		
+		String[] str11 = {"aaa","bbb","ccc"};
+		
+		// [aaa,bbb,ccc]
+		
+		StringJoiner sj = new StringJoiner(",","[","]");
+		
+		sj.add("123");
+		sj.add("456");
+		sj.add("789");
+		
+		System.out.println(sj);
 		
 	}
 }
