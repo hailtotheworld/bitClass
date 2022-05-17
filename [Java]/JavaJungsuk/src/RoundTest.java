@@ -21,6 +21,13 @@ public class RoundTest {
 		System.out.println(sum1);
 		System.out.println(sum2);
 		
+		Integer integer = new Integer(10);
+		int i = integer.intValue();
+		
+		System.out.println(i);
+		
+
+		
 	}
 
 }
