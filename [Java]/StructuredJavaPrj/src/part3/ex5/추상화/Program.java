@@ -6,7 +6,7 @@ public class Program {
 
 	public static void main(String[] args) {
 
-		ExamConsole list = new ExamConsole();
+//		ExamConsole list = new ExamConsole();
 
 		int menu;
 		boolean keepLoop = true;
@@ -19,12 +19,12 @@ public class Program {
 			case 1:
 				// 클래스이름.함수이름();
 //				ExamList.inputList(list);
-				list.input();
+//				list.input();
 										  
 				break;
 			case 2:
 //				ExamList.printList(list);
-				list.print();
+//				list.print();
 				break;
 			case 3:
 				System.out.println("Bye~~");
