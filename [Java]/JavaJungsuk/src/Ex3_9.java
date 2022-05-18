@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 class Ex3_9 {
 	public static void main(String args[]) {
 		int a = 1_000_000; // 1,000,000 1¹é¸¸
@@ -19,5 +21,8 @@ class Ex3_9 {
 		System.out.println(d2);
 		
 
+		
+
 	}
 }
+
