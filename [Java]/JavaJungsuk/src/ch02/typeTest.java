@@ -9,6 +9,11 @@ public class typeTest {
 		
 		System.out.println(c);
 		
+		boolean t = true;
+		boolean f = false;
+
+		
+		
 	}
 
 }
