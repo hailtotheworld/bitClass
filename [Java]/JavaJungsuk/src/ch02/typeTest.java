@@ -19,6 +19,16 @@ public class typeTest {
 		System.out.printf("%x%n",16);
 		System.out.printf("%o%n",50);
 		
+		int i = new Integer(100).intValue();
+		
+		String str = String.valueOf(new Integer(100));
+		
+		
+		char ch = 'A';
+		System.out.println(ch);
+		
+		int ii = 'A';
+		System.out.println(ii);
 	}
 
 }
