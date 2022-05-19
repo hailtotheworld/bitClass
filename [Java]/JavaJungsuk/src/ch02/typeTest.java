@@ -29,6 +29,20 @@ public class typeTest {
 		
 		int ii = 'A';
 		System.out.println(ii);
+		
+		int iii = 3;
+		
+		char c = (char) (iii+'0');
+		
+		System.out.println(c);
+		
+		System.out.println("789".charAt(2));
+		
+		
+	
+		
+
+
 	}
 
 }
