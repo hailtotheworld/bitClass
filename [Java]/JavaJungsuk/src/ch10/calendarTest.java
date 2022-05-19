@@ -17,6 +17,8 @@ public class calendarTest {
 		ss s2 = new ss();
 		
 		ss.X=15;
+		
+		
 	}
 
 }
