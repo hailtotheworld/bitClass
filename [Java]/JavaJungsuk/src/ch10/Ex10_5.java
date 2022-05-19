@@ -42,5 +42,7 @@ class Ex10_5 {
 			System.out.print((i < 10)? "  "+i : " "+i ); 
 			if(n%7==0) System.out.println(); 
 		} 
+		
+
 	} 
 }
