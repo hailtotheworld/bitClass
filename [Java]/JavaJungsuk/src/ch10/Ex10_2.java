@@ -15,6 +15,7 @@ class Ex10_2 {
 		date1.set(2019, 3, 29); // 2019년 4월 29일로 날짜를 설정한다. 
 		System.out.println("date1은 "+ toString(date1) 
                   + DAY_OF_WEEK[date1.get(Calendar.DAY_OF_WEEK)]+"요일이고,");
+		
 		System.out.println("오늘(date2)은 " + toString(date2) 
                  + DAY_OF_WEEK[date2.get(Calendar.DAY_OF_WEEK)]+"요일입니다.");
 
