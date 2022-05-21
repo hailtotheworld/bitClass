@@ -16,14 +16,18 @@ public class calendarTest {
 		ss s1 = new ss();
 		ss s2 = new ss();
 		
-		ss.X=15;
+		System.out.println(s1.k);
+		
+		
+		
 		
 		
 	}
 
-}
+} 
 
 class ss {
-	static int X = 10;
+	final static int X = 10;
+	final int k=15;
 	int v;
 }
