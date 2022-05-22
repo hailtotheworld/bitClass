@@ -1,3 +1,5 @@
+package ch11;
+
 import java.util.*;
 
 class Ex11_1 {
@@ -35,10 +37,19 @@ class Ex11_1 {
 		print(list1, list2);
 
 		// indexOf()는 지정된 객체의 위치(인덱스)를 알려준다.
-//		list1.add(0, "1");
-//		System.out.println("index:" + list1.indexOf("1")); // String값의 위치를 알려주네
-//		System.out.println("index:" + list1.indexOf(1)); // int값의 위치를 알려주네
-//		System.out.println("index:" + list1.indexOf(2000)); // 찾는값이 없으면 index -1 반환해준다.
+		
+		ArrayList list3 = new ArrayList();
+		list3.add(9);
+		list3.add(1);
+		list3.add("1");
+		list3.add(4);
+		list3.add(3);
+		list3.add(7);
+		System.out.println(list3);
+		System.out.println("index:" + list3.indexOf(1)); // String값의 위치를 알려주네
+		System.out.println("index:" + list3.indexOf("1")); // String값의 위치를 알려주네
+		System.out.println("index:" + list3.indexOf(4)); // int값의 위치를 알려주네
+		System.out.println("index:" + list3.indexOf(2000)); // 찾는값이 없으면 index -1 반환해준다.
 		
 		list1.remove(1); // 인덱스로 지우기
 		list1.remove(new Integer(4)); // 객체 찾아서 지우기
@@ -58,6 +69,9 @@ class Ex11_1 {
 				list2.remove(i);
 		}
 		print(list1, list2);
+		
+
+		
 	} // main의 끝
 
 	static void print(ArrayList list1, ArrayList list2) {
