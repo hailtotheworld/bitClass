@@ -1,12 +1,19 @@
 package ch11;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
 
 public class arrayTest {
 	public static void main(String[] args) {
 		
 		ArrayList list = new ArrayList();
+
+		Queue q = new LinkedList();
+		Collection c = new LinkedList();
+		List l = new LinkedList();
 		
 		list.add(0);
 		list.add(1);
