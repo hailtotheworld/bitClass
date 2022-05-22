@@ -8,6 +8,7 @@ class Ex10_7 {
 		DecimalFormat df  = new DecimalFormat("#,###.##");
 		DecimalFormat df2 = new DecimalFormat("#.###E0");
 		
+		
 
 		try {
 			Number num = df.parse("1,234,567.89");

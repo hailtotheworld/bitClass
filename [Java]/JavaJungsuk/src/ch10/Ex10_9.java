@@ -10,6 +10,7 @@ class Ex10_9 {
 
 		try {
 			Date d = df.parse("2019년 11월 23일");
+			System.out.println(d);
 			System.out.println(df2.format(d));
 		} catch(Exception e) {}
 	} // main
