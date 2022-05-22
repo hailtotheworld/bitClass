@@ -16,6 +16,7 @@ class Ex10_4 {
 		date.add(Calendar.MONTH, -6);
 		System.out.println(toString(date));
 
+		System.out.println();
 		System.out.println("= 31일 후(roll) =");
 		date.roll(Calendar.DATE, 31);
 		System.out.println(toString(date));
