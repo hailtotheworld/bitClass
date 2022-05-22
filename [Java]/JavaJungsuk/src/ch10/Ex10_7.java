@@ -1,11 +1,13 @@
 package ch10;
 
 import java.text.*;
+import java.util.Date;
 
 class Ex10_7 {
 	public static void main(String[] args) {
 		DecimalFormat df  = new DecimalFormat("#,###.##");
 		DecimalFormat df2 = new DecimalFormat("#.###E0");
+		
 
 		try {
 			Number num = df.parse("1,234,567.89");
