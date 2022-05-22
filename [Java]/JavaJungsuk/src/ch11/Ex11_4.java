@@ -1,3 +1,5 @@
+package ch11;
+
 import java.util.*;
 
 class Ex11_4 {
@@ -18,7 +20,7 @@ class Ex11_4 {
 					continue;
 
 				if (input.equalsIgnoreCase("q")) {
-					System.exit(0);
+					System.exit(0); // 프로그램종료
 				} else if (input.equalsIgnoreCase("help")) {
 					System.out.println(" help - 도움말을 보여줍니다.");
 					System.out.println(" q 또는 Q - 프로그램을 종료합니다.");

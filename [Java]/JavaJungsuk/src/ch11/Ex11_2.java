@@ -1,3 +1,5 @@
+package ch11;
+
 import java.util.*;
 
 class Ex11_2 {
@@ -12,6 +14,8 @@ class Ex11_2 {
 		q.offer("0");
 		q.offer("1");
 		q.offer("2");
+		
+		System.out.println(q.peek());
 
 		System.out.println("= Stack =");
 		while (!st.empty()) {

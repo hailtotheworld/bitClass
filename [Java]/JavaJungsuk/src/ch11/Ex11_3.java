@@ -1,3 +1,5 @@
+package ch11;
+
 import java.util.*;
 
 public class Ex11_3 {
@@ -9,7 +11,7 @@ public class Ex11_3 {
 //		}
 
 		Stack st = new Stack();
-		String expression = "((3+5)*8-2))))";
+		String expression = "((3+5)*8-2)";
 
 		System.out.println("expression:" + expression);
 
