@@ -1,9 +1,11 @@
 package ch11;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 public class arrayTest {
 	public static void main(String[] args) {
+		
 		ArrayList list = new ArrayList();
 		
 		list.add(0);
