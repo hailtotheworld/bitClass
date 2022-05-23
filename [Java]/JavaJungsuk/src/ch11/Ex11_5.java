@@ -10,7 +10,8 @@ class Ex11_5 {
 		list.add("3");
 		list.add("4");
 		list.add("5");
-
+		
+		
 		Iterator it = list.iterator();
 
 		while(it.hasNext()) {
