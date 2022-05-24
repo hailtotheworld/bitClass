@@ -2,6 +2,7 @@ package ch11;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
@@ -17,9 +18,8 @@ public class stackTest {
 		st.push(-30);
 		
 		
-//		Collections.sort(st, Collections.reverseOrder()); //[70, 30, 10, -30]
+		Collections.sort(st, Comparator.naturalOrder()); //[70, 30, 10, -30]
 
-		Collections.reverse(st); //[-30, 30, 70, 10]
 		
 		System.out.println(st);
 		
