@@ -11,7 +11,7 @@ class Ex11_19 {
 		Collections.addAll(list, 1,2,3,4,5); 
 		System.out.println(list);
 		
-		Collections.rotate(list, 2);  // 오른쪽으로 두 칸씩 이동 
+		Collections.rotate(list, 2);  // 반시계방향으로 두번 회전
 		System.out.println(list);
 
 		Collections.swap(list, 0, 2); // 첫 번째와 세 번째를 교환(swap)
@@ -21,6 +21,14 @@ class Ex11_19 {
 		System.out.println(list);
 
 		Collections.sort(list, Collections.reverseOrder()); // 역순 정렬 reverse(list);와 동일 
+		System.out.println(list);
+		
+		System.out.println();
+		
+		Collections.reverse(list);
+		System.out.println(list);
+		
+		Collections.reverse(list);
 		System.out.println(list);
 		
 		Collections.sort(list);       // 정렬 

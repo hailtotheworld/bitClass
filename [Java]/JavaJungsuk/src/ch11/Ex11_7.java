@@ -14,6 +14,10 @@ class Ex11_7 {
 
 		Arrays.sort(strArr, new Descending()); // 역순 정렬
 		System.out.println("strArr=" + Arrays.toString(strArr));
+		
+		Arrays.sort(strArr, Collections.reverseOrder()); // 역순 정렬
+		System.out.println("strArr=" + Arrays.toString(strArr));
+		
 	}
 }
 
