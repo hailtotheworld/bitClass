@@ -13,6 +13,6 @@ class Ex11_15 {
 //		System.out.println("50보다 작은 값 :" + set.headSet(new Integer(50)));
 		System.out.println("50보다 작은 값 :" + set.headSet(50));
 		System.out.println("50보다 큰 값 :"  + set.tailSet(new Integer(50)));
-		System.out.println("50보다 큰 값 :"  + set.subSet(40,80));
+		System.out.println("40<=x<80 :"  + set.subSet(40,80));
 	}
 }
