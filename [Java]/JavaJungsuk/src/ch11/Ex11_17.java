@@ -1,6 +1,7 @@
 package ch11;
 
 import java.util.*;
+import java.util.Map.Entry;
 
 class Ex11_17 {
 	public static void main(String[] args) {
@@ -13,12 +14,15 @@ class Ex11_17 {
 
 		Set set = map.entrySet();
 		Iterator it = set.iterator();
-
+		
 		while(it.hasNext()) {
-			Map.Entry e = (Map.Entry)it.next();
+			Map.Entry e = (Map.Entry) it.next();
 			System.out.println("이름 : "+ e.getKey() + ", 점수 : " + e.getValue());
 		}
 
+		System.out.println();
+		
+		
 		set = map.keySet();
 		System.out.println("참가자 명단 : " + set);
 
