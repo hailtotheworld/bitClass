@@ -14,7 +14,7 @@ public class GenericTest {
 		
 		
 //		Integer i = (Integer) list.get(2);
-		String i = list.get(2);
+		String i = (String) list.get(2);
 		// 컴파일에러가 없네. 컴파일러의 한계다.
 		// 컴파일러는 값을 꺼낼때 Object라서 허용했는데 실제로는 뭐가 들었는지 체크를 할 수가 없다.
 		// 실행하면 java.lang.ClassCastException 형변환에러가 발생
