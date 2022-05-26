@@ -27,7 +27,13 @@ class Ex12_4 {
 	public static void main(String[] args) {
 		FruitBox2<Fruit2> fruitBox = new FruitBox2<Fruit2>();
 		FruitBox2<Apple2> appleBox = new FruitBox2<Apple2>();
-
+		
+//		// Fruit2와 그 자손들
+//		FruitBox2<? extends Fruit2> appleBox = new FruitBox2<Apple2>();
+//		appleBox = new FruitBox2<Fruit2>();
+//		appleBox = new FruitBox2<Apple2>();
+//		appleBox = new FruitBox2<Grape2>();
+		
 		fruitBox.add(new Apple2());
 		fruitBox.add(new Grape2());
 		appleBox.add(new Apple2());
