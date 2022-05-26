@@ -1,4 +1,4 @@
-package com.codechobo.book;
+package ch12_2;
 
 import java.util.*;
 
@@ -59,7 +59,7 @@ class FruitBoxEx4 {
 		grapeBox.add(new Grape("GreenGrape", 200));
 
 		Collections.sort(appleBox.getList(), new AppleComp());
-//		Collections.sort(appleBox.getList(), Collections.reverseOrder());
+//		Collections.sort(appleBox.getList(), Collections.sort);
 		Collections.sort(grapeBox.getList(), new GrapeComp());
 		System.out.println(appleBox);
 		System.out.println(grapeBox);
