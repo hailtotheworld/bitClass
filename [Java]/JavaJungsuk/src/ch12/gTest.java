@@ -9,7 +9,8 @@ class Audio7 extends Product7 {}
 public class gTest {
 	public static void main(String[] args) {
 		ArrayList<? extends Product7> list = new ArrayList<Tv7>();
-//		ArrayList<? extends Product7> list = new ArrayList<Audio7>(); 당연하지 오류잖아.
+									  list = new ArrayList<Audio7>();
+									  list = new ArrayList<Product7>();
 	}
 
 }
