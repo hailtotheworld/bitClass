@@ -19,7 +19,9 @@ class Ex12_1 {
 		tvList.add(new Tv());
 		tvList.add(new Tv());
 
-//		printAll(productList);
+		printAll(productList);
+		
+		
 		printAll(new ArrayList<Product>());
 		
 //		 printAll(tvList); // 컴파일 에러가 발생한다.
