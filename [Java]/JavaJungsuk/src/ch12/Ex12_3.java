@@ -28,7 +28,8 @@ class Ex12_3 {
 		b = (Box)bStr; 			// Box<String> -> Box 가능하지만 경고. 바람직하지않다.
 		bStr = (Box<String>) b; // Box -> Box<String> 가능하지만 경고. 바람직하지않다.
 		
-		FruitBox<Apple> fbox = (FruitBox<Apple>) new FruitBox<? extends Fruit>();
+		
+		
 		
 		FruitBox<Fruit> fruitBox = new FruitBox<Fruit>();
 		FruitBox<Apple> appleBox = new FruitBox<Apple>();

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.List;
 
 public class sortTest {
 	public static void main(String[] args) {
@@ -40,38 +41,65 @@ public class sortTest {
 		// 대소문자구분안하고 내림차순 [c, C, b, B, a, A]
 		Arrays.sort(strArr,Collections.reverseOrder(String.CASE_INSENSITIVE_ORDER));
 		System.out.println(Arrays.toString(strArr));	
+		System.out.println();
+		
+		
+		
+		// int배열 정렬
+		Integer[] arr = new Integer[] {3,2,1,4,5};
+		
+		Arrays.sort(arr);
+		System.out.println(Arrays.toString(arr)); // 오름차순
+		
+		Arrays.sort(arr, Collections.reverseOrder());
+		System.out.println(Arrays.toString(arr)); // 내림차순
+		
+		// 컬렉션정렬
+		
+		ArrayList<Integer> list = new ArrayList<Integer>();
+		
+		Collections.addAll(list, 3,5,2,1,4);
+		
+		Collections.sort(list); // 오름차순정렬 [1, 2, 3, 4, 5]
+		System.out.println(list); 
+		Collections.sort(list, Collections.reverseOrder());  // 내림차순정렬 [5, 4, 3, 2, 1]
+		System.out.println(list);
 		
 		
 		
 		
-//		// int배열 정렬
-//		Integer[] arr = new Integer[] {3,2,1,4,5};
-//		
-//		Arrays.sort(arr);
-//		System.out.println(Arrays.toString(arr)); // 오름차순
-//		
-//		Arrays.sort(arr, Collections.reverseOrder());
-//		System.out.println(Arrays.toString(arr)); // 내림차순
-//		
-//		// 컬렉션정렬
-//		
-//		ArrayList list = new ArrayList();
-//		
-//		Collections.addAll(list, 3,5,2,1,4);
-//		
-//		Collections.sort(list); // 오름차순정렬 [1, 2, 3, 4, 5]
-//		System.out.println(list); 
-//		
-//		Collections.sort(list, Collections.reverseOrder());  // 내림차순정렬 [5, 4, 3, 2, 1]
-//
-//		System.out.println(list);
+		
+		ArrayList<pie> pie1 = new ArrayList<pie>();
+		
+		pie1.add(new pie());
+		pie1.add(new pie());
+		
+		Collections.sort(pie1);
+		System.out.println(pie1);
 
-		
-
-		
-		
 		
 		
 	}
+	
 
 }
+
+
+class jo<T> implements Comparable<T>{
+
+	@Override
+	public int compareTo(T o) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	
+}
+
+class pie extends jo{
+
+	
+}
+
+
+
+

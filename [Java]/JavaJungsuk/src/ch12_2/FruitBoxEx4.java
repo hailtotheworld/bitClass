@@ -15,10 +15,11 @@ class Fruit	{
 	
 }
 
-class Apple extends Fruit {
+class Apple extends Fruit{
 	Apple(String name, int weight) {
 		super(name, weight);
 	}
+
 }
 
 class Grape extends Fruit {
@@ -58,7 +59,10 @@ class FruitBoxEx4 {
 		grapeBox.add(new Grape("GreenGrape", 300));
 		grapeBox.add(new Grape("GreenGrape", 200));
 
+//		Collections.sort(appleBox.getList()); // 에러
 		Collections.sort(appleBox.getList(), new AppleComp());
+//		Collections.sort(appleBox.getList(), Collections.reverseOrder()); // 형변환오류발생
+		
 //		Collections.sort(appleBox.getList(), Collections.sort);
 		Collections.sort(grapeBox.getList(), new GrapeComp());
 		System.out.println(appleBox);
