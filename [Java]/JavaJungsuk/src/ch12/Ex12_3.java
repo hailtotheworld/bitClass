@@ -20,13 +20,15 @@ class Ex12_3 {
 		
 		Box<String> bbStr = new Box();    // 지네릭타입참조변수로 원시타입객체가르키는게 가능하다.
 		Box bb = new Box<String>(); // 원시타입참조변수로 지네릭타입객체가르키는게 가능하다.
-		bb.add(new Integer(100));
+		bb.add(new Integer(100)); // 참조변수가 원시타입니까 가능하다.
 		
 		Box b = null;
 		Box<String> bStr = null;
 		
 		b = (Box)bStr; 			// Box<String> -> Box 가능하지만 경고. 바람직하지않다.
 		bStr = (Box<String>) b; // Box -> Box<String> 가능하지만 경고. 바람직하지않다.
+		
+		FruitBox<Apple> fbox = (FruitBox<Apple>) new FruitBox<? extends Fruit>();
 		
 		FruitBox<Fruit> fruitBox = new FruitBox<Fruit>();
 		FruitBox<Apple> appleBox = new FruitBox<Apple>();
