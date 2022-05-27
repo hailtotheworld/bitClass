@@ -3,8 +3,8 @@ package ch12;
 import java.util.ArrayList;
 
 class Fruit2		       	{ public String toString() { return "Fruit";}}
-class Apple2 extends Fruit2	{ public String toString() { return "Apple";}}
-class Grape2 extends Fruit2	{ public String toString() { return "Grape";}}
+class Apple2 extends Fruit	{ public String toString() { return "Apple";}}
+class Grape2 extends Fruit	{ public String toString() { return "Grape";}}
 
 class Juice {
 	String name;
@@ -14,10 +14,10 @@ class Juice {
 }
 
 class Juicer {
-	static Juice makeJuice(FruitBox2<? extends Fruit2> box) {
+	static Juice makeJuice(FruitBox2<? extends Fruit> box) {
 		String tmp = "";
 
-		for(Fruit2 f : box.getList()) 
+		for(Fruit f : box.getList()) 
 			tmp += f + " ";
 		return new Juice(tmp);
 	}
@@ -25,7 +25,7 @@ class Juicer {
 
 class Ex12_4 {
 	public static void main(String[] args) {
-		FruitBox2<Fruit2> fruitBox = new FruitBox2<Fruit2>();
+		FruitBox2<Fruit> fruitBox = new FruitBox2<Fruit>();
 		FruitBox2<Apple2> appleBox = new FruitBox2<Apple2>();
 		
 //		// Fruit2와 그 자손들
@@ -44,7 +44,7 @@ class Ex12_4 {
 	}  // main
 }
 
-class FruitBox2<T extends Fruit2> extends Box2<T> {}
+class FruitBox2<T extends Fruit> extends Box2<T> {}
 
 class Box2<T> {
 	ArrayList<T> list = new ArrayList<T>();

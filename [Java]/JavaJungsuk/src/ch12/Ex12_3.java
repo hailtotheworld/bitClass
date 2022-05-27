@@ -16,6 +16,18 @@ interface Eatable {}
 
 class Ex12_3 {
 	public static void main(String[] args) {
+		
+		
+		Box<String> bbStr = new Box();    // 지네릭타입참조변수로 원시타입객체가르키는게 가능하다.
+		Box bb = new Box<String>(); // 원시타입참조변수로 지네릭타입객체가르키는게 가능하다.
+		bb.add(new Integer(100));
+		
+		Box b = null;
+		Box<String> bStr = null;
+		
+		b = (Box)bStr; 			// Box<String> -> Box 가능하지만 경고. 바람직하지않다.
+		bStr = (Box<String>) b; // Box -> Box<String> 가능하지만 경고. 바람직하지않다.
+		
 		FruitBox<Fruit> fruitBox = new FruitBox<Fruit>();
 		FruitBox<Apple> appleBox = new FruitBox<Apple>();
 		FruitBox<Grape> grapeBox = new FruitBox<Grape>();
