@@ -1,6 +1,8 @@
 package ch12_2;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 class Fruit	{
 	String name;
@@ -15,9 +17,15 @@ class Fruit	{
 	
 }
 
-class Apple extends Fruit{
+class Apple extends Fruit implements Comparable<Object>{
 	Apple(String name, int weight) {
 		super(name, weight);
+	}
+
+	@Override
+	public int compareTo(Object o) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }
@@ -61,7 +69,7 @@ class FruitBoxEx4 {
 
 //		Collections.sort(appleBox.getList()); // 에러
 		Collections.sort(appleBox.getList(), new AppleComp());
-//		Collections.sort(appleBox.getList(), Collections.reverseOrder()); // 형변환오류발생
+		Collections.sort(appleBox.getList(), Collections.reverseOrder()); // 형변환오류발생
 		
 //		Collections.sort(appleBox.getList(), Collections.sort);
 		Collections.sort(grapeBox.getList(), new GrapeComp());

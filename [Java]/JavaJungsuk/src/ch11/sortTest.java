@@ -63,6 +63,7 @@ public class sortTest {
 		Collections.sort(list); // 오름차순정렬 [1, 2, 3, 4, 5]
 		System.out.println(list); 
 		Collections.sort(list, Collections.reverseOrder());  // 내림차순정렬 [5, 4, 3, 2, 1]
+		Collections.sort(new ArrayList<Integer>(), Collections.reverseOrder());  // 내림차순정렬 [5, 4, 3, 2, 1]
 		System.out.println(list);
 		
 		
@@ -75,6 +76,7 @@ public class sortTest {
 		pie1.add(new pie());
 		
 		Collections.sort(pie1);
+		Collections.sort(pie1, Collections.reverseOrder());
 		System.out.println(pie1);
 
 		

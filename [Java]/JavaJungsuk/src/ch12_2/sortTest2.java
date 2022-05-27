@@ -18,9 +18,10 @@ public class sortTest2 {
 		
 		ArrayList<tt> ttlist = new ArrayList<tt>();
 		Collections.addAll(ttlist, new tt(), new tt());
-		Collections.sort(ttlist);
+//		Collections.sort(ttlist);
+//		System.out.println(ttlist);
+		Collections.sort(ttlist,Collections.reverseOrder());
 		System.out.println(ttlist);
-		
 		
 		
 	}
@@ -29,12 +30,15 @@ public class sortTest2 {
 
 
 
-class jo<T> implements Comparable<T>{
+class jo<T> implements Comparable<T>
+{
 
-	@Override
 	public int compareTo(T o) {
 		// TODO Auto-generated method stub
 		return 0;
 	}}
 
-class tt extends jo{}
+class tt extends jo
+{}
+
+class jk {}
