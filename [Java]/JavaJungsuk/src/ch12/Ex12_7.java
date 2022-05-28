@@ -17,9 +17,10 @@ interface Testable {
 }
 
 class Ex12_7 {
+	@SuppressWarnings("deprecation")
 	public static void main(String[] args) {
-		Child c = new Child();
 		
+		Child c = new Child();
 		c.parentMethod(); // deprecate된 메서드 사용
 		
 		
