@@ -11,8 +11,8 @@ import java.lang.annotation.*;
 
 import org.junit.jupiter.api.Test;
 
-//@Deprecated
-//@SuppressWarnings("1111") // 유효하지 않은 애너테이션은 무시된다.
+@Deprecated
+@SuppressWarnings("1111") // 유효하지 않은 애너테이션은 무시된다.
 @TestInfo(testedBy="aaa", testTools = {"JUnit","AutoTester"}, testDate=@DateTime(yymmdd="160101",hhmmss="235959"))
 class Ex12_8 {
 	public static void main(String args[]) {
@@ -24,6 +24,7 @@ class Ex12_8 {
 		// Ex12_8의 Class객체를 얻는다.
 		Class<Ex12_8> cls = Ex12_8.class;
 
+//		TestInfo anno = cls.getAnnotation(TestInfo.class);
 		TestInfo anno = cls.getAnnotation(TestInfo.class);
 		System.out.println("anno.testedBy()="+anno.testedBy());
 		System.out.println("anno.testDate().yymmdd()=" +anno.testDate().yymmdd());
@@ -59,9 +60,7 @@ class Ex12_8 {
 
 enum TestType { FIRST, FINAL }
 
-class Product {
-	
-}
+
 
 
 
