@@ -58,12 +58,19 @@ enum TestType { FIRST, FINAL }
 
 
 
-@Target({TYPE, FIELD, METHOD, PARAMETER, CONSTRUCTOR, LOCAL_VARIABLE}) // TYPE: 클래스,인터페이스, FIELD: iv,cv 멤버변수, TYPE_USE: 참조변수
-@Retention(RetentionPolicy.RUNTIME)
-//@Retention(RetentionPolicy.SOURCE)
+//@Target({TYPE, FIELD, METHOD, PARAMETER, CONSTRUCTOR, LOCAL_VARIABLE}) // TYPE: 클래스,인터페이스, FIELD: iv,cv 멤버변수, TYPE_USE: 참조변수
+//@Retention(RetentionPolicy.RUNTIME) // 소스파일ㅇ,클래스파일ㅇ eg)@FunctionalInterface
+@Retention(RetentionPolicy.SOURCE) // 소스파일ㅇ,클래스파일X eg)@Override
+//@Documented // javadoc로 작성한 문서에 포함시키려면 @Documented를 붙인다.
+//@Inherited // 애너테이션을 자손 클래스에 상속하고자 할 때, @Inherited를 붙인다.
+@Repeatable(ExTests.class)
 @interface ExTest {
-	String value = "";
+	String value();
 	
+}
+
+@interface ExTests {
+	ExTest[] value();
 }
 
 
