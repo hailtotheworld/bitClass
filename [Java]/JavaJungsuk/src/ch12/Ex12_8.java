@@ -16,6 +16,11 @@ import org.junit.jupiter.api.Test;
 @TestInfo(testedBy="aaa", testTools = {"JUnit","AutoTester"}, testDate=@DateTime(yymmdd="160101",hhmmss="235959"))
 class Ex12_8 {
 	public static void main(String args[]) {
+		
+//		Product clazz = new Product().getClass().newInstance(); // 객체생성하고 getClass()메서드사용하기.
+//		Product clazz1 = Product.class.newInstance(); 		    // 클래스이름.class;
+//		Product clazz2 = Class.forName("Product").newInstance(); // Class.forName("클래스이름");
+		
 		// Ex12_8의 Class객체를 얻는다.
 		Class<Ex12_8> cls = Ex12_8.class;
 
@@ -54,7 +59,9 @@ class Ex12_8 {
 
 enum TestType { FIRST, FINAL }
 
-
+class Product {
+	
+}
 
 
 
