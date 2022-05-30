@@ -52,7 +52,7 @@ public class Ex6Program_interrupt {
 	}
 
 	private static void print() {
-		for (int i = 0; i < 1000000; i++) {
+		for (int i = 0; i < 100; i++) {
 			Thread th = Thread.currentThread();
 
 //			try {
