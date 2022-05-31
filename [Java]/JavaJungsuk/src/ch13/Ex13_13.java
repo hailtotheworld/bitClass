@@ -1,21 +1,21 @@
 package ch13;
 
-class Ex13_12 {
+class Ex13_13 {
 	public static void main(String args[]) {
-		Runnable r = new RunnableEx12();
-		new Thread(r).start(); // ThreadGroup에 의해 참조되므로 gc대상이 아니다.
-		new Thread(r).start(); // ThreadGroup에 의해 참조되므로 gc대상이 아니다.
+		Runnable r = new RunnableEx13();
+		new Thread(r).start();
+		new Thread(r).start();
 	}
 }
 
-class Account {
-	private int balance = 1000;
+class Account2 {
+	private int balance = 1000; // private으로 해야 동기화가 의미가 있다.
 
-	public  int getBalance() {
+	public synchronized int getBalance() { // 읽고 있는 동안 값이 바뀌면 안되니까.
 		return balance;
 	}
 
-	public void withdraw(int money){
+	public synchronized void withdraw(int money){ // synchronized로 메서드를 동기화
 		if(balance >= money) {
 			try { Thread.sleep(1000);} catch(InterruptedException e) {}
 			balance -= money;
@@ -23,8 +23,8 @@ class Account {
 	} // withdraw
 }
 
-class RunnableEx12 implements Runnable {
-	Account acc = new Account();
+class RunnableEx13 implements Runnable {
+	Account2 acc = new Account2();
 
 	public void run() {
 		while(acc.getBalance() > 0) {
