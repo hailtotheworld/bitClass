@@ -15,9 +15,9 @@ class Ex11_13 {
 //	        this(new TreeMap<>(comparator));
 //	    }
 
-		set.add(new Test());
-		set.add(new Test());
-		set.add(new Test());
+		set.add(new Test1());
+		set.add(new Test1());
+		set.add(new Test1());
 
 		System.out.println(set);
 	}
@@ -27,7 +27,7 @@ class Ex11_13 {
 // eg) Integer클래스는 comparable을 구현하고 있지만, comparator을 구현하지는 않는다.
 //     하지만 comparator 비교기준을 사용할 수 있다.
 
-class Test<T> implements Comparable<T>, Comparator<T>{
+class Test1<T> implements Comparable<T>, Comparator<T>{
 	@Override
 	public int compareTo(T o) {
 		// TODO Auto-generated method stub
