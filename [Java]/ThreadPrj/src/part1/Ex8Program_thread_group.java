@@ -39,15 +39,17 @@ public class Ex8Program_thread_group {
 		th.setName("Main3");
 //		print();
 		
+//		thGroup.interrupt();
+		
 		try {
-			Thread.sleep(20000);
+			Thread.sleep(1000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-//		thGroup.list();
 		thGroup.interrupt();
+//		thGroup.list();
 		
 		
 		System.out.println("============Exit============");
@@ -62,13 +64,13 @@ public class Ex8Program_thread_group {
 				return;
 			}
 
-//			try {
-//				Thread.sleep(20);
-//			} catch (InterruptedException e) {
-////				e.printStackTrace();
-//				System.err.println("자다가 깨서 스레드를 종료함");
-//				break;
-//			}
+			try {
+				Thread.sleep(20);
+			} catch (InterruptedException e) {
+//				e.printStackTrace();
+				System.err.println("자다가 깨서 스레드를 종료함");
+				break;
+			}
 
 			if (th.getName().equals("Main3")) 
 				System.out.printf("<%s[%d]: %d>\n", th.getName(), th.getId(), i + 1);
