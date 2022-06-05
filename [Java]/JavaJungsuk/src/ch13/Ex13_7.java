@@ -5,7 +5,7 @@ class Ex13_7 implements Runnable  {
 
 	public static void main(String[] args) {
 		Thread t = new Thread(new Ex13_7()); // Thread(Runnable r)
-		t.setDaemon(true);		// 이 부분이 없으면 종료되지 않는다.
+//		t.setDaemon(true);		// 이 부분이 없으면 종료되지 않는다.
 		t.start();
 
 		for(int i=1; i <= 10; i++) {

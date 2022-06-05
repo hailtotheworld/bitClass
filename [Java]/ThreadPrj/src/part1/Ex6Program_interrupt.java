@@ -55,12 +55,12 @@ public class Ex6Program_interrupt {
 		for (int i = 0; i < 100; i++) {
 			Thread th = Thread.currentThread();
 
-//			try {
-//				Thread.sleep(20);
-//			} catch (InterruptedException e) {
-//				// TODO Auto-generated catch block
+			try {
+				Thread.sleep(200000000);
+			} catch (InterruptedException e) {
 //				e.printStackTrace();
-//			}
+				System.out.println("누가날깨운거야..?");
+			}
 			
 			if(th.isInterrupted()) {
 				System.out.println("---------Th Interrupted------");
