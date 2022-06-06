@@ -34,6 +34,7 @@ public class CharList2 {
 			}
 
 		
+		
 		if(indexLock.tryLock()) {
 //		indexLock.lock();
 //		synchronized (indexLock) {			
@@ -48,6 +49,8 @@ public class CharList2 {
 					th.getName(), th.getId());
 			
 		}
+		
+		
 
 
 
