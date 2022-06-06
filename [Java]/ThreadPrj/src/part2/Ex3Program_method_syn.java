@@ -9,7 +9,8 @@ public class Ex3Program_method_syn {
 		Runnable subMain = new Runnable() {
 			@Override
 			public void run() {
-				list.printNext();
+				for(int i=0; i<80;i++)
+					list.printNext();
 			}
 		};
 
