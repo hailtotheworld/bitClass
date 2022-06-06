@@ -3,6 +3,7 @@ package part2;
 public class CharList {
 	private char[] list;
 	private int index;
+	private Object indexLock = new Object();
 
 	public CharList() {
 		list = new char[240];
@@ -29,7 +30,7 @@ public class CharList {
 			}
 
 
-		synchronized (this) {
+		synchronized (indexLock) {
 			
 			System.out.printf("%s[%d]: index:%d, char:%c\n",
 					th.getName(), th.getId(), index, list[index]);
