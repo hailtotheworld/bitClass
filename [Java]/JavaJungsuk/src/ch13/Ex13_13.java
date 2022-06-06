@@ -15,6 +15,7 @@ class Account2 {
 		return balance;
 	}
 
+	
 	public synchronized void withdraw(int money){ // synchronized로 메서드를 동기화
 		if(balance >= money) {
 			try { Thread.sleep(1000);} catch(InterruptedException e) {}
