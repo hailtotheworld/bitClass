@@ -12,7 +12,9 @@ public class CharList {
 		index = 0;
 	}
 
-	public synchronized void printNext() {
+	
+	
+	public void printNext() {
 		Thread th = Thread.currentThread();
 
 		char ch = list[index];
@@ -27,11 +29,13 @@ public class CharList {
 			}
 
 
-
-		System.out.printf("%s[%d]: index:%d, char:%c\n",
-				th.getName(), th.getId(), index, list[index]);
-		
-		index++;
+		synchronized (this) {
+			
+			System.out.printf("%s[%d]: index:%d, char:%c\n",
+					th.getName(), th.getId(), index, list[index]);
+			
+			index++;
+		}
 
 
 
