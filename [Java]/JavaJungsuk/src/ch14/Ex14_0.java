@@ -10,14 +10,14 @@ public class Ex14_0 {
 
 //		Object obj = (a, b) -> a > b ? a:b; // 람다식. 익명객체
 
-		MyFunction f = new MyFunction() {
+		MyFunction1 f = new MyFunction1() {
 			public int max(int a, int b) {
 				return a > b ? a : b;
 			}
 		};
 		
 
-		MyFunction f2 = (a, b) -> a > b ? a : b;
+		MyFunction1 f2 = (a, b) -> a > b ? a : b;
 
 		int value = f.max(3, 5); // Object타입의 리모콘 obj에는 max()라는 메서드가 없어서 에러.
 		System.out.println("value=" + value);
@@ -37,7 +37,7 @@ public class Ex14_0 {
 }
 
 @FunctionalInterface // @FunctionalInterface을 붙혀야 추상메서드가 2개면 에러로 알려준다.
-interface MyFunction {
+interface MyFunction1 {
 	public abstract int max(int a, int b);
 //	public abstract int max1 (int a, int b);
 }
