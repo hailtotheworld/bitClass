@@ -20,3 +20,11 @@ public class Ex14_0 {
 	}
 
 }
+
+
+
+@FunctionalInterface // @FunctionalInterface을 붙혀야 추상메서드가 2개면 에러로 알려준다.
+interface MyFunction {
+	public abstract int max (int a, int b);
+//	public abstract int max1 (int a, int b);
+}
