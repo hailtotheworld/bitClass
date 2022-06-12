@@ -1,8 +1,7 @@
 package ch14_2_Stream;
 
-import java.util.Arrays;
+import java.util.Random;
 import java.util.stream.IntStream;
-import java.util.stream.Stream;
 
 public class Ex14_0 {
 	public static void main(String[] args) {
@@ -19,36 +18,60 @@ public class Ex14_0 {
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		
-		Stream<String> strString = Stream.of("a","b","c");
-		Stream<String> strString2 = Stream.of(new String[] {"a","b","c","d"});
-		strString.forEach(System.out::println);
-		strString2.forEach(System.out::println);
+//		Stream<String> strString = Stream.of("a","b","c");
+//		Stream<String> strString2 = Stream.of(new String[] {"a","b","c","d"});
+//		strString.forEach(System.out::println);
+//		strString2.forEach(System.out::println);
+//		
+//		String[] strArr = new String[] {"e","f","g"};
+//		Stream<String> strString3 = Stream.of(strArr);
+//		
+//		Stream<String> strString4 = Arrays.stream(strArr);
+//		
+//		int[] intArr = {1,2,3,4,5};
+//		IntStream intStream = Arrays.stream(intArr);
+////		intStream.forEach(System.out::print);
+////		System.out.println("count="+intStream.count());
+////		System.out.println("count="+intStream.sum());
+//		System.out.println("count="+intStream.average());
+//		
+//		Integer[] intArr2 = new Integer[] {6,7,8,9,10};
+//		Stream<Integer> intStream2 = Arrays.stream(intArr2);
+//		intStream2.forEach(System.out::print);
+
 		
-		String[] strArr = new String[] {"e","f","g"};
-		Stream<String> strString3 = Stream.of(strArr);
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		
-		Stream<String> strString4 = Arrays.stream(strArr);
+//		IntStream intStream = new Random().ints(); // 무한스트림
+//		intStream
+//		.limit(5) // 5개만 자르기
+//		.forEach(System.out::println);
+//		
+//		IntStream intStream2 = new Random().ints(5); 
+//		intStream2
+//		.forEach(System.out::println);
+//		
+//		IntStream intStream3 = new Random().ints(1,46); 
+//		intStream3
+//		.limit(6)
+//		.distinct()
+//		.forEach(System.out::println);
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		
-		int[] intArr = {1,2,3,4,5};
-		IntStream intStream = Arrays.stream(intArr);
-//		intStream.forEach(System.out::print);
-//		System.out.println("count="+intStream.count());
-//		System.out.println("count="+intStream.sum());
-		System.out.println("count="+intStream.average());
+//		IntStream intStream = IntStream.range(1, 5);
+//		intStream.forEach(System.out::println);
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 		
-		Integer[] intArr2 = new Integer[] {6,7,8,9,10};
-		Stream<Integer> intStream2 = Arrays.stream(intArr2);
-		intStream2.forEach(System.out::print);
-		
-		
-		IntStream intArrd2 = Arrays.stream({1,2,3,4,5});
 
 	
 	
 	
 	
 	
-	
+	 
 	}
 
 }
