@@ -5,7 +5,7 @@ import java.util.function.Function;
 public class method_reference {
 	public static void main(String[] args) {
 //		Function<String, Integer> f = (String s) -> Integer.parseInt(s);
-//		Function<String, Integer> f =  클래스이름::메서드이름;
+//		Function<String, Integer> f = 클래스이름::메서드이름;
 		Function<String, Integer> f = Integer::parseInt; // 메서드참조
 
 		
