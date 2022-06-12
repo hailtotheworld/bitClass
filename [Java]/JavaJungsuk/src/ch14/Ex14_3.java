@@ -34,5 +34,7 @@ class Ex14_3 {
 		boolean result = Predicate.isEqual(str1).test(str2);  
 		// boolean result = str1.equals(str2);
 		System.out.println(result);
+		
+		
 	}
 }
