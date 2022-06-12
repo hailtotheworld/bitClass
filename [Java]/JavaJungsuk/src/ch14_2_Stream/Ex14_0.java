@@ -1,5 +1,7 @@
 package ch14_2_Stream;
 
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.stream.Stream;
 
 public class Ex14_0 {
@@ -71,6 +73,8 @@ public class Ex14_0 {
 		// generate(Supplier s): 주기만 하는것 입력x, 출력o
 		Stream<Integer> oneStream = Stream.generate(()->1);
 		oneStream.limit(10).forEach(System.out::println);
+		
+		
 	
 	
 	
