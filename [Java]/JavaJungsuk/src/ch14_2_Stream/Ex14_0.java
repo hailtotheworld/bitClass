@@ -39,6 +39,9 @@ public class Ex14_0 {
 		Integer[] intArr2 = new Integer[] {6,7,8,9,10};
 		Stream<Integer> intStream2 = Arrays.stream(intArr2);
 		intStream2.forEach(System.out::print);
+		
+		
+		IntStream intArrd2 = Arrays.stream({1,2,3,4,5});
 
 	
 	
