@@ -1,7 +1,6 @@
 package ch14_2_Stream;
 
-import java.util.Random;
-import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class Ex14_0 {
 	public static void main(String[] args) {
@@ -64,9 +63,14 @@ public class Ex14_0 {
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-		
+		// iterate(T seed, UnaryOperator f)
+		//          초기값   단항연산자. 하나를 넣으면 결과가 하나 나오는거야
+		Stream<Integer> intStream = Stream.iterate(2, n->n*2); // 무한스트림
+		intStream.limit(10).forEach(i-> System.out.print(i+" "));
 
-	
+		// generate(Supplier s): 주기만 하는것 입력x, 출력o
+		Stream<Integer> oneStream = Stream.generate(()->1);
+		oneStream.limit(10).forEach(System.out::println);
 	
 	
 	
