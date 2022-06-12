@@ -1,4 +1,4 @@
-package ch14;
+package ch14_FP;
 
 import java.util.Arrays;
 import java.util.function.Function;

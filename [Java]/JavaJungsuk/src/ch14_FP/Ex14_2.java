@@ -1,4 +1,4 @@
-package ch14;
+package ch14_FP;
 
 import java.util.function.*;
 import java.util.*;
