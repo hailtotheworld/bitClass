@@ -14,15 +14,19 @@ class Ex14_6 {
 		// map()으로 Stream<File>을 Stream<String>으로 변환
 		Stream<String> filenameStream = fileStream.map(File::getName);
 		filenameStream.forEach(System.out::println); // 모든 파일의 이름을 출력
+		
+		System.out.println();
 
 		fileStream = Stream.of(fileArr);  // 스트림을 다시 생성
 
 		fileStream.map(File::getName)     // Stream<File> → Stream<String>
 			  .filter(s -> s.indexOf('.')!=-1)   // 확장자가 없는 것은 제외
+			  .peek(s->System.out.printf("fileName=%s%n",s))
 			  .map(s -> s.substring(s.indexOf('.')+1)) // 확장자만 추출
+			  .peek(s->System.out.printf("extension=%s%n",s))
 			  .map(String::toUpperCase)     // 모두 대문자로 변환
 			  .distinct()                   //  중복 제거
-			  .forEach(System.out::print);  // JAVABAKTXT	
+			  .forEach(System.out::println);  // JAVABAKTXT	
 
 		System.out.println();
 	}
