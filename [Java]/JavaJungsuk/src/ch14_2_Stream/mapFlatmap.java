@@ -5,7 +5,7 @@ import java.io.File;
 import java.util.Arrays;
 import java.util.stream.Stream;
 
-public class test {
+public class mapFlatmap {
 	public static void main(String[] args) {
 
 		File[] farr = {new File("123.txt"),new File("4123.txt"),new File("1723.txt")};
