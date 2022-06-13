@@ -26,13 +26,14 @@ class Ex14_7 {
 			"Believe or not It is true",
 			"Do or do not There is no try",
 		};
+		
+		Stream<String> ss = Arrays.stream(lineArr);
+		
+		ss
+//		.map((String s)->s.split(" "))
+		.flatMap((String s)->Stream.of(s.split(" ")))
+		.forEach(System.out::println);
 
-		Stream<String> lineStream = Arrays.stream(lineArr);
-		lineStream.flatMap(line -> Stream.of(line.split(" +")))
-			      .map(String::toLowerCase)
-			      .distinct()
-			      .sorted()
-			      .forEach(System.out::println);
-		System.out.println();
+
 	}
 }
