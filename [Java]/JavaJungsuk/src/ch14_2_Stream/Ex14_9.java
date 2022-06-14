@@ -47,6 +47,7 @@ class Ex14_9 {
 		System.out.println("sum="+sum);
 		System.out.println("max="+ max.getAsInt());
 		System.out.println("min="+ min.getAsInt());
+	
 	}
 }
 
