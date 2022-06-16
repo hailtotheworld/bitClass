@@ -1,10 +1,13 @@
 package ch14_2_Stream;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class collectTest {
@@ -36,29 +39,45 @@ public class collectTest {
 		List<String> list = sts.map(Student11::getName).collect(Collectors.toList());
 		list.forEach(System.out::println);
 		
-		System.out.println();
+		System.out.println();//////////////////////////////////////////////////////////////////////////////////
 		
 		Stream<Student11> sts1 = Stream.of(stuArr);
 		
 		Set<String> set = sts1.map(Student11::getName).collect(Collectors.toSet());
 		set.forEach(System.out::println);
 		
-		System.out.println();
+		System.out.println();//////////////////////////////////////////////////////////////////////////////////
 
 		Stream<Student11> sts3 = Stream.of(stuArr);
 
 		ArrayList<String> alist = sts3.map(Student11::getName).collect(Collectors.toCollection((ArrayList::new)));
 		alist.forEach(System.out::println);
 		
-		System.out.println();
+		System.out.println();//////////////////////////////////////////////////////////////////////////////////
 		
-		Stream<Student11> sts7 = Stream.of(stuArr);
-		Map<String,Student11> df = sts7.collect(Collectors.toMap(p->p.getName, p->p));
-		System.out.println(df);
+		Stream<Student11> sts11 = Stream.of(stuArr);
+
+		Object[] ss = sts11.toArray();
+		System.out.println(ss[0]);
+		
+		System.out.println();//////////////////////////////////////////////////////////////////////////////////
 
 		
-
+		Stream<Student11> sts17 = Stream.of(stuArr);
 		
+		long count = sts17.collect(Collectors.counting());
+		System.out.println(count);
+		
+		System.out.println();//////////////////////////////////////////////////////////////////////////////////
+
+		Stream<Student11> sts18 = Stream.of(stuArr);
+		int tt = sts18.collect(Collectors.summingInt(Student11::getScore));
+		System.out.println(tt);
+		
+		System.out.println();//////////////////////////////////////////////////////////////////////////////////
+		Stream<Student11> sts19 = Stream.of(stuArr);
+		int sum = sts19.mapToInt(Student11::getScore).sum();
+		System.out.println(sum);
 		
 	}
 
