@@ -1,6 +1,7 @@
 package ch14_2_Stream;
 
 import java.util.Optional;
+import java.util.stream.Stream;
 
 public class OptTest {
 	public static void main(String[] args) {
@@ -40,6 +41,8 @@ public class OptTest {
 		System.out.println("str="+str);
 
 		
+		Stream<Integer> st = Stream.iterate(2, (i)->i*2);
+		st.limit(5).forEach(System.out::println);
 		
 		
 	}
