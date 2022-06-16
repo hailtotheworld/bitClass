@@ -19,6 +19,8 @@ class Ex14_5 {
 						new Student("나자바", 3, 290),
 						new Student("감자바", 3, 180)
 					);
+		
+		
 
 		studentStream.sorted(
 				Comparator.comparing(Student::getBan)
