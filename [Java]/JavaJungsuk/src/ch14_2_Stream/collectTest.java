@@ -2,6 +2,7 @@ package ch14_2_Stream;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -48,6 +49,12 @@ public class collectTest {
 
 		ArrayList<String> alist = sts3.map(Student11::getName).collect(Collectors.toCollection((ArrayList::new)));
 		alist.forEach(System.out::println);
+		
+		System.out.println();
+		
+		Stream<Student11> sts7 = Stream.of(stuArr);
+		Map<String,Student11> df = sts7.collect(Collectors.toMap(p->p.getName, p->p));
+		System.out.println(df);
 
 		
 
