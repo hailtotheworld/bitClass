@@ -3,6 +3,7 @@ package ch14_2_Stream;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -40,7 +41,7 @@ public class collectTest {
 		System.out.println();//////////////////////////////////////////////////////////////////////////////////
 		
 		Stream<Student11> sts1 = Stream.of(stuArr);
-		
+		 
 		Set<String> set = sts1.map(Student11::getName).collect(Collectors.toSet());
 		set.forEach(System.out::println);
 		
@@ -85,8 +86,32 @@ public class collectTest {
 
 		System.out.println();//////////////////////////////////////////////////////////////////////////////////
 		Stream<Student11> sts22 = Stream.of(stuArr);
-		String names = sts22.collect(Collectors.joining(","));
+		String names = sts22.map(Student11::getName).collect(Collectors.joining(",","[","]"));
 		System.out.println(names);
+		
+		System.out.println();//////////////////////////////////////////////////////////////////////////////////
+
+		 Map<Boolean, List<Student11>> mf = Stream.of(stuArr).collect(Collectors.partitioningBy(Student11::isMale));
+		 System.out.println(mf.get(false));
+		 
+		System.out.println();//////////////////////////////////////////////////////////////////////////////////
+
+		// 성별 1등
+		
+		Map<Boolean, Object> no1 = Stream.of(stuArr).collect(Collectors.partitioningBy(Student11::isMale, Collectors.collectingAndThen(Collectors.maxBy(Comparator.comparingInt(Student11::getScore)), Optional::get) ));
+		
+		System.out.println(no1.get(true));
+		
+		System.out.println();//////////////////////////////////////////////////////////////////////////////////
+
+		// 100점 미만구해봐
+		
+		Map<Boolean, List<Student11>> fail = Stream.of(stuArr).collect(Collectors.partitioningBy(s->s.getScore()<=100));
+
+		System.out.println(fail.get(true));
+		
+		System.out.println();//////////////////////////////////////////////////////////////////////////////////
+
 
 		
 	}
