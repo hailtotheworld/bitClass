@@ -83,6 +83,11 @@ public class collectTest {
 		Optional<Student11> topStudent = sts20.collect(Collectors.maxBy(Comparator.comparingInt(Student11::getScore)));
 		System.out.println(topStudent);
 
+		System.out.println();//////////////////////////////////////////////////////////////////////////////////
+		Stream<Student11> sts22 = Stream.of(stuArr);
+		String names = sts22.collect(Collectors.joining(","));
+		System.out.println(names);
+
 		
 	}
 
