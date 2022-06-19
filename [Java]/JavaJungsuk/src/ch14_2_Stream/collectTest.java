@@ -128,7 +128,48 @@ public class collectTest {
 		
 		TreeSet<Student11.Level> ts = new TreeSet<>(sco.keySet());
 		
+		
+		for(Student11.Level key: ts) {
+			System.out.println(key);
+		for(Student11 gap:sco.get(key)) {
+			System.out.println(gap);
+		}
+			System.out.println();
+		}
+		
+		System.out.println();//////////////////////////////////////////////////////////////////////////////////
 
+		// 성적별 학생수
+		Map<Student11.Level, Long> soo = Stream.of(stuArr).collect(Collectors.groupingBy(s-> {
+			if(s.getScore()>=200) return Student11.Level.HIGH;
+			else if (s.getScore() >= 100) return Student11.Level.MID;
+			else return Student11.Level.LOW;
+		}, Collectors.counting())  );
+		
+		for(Student11.Level key : soo.keySet()) {
+			System.out.printf("[%s]: %d명%n", key, soo.get(key));
+		}
+		
+		System.out.println();//////////////////////////////////////////////////////////////////////////////////
+
+		// 학년별반별1등
+		
+		Map<Integer, Map<Integer, Object>> n1 = Stream.of(stuArr).collect(Collectors.groupingBy(Student11::getHak, Collectors.groupingBy(Student11::getBan,
+				
+				Collectors.collectingAndThen(Collectors.maxBy(Comparator.comparingInt(Student11::getScore)), Optional::get)
+		
+				
+				
+				)));
+		
+		for(Map<Integer, Object> ban7 : n1.values()) {
+			for(Object s : ban7.values()) {
+				System.out.println(s);
+			}
+			
+		}
+		
+		
 		
 		
 

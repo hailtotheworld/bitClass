@@ -101,6 +101,7 @@ class Ex14_11 {
 					else if(s.getScore() >= 100) return Student3.Level.MID;
 					else                         return Student3.Level.LOW;
 				}, Collectors.counting()));
+		
 		for(Student3.Level key : stuCntByLevel.keySet())
 			System.out.printf("[%s] - %d명, ", key, stuCntByLevel.get(key));
 		System.out.println();
