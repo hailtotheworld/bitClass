@@ -1,13 +1,11 @@
 package ch14_2_Stream;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
+import java.util.Comparator;
 import java.util.List;
-import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class collectTest {
@@ -31,7 +29,7 @@ public class collectTest {
 				new Student11("안지미", false, 2, 2,  50),	
 				new Student11("황지미", false, 2, 3, 100),	
 				new Student11("강지미", false, 2, 3, 150),	
-				new Student11("이자바", true,  2, 3, 200)	
+				new Student11("이자바", true,  2, 3, 310)	
 			};
 		
 		Stream<Student11> sts = Stream.of(stuArr);
@@ -78,6 +76,13 @@ public class collectTest {
 		Stream<Student11> sts19 = Stream.of(stuArr);
 		int sum = sts19.mapToInt(Student11::getScore).sum();
 		System.out.println(sum);
+		
+		System.out.println();//////////////////////////////////////////////////////////////////////////////////
+		
+		Stream<Student11> sts20 = Stream.of(stuArr);
+		Optional<Student11> topStudent = sts20.collect(Collectors.maxBy(Comparator.comparingInt(Student11::getScore)));
+		System.out.println(topStudent);
+
 		
 	}
 
