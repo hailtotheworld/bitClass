@@ -152,22 +152,21 @@ public class collectTest {
 		
 		System.out.println();//////////////////////////////////////////////////////////////////////////////////
 
-		// 학년별반별1등
+		// 학년별반별
+
+		Map<Integer, Map<Integer, List<Student11>>> hac =
+		Stream.of(stuArr).collect(Collectors.groupingBy(Student11::getHak, Collectors.groupingBy(Student11::getHak)));
 		
-		Map<Integer, Map<Integer, Object>> n1 = Stream.of(stuArr).collect(Collectors.groupingBy(Student11::getHak, Collectors.groupingBy(Student11::getBan,
-				
-				Collectors.collectingAndThen(Collectors.maxBy(Comparator.comparingInt(Student11::getScore)), Optional::get)
-		
-				
-				
-				)));
-		
-		for(Map<Integer, Object> ban7 : n1.values()) {
-			for(Object s : ban7.values()) {
-				System.out.println(s);
+		for(Map<Integer, List<Student11>> hak:hac.values()) {
+			for(List<Student11> kk:hak.values()) {
+				for(Student11 s : kk) {
+					System.out.println(s);
+				}
 			}
+			System.out.println();
 			
 		}
+
 		
 		
 		

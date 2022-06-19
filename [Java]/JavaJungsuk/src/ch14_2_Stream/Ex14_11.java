@@ -62,6 +62,8 @@ class Ex14_11 {
 			new Student3("이자바", true,  2, 3, 200)	
 		};
 
+		///////////////////////////////////////////////////////////////////////////////////
+		
 		System.out.printf("1. 단순그룹화(반별로 그룹화)%n");
 		Map<Integer, List<Student3>> stuByBan = Stream.of(stuArr)
 				.collect(Collectors.groupingBy(Student3::getBan));
@@ -105,14 +107,7 @@ class Ex14_11 {
 		for(Student3.Level key : stuCntByLevel.keySet())
 			System.out.printf("[%s] - %d명, ", key, stuCntByLevel.get(key));
 		System.out.println();
-/*
-		for(List<Student3> level : stuByLevel.values()) {
-			System.out.println();
-			for(Student3 s : level) {
-				System.out.println(s);
-			}
-		}
-*/
+
 		///////////////////////////////////////////////////////////////////////////////////
 		
 		System.out.printf("%n4. 다중그룹화(학년별, 반별)");
