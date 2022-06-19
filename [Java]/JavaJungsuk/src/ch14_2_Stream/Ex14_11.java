@@ -1,10 +1,13 @@
 package ch14_2_Stream;
 
-import java.util.*;
-import java.util.function.*;
-import java.util.stream.*;
-import static java.util.stream.Collectors.*;
-import static java.util.Comparator.*;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+import java.util.Set;
+import java.util.TreeSet;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 class Student3 {
 	String name;
@@ -61,17 +64,19 @@ class Ex14_11 {
 
 		System.out.printf("1. 단순그룹화(반별로 그룹화)%n");
 		Map<Integer, List<Student3>> stuByBan = Stream.of(stuArr)
-				.collect(groupingBy(Student3::getBan));
+				.collect(Collectors.groupingBy(Student3::getBan));
 
 		for(List<Student3> ban : stuByBan.values()) {
 			for(Student3 s : ban) {
 				System.out.println(s);
 			}
 		}
+		
+		///////////////////////////////////////////////////////////////////////////////////
 
 		System.out.printf("%n2. 단순그룹화(성적별로 그룹화)%n");
 		Map<Student3.Level, List<Student3>> stuByLevel = Stream.of(stuArr)
-				.collect(groupingBy(s-> {
+				.collect(Collectors.groupingBy(s-> {
 						 if(s.getScore() >= 200) return Student3.Level.HIGH;
 					else if(s.getScore() >= 100) return Student3.Level.MID;
 					else                         return Student3.Level.LOW;
@@ -86,14 +91,16 @@ class Ex14_11 {
 				System.out.println(s);
 			System.out.println();
 		}
+		
+		///////////////////////////////////////////////////////////////////////////////////
 
 		System.out.printf("%n3. 단순그룹화 + 통계(성적별 학생수)%n");
 		Map<Student3.Level, Long> stuCntByLevel = Stream.of(stuArr)
-				.collect(groupingBy(s-> {
+				.collect(Collectors.groupingBy(s-> {
 					     if(s.getScore() >= 200) return Student3.Level.HIGH;
 					else if(s.getScore() >= 100) return Student3.Level.MID;
 					else                         return Student3.Level.LOW;
-				}, counting()));
+				}, Collectors.counting()));
 		for(Student3.Level key : stuCntByLevel.keySet())
 			System.out.printf("[%s] - %d명, ", key, stuCntByLevel.get(key));
 		System.out.println();
@@ -105,11 +112,13 @@ class Ex14_11 {
 			}
 		}
 */
+		///////////////////////////////////////////////////////////////////////////////////
+		
 		System.out.printf("%n4. 다중그룹화(학년별, 반별)");
 		Map<Integer, Map<Integer, List<Student3>>> stuByHakAndBan =
           Stream.of(stuArr)
-				.collect(groupingBy(Student3::getHak,
-						 groupingBy(Student3::getBan)
+				.collect(Collectors.groupingBy(Student3::getHak,
+						Collectors.groupingBy(Student3::getBan)
 				));
 
 		for(Map<Integer, List<Student3>> hak : stuByHakAndBan.values()) {
@@ -120,13 +129,15 @@ class Ex14_11 {
 			}
 		}
 
+		///////////////////////////////////////////////////////////////////////////////////
+		
 		System.out.printf("%n5. 다중그룹화 + 통계(학년별, 반별 1등)%n");
 		Map<Integer, Map<Integer, Student3>> topStuByHakAndBan =
           Stream.of(stuArr)
-				.collect(groupingBy(Student3::getHak,
-						 groupingBy(Student3::getBan,
-						     collectingAndThen(
-						         maxBy(comparingInt(Student3::getScore))
+				.collect(Collectors.groupingBy(Student3::getHak,
+						Collectors.groupingBy(Student3::getBan,
+								Collectors.collectingAndThen(
+										Collectors.maxBy(Comparator.comparingInt(Student3::getScore))
 						         , Optional::get
 						     )
 						 )
@@ -136,15 +147,16 @@ class Ex14_11 {
 			for(Student3 s : ban.values())
 				System.out.println(s);
 
-// 뒷 페이지에 계속됩니다.
+		///////////////////////////////////////////////////////////////////////////////////
+		
 		System.out.printf("%n6. 다중그룹화 + 통계(학년별, 반별 성적그룹)%n");
 		Map<String, Set<Student3.Level>> stuByScoreGroup = Stream.of(stuArr)
-			.collect(groupingBy(s-> s.getHak() + "-" + s.getBan(),
-					mapping(s-> {
+			.collect(Collectors.groupingBy(s-> s.getHak() + "-" + s.getBan(),
+					Collectors.mapping(s-> {
 						 if(s.getScore() >= 200) return Student3.Level.HIGH;
 					else if(s.getScore() >= 100) return Student3.Level.MID;
 						 else                    return Student3.Level.LOW;
-					} , toSet())
+					} , Collectors.toSet())
 			));
 
 		Set<String> keySet2 = stuByScoreGroup.keySet();
