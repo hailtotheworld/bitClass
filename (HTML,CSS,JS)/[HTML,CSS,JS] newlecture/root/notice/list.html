@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
-    <!-- <link href="../css/reset.css" type="text/css" rel="stylesheet"> -->
-    <link href="../css/style.css" rel="stylesheet" type="text/css">
+
 </head>
 <body>
     <a href="../index.html">홈</a>
@@ -16,219 +15,81 @@
 
 
     <!-- 제목,목록,문장,표,폼 -->
+
+    <h1>뉴렉처 온라인</h1>
+
+    <ul>
+        <li>학습가이드</li>
+        <li>강좌선택</li>
+        <li>AnswerIs</li>
+    </ul>
+
+    <form>
+      <fieldset>
+        <label>과정검색<input type="search"></label>
+        <input type="image" src="../image/search-icon.png" width="15">
+      </fieldset>
+    </form>
     
-    <!----- header box ------------------------------------------------------------------------------------>
-    <header id="header"> 
-        <div class="content-box">
-            <!-- <h1><a href="../index.html">뉴렉처 온라인</a></h1>
-            <section> 
-                <h1 class="g1">서두</h1> 
 
-                <nav id="main-menu"> 
-                    <h1>메인메뉴</h1>
-                    <ul>
-                        <li><a href="a.html" class="g1">학습가이드</a></li>
-                        <li><a href="" id="name1">강좌선택</a></li> 
-                        <li><a href="">AnswerIs</a></li> 
-                    </ul>
-                </nav>
+    <hr>
 
-                <section>
-                    <h1>강좌검색폼</h1>
-                    <form>
-                        <fieldset>
-                            <legend>검색입력필드</legend>
-                            <label>과정검색</label>
-                            <input type="text">
-                            <input type="submit"value="검색">
-                        </fieldset>
-                    </form>
-                </section>
 
-                <nav id="member-menu">
-                    <h1>회원메뉴</h1>
-                    <ul>
-                        <li class="first">
-                            <a href="../index.html">HOME</a>
-                            <ul>
-                                <li class="first">서브메뉴1</li>
-                                <li>서브메뉴2</li>
-                            </ul>
-                        </li>
-                        <li class="aa"><a href="../member/login.html" class="first">로그인</a></li>
-                        <li><a href="../member/signup-agree.html">회원가입</a></li>
-                    </ul>
-                </nav>   
 
-                <nav>
-                    <h1>바로가기메뉴</h1>
-                    <ul>
-                        <li><a href="">마이페이지</a></li>
-                        <li><a href="list.html">고객센터</a></li>
-                    </ul>
-                </nav>
-            </section> -->
-        </div>
-    </header>
-
-    <!----- visual box ------------------------------------------------------------------------------------>
-    <div id="visual">
-        <div class="content-box">
-
-        </div>
-    </div>
-
-    <!----- body box ------------------------------------------------------------------------------------>
-    <div id="body">
-        <div class="content-box">
-            <aside id="aside">
-            <!-- <h1>고객센터</h1>
-                <nav>
-                    <h1>고객센터메뉴</h1>
-                    <ul>
-                        <li><a href="">공지사항</a></li>
-                        <li><a href="">자주하는 질문</a></li>
-                        <li><a href="">수강문의</a></li>
-                        <li><a href="">이벤트</a></li>
-                    </ul>
-                </nav>
-
-                <nav>
-                    <h1>협력업체</h1>
-                    <ul>
-                        <li><a href="">노트펍스</a></li>
-                        <li><a href="">나무랩연구소</a></li>
-                    </ul>
-                </nav> -->
-            </aside>
-
-            <main id="main">
-            <!-- <section>
-                    <h1>공지사항</h1>
-
-                    <section>
-                        <h1>경로</h1>
-                        <ol>
-                            <li>home</l>
-                            <li>고객센터</li>
-                            <li>공지사항</li>
-                        </ol>
-                    </section>
-
-                    <section>
-                        <h1>공지사항 검색폼</h1>
-                        <form>
-                            <fieldset>
-                                <legend>검색입력필드</legend>
-                                <label>검색분류</label>
-                                    <select>
-                                        <option value="title">제목</option>
-                                        <option value="writer">작성자</option>
-                                    </select>
-                                <label>검색어</label>
-                                <input type="text">
-                                <input type="submit" value="검색">
-                            </fieldset>
-                        </form>
-                    </section>
-                    
-                    <section>
-                        <h1>공지사항목록</h1>
-                        <table border="1">
-                            <tr>
-                                <td>번호</td>
-                                <td>제목</td>
-                                <td>작성자</td>
-                                <td>작성일</td>
-                                <td>조회수</td>
-                            </tr>
-                            <tr>
-                                <td>1029</td>
-                                <td><a href="detail.html">2022년 뉴렉처 과정 모집안내</a></td>
-                                <td>newlec</td>
-                                <td>2022-01-03</td>
-                                <td>3184</td>
-                            </tr>
-                            <tr>				
-                                <td>1028</td>
-                                <td><a href="detail.html">7월 19일 오픈하는 뉴렉처 1기 과정을 모집합니다.</a></td>
-                                <td>newlec</td>
-                                <td>2021-05-31</td>
-                                <td>7356</td>
-                            </tr>
-                            <tr>
-                                <td>1027</td>
-                                <td><a href="detail.html">7월달 온라인 강의 예정 안내</a></td>
-                                <td>newlec</td>
-                                <td>2021-05-23</td>
-                                <td>2339</td>
-                            </tr>
-                        </table>
-                    </section>
-
-                    <section>
-                        <h1>페이지정보</h1>
-                        1 / 2 pages
-                    </section>
-
-                    <nav>
-                        <h1>페이저</h1>
-                        <div>
-                            <div>이전</div>
-                            <ul>
-                                <li><a href="">1</a></li>
-                                <li><a href="">2</a></li>
-                                <li><a href="">3</a></li>
-                                <li><a href="">4</a></li>
-                                <li><a href="">5</a></li>
-                            </ul>
-                            <div>다음</div>
-                        </div>
-                    </nav>
-
-                </section> -->
-
-            </main>
-         </div>
-    </div>
-
-    <!----- footer box ------------------------------------------------------------------------------------>
-    <footer id="footer">
-        <div class="content-box">
-        <!--  <section>
-                <h1>회사정보</h1>
-
-                <section>
-                    <h1>소유권자정보</h1>
-                    <dl>
-                        <dt>주소:</dt>
-                        <dd>서울특별시 노원구 노해로 491 중앙빌딩 4층 4034호</dd>
-                        <dt>관리자메일:</dt> 
-                        <dd>admin@newlecture.com</dd>
-                        <dt>사업자 등록번호:</dt> 
-                        <dd>639-88-01988</dd>
-                        <dt>통신 판매업:</dt> 
-                        <dd>신고제 2013-서울강동-0969 호</dd>
-                        <dt>입금계좌:</dt> 
-                        <dd>신한은행 : 100-035-443742</dd>
-                        <dt>상호:</dt> 
-                        <dd>(주)뉴렉처</dd>
-                        <dt>대표:</dt> 
-                        <dd>박용우</dd>
-                        <dt>전화번호:</dt> 
-                        <dd>070-4206-4084</dd>
-                    </dl>
-                </section>
-
-                <section>
-                    <h1>저작자연락처</h1>
-                    <div>
-                    Copyright ⓒ newlecture.com 2012-2014 All Right Reserved. Contact admin@newlecture.com for more information
-                    </div>
-                </section>
-            </section> -->
-        </div>
-    </footer>
+    HOME
+    로그인
+    회원가입
+    마이페이지
+    고객센터
+    고객센터
+    고객센터메뉴
+    공지사항
+    자주하는 질문
+    수강문의
+    이벤트
+    협력업체
+    노트펍스
+    나무랩연구소
+    공지사항
+    home고객센터공지사항
+    
+    제목
+     
+     
+    번호	제목	작성자	작성일	조회수
+    1026	스프링 MVC 공지사항 관리자 view 페이지	newlec	2020-12-30	6680
+    1025	스프링 MVC POST 한글 입력 인코딩 필터 설정 코드	newlec	2020-12-19	946
+    1024	스프링 MVC 소스코드	newlec	2020-12-12	5388
+    1023	스프링 JSON 출력을 위한 라이브러리 설정	newlec	2020-11-29	3526
+    1022	스프링 강좌 RestController 한글 깨짐 설정 코드	newlec	2020-11-25	2982
+    1020	스프링 강의 20강용 Notice 서비스 파일	newlec	2020-11-06	4446
+    1016	Tiles ViewResolver 설정 내용	newlec	2020-10-22	2908
+    16	html.zip 파일 (스프링 웹 MVC 강의용)	newlec	2020-10-12	4403
+    10	오라클 수업용 테이블 생성용 스크립트	newlec	2019-10-04	4218
+    9	JSP 수업용 html 파일	newlec	2019-10-03	7473
+    1 / 2 pages
+    이전
+    1
+    2
+    다음
+    회사정보
+    주소:
+    서울특별시 노원구 노해로 491 중앙빌딩 4층 4034호
+    관리자메일:
+    admin@newlecture.com
+    사업자 등록번호:
+    639-88-01988
+    통신 판매업:
+    신고제 2013-서울강동-0969 호
+    입금계좌:
+    신한은행 : 100-035-443742
+    상호:
+    (주)뉴렉처
+    대표:
+    박용우
+    전화번호:
+    070-4206-4084
+    Copyright ⓒ newlecture.com 2012-2014 All Right Reserved. Contact admin@newlecture.com for more information
 
 </body>
 </html>
