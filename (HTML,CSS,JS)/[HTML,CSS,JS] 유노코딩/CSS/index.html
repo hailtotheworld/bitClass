@@ -8,29 +8,36 @@
   <style>
     div{
       width: 200px; height: 200px;
-      background-color: red;
-      border: 1px black solid;
-      /* position: relative; */
+      background-color: yellow;
+      position: relative;
+      border: 1px solid purple;
     }
 
     .abs{
       width: 100px; height: 100px;
-      background-color: green;
-      border: 1px black solid;
+      background-color: red;
       position: absolute;
-      top:300px; left: 100px;
-
+      top: 100px;
     }
   </style>
+
+    <!--
+    ㅁ position: relative;
+    위치값을 지정할 수 있다는 점을 제외하면 static과 같다.
+
+    ㅁ position: absolute;
+    0문서의흐름에서 제외된다
+    (absolute요소 다음에 오는 요소들은 absolute요소가 없다고 여기고 요소가 차곡차곡 쌓이게 된다
+    원래있어야할자리에 다른요소가 올수있다는의미야. 오프셋안주면 바로 다음에오는 다른요소와 겹치겠네)
+    1상위요소중 가장 가까운 position지정요소(position이라는 속성에 속성값이 정의되어있는요소를 의미한다)에 대해 상대적으로 오프셋을 적용.
+    2만약 가까운 상위요소중에서 position요소가 없을 경우에는 브라우저화면 기준으로 위치를 잡게된다. -->
+
 </head>
 <body>
   <div></div>
   <div>
     <div class="abs"></div>
-    <p>pppppppppppp</p>
+    <p>ppppppppppppppp</p>
   </div>
-
-
-  <p style="font-size: 20px;">여기는 문장이 있어</p>
 </body>
 </html>
