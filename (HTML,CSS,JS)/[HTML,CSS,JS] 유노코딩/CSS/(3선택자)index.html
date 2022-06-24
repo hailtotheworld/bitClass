@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML 문서</title>
+  <style>
+    #gagaga {  /* 아이디선택자*/
+      color: darkgoldenrod;
+    }
+    .text {    /* 클래스선택자 */
+      color: green;
+    }
+    h1,p,div { /* 그룹선택자 */
+      color: violet;
+    }
+    p {        /* 태그선택자 */
+      color: aqua;
+    }
+    *{         /* 전체선택자 */
+      color: red;
+    }
+    /* 
+    #아이디선택자
+    .클래스선택자
+    그,룹선택자 태그선택자 (나중우선)
+    전체선택자
+    */
+
+
+  </style>
+</head>
+<body>
+  <h1 class="text">제목을 나타낸다</h1>
+  <p id="gagaga">문단을 표시한다 가가가</p>
+  <p class="text">문단을 표시한다 나나나</p>
+  <p>문단을 표시한다 다다다</p>
+  <div>영역을 표시한다</div>
+</body>
+</html>
