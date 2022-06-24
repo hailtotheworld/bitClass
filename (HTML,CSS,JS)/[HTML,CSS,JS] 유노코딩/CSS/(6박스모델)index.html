@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>박스모델</title>
+
+  <style>
+
+    div{
+      width: 120px;
+      height: 30px;
+      
+      padding: 10px;
+      border: 10px red dotted;
+      margin: 17px;
+    }
+
+    span{
+     /* 인라인 요소는 width와 height를 가질 수 없다.
+     /* width: 100px; height: 170px; 인라인요소는 안된다*/
+
+     /* 인라인요소가 width,heigh를 가지려면 display: inline-block; 지정해줘야 한다. */
+      display: inline-block;
+      width: 120px;
+      height: 70px;
+
+      padding: 10px;
+      border: 10px yellow dashed;
+      margin: 17px;
+    }
+
+  </style>
+
+</head>
+<body>
+
+  <div>요소의 콘텐츠</div>
+  <span>확인해보자</span>
+  
+</body>
+</html>

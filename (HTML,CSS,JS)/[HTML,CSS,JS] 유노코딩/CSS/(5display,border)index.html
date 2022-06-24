@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>display, border</title>
+  <style>
+    div{
+      border: 4px solid red;
+
+      display: inline;
+      /* display: none; 디스플레이(표시)하지 않는다. 요소가 사라진게 아니고 안보이게 한거야 */
+    }
+    span{
+      border-width: 5px;
+      border-style: dotted;
+      border-color: rgb(0%,100%,0%);
+
+      display: block;
+      /* display: inline-block; 인라인처럼 배치하되, 블록의 속성을 가질수있다.*/
+    }
+  </style>
+</head>
+<body>
+  <div>여기는 블록 레벨</div>
+  <span>이곳은 인라인</span>
+  
+</body>
+</html>
+
