@@ -6,24 +6,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>선택자</title>
   <style>
-
     /*
-    <자손결합자, 형제결합자>
-    div p   {div의 자손 p들이 선택} 자손s
-    div > p {div의 자식 p들이 선택} 자식s
+    [속성] {기입한속성을 가지고 있는 요소를 선택하기}
 
-    h1 ~ p {h1 뒤에 있는 모든 p들이 선택}    모든형제s
-    h1 + p {h1 바로 뒤에 있는 p 하나만 선택} 바로뒤에오는a형제
+    [속성="속성값"] {기입한속성이 속성값인 요소를 선택하기}
+
+    [속성*="it"] {속성값에 it포함되어있는 요소 선택}
+    [속성^="it"] {속성값이 it로 시작하는 요소 선택}
+    [속성$="it"] {속성값이 it로 끝나는 요소 선택}
     */
-  
-    p > span {
-      color: orange;
+
+    [class*="ex"]{
+      color: blue;
     }
 
-    h1 + p{
+    [id$="e"] {
       color: red;
     }
-
   </style>
 </head>
 <body>
