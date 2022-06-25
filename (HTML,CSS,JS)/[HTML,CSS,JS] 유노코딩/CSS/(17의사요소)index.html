@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>::의사요소</title>
+  <style>
+    p::first-line {
+      color: black;
+    }
+    p::first-letter {
+      color: blue;
+    }
+
+    li::marker{
+      color: teal;
+      font-size: 60px;
+    }
+
+    [placeholder]::placeholder {
+      font-size: 24px;
+      color: black;
+    }
+
+    .add::before{
+      content: "앞에다 추가한 텍스트 ";
+      color: green; font-weight: 900;
+    }
+
+    .add::after{
+      content: " New";
+      color: red; font-weight: 900;
+    }
+
+
+  </style>
+</head>
+<body>
+  <p>
+    퍼스트 라인 그리고 퍼스트 레터
+    퍼스트 라인 그리고 퍼스트 레터
+    퍼스트 라인 그리고 퍼스트 레터
+    퍼스트 라인 그리고 퍼스트 레터
+  </p>
+
+  <br>
+
+  <ul>
+    <li>강아지</li>
+    <li>고양이</li>
+    <li>다람쥐</li>
+    <li>햄스터</li>
+  </ul>
+
+  <br>
+
+  <input type="text" placeholder="입력하세요">
+
+  <br>
+
+  <p class="add">원래 쓰여 있던 내용</p>
+  
+</body>
+</html>
