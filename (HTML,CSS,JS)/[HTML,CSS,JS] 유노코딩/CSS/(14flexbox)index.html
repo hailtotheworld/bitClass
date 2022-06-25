@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>flexbox 속성</title>
+  <style>
+    .container {
+      display: flex;
+      width: 300px; height: 300px;
+      border: 2px solid black;
+
+      /* 주축에서의 요소 배치방법 */
+      /*
+      justify-content: center;
+      justify-content: flex-start;
+      justify-content: flex-end;
+      justify-content: space-around;
+      justify-content: space-between;
+      */
+
+      /* 교차축에서의 요소 배치방법 */
+      /* align-items: center;
+      align-items: flex-start;
+      align-items: flex-end; */
+
+      /* 개별 요소들의 도합 크기가 컨테이너 주축 길이보다 커졌을 때 배치방법 */
+
+      /* (기본값)flexbox에서 자식요소가 컨테이너보다 커져버리게되면, 컨테이너크기에 맞게끔 자식요소를 수축시킨다. */
+      flex-wrap: nowrap;
+      
+      /* 여러행으로 나열하겠다. */
+      flex-wrap: wrap;
+
+      flex-wrap: wrap-reverse;
+
+    }
+
+    .item {
+      width: 120px; height: 120px;
+      background-color: teal;
+      border: 1px solid red;
+    }
+
+    .self {
+      /* 교차축 개별요소 배치 방법 */
+      align-self: center;
+      align-self: flex-start;
+      align-self: flex-end;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="item">1</div>
+    <div class="item self">2</div>
+    <div class="item">3</div>
+  </div>
+</body>
+</html>
