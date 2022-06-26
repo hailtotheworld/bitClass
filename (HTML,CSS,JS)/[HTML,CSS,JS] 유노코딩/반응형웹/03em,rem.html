@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko" style="font-size: 20px;">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>em과 rem</title>
+  <style>
+    .outer {
+      font-size: 32px;
+    }
+    .inner {
+      display: inline-block;
+      width: 200px;
+      height: 200px;
+      background-color: tomato;
+      
+      /* em은 부모요소의 글꼴크기이다. */
+      /* font-size: 2em; */
+
+      /* rem은 루트요소(<html>태그)의 글꼴크기이다. */
+      font-size: 50px;
+
+      /* padding: 1rem;
+      margin: 1rem; */
+
+      padding: 2em;
+      margin: 2em;
+
+    }
+  </style>
+</head>
+<body>
+  <div class="outer">
+    <div class="inner">강아지</div>
+  </div>
+</body>
+</html>
