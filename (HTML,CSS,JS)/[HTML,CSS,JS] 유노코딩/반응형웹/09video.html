@@ -7,28 +7,34 @@
   <title>비디오</title>
   <style>
     .player {
-      /* %의 여백은 부모의 너비를 따른다. */
-      /* height="315" width="560" 
-         height/width
-         315/560 = 0.5625
+      /*
+        1. div의 padding-top을 iframe높이로 설정해야한다.
+        padding은 %로 계산하면 부모(body)의너비에 비례해서 계산된다.
+        iframe너비가 body너비를 가득채울거니까 iframe너비(=body너비)라고 봐도된다.
+        즉, padding은 %로 계산하면 iframe너비에 비례해서 계산된다.
+        padding-top = iframe높이 / iframe너비(=body너비) %
+                      얻고싶은 값이 분자에 들어가지
       */
-      /* padding-top: 56.25%; */
       padding-top: 56.25%;
 
       /*
-       iframe의 위치를 고정시키기위해 position을 준거야
-       position: absolute;를 사용한 요소는 relative값을 사용한 부모 요소를 기준으로 한다.
-       */
+       2. iframe의 위치를 고정시키기위해 div에 position: relative;를 설정한다.
+       position: absolute;를 사용한 요소는 relative값을 사용한 부모 요소를 기준으로 하기때문이다.
+      */
       position: relative;
     }
     iframe{
       /*
-      div의 여백을 ifram이 꽉 채우고 있는 상태다.
-      position: absolute;는 문서흐름을 제거하니까.
+       3. position: absolute;은 잔상이 존재하지 않으니까, div의 여백을 iframe이 꽉 채우고 있는 상태다.
+       iframe의 위치값에 top:0; left:0;을 줘서 여백에 딱 달라붙게 한다.
       */
       position: absolute;
       top: 0;
       left: 0;
+
+      /* 
+       4. iframe이 부모(div)의 높이,너비를 따르게 한다.
+      */
       width: 100%;
       height: 100%;
     }
