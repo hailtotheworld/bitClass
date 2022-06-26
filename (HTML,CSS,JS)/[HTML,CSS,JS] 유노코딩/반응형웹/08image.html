@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>가변 이미지</title>
+  <style>
+    div {
+      width: 50%;
+    }
+    .sp {
+      /* width: 100%; */
+      max-width: 100%;
+    }
+      /*---------------------------------  */
+
+  </style>
+</head>
+<body>
+  <!-- <div>
+    <img class="sp" src="spring.png">
+  </div> -->
+
+  <br><br>
+
+  <picture>
+    <source srcset="media/spring.png" media="(min-width: 1200px)">
+    <source srcset="media/Apache_Tomcat.png" media="(min-width: 800px)">
+    <!-- 기본적으로보여줄이미지 -->
+    <img src="media/java.jpg">
+  </picture>
+
+</body>
+</html>
