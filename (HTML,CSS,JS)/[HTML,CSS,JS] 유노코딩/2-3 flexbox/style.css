@@ -29,7 +29,17 @@ ul {
   /* justify-content: space-evenly; */
 
   /* 4 ////////////////////////////////////////////////////////////////////////////////////////// */
-  align-items: stretch;
+  /* align-items: stretch; */
+  /* justify-content: center; */
+
+  align-items: center;
+  /* align-content: center; */
+
+  flex-wrap: wrap;
 
 }
 
+li:nth-child(3) {
+  border: 1px solid red;
+  /* align-self: flex-start; */
+}
