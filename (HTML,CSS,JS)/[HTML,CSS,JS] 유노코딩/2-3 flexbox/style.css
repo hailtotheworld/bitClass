@@ -30,12 +30,12 @@ ul {
 
   /* 4 ////////////////////////////////////////////////////////////////////////////////////////// */
   /* align-items: stretch; */
-  /* justify-content: center; */
-
-  align-items: center;
-  /* align-content: center; */
+  /* align-items: center; */
 
   flex-wrap: wrap;
+  align-content: space-around;
+  align-content: space-evenly;
+
 
 }
 
