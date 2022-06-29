@@ -9,7 +9,7 @@ body{
 ul{
   padding: 0;
   list-style-type: none;
-  border: 5px solid teal;
+  border: 5px solid green;
 }
 
 li{
@@ -21,7 +21,30 @@ li{
   border-radius: 8px;
 }
 
-.container{
+.container {
   display: grid;
   height: 500px;
+
+  /* grid-template-columns: repeat(2,1fr); */
+  /* grid-template-rows: repeat(3,1fr); */
+
+  /* grid-template-columns: repeat(2,minmax(100px,200px)); */
+  /* grid-template-rows: repeat(3,1fr); */
+
+  /* grid-template-columns: repeat(2,minmax(100px,auto)); */
+  /* grid-template-rows: repeat(3,1fr); */
+
+  /* grid-template-columns: repeat(auto-fill,minmax(100px,1fr)); */
+
+  /* grid-template-columns: repeat(auto-fill,minmax(100px,auto)); */
+  
+  /* grid-template-columns: repeat(auto-fill,minmax(100px,200px)); */
+
+  /* grid-template-columns: repeat(auto-fit,minmax(100px,1fr)); */
+
+  /* grid-template-columns: repeat(auto-fit,minmax(100px,200px)); */
+
+
+  /* gap: 50px 10px; */
+  /* gap: 10px; */
 }
