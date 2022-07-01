@@ -67,13 +67,35 @@ li{
 
   /* ------------------------------------------------------------------------------------------------------------------- */
 
+  /* grid-template-columns: repeat(3,1fr);
+  grid-template-rows: repeat(2,1fr);
+
+  align-items: center;
+  justify-items: center; */
+
+  /* ------------------------------------------------------------------------------------------------------------------- */
+
   grid-template-columns: repeat(3,1fr);
   grid-template-rows: repeat(2,1fr);
 
-  align-items: flex-end;
+  align-items: center;
+
 
 
 }
+
+li:nth-child(2){
+  /* align-self: start; */
+}
+
+li:nth-child(4){
+  /* align-self: end; */
+}
+li:nth-child(5){
+  /* align-self: center; */
+}
+
+/* ------------------------------------------------------------------------------------------------------------------- */
 
 /* li:nth-child(1) {
   grid-column: 1 / 3;

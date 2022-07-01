@@ -6,50 +6,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <style>
-    *{
-      margin: 0;
+    body{
       box-sizing: border-box;
     }
     ul{
       list-style-type: none;
-      padding-left: 0;
-      height: 300px;
+      margin: 0; padding: 0;
+      border: 2px blue solid;
+      height: 500px;
 
       display: flex;
-      /* flex-wrap: wrap; */
-
-      /* justify-content: space-evenly; */
-      /* align-items: flex-end; */
-      /* align-content: space-around; */
-
-      
+      flex-wrap: wrap;
+      /* justify-content: space-around; */
+      /* align-items: center; */
+      align-content: space-around ;
     }
-    li{
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 1px red solid;
-
-      width: 150px;;
+    li {
+      border: red 1px solid;
+      width: 100px;
+      /* height: 150px; */
     }
 
-    #two {
-      /* align-self: flex-start; */
-      flex-grow: 1;
-      flex-shrink: -10;
-    }
-
-    li:nth-child(5) {order: -1;}
   </style>
 </head>
 <body>
   <ul>
-    <li>1하나</li>
-    <li id="two">2두식</li>
-    <li>3세리</li>
-    <li>4네오</li>
-    <li>5오리</li>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
   </ul>
-  
+
+</body>
+</html>
 </body>
 </html>
