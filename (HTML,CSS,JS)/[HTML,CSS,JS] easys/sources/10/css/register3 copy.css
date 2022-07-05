@@ -68,9 +68,10 @@ body {
 	border:none;
 }
 
-#signup fieldset:last-of-type {  /* 마지막 fieldset의 스타일 */
-  border:none;  /* 테두리 없앰 */
-  margin-bottom:0;  /* 아래쪽 마진 없앰 */
+#signup fieldset:last-of-type { 
+  border:none;
+  margin-bottom:0;
+	background-color: gold;
 }
 
 #signup button:hover {  /* #singup 하위에 있는 버튼에 마우스 올렸을 때 스타일 */
