@@ -51,3 +51,15 @@ body {
 	font-size: 13px;  /* 글자 크기 - 13px */
 	width: 110px;  /* 너비 - 110px */
 }
+
+#signup input[readonly] {
+	border: none;
+}
+
+#signup input[required] {
+	border: 1px solid red;
+}
+
+#signup input[type|=text], input[type~=password], input[type*=e]{
+	width: 200px;
+}
