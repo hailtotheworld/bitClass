@@ -1,19 +1,19 @@
 #header {
-	--height: 70px;
+	height: 70px;
 	background-color: red;
 }
 
 #visual {
 	height: 171px;
-	background-color: orange;
+	background-color: yellow;
 }
 
 #body {
 	height: 300px;
-	background-color: green;
+	background-color: rgb(169, 250, 169);
 }
 
 #footer {
 	height: 100px;
-	background-color: purple;
+	background-color: rgb(206, 126, 206);
 }
