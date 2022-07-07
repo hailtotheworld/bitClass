@@ -3,6 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
+    <style>
+        #main-menu [href]{
+            color: red;
+        }
+    </style>
 
 </head>
 <body>
@@ -107,21 +112,20 @@
     의미를 갖고 있는 인라인태그가 남는다.
     ------------------------------------------------------------------------ -->
     
-    
-
     <h1><a href="../index.html">뉴렉처 온라인</a></h1>
 
     <header> <!-- header3. 아웃라인 영역 만들기  --> 
         <section> <!-- 4. 구획콘텐츠.  header의 의미를 유지하기 위해 section추가-->
             <h1>서두</h1>
 
-            <nav> <!-- 3. 아웃라인 영역 만들기 --> <!-- 4. section구획콘텐츠 --><!-- 4-2. 시멘틱 section 태그 -->
+            <nav id="main-menu"> <!-- 3. 아웃라인 영역 만들기 --> <!-- 4. section구획콘텐츠 --><!-- 4-2. 시멘틱 section 태그 -->
                 <h1>메인메뉴</h1> <!-- 2. 문서의 아웃라인 잡기 -->
                 <ul>
-                    <li><a href="">학습가이드</a></li>
+                    <li class="first"><a href="" class="first">학습가이드</a></li>
                     <li><a href="">강좌선택></a></li>
-                    <li><a href="">AnswerIs</a></li>
+                    <li><a>AnswerIs</a></li>
                 </ul>
+                <h2 href>헬로</h2>
             </nav>  
 
             <section> <!-- 3. 아웃라인 영역 만들기 --> <!-- 4. section구획콘텐츠 -->
