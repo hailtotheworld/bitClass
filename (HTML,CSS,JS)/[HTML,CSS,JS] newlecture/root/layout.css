@@ -1,56 +1,13 @@
-@import url(css/reset.css);
+@import url(reset.css);
 
-.s1 ul{
-    display: flex;
-    --flex-direction: row; /* 옆으로 적재된다. */
-    --flex-wrap: wrap;
-    --flex-flow: column wrap; /* flex-flow: flex-direction + flex-wrap */
-    /* flex-direction: column; 아래로 적재된다. */
-    background-color: gray;
-    height: 300px;
-    
-    --flex-direction: column;
-    --justify-content: end; /* space-evenly = (공백 space-around 공백) */
-    --justify-content: center;
-
-    --align-items: flex-start;
-    align-content: center;
-    flex-wrap: wrap;
+#s1 li:nth-child(1) {
+  background-color: red;
 }
 
-.s1 li{
-    --flex: 1 1 100px; /* 0 1 auto 기본값이야GSB */
-    flex-shrink: 0;
-    flex-basis: 100px;
-
+#s1 li:nth-child(2) {
+  background-color: green;
 }
 
-.s1 li:nth-child(1) {
-    background-color: red;
-    /* align-self: flex-start; */
+#s1 li:nth-child(3) {
+  background-color: blue;
 }
-
-.s1 li:nth-child(2) {
-    background-color: green;
-    --flex-grow:3;
-    --order:1;
-
-    /* align-self: flex-end; */
-
-}
-
-.s1 li:nth-child(3) {
-    background-color: blue;
-    --flex-shrink: 0; /* shrink */
-    --order:1;
-
-}
-
-.s1 li:nth-child(4) {
-    background-color: yellow;
-    --order:4;
-}
-
-.s1 li:nth-child(5) {
-    background-color: lightblue;
-    }
