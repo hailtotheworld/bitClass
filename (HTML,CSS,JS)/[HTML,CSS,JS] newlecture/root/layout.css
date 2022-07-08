@@ -3,12 +3,16 @@
 .s1 ul{
   display: flex;
   background-color: gray;
-  flex-flow: column;
+  /* flex-flow: column; */
+}
+
+.s1 li{
+  flex-basis: 100px;
+  flex-grow: 0.2;
 }
 
 .s1 li:nth-child(1){
   background-color: red;
-  flex-basis: 100px;
 }
 
 .s1 li:nth-child(2){
