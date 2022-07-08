@@ -1,9 +1,14 @@
 @import url(reset.css);
 
-ul {
-  height: 700px;
+header {
+  background-color: blueviolet;
+  position: sticky;
+  top:0px;
+}
+
+#s1 ul {
+  /* height: 700px; */
   background-color: yellow;
-  position: relative;
 }
 
 #s1 li:nth-child(1) {
@@ -12,12 +17,12 @@ ul {
 
 #s1 li:nth-child(2) {
   background-color: green;
-  position: fixed;
-  bottom: 100px;
+
 
 }
 
 #s1 li:nth-child(3) {
   background-color: blue;
+
 
 }
