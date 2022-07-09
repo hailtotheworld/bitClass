@@ -1,14 +1,17 @@
-@import url(reset.css);
+
 
 .s1 ul{
+  height: 700px;
+  background-color: darkgoldenrod;
+  list-style-type: none;
+  padding-left: 0px;
+
   display: flex;
-  background-color: gray;
   /* flex-flow: column; */
 }
 
 .s1 li{
-  flex-basis: 100px;
-  flex-grow: 0.2;
+  flex: 0 1 100px;
 }
 
 .s1 li:nth-child(1){
