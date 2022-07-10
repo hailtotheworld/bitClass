@@ -260,4 +260,25 @@ const btn1 = document.getElementById("one")
 const btn2 = document.getElementById("two")
 const btn3 = document.getElementById("three")
 
+const handleClick = function() {
+  console.log("저를 클릭하셨나요?")
+}
+
+// 1) 다수의 이벤트핸들러 추가가능
+btn1.addEventListener('click',handleClick)
+btn1.addEventListener('click',function() {
+  console.log("두번째 이벤트핸들러 등록")
+})
+
+// 2) 이벤트핸들러 제거가능
+btn1.removeEventListener('click',handleClick)
+
+/////////////이벤트객체////////////////
+const handleEventObject = function(event) {
+  console.log(event.target)
+}
+
+btn1.addEventListener('click',handleEventObject)
+btn2.addEventListener('click',handleEventObject)
+btn3.addEventListener('click',handleEventObject)
 
