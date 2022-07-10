@@ -233,3 +233,28 @@
 // console.log(oddEven(-7))
 // console.log(oddEven(4))
 // console.log(oddEven(3))
+
+//18//이벤트/////////////////////////////////////////////////////////////////////////////////////////
+
+// const inputType = document.querySelector("#typing") // 타입이 object이다.
+// const inputClick = document.querySelector("#push")
+
+// const handleTyping = function() {
+//   console.log("타이핑되고있어요")
+// }
+
+// inputType.onkeydown = handleTyping; // eg) 백스페이스,ctrl 다적용되네
+// inputType.onkeydown = function() {
+//   console.log("on이벤트명과 같은 이벤트속성을 사용하면, 마지막이벤트만 적용된다")
+// }
+
+// // 이벤트핸들러함수는 익명함수를 사용할수있다.
+// inputClick.onclick = function() {
+//   console.log("클릭되고있어요")
+// }
+
+
+//19//addEventListener/////////////////////////////////////////////////////////////////////////////////////////
+
+
+
