@@ -256,5 +256,8 @@
 
 //19//addEventListener/////////////////////////////////////////////////////////////////////////////////////////
 
+const btn1 = document.getElementById("one")
+const btn2 = document.getElementById("two")
+const btn3 = document.getElementById("three")
 
 
