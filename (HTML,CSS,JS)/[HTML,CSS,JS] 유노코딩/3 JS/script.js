@@ -120,9 +120,116 @@
 // console.log(num1 !== num2) //true
 
 
-//12//조건문/////////////////////////////////////////////////////////////////////////////////////////
-let num = 3
+//12//조건문if/////////////////////////////////////////////////////////////////////////////////////////
+// let num = 3
 // console.log(num==3)
-if(num==3) {
-  console.log("조건으로 사용된 비교연산식이 참을 반환했다")
-}
+
+// if(num==7) {
+//   console.log("조건으로 사용된 비교연산식이 참을 반환했다")
+// } else {
+//   console.log("거짓")
+// } 
+
+
+//13//반복문while/////////////////////////////////////////////////////////////////////////////////////////
+// let number = 1;
+// while(number <= 10) {
+//   console.log(number);
+//   number+=1;
+// }
+
+// window.alert("경고창에 쓸 메시지!"); // undefined값이 남는다.
+
+// window.confirm("경고창에 쓸 메시지!"); // 확인true, 취소false 선택해서 누를수 있다.
+// console.log(confirm("메시지"));
+
+// while(confirm("취소를 누를때까지 반복됩니다")) {
+//   console.log("확인을 누르셨군요")
+// }
+// console.log("취소 버튼을 눌렀군요")
+
+//14//반복문for/////////////////////////////////////////////////////////////////////////////////////////
+// for(let i=1;i<=3;i++) {
+//   console.log(i,"번째 반복중입니다")
+// }
+
+// for(let i=1;i<=10;i++) {
+//   if(i%2==0) {
+//     console.log(i,"는 짝수입니다")
+//   }
+// }
+
+// for(let i=1;i<=10;i+=2) {
+//   console.log(i)
+// }
+
+//15//함수선언식,함수표현식/////////////////////////////////////////////////////////////////////////////////////////
+// let number = 3;
+// let myNumber = 5; //낙타표기법
+// console.log(myNumber);
+
+// 함수선언식: 처음만들어질때부터 이름이 있는 함수를 만든다.
+// sayHello() // 함수호출문이 함수선언식보다 위에 있어도 괜찮다. => 호이스팅hoisting이 가능하다.
+// function sayHello() {
+//   console.log("Hello")
+//   console.log("Hi")
+//   console.log("안녕")
+//   let hello = "문자열 헬로" // 지역변수
+//   console.log(hello) 
+// }
+// console.log(hello) //오류. 함수 내부에서 선언한 변수(=지역변수)는 함수 바깥에서 사용할 수 없다.
+
+
+// 함수표현식: 이름이없는 익명함수를 만든다음에 이름을 붙혀주는거다.
+// const sayBye = function() {
+//   console.log("good bye~")
+// }
+// sayBye()
+
+
+//16//return/////////////////////////////////////////////////////////////////////////////////////////
+// const result = confirm("참or거짓")
+// console.log(result);
+
+// function noReturn() {
+//   console.log("데이터를 반환하지 않는 함수이다.")
+// }
+// console.log(noReturn()) // 함수기능수행하고 / undefined반환된다(반환한게 없다는 의미이다)
+
+// function yesReturn() {
+//   return "반환하는 함수이다"
+// }
+// console.log(yesReturn());
+
+// function onlyOne() {
+//   return 10,20,30,50
+// }
+// console.log(onlyOne()) // 값이 마지막에 쓴 하나만 반환된다.
+
+
+//17//매개변수/////////////////////////////////////////////////////////////////////////////////////////
+// function noReturnNoPara() {
+//   console.log("리턴도 없고, 매개변수도 없다")
+// }
+// noReturnNoPara();
+
+// function usePara(num, par) {
+//   for (let i = 0; i < num; i++) {
+//     console.log("날씨는", par, "입니다")
+//   }
+// }
+// usePara(3,"맑음")
+
+// function oddEven(num) {
+//   if(num<=0) {
+//     return "1 이상의 자연수만 입력하세요."
+//   } else if (num%2==0) {
+//     return "짝수입니다"
+//   } else if(num%2==1) {
+//     return "홀수입니다."
+//   }
+// }
+// console.log(oddEven(0))
+// console.log(oddEven(-7))
+// console.log(oddEven(4))
+// console.log(oddEven(3))
