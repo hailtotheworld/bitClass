@@ -86,5 +86,43 @@
 // data = True // 에러난다. is not defined.
 // console.log(data1);
 
-let test = 314
-console.log(typeof "st")
+// let test = 314
+// console.log(typeof "st")
+
+//10//document.querySelector(),document.getElementById()/////////////////////////////////////////////////////////////////////////////////////////
+// console.log(document.querySelector("h1")) // 요소를 반환해준다 eg)<h1>큰제목입니다</h1>
+// console.log(document.querySelector("p"))
+// console.log(document.querySelector("#iden"))
+// console.log(document.querySelector(".clazz"))
+// console.log(document.querySelector("ul>li:nth-child(3)"))
+
+// console.log(document.getElementById("iden"))
+
+
+// const h1t = document.querySelector("h1")
+// console.log(h1t.textContent) // 텍스트를 반환해준다. eg)큰제목입니다
+// h1t.textContent = prompt("변경원하는 제목을 입력해보세요")
+
+// console.log(document.getElementById("iden").textContent)
+
+
+//11//비교연산자(대소비교,등가비교)/////////////////////////////////////////////////////////////////////////////////////////
+// let num1 = 3;
+// let num2 = 5;
+// console.log(num1 > num2)
+// console.log(num1 < num2)
+
+// let num1 = '3';
+// let num2 = 3;
+// console.log(num1 == num2)  //true
+// console.log(num1 != num2)  //false
+// console.log(num1 === num2) //false
+// console.log(num1 !== num2) //true
+
+
+//12//조건문/////////////////////////////////////////////////////////////////////////////////////////
+let num = 3
+// console.log(num==3)
+if(num==3) {
+  console.log("조건으로 사용된 비교연산식이 참을 반환했다")
+}
