@@ -304,5 +304,25 @@ button1.addEventListener('click', function(){
 
 
 
-//21///////////////////////////////////////////////////////////////////////////////////////////
+//21//value / event.preventDafault/////////////////////////////////////////////////////////////////////////////////////////
 
+/*
+const text = document.getElementById("text")
+const button1 = document.getElementById("button")
+
+button1.addEventListener('click',function() {
+  console.log(text1.value)
+  // text1.value = "이렇게 하면 값을 넣어준다"
+})
+*/
+
+const form1 = document.querySelector("form")
+
+form1.addEventListener('submit',function(e) {
+  // 기존의 기능을 차단한다. 
+  // 리다이렉션되는 기능을 차단해버리고, 내가 사용하고 싶은 기능을 채워넣어서 새로운 이벤트 핸들링을 하겠다는 의미이다.
+  e.preventDefault() 
+
+  console.log(form1.name.value)
+  console.log(form1.town.value)
+})
