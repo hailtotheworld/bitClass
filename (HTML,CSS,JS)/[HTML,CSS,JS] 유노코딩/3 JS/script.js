@@ -337,3 +337,4 @@ let result;
 result = 3 < 2 ? "true" : "false"
 console.log(result)
 */
+
