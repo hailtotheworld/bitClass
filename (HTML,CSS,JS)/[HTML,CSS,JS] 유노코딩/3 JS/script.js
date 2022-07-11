@@ -316,6 +316,7 @@ button1.addEventListener('click',function() {
 })
 */
 
+/*
 const form1 = document.querySelector("form")
 
 form1.addEventListener('submit',function(e) {
@@ -326,3 +327,13 @@ form1.addEventListener('submit',function(e) {
   console.log(form1.name.value)
   console.log(form1.town.value)
 })
+*/
+
+
+//22//삼항연산/////////////////////////////////////////////////////////////////////////////////////////
+
+/*
+let result;
+result = 3 < 2 ? "true" : "false"
+console.log(result)
+*/
