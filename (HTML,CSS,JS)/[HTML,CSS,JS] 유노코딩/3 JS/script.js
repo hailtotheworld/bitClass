@@ -255,7 +255,7 @@
 
 
 //19//addEventListener/////////////////////////////////////////////////////////////////////////////////////////
-
+/*
 const btn1 = document.getElementById("one")
 const btn2 = document.getElementById("two")
 const btn3 = document.getElementById("three")
@@ -281,4 +281,28 @@ const handleEventObject = function(event) {
 btn1.addEventListener('click',handleEventObject)
 btn2.addEventListener('click',handleEventObject)
 btn3.addEventListener('click',handleEventObject)
+*/
+
+
+//20//document.createElement & document.appendChild/////////////////////////////////////////////////////////////////////////////////////////
+/*
+const button1 = document.getElementById("push1")
+const div1 = document.getElementById("area")
+
+button1.addEventListener('click', function(){
+  console.log("div 생성중")
+  const newDiv = document.createElement('div')
+
+  newDiv.style.backgroundColor = "red"
+  newDiv.style.width = "200px"
+  newDiv.style.height = "200px"
+  newDiv.style.border = "1px solid black"
+  
+  div1.appendChild(newDiv)
+})
+*/
+
+
+
+//21///////////////////////////////////////////////////////////////////////////////////////////
 
