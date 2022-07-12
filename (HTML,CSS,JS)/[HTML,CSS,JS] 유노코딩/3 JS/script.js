@@ -338,3 +338,15 @@ result = 3 < 2 ? "true" : "false"
 console.log(result)
 */
 
+/*
+const sel = document.querySelector("select")
+const pick = document.getElementById("pick")
+
+pick.addEventListener('click',function(){
+  let result = sel.value == "foot" ?
+  "축구선택했군요" :
+  "다른것을"
+
+  alert(result)
+})
+*/
