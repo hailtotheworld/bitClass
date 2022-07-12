@@ -15,6 +15,7 @@ console.log(dog3)
 */
 
 //2// new Date() /////////////////////////////////////////////////////////////////////////////
+/*
 const now = new Date();
 console.log(now)
 
@@ -33,3 +34,29 @@ h1.textContent = nowTime;
 
 console.log(now.toLocaleString())
 console.log(now.toLocaleString('en'))
+*/
+//3// setTimeout(),setInterval(),clearInterval() /////////////////////////////////////////////////////////////////////////////
+
+/*
+setTimeout(function(){
+  console.log("1234")
+},2000)
+*/
+
+let interId;
+
+interId = setInterval(function(){
+  console.log("여러번반복")
+}, 1000)
+
+console.log(interId)
+
+
+const button = document.querySelector("button")
+
+button.addEventListener('click',function(){
+  clearInterval(interId)
+})
+
+
+
