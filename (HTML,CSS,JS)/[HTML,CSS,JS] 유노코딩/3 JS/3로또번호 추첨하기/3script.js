@@ -85,18 +85,26 @@ pet.forEach(function(param){
 */
 
 //4 Math /////////////////////////////////////////////////////////////////
-
+/*
 console.log(Math.random())  // 0<=x<1
 console.log(Math.random()*45+1)
 console.log(Math.floor(Math.random()*45+1))
 
 let arr = [];
 
-while(arr.length<=7){
-  let data = Math.floor(Math.random()*3+1)
+while(arr.length<6){
+  let data = Math.floor(Math.random()*45+1)
   if(arr.indexOf(data) === -1) {
     arr.push(data)
   }
 }
 
-// console.log(arr)
+console.log(arr)
+*/
+
+
+let num = 2;
+
+console.log(Math.pow(num,10))
+
+console.log(Math.sqrt(81))
