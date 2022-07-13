@@ -71,6 +71,7 @@ console.log(pet)
 console.log(pet)
 */
 
+/*
 const pet = ["강아지","고양이","앵무새"]
 console.log(pet)
 
@@ -81,3 +82,18 @@ pet.forEach(function(){
 pet.forEach(function(param){
   console.log(param)
 })
+*/
+
+//4 Math /////////////////////////////////////////////////////////////////
+
+console.log(Math.random())  // 0<=x<1
+console.log(Math.random()*45+1)
+console.log(Math.floor(Math.random()*45+1))
+
+let arr = [];
+
+for(let i=0;i<6;i++) {
+  arr[i] = Math.floor(Math.random()*45+1)
+}
+
+console.log(arr)
