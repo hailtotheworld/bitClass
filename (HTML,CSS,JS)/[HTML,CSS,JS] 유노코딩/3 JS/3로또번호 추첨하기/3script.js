@@ -92,8 +92,11 @@ console.log(Math.floor(Math.random()*45+1))
 
 let arr = [];
 
-for(let i=0;i<6;i++) {
-  arr[i] = Math.floor(Math.random()*45+1)
+while(arr.length<=7){
+  let data = Math.floor(Math.random()*3+1)
+  if(arr.indexOf(data) === -1) {
+    arr.push(data)
+  }
 }
 
-console.log(arr)
+// console.log(arr)
