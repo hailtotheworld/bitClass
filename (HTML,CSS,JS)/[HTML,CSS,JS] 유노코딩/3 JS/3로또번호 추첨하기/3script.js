@@ -102,9 +102,10 @@ while(arr.length<6){
 console.log(arr)
 */
 
- 
+/*
 let num = 2;
 
 console.log(Math.pow(num,10))
 
 console.log(Math.sqrt(81))
+*/
