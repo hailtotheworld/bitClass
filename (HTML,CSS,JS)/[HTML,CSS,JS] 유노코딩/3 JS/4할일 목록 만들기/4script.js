@@ -60,3 +60,22 @@ console.log(teacher)
 
 // console.log(...person) // 객체리터럴 {} 안의 내용이 그대로 복사되기 때문에 문법적으로 맞지가 않으니까 에러가 난다. 
 */
+
+
+//3 JSON//////////////////////////////////////////////////////////////////////////////////////////
+
+const messi = {
+  name : '메시',
+  'age' : 34,
+  team: "파리",
+  'nation' : "아르헨티나",
+  friends: ["고양이", "강아지", "도마뱀" ],
+  kick: function() {
+    console.log("슛~")
+  }
+}
+
+console.log(messi)
+console.log(JSON.stringify(messi)) //함수를 무시한다.
+
+console.log(JSON.parse(JSON.stringify(messi)))
