@@ -100,7 +100,7 @@ localStorage.removeItem("키값")
 */
 
 //5 배열 메소드//////////////////////////////////////////////////////////////////////////////////////////
-
+/*
 const twice = ["사나", "지효", "다현", "나연"]
 
 twice.forEach(member => console.log(member))
@@ -124,3 +124,4 @@ console.log(editTwice)
 const num = [1,2,3,4,5,6]
 const editNum = num.filter(n => n%2==0)
 console.log(editNum)
+*/
