@@ -63,7 +63,7 @@ console.log(teacher)
 
 
 //3 JSON//////////////////////////////////////////////////////////////////////////////////////////
-
+/*
 const messi = {
   name : '메시',
   'age' : 34,
@@ -79,3 +79,14 @@ console.log(messi)
 console.log(JSON.stringify(messi)) //함수를 무시한다.
 
 console.log(JSON.parse(JSON.stringify(messi)))
+*/
+
+//4 로컬스토리지//////////////////////////////////////////////////////////////////////////////////////////
+
+// 애플리케이션-로컬스토리지
+
+const myDog = "초코"
+
+console.log(myDog)
+
+
