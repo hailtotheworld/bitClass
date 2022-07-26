@@ -104,13 +104,10 @@ localStorage.removeItem("키값")
 const twice = ["사나", "지효", "다현", "나연"]
 
 twice.forEach(member => console.log(member))
-
 console.log(" ")
-
 twice.forEach(function(member, index){
   console.log(`${index +1 }번째 멤버 ${member}입니다`)
 })
-
 twice.forEach(function(member, index){
   const p = document.createElement('p')
   p.textContent = `${index+1}번째 멤버는 ${member}입니다`
@@ -118,5 +115,12 @@ twice.forEach(function(member, index){
 })
 
 
+const editTwice = twice.map(function(member,index){
+  return `아름다운 ${member}`
+})
+console.log(editTwice)
 
 
+const num = [1,2,3,4,5,6]
+const editNum = num.filter(n => n%2==0)
+console.log(editNum)
