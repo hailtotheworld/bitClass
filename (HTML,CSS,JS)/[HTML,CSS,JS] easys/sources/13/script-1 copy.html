@@ -11,10 +11,14 @@
 	</style>
 </head>
 <body>
-	<h1>간단한 입출력 방법</h1>
+	<h1 id="heading">자바스크립트</h1>
+	<p id="text">위 텍스트를 클릭해 보세요</p>
   
   <script>
-   console.log("안녕하세요?");
+  		var heading = document.querySelector('#heading');
+		heading.onclick = function() {
+			heading.style.color = "red";
+		}
   </script>
 </body>
 </html>
