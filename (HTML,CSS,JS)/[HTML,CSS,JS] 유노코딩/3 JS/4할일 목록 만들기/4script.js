@@ -84,9 +84,39 @@ console.log(JSON.parse(JSON.stringify(messi)))
 //4 로컬스토리지//////////////////////////////////////////////////////////////////////////////////////////
 
 // 애플리케이션-로컬스토리지
-
+/*
 const myDog = "초코"
-
 console.log(myDog)
+
+localStorage.setItem("키값",myDog)
+localStorage.setItem("키값이야","갱얼쥐")
+
+// localStorage.clear()
+
+const dogg = localStorage.getItem("키값이야")
+console.log(dogg)
+
+localStorage.removeItem("키값")
+*/
+
+//5 배열 메소드//////////////////////////////////////////////////////////////////////////////////////////
+
+const twice = ["사나", "지효", "다현", "나연"]
+
+twice.forEach(member => console.log(member))
+
+console.log(" ")
+
+twice.forEach(function(member, index){
+  console.log(`${index +1 }번째 멤버 ${member}입니다`)
+})
+
+twice.forEach(function(member, index){
+  const p = document.createElement('p')
+  p.textContent = `${index+1}번째 멤버는 ${member}입니다`
+  document.body.appendChild(p)
+})
+
+
 
 
