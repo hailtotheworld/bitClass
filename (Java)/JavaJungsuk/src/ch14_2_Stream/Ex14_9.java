@@ -51,7 +51,13 @@ class Ex14_9 {
 		System.out.println("max="+ max.getAsInt());
 		System.out.println("min="+ min.getAsInt());
 
+		System.out.println(10+"5");
 		
+		// 자바 숫자 + 문자열 => 문자열 (+는 연결연산자)
+		// 자바 숫자 - 문자열 => 오류
+		
+		// 자바스크립트 숫자 + 문자열 => 문자열 (+는 연결연산자)
+		// 자바스크립트 숫자 - 문자열 => 숫자 (문자열이 숫자로 자동형변환되었다)
 		
 	}
 }
