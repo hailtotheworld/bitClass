@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>연습문제 2QQQ</title>
+</head>
+<body>
+	
+
+  <script>
+
+    let num1 = parseInt(prompt("비교할 첫번째 숫자"))
+    let num2 = parseInt(prompt("비교할 두번째 숫자"))
+
+    alert(isEqual(num1,num2))
+
+
+    function isEqual(x,y) {
+      if(x===y) {
+        return "같습니다."
+      } else {
+        if(x<y) {
+          return (y+"(이)가 "+x+"보다 큽니다");
+        } else {
+          return (x+"(이)가 "+y+"보다 큽니다");
+        }
+      }
+    }
+
+
+  </script>
+</body>
+</html>
