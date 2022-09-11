@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>var 예약어를 사용한 지역 변수와 전역 변수</title>
+  <title>var 예약어로 지역 변수 선언하기</title>
 </head>
 <body>
 	<script>		
 		function addNumber() { 								
-			var sum = 10 + 20;			// 지역 변수
-      multi = 10 * 20;        // 전역 변수
+			var sum = 10 + 20;
+      // console.log(sum);	
 		}
     addNumber();
-    console.log(multi);    
+    console.log(sum); // Uncaught ReferenceError: sum is not defined
   </script>
 </body>
 </html>
