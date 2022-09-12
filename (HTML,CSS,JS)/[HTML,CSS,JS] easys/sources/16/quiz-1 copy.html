@@ -20,14 +20,14 @@
 <body>
   <p>현재 시각 <span id="current" class="display"></span></p>
   <script>
-    setInterval(displayNow, 1000);
+    setInterval(displayNow,1000);
 
     function displayNow() {
-      let now =  new Date();
+      let now = new Date();
       let currentTime = now.toLocaleTimeString();
-
-      document.querySelector('#current').innerTes = currentTime;
+      document.querySelector("#current").innerHTML = currentTime;
     }
+
 </script>
 </body>
 </html>
