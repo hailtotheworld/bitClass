@@ -2,24 +2,26 @@
 <html lang="ko">
   <head>
     <meta charset="UTF-8">
-    <title>당첨자 발표</title>
+    <title>당첨자 발표Q</title>
     <style>
       h1 {
         border:1px solid black;
         padding:10px;
+        text-align:center;
         background:#eee;
       }
     </style>
   </head>
   <body>    
     <h1>당첨자 발표</h1>
-    <script>
-      var seed = prompt("전체 응모자 수 : ","");
-      var picked = Math.floor((Math.random() * seed) + 1);
 
-      document.write("전체 응모자 수 : " + seed + "명");
+    <script>
+      let total = prompt("총 인원을 알려주세요.");
+      
+      let picked = Math.floor(Math.random()*total+1);
+      document.write("총인원은"+total);
       document.write("<br>");
-      document.write("당첨자 : " + picked + "번");
+      document.write("당첨번호는"+picked);
     </script>
   </body>
 </html>
