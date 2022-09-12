@@ -26,19 +26,20 @@
       let lightbox = document.querySelector("#lightbox");
       let lightboxImage = document.querySelector("#lightboxImage");
 
-      for(i=0;i<pics.length;i++) {
-        pics[i].addEventListener("click",showLightbox);
+      for(let i=0;i<pics.length;i++) {
+        pics[i].addEventListener("click",showImage)
       }
 
-      function showLightbox() {
-				var bigLocation = this.getAttribute("data-src"); // bigLocation = this.data-src; 도 가능.
-				lightboxImage.setAttribute("src", bigLocation);  // lightboxImage.src = bigLocation; 도 가능.
-				lightbox.style.display = "block";  // 라이트박스 이미지를 화면에 표시
+      function showImage() {
+        let big = this.getAttribute("data-src");
+        lightboxImage.setAttribute("src",big);
+        lightbox.style.display = "block";
       }
 
-      lightbox.onclick = function() {  //click 이벤트가 발생했을 때 실행할 함수 선언
-				lightbox.style.display = "none";  // lightbox 요소를 화면에서 감춤
-      }
+      lightbox.addEventListener("click",function() {
+        this.style.display = "none";
+      })
+
 
     </script>
 
