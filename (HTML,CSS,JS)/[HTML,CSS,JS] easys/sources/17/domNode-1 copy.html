@@ -7,11 +7,18 @@
 <body>
   <div id="container">    
     <h1>DOM을 공부합시다</h1>
-    <a href="#" onclick="addP(); this.onclick='' ">더 보기</a>    
+    <!-- <a href="#" onclick="addP(); this.onclick=null ">더 보기</a>     -->
+    <a href="#" id="anchor" onclick="addP(); this.onclick=''">더 보기</a>    
     <div id="info"></div>
   </div>
 
   <script>
+    
+
+    // let anchor = document.querySelector('#anchor');
+    // anchor.addEventListener('click',addP)
+
+
 
     function addP() {
       let newP = document.createElement('p');
@@ -19,7 +26,6 @@
       newP.appendChild(txtNode);
       document.querySelector('#info').appendChild(newP);
     }
-
 
   </script>
 </body>
