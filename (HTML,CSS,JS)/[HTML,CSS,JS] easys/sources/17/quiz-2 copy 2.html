@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>연습문제 2Q</title>
+  <style>
+    table,
+    tr,
+    td {
+      border: 1px solid;
+      border-collapse: collapse;
+    }
+  </style>
+</head>
+
+<body>
+
+  <form>
+    <input type="text" name="row" id="row">행
+    <input type="text" name="col" id="col">열
+    <!-- <button>작성</button> -->
+    <input type="submit" value="작성">
+  </form>
+  <div id="container"></div>
+
+
+
+  <script>
+
+    let form = document.querySelector('form');
+    form.addEventListener('submit',drawTable)
+
+    function drawTable(e) {
+      e.preventDefault();
+      let rowCount = document.querySelector('#row').value;
+      let colCount = document.querySelector('#col').value;
+
+      let container = document.querySelector('#container');
+      let newTable = document.createElement('table');
+      container.appendChild(newTable);
+
+      for (let i = 0; i < rowCount; i++) {
+        let newRow = document.createElement('tr');
+        for (let j = 0; j < colCount; j++) {
+          let newCol = document.createElement('td');
+          let newText = document.createTextNode(i + ',' + j);
+          newCol.appendChild(newText);
+          newRow.appendChild(newCol);
+        }
+        newTable.appendChild(newRow);
+      }
+    }
+
+
+
+
+
+  </script>
+</body>
+
+</html>
