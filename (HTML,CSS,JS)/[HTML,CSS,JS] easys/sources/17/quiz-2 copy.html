@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>연습문제 2Q</title>
+  <style>
+    table, tr, td {
+      border: 1px solid;
+      border-collapse: collapse;
+    }
+  </style>
+</head>
+<body>
+  <form>
+    <input type="text" name="row" id="row">행
+    <input type="text" name="col" id="col">열
+    <input type="submit" value="PUSH" id="submit">
+  </form>
+  <div id="contents"></div>
+
+  <table>
+    <tr>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+      <td>4</td>
+    </tr>
+  </table>
+	
+  <script>
+
+    let form = document.querySelector('form');
+    form.addEventListener('submit',drawTable);
+
+    function drawTable(e) {
+      e.preventDefault();
+      let rowCount = document.querySelector('#row').value;
+      let colCount = document.querySelector('#col').value;
+
+      let newTable = document.createElement('table');
+
+      for(let i=0;i<rowCount;i++) {
+        let newRow = document.createElement('tr');
+        for(let j=0;j<colCount;j++) {
+          let newCol = document.createElement('td');
+          let cellText = document.createTextNode(i+','+j);
+          newCol.appendChild(cellText);
+          newRow.appendChild(newCol);
+        }
+        newTable.appendChild(newRow)
+      }
+
+      let contents = document.querySelector('#contents');
+      contents.appendChild(newTable);
+
+
+    }
+
+  </script>
+</body>
+</html>
