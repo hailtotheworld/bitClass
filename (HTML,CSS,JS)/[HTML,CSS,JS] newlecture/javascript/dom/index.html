@@ -9,7 +9,60 @@
 <body>
 
   <script>
-    alert("Hello javascript!!");
-  </script>
+    /*
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    var x = new Number(3);
+    var y = 4;
+    var z;
+    console.log(z);
+    */
+
+    /*
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    var nums = new Array();
+
+    nums.push(1);
+    nums.push(2);
+    nums.push(3);
+
+    console.log(nums);
+
+    var n1 = nums.pop();
+
+    console.log("n1:"+n1+", nums:"+nums); // n1:3, nums:1,2
+    // 스택구조구나.
+    */
+    
+    /*
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    var nums = new Array();
+    nums[3] = 3;
+    console.log(nums); // (4) [비어 있음 × 3, 57]
+    */
+
+    /*
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // splice(번째부터다지워)
+    // splice(번째부터,x개지워)
+    // splice(번째부터,x개지워,지운위치에이걸로채워)
+    var nums = new Array(2,3,"Hello",7);
+    console.log(nums);
+
+    nums.splice(2,0,"hoho");
+    console.log(nums);
+    */
+
+    var exam = new Exam();
+    exam.kor = 30;
+    exam.eng = 70;
+    exam.math = 80;
+
+    console.log(exam.kor + exam.eng);
+    
+    exam.kor = 20;
+    console.log(exam.kor + exam.eng);
+
+
+    </script>
 </body>
 </html>
