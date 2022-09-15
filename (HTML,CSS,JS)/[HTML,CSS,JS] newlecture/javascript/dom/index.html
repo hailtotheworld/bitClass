@@ -96,6 +96,7 @@
     console.log(x); // 30
     */
 
+    /*
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // var data = {"n id":1, title:"aaa"};
     // console.log(data["n id"])
@@ -106,7 +107,59 @@
     var data2 = {id:2,title:"bbb"};
     var json = JSON.stringify(data2);
     console.log(json)
+    */
 
+    /*
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    var x = 3; // 저절로 만들어진박스
+    var y = new Number(3) ; //내가 직접만든박스
+
+    document.write(x==y);  //true  값을 비교한다
+    document.write(x===y); //false 같은박스(주소)인지 비교한다
+    */
+
+    /*
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    var ar = ["hello","hi","greeting"];
+
+    for(var index in ar) {
+      document.write(ar[index]+"<br>");
+    }
+
+    for(var i=0;i<ar.length;i++) {
+      document.write(ar[i]+"<br>");
+    }
+
+    document.write("<br>");
+
+    for(var i=0;i<3;i++) {
+      document.write(i+"<br>");
+    }
+
+    document.write("<br><br>");
+
+    var ob = {id:1, title:"hello", writeID:"newlec"};
+    for(var i in ob) {
+      document.write(i+"<br>");
+    } // id title writeID 키
+    for(var i in ob) {
+      document.write(ob[i]+"<br>");
+    } // 1 hello newlec 값
+    */
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    // var add = new Function("x,y","return x+y;");
+
+    // var add = function(x,y) {
+    //   return x+y;
+    // };
+
+    function add(x,y) {
+      return x+y;
+    }
+
+    document.write(add(3,4));
 
 
 
