@@ -147,21 +147,48 @@
     } // 1 hello newlec 값
     */
 
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+    //함수, argument//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // var add = new Function("x,y","return x+y;");
 
     // var add = function(x,y) {
     //   return x+y;
     // };
 
+    /*
     function add(x,y) {
-      return x+y;
+      console.log(arguments.length); //6 
+      console.log(arguments[5]); //hello
+      console.log(typeof arguments[5]); //string
+      return x+y; //7
     }
 
-    document.write(add(3,4));
+    document.write(add(1,2,3,4,5,"hello"));
+    */
 
+    //전역변수//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////
+    // console.log(a); // undefined
+    // var a = 1;
 
+    ///////////////////////
+    // console.log(b); // Uncaught ReferenceError: b is not defined
+    // b = 1;
+
+    ///////////////////////
+    // var f1 = function() {
+    //   c=1;
+    //   var c=3;
+    //   c++;
+    //   console.log(c);
+    // }
+    // f1();
+
+    ///////////////////////
+    function f1() {
+      a = 1;
+    }
+    console.log(a);
+    f1();
 
   </script>
 </body>
