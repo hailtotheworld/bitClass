@@ -184,11 +184,21 @@
     // f1();
 
     ///////////////////////
+    // function f1() {
+    //   a = 1;
+    // }
+    // console.log(a);
+    // f1();
+
+    ///////////////////////
     function f1() {
-      a = 1;
+      var a=1;
     }
-    console.log(a);
+    function f2() {
+      console.log(a);
+    }
     f1();
+    f2();
 
   </script>
 </body>
