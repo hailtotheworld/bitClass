@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="button" id="btnPrint" value="클릭"> <br>
+  <span id="span1" onclick="console.log('hello');">스팬입니다</span>
+
+  <script>
+
+    btnPrint.onclick = printResult;
+
+    function printResult() {
+    var x = prompt("x의 값을 입력하세요",0);
+    var y = prompt("y의 값을 입력하세요",0);
+
+    x = parseInt(x);
+    y = parseInt(y);
+
+    console.log(x+y);
+
+    // id.속성명
+    btnPrint.value = x+y;
+    // btnPrint.type = "text"; // input type도 바꿀 수 있구나
+
+    // id.innerText 텍스트에접근
+    // span1.innerText = x+y;
+    }
+  </script>
+  
+</body>
+</html>
