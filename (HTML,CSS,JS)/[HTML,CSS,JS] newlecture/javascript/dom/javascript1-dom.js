@@ -10,12 +10,10 @@ window.addEventListener("load", function () {
 
   addButton.onclick = function () {
     
-    var title = titleInput.value;    
-
-    var html = '<a href="">'+title+'</a>';
-    var li = document.createElement("li");
-    li.innerText = html;
-    
+    var title = titleInput.value;
+    var html = '<a href="">'+title+'</a>'
+    var li = document.createElement('li');
+    li.innerHTML=html;
 
     menuListUl.appendChild(li);
 
