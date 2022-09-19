@@ -9,14 +9,15 @@ window.addEventListener("load", function () {
   var delButton = section.querySelector(".del-button");
 
   addButton.onclick = function () {
-
+    
     var title = titleInput.value;    
 
     var html = '<a href="">'+title+'</a>';
     var li = document.createElement("li");
-    li.innerHTML = html;
+    li.innerText = html;
+    
 
-    // menuListUl.appendChild(li);
+    menuListUl.appendChild(li);
 
     /* append vs appendChild
     append(노드or문자열 여러개)
