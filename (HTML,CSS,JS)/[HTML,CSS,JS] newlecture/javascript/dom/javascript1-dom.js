@@ -1,4 +1,55 @@
 
+//Ex7 : 노드 복제와 템플릿 태그
+window.addEventListener("load", function () {
+  var notices = [
+    { id: 5, title: "퐈이야~~~", regDate: "2019-01-26", writerId: "newlec", hit: 1 },
+    { id: 6, title: "나 좀 복제해줘~", regDate: "2019-03-20", writerId: "newlec", hit: 17 }
+  ];
+
+  var section = document.querySelector("#section7");
+
+  var noticeList = section.querySelector(".notice-list");
+  var tbodyNode = noticeList.querySelector("tbody");
+  var cloneButton = section.querySelector(".clone-button");
+  var templateButton = section.querySelector(".template-button");
+
+  cloneButton.onclick = function () {
+    var trNode = noticeList.querySelectorAll('tbody tr')[0];
+    var clone = trNode.cloneNode(true);
+    var cloneTds = clone.querySelectorAll('td');
+    cloneTds[0].innerText = notices[0].id;
+    cloneTds[1].innerHTML = '<a href=' + notices[0].id + '>' + notices[0].title + '</a>';
+    cloneTds[2].innerText = notices[0].regDate;
+    cloneTds[3].innerText = notices[0].writerId;
+    cloneTds[4].innerText = notices[0].hit;
+
+    tbodyNode.appendChild(clone);
+
+  };
+
+  templateButton.onclick = function () {
+    for (let i = 0; i < notices.length; i++) {
+      var template = section.querySelector('template');
+      var tClone = document.importNode(template.content, true);
+      var tds = tClone.querySelectorAll('td');
+
+      tds[0].innerText = notices[i].id;
+
+      var aNode = tds[1].children[0];
+      aNode.setAttribute('href', notices[i].id);
+      aNode.innerText = notices[i].title;
+      
+      tds[2].innerText = notices[i].regDate;
+      tds[3].innerText = notices[i].writerId;
+      tds[4].innerText = notices[i].hit;
+
+      tbodyNode.appendChild(tClone);
+    }
+
+  };
+
+});
+
 //Ex6 : 메뉴추가(createTextNode, Element)
 window.addEventListener("load", function () {
   var section = document.querySelector("#section6");
@@ -9,11 +60,11 @@ window.addEventListener("load", function () {
   var delButton = section.querySelector(".del-button");
 
   addButton.onclick = function () {
-    
+
     var title = titleInput.value;
-    var html = '<a href="">'+title+'</a>'
+    var html = '<a href="">' + title + '</a>'
     var li = document.createElement('li');
-    li.innerHTML=html;
+    li.innerHTML = html;
 
     menuListUl.appendChild(li);
 
@@ -28,7 +79,7 @@ window.addEventListener("load", function () {
     // 추가할때마다 기존객체가 삭제되고 새로운객체가 생성되서 성능에 문제가 된다.
     // menuListUl.innerHTML += '<li><a href="">'+title+'</a></li>';
 
-    titleInput.value = "";    
+    titleInput.value = "";
 
     /* var title = titleInput.value;
     var txtNode = document.createTextNode(title);
@@ -50,7 +101,7 @@ window.addEventListener("load", function () {
     var liNode = menuListUl.children[0];
     // menuListUl.removeChild(liNode);
     liNode.remove();
-  
+
 
     // 마지막 추가한거부터 지우기
     // var liNode = document.querySelectorAll('.menu-list li');
