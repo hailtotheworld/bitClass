@@ -1,4 +1,27 @@
 
+//Ex8-노드 삽입과 바꾸기
+window.addEventListener("load", function(){
+
+  var section = document.querySelector("#section8");
+  
+  var noticeList =section.querySelector(".notice-list"); 
+  var tbodyNode = noticeList.querySelector("tbody");
+  var upButton = section.querySelector(".up-button");
+  var downButton = section.querySelector(".down-button");
+
+  var currentNode = tbodyNode.firstElementChild;//.children[0];
+
+  downButton.onclick = function(){
+      
+
+  };
+
+  upButton.onclick = function(){
+     
+  };
+
+});
+
 //Ex7 : 노드 복제와 템플릿 태그
 window.addEventListener("load", function () {
   var notices = [
@@ -38,7 +61,7 @@ window.addEventListener("load", function () {
       var aNode = tds[1].children[0];
       aNode.setAttribute('href', notices[i].id);
       aNode.innerText = notices[i].title;
-      
+
       tds[2].innerText = notices[i].regDate;
       tds[3].innerText = notices[i].writerId;
       tds[4].innerText = notices[i].hit;
@@ -121,13 +144,9 @@ window.addEventListener("load", function () {
   var img = section.querySelector(".img");
 
   changeButton.onclick = function () {
-    img.src = "images/" + srcInput.value;
-    // img.src = "images/"+imgSelect.value;
-
-    // img.style["border-color"] = colorInput.value;
+    img.src = 'images/' + imgSelect.value;
     img.style.borderColor = colorInput.value;
 
-    console.log(srcInput["class"]);
   };
 });
 
