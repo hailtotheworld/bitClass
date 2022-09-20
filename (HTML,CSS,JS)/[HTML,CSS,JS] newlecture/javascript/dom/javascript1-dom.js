@@ -1,4 +1,38 @@
 
+//Ex9-다중 노드선택 방법과 일괄삭제, 노드의 자리바꾸기
+window.addEventListener("load", function () {
+
+  var section = document.querySelector("#section9");
+
+  var noticeList = section.querySelector(".notice-list");
+  var tbody = noticeList.querySelector("tbody");
+  var allCheckbox = section.querySelector(".overall-checkbox");
+  var delButton = section.querySelector(".del-button");
+  var swapButton = section.querySelector(".swap-button");
+
+  allCheckbox.onchange = function () { //.onchange 체크박스선택이 변경되었을때 이벤트가 발생한다
+    /*
+    console.log(allCheckbox.value); //value값을 아무것도 적지않으면 기본값으로 on이 전달된다.
+    console.log(allCheckbox.checked); //체크되면true,체크해제되면false '반환한다'
+    */
+
+    var inputs = tbody.querySelectorAll("input[type='checkbox']");
+    for (var i=0;i<inputs.length;i++) {
+      inputs[i].checked = allCheckbox.checked;
+    }
+  };
+
+  delButton.onclick = function () {
+
+  };
+
+  swapButton.onclick = function () {
+
+
+  };
+
+});
+
 //Ex8-노드 삽입과 바꾸기
 window.addEventListener("load", function () {
 
@@ -19,7 +53,7 @@ window.addEventListener("load", function () {
     }
 
     // tbodyNode.insertBefore(nextNode, currentNode);
-    currentNode.insertAdjacentElement('beforebegin',nextNode)
+    currentNode.insertAdjacentElement('beforebegin', nextNode)
   };
 
   upButton.onclick = function () {
@@ -31,7 +65,7 @@ window.addEventListener("load", function () {
     }
 
     // tbodyNode.insertBefore(currentNode, prevNode);
-    currentNode.insertAdjacentElement('afterend',prevNode);
+    currentNode.insertAdjacentElement('afterend', prevNode);
   };
 
 });
