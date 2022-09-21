@@ -3,10 +3,10 @@
 window.addEventListener("load", function () {
 
   var notices = [
-    { "id": 1, "title": "유투브에 끌려다니지 않으려고 했는데....ㅜㅜ..", "regDate": "2019-02-05", "writerId": "newlec", "hit": 2 },
-    { "id": 2, "title": "자바스크립트란..", "regDate": "2019-02-02", "writerId": "newlec", "hit": 0 },
-    { "id": 3, "title": "기본기가 튼튼해야....", "regDate": "2019-02-01", "writerId": "newlec", "hit": 1 },
-    { "id": 4, "title": "근데 조회수가 ㅜㅜ..", "regDate": "2019-01-25", "writerId": "newlec", "hit": 0 }
+    { "id": 1, "title": "c유투브에 끌려다니지 않으려고 했는데....ㅜㅜ..", "regDate": "2019-02-05", "writerId": "newlec", "hit": 2 },
+    { "id": 2, "title": "d자바스크립트란..", "regDate": "2019-02-02", "writerId": "newlec", "hit": 0 },
+    { "id": 3, "title": "a기본기가 튼튼해야....", "regDate": "2019-02-01", "writerId": "newlec", "hit": 1 },
+    { "id": 4, "title": "b근데 조회수가 ㅜㅜ..", "regDate": "2019-01-25", "writerId": "newlec", "hit": 0 }
   ];
 
   var section = document.querySelector("#section10");
@@ -15,33 +15,52 @@ window.addEventListener("load", function () {
   var titldTd = section.querySelector(".title");
   var tbodyNode = noticeList.querySelector("tbody");
 
+
   var bindData = function () {
-    var template = section.querySelector("template");
+    var template = section.querySelector('template');
 
     for (var i = 0; i < notices.length; i++) {
-      var cloneNode = document.importNode(template.content, true);
-      var tds = cloneNode.querySelectorAll("td");
-      tds[0].textContent = notices[i].id;
+      var clone = document.importNode(template.content, true); //clone은 덮어쓰워지면 안되니까. 개별사용이니까 for문 안에 있어야해.
+      var tds = clone.querySelectorAll('td');
+      tds[0].innerText = notices[i].id;
 
       var aNode = tds[1].children[0];
       aNode.href = notices[i].id;
-      aNode.textContent = notices[i].title;
+      aNode.innerText = notices[i].title;
 
-      tds[2].textContent = notices[i].regDate;
-      tds[3].textContent = notices[i].writerId;
-      tds[4].textContent = notices[i].hit;
+      tds[2].innerText = notices[i].regDate;
+      tds[3].innerText = notices[i].writerId;
+      tds[4].innerText = notices[i].hit;
 
-      tbodyNode.appendChild(cloneNode);
+      tbodyNode.appendChild(clone);
     }
   };
 
   bindData();
 
-  var titleSorted = false;
+  ////////////////////////////////////////////////////////////////////////////////////
+  var titleSorted = false; //(토글값이구나) 공통으로 사용하니까 함수 밖으로 빼놨다.
 
   titldTd.onclick = function () {
-    // 이 부분에 새로 배운 내용을 작성해 보세요.
+    tbodyNode.innerHTML = "";
 
+    if(!titleSorted) {
+      notices.sort(function (a, b) {
+        if (a.title > b.title) {
+          return 1;
+        }
+        if (a.title < b.title) {
+          return -1;
+        }
+        // a must be equal to b
+        return 0;
+      });
+    }
+
+    titleSorted=true;
+
+    bindData();
+    notices.reverse();
   };
 });
 
