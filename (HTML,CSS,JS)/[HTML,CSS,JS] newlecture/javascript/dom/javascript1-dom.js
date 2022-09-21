@@ -17,12 +17,19 @@ window.addEventListener("load", function () {
     */
 
     var inputs = tbody.querySelectorAll("input[type='checkbox']");
-    for (var i=0;i<inputs.length;i++) {
+    // 하나하나 for문 돌면서 체크해! (하나하나체크)
+    for (var i = 0; i < inputs.length; i++) {
       inputs[i].checked = allCheckbox.checked;
     }
   };
 
   delButton.onclick = function () {
+    // 하나하나 돌면서 체크된거 확인하지 말고, 체크된것들만 가져와. (체크된거확인해서가져오기)
+    var checkedInputs = tbody.querySelectorAll("input[type='checkbox']:checked");
+
+    for(var i=0;i<checkedInputs.length;i++) {
+      checkedInputs[i].parentElement.parentElement.remove();
+    }
 
   };
 
