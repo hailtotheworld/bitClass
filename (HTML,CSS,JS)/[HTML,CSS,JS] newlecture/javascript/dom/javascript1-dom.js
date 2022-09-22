@@ -45,6 +45,7 @@ window.addEventListener("load", function () {
     tbodyNode.innerHTML = "";
 
     if(!titleSorted) {
+      //자바스크립트 sort(문자열 정렬이면 단순히 앞에값-뒤에값 하면 안되고, 조건식으로 비교해줘야해)
       notices.sort(function (a, b) {
         if (a.title > b.title) {
           return 1;
