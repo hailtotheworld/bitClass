@@ -56,14 +56,44 @@ window.addEventListener("load", function(){
   var swapButton = section.querySelector(".swap-button");
 
   allCheckbox.onchange = function(){
-      
+
+    var checkedInputs = tbody.querySelectorAll('input[type="checkbox"]');
+
+      for(var i=0;i<checkedInputs.length;i++) {
+        checkedInputs[i].checked = allCheckbox.checked;
+      }
+
   };
 
   delButton.onclick = function(){
-      
+
+    var checkedInputs = tbody.querySelectorAll('input[type="checkbox"]:checked');
+    
+    for(var i=0;i<checkedInputs.length;i++)
+    checkedInputs[i].parentElement.parentElement.remove();
+
   };
 
   swapButton.onclick = function(){
+
+    //복사본을만든다
+    //복사본이1번과교대
+    //0번이1번과교대
+
+    var checkedInputs = tbody.querySelectorAll('input[type="checkbox"]:checked');
+
+    if(checkedInputs.length!=2) {
+      alert('2개만 고르세요.')
+    }
+
+    var trs = new Array(checkedInputs.length);
+    for(var i=0;i<checkedInputs.length;i++) {
+      trs[i] = checkedInputs[i].parentElement.parentElement;
+    }
+
+    var clone = trs[0].cloneNode(true);
+    trs[1].replaceWith(clone);
+    trs[0].replaceWith(trs[1]);
               
       
   };
@@ -83,12 +113,24 @@ window.addEventListener("load", function(){
   var currentNode = tbodyNode.firstElementChild;//.children[0];
 
   downButton.onclick = function(){
+    var nextNode = currentNode.nextElementSibling;
+  
+    if(nextNode==null)
+      alert('이동할 수 없어요')
+
+    currentNode.insertAdjacentElement('beforebegin',nextNode);
       
 
   };
 
   upButton.onclick = function(){
-     
+    var prevNode = currentNode.previousElementSibling;
+
+    if(prevNode==null)
+      alert('이동할수없습니다')
+
+    currentNode.insertAdjacentElement('afterend',prevNode);
+    
   };
 
 });
@@ -109,10 +151,31 @@ window.addEventListener("load", function(){
   var templateButton = section.querySelector(".template-button");
 
   cloneButton.onclick = function(){
+    var tr = tbodyNode.querySelectorAll('tr');
+    var clone = tr[0].cloneNode(true);
+    var cloneTds = clone.querySelectorAll('td');
+    cloneTds[0].innerHTML = notices[0].id;
+    cloneTds[1].innerHTML = '<a href='+notices[0].id+'>'+notices[0].title+'</a>';
+    cloneTds[2].innerHTML = notices[0].regDate;
+    cloneTds[3].innerHTML = notices[0].writerId;
+    cloneTds[4].innerHTML = notices[0].hit;
+
+    tbodyNode.appendChild(clone);
       
   };
 
   templateButton.onclick = function(){
+    var template = section.querySelector('template');
+    var clone = document.importNode(template.content,true);
+
+    var cloneTds = clone.querySelectorAll('td');
+    cloneTds[0].innerHTML = notices[0].id;
+    cloneTds[1].innerHTML = '<a href='+notices[0].id+'>'+notices[0].title+'</a>';
+    cloneTds[2].innerHTML = notices[0].regDate;
+    cloneTds[3].innerHTML = notices[0].writerId;
+    cloneTds[4].innerHTML = notices[0].hit;
+
+    tbodyNode.appendChild(clone);
       
       
   };
@@ -130,11 +193,16 @@ window.addEventListener("load", function(){
   var delButton = section.querySelector(".del-button");
 
   addButton.onclick = function(){
-      
+    var li = document.createElement('li');
+    li.innerHTML = '<a href="">'+titleInput.value+'</a>';
 
+    menuListUl.appendChild(li);
+    titleInput.value="";
   };
 
   delButton.onclick = function(){
+    menuListUl.firstElementChild.remove();
+    // menuListUl.lastElementChild.remove();
      
 
   };
