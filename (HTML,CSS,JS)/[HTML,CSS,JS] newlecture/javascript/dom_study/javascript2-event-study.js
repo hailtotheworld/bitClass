@@ -7,23 +7,24 @@ window.addEventListener("load", function () {
 
   tbody.onclick = function (e) {
     e.preventDefault();
-    var target = e.target;
+    if (e.target.nodeName != "A") return;
 
-    if (target.nodeName != "A") return;
+    if (e.target.classList.contains('sel-button')) {
 
-    if (target.classList.contains("sel-button")) {
+      var box = e.target.parentElement;
+      for (; box.nodeName != "TR"; box = box.parentElement);
 
-      var tr = target.parentElement;
-      for (; tr.nodeName != "TR"; tr = tr.parentElement);
+      box.style.background = "red";
+    } else if (e.target.classList.contains('del-button')) {
 
-      tr.style.background = "yellow";
+      var box = e.target.parentElement;
+      for (; box.nodeName != "TR"; box = box.parentElement);
 
-    } else if (target.classList.contains("edit-button")) {
-
-    } else if (target.classList.contains("del-button")) {
-
+      box.style.background = "green";
     }
+
   }
+
 });
 
 // Ex4-서로 다른 기능의 여러 버튼을 가진 화면에서 이벤트를 처리하는 방법
@@ -33,25 +34,22 @@ window.addEventListener("load", function () {
   var tbody = section.querySelector(".notice-list tbody");
 
   tbody.onclick = function (e) {
-    var target = e.target;
+    if (e.target.nodeName != "INPUT") return;
 
-    if (target.nodeName != "INPUT") return;
+    if (e.target.classList.contains('sel-button')) {
 
-    //if(target.className = "sel-button") //클래스가 1개라면 사용할수있긴한데, 클래스이름이 단독이름을 갖고있는 경우는 많지가 않다.
-    if (target.classList.contains("sel-button")) {
+      var box = e.target.parentElement;
+      for (; box.nodeName != "TR"; box = box.parentElement);
 
-      // var tr = target.parentElement.parentElement;
-      //이렇게 찾는건 다른 인라인태그가 추가되면 변하기때문에 위험이 있다..!
-      var tr = target.parentElement;
-      for (; tr.nodeName != "TR"; tr = tr.parentElement);
+      box.style.background = "red";
+    } else if (e.target.classList.contains('del-button')) {
 
-      tr.style.background = "yellow";
+      var box = e.target.parentElement;
+      for (; box.nodeName != "TR"; box = box.parentElement);
 
-    } else if (target.classList.contains("edit-button")) {
-
-    } else if (target.classList.contains("del-button")) {
-
+      box.style.background = "green";
     }
+
   }
 });
 
@@ -65,20 +63,11 @@ window.addEventListener("load", function () {
   var currentImg = section.querySelector(".current-img");
 
   imgList.onclick = function (e) {
-    console.log('imgList.onclick');
-    if (e.target.nodeName != 'IMG') return;
 
-    currentImg.src = e.target.src;
 
   };
 
   addButton.onclick = function (e) {
-    e.stopPropagation(); // 부모에게 이벤트 전파되는걸 막는 메서드
-
-    console.log('addButton.onclick');
-    var img = document.createElement('img');
-    img.src = "images/img1.jpg";
-    currentImg.insertAdjacentElement('afterend', img);
 
 
   };
@@ -92,12 +81,9 @@ window.addEventListener("load", function () {
   var imgList = section.querySelector(".img-list");
   var currentImg = section.querySelector(".current-img");
 
-  imgList.onclick = function (e) {
-    if (e.target.nodeName != 'IMG') return;
 
-    currentImg.src = e.target.src;
 
-  };
+
 });
 
 //연습문제 1-선택된 레코드 삭제하기:event target
@@ -105,15 +91,17 @@ window.addEventListener("load", function () {
 
   var section = document.querySelector('#section1-1');
   var tbodyNode = section.querySelector('tbody');
-
   var delButton = tbodyNode.querySelectorAll('.del-button');
 
   tbodyNode.addEventListener('click', function (e) {
-    if (e.target.nodeName != 'INPUT') return;
+    if(e.target.nodeName!="INPUT") return;
 
     e.target.parentElement.parentElement.remove();
 
+
+
   });
+
 
 });
 
@@ -121,14 +109,8 @@ window.addEventListener("load", function () {
 window.addEventListener("load", function () {
 
   var section = document.querySelector("#section1");
-
   var imgs = section.querySelectorAll(".img");
   var currentImg = section.querySelector(".current-img");
 
-  for (var i = 0; i < imgs.length; i++) {
-    imgs[i].onclick = function (e) {
-      console.log(e.target.nodeName); //Node.nodeName은 자신의 대문자 태그명이다.
-      currentImg.src = e.target.src;
-    };
-  }
+
 }); 
