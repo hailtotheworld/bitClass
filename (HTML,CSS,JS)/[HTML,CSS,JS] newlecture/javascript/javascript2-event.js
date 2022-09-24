@@ -1,8 +1,31 @@
 
-// Ex5-엘리먼트 노드의 기본행위 막기
+// Ex5-트리거
+window.addEventListener("load", function () {
+  var section = document.querySelector("#section5");
+  var fileButton = section.querySelector('.file-button');
+  var fileTriggerButton = section.querySelector('.file-trigger-button');
+
+  fileTriggerButton.onclick = function (e) {
+
+    // 이벤트객체생성
+    var event = new MouseEvent("click", {
+      'view': window,
+      'bubbles': true,
+      'cancelable': true
+    });
+
+    // 얘한테전달해준다.dispatchEvent(이벤트를);
+    fileButton.dispatchEvent(event); 
+    
+  };
+
+
+});
+
+// Ex4-2-엘리먼트 노드의 기본행위 막기
 window.addEventListener("load", function () {
 
-  var section = document.querySelector("#section5");
+  var section = document.querySelector("#section4-2");
   var tbody = section.querySelector(".notice-list tbody");
 
   tbody.onclick = function (e) {

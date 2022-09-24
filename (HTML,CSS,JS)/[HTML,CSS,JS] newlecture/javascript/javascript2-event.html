@@ -10,9 +10,34 @@
 </head>
 
 <body>
-
+  
   <section id="section5">
-    <h1>Ex5-엘리먼트 노드의 기본행위 막기 </h1>
+    <h1>Ex5-트리거 </h1>
+    <style>
+      .file-button {
+        display: none;
+      }
+      .file-trigger-button{
+        background: green;
+        border: 1px solid lightgreen;
+        border-radius: 5px;
+        padding: 5px 10px;
+        
+        /* cursor 속성은 요소 위에 마우스 커서가 올라갔을 때 보여줄 모양을 지정합니다. */
+        cursor: pointer;
+
+      }
+      .file-trigger-button:hover{
+        background: limegreen;
+      }
+    </style>
+    <input type="file" class="file-button">
+    <span class="file-trigger-button">파일선택</span>
+  </section>
+  <hr>
+
+  <section id="section4-2">
+    <h1>Ex4-2-엘리먼트 노드의 기본행위 막기 </h1>
     <table border="1" class="notice-list">
       <thead>
         <tr>
