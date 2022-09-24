@@ -59,11 +59,25 @@ window.addEventListener("load", function () {
   var currentImg = section.querySelector(".current-img");
 
   imgList.onclick = function (e) {
+    console.log("1");
+    if(e.target.nodeName!="IMG") return;
+
+    currentImg.src = e.target.src;
 
 
   };
 
   addButton.onclick = function (e) {
+    
+    e.stopPropagation();
+    console.log("2");
+    
+    
+    if(e.target.nodeName!="INPUT") return;
+
+    var addImg = document.createElement('img');
+    addImg.src = "../images/img1.jpg"
+    currentImg.insertAdjacentElement("afterend",addImg);    
 
 
   };
