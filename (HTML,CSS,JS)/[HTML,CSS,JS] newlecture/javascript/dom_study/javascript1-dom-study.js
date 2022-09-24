@@ -40,24 +40,7 @@ window.addEventListener("load", function () {
 
   titldTd.onclick = function () {
 
-    tbodyNode.innerHTML = "";
 
-    if (!titleSorted) {
-      notices.sort(function (a, b) {
-        if (a.title > b.title) {
-          return 1;
-        }
-        if (a.title < b.title) {
-          return -1;
-        }
-        // a must be equal to b
-        return 0;
-      });
-      titleSorted=true;
-    }
-    
-    bindData();
-    notices.reverse();
 
 
   };
@@ -76,43 +59,16 @@ window.addEventListener("load", function () {
 
   allCheckbox.onchange = function () {
 
-    var checkedInputs = tbody.querySelectorAll('input[type="checkbox"]');
-
-    for (var i = 0; i < checkedInputs.length; i++) {
-      checkedInputs[i].checked = allCheckbox.checked;
-    }
 
   };
 
   delButton.onclick = function () {
 
-    var checkedInputs = tbody.querySelectorAll('input[type="checkbox"]:checked');
-
-    for (var i = 0; i < checkedInputs.length; i++)
-      checkedInputs[i].parentElement.parentElement.remove();
 
   };
 
   swapButton.onclick = function () {
 
-    //복사본을만든다
-    //복사본이1번과교대
-    //0번이1번과교대
-
-    var checkedInputs = tbody.querySelectorAll('input[type="checkbox"]:checked');
-
-    if (checkedInputs.length != 2) {
-      alert('2개만 고르세요.')
-    }
-
-    var trs = new Array(checkedInputs.length);
-    for (var i = 0; i < checkedInputs.length; i++) {
-      trs[i] = checkedInputs[i].parentElement.parentElement;
-    }
-
-    var clone = trs[0].cloneNode(true);
-    trs[1].replaceWith(clone);
-    trs[0].replaceWith(trs[1]);
 
 
   };
