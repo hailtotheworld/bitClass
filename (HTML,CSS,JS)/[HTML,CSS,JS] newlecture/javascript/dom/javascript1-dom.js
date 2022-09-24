@@ -96,6 +96,24 @@ window.addEventListener("load", function () {
     for (var i = 0; i < checkedInputs.length; i++) {
       checkedInputs[i].parentElement.parentElement.remove();
     }
+
+    // var inputs = tbody.querySelectorAll('input[type="checkbox"]:checked');
+
+    // if (inputs.length != 2) {
+    //   alert('2개 골라주세요');
+    //   return;
+    // }
+
+
+    // var tr = [];
+    // for (var i = 0; i < inputs.length; i++) {
+    //   tr[i] = inputs[i].parentElement;
+    //   for (; tr[i].nodeName != "TR"; tr[i] = tr[i].parentElement);
+    // }
+
+    // for(var i =0;i<tr.length;i++) {
+    //   tr[i].remove();
+    // }
   };
 
   swapButton.onclick = function () {

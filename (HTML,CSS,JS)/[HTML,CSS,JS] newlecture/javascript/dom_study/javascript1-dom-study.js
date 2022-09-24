@@ -40,6 +40,25 @@ window.addEventListener("load", function () {
 
   titldTd.onclick = function () {
 
+    tbodyNode.innerHTML = "";
+
+    if (!titleSorted) {
+      notices.sort(function (a, b) {
+        if (a.title > b.title) {
+          return 1;
+        }
+        if (a.title < b.title) {
+          return -1;
+        }
+        // a must be equal to b
+        return 0;
+      });
+      titleSorted=true;
+    }
+
+
+    bindData();
+    notices.reverse();
 
 
 
@@ -59,15 +78,52 @@ window.addEventListener("load", function () {
 
   allCheckbox.onchange = function () {
 
+    var inputs = tbody.querySelectorAll('input[type="checkbox"]');
+
+    for (var i = 0; i < inputs.length; i++)
+      inputs[i].checked = allCheckbox.checked;
+
 
   };
 
   delButton.onclick = function () {
+    var inputs = tbody.querySelectorAll('input[type="checkbox"]:checked');
 
+    if (inputs.length != 2) {
+      alert('2개 골라주세요');
+      return;
+    }
+
+
+    var tr = [];
+    for (var i = 0; i < inputs.length; i++) {
+      tr[i] = inputs[i].parentElement;
+      for (; tr[i].nodeName != "TR"; tr[i] = tr[i].parentElement);
+    }
+
+    for (var i = 0; i < tr.length; i++) {
+      tr[i].remove();
+    }
 
   };
 
   swapButton.onclick = function () {
+    var inputs = tbody.querySelectorAll('input[type="checkbox"]:checked');
+
+    if (inputs.length != 2) {
+      alert('2개 골라주세요');
+      return;
+    }
+
+    var tr = [];
+    for (var i = 0; i < inputs.length; i++) {
+      tr[i] = inputs[i].parentElement;
+      for (; tr[i].nodeName != "TR"; tr[i] = tr[i].parentElement);
+    }
+
+    var clone = tr[0].cloneNode(true);
+    tr[1].replaceWith(clone);
+    tr[0].replaceWith(tr[1]);
 
 
 

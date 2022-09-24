@@ -73,7 +73,8 @@ window.addEventListener("load", function () {
   };
 
   addButton.onclick = function (e) {
-    e.stopPropagation(); // 부모에게 이벤트 전파되는걸 막는 메서드
+    // e.stopPropagation();
+    // 자식의이벤트(click)가 부모에게 전파되는걸 막는 메서드
 
     console.log('addButton.onclick');
     var img = document.createElement('img');

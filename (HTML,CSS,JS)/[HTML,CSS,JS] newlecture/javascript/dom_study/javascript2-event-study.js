@@ -7,21 +7,17 @@ window.addEventListener("load", function () {
 
   tbody.onclick = function (e) {
     e.preventDefault();
-    if (e.target.nodeName != "A") return;
+    if (e.target.nodeName != 'A') return;
 
     if (e.target.classList.contains('sel-button')) {
 
-      var box = e.target.parentElement;
-      for (; box.nodeName != "TR"; box = box.parentElement);
+      var tr = e.target.parentElement;
+      for (; tr.nodeName != "TR"; tr = tr.parentElement);
 
-      box.style.background = "red";
-    } else if (e.target.classList.contains('del-button')) {
-
-      var box = e.target.parentElement;
-      for (; box.nodeName != "TR"; box = box.parentElement);
-
-      box.style.background = "green";
+      tr.style.background = "red";
     }
+
+
 
   }
 
@@ -34,21 +30,21 @@ window.addEventListener("load", function () {
   var tbody = section.querySelector(".notice-list tbody");
 
   tbody.onclick = function (e) {
-    if (e.target.nodeName != "INPUT") return;
+    if (e.target.nodeName != 'INPUT') return;
 
     if (e.target.classList.contains('sel-button')) {
 
-      var box = e.target.parentElement;
-      for (; box.nodeName != "TR"; box = box.parentElement);
+      var tr = e.target.parentElement;
+      for (; tr.nodeName != "TR"; tr = tr.parentElement);
 
-      box.style.background = "red";
+      tr.style.background = "red";
     } else if (e.target.classList.contains('del-button')) {
+      var tr = e.target.parentElement;
+      for (; tr.nodeName != "TR"; tr = tr.parentElement);
 
-      var box = e.target.parentElement;
-      for (; box.nodeName != "TR"; box = box.parentElement);
-
-      box.style.background = "green";
+      tr.style.background = "green";
     }
+
 
   }
 });
@@ -94,9 +90,14 @@ window.addEventListener("load", function () {
   var delButton = tbodyNode.querySelectorAll('.del-button');
 
   tbodyNode.addEventListener('click', function (e) {
-    if(e.target.nodeName!="INPUT") return;
 
-    e.target.parentElement.parentElement.remove();
+    if (e.target.nodeName != "INPUT") return;
+
+    var tr = e.target.parentElement;
+    for (; tr.nodeName != "TR"; tr = tr.parentElement);
+
+    tr.remove();
+
 
 
 
