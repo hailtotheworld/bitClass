@@ -109,6 +109,25 @@ window.addEventListener("load", function() {
     offset.y = e.offsetY;
   };
 
+
+  // 첫번째단계, 클릭하면 따라오게하기
+  // var dragging = false;
+
+  // container.onmousedown = function(e) {
+  //       dragging = true;
+  // };
+
+  // container.onmousemove = function(e) {
+  //   if(!dragging) return;
+  //   box.style.left = e.pageX+"px"; 
+  //   box.style.top = e.pageY+"px"; 
+  // };
+
+  // container.onmouseup = function(e) {
+  //   dragging = false;
+  // };
+
+
 });
 
 // Ex6-MouseEvent Position
