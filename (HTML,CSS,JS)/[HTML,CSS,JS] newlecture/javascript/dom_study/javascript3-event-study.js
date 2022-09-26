@@ -91,29 +91,6 @@ window.addEventListener("load", function() {
   // (2) 박스를 선택해야지만 박스 이동가능
   // (3) 박스클릭한곳을 집기
 
-  var dragging = false;
-  var boxOffset = {x:0,y:0};
-
-  container.onmousedown = function(e) {
-    if(e.target === box)
-    dragging = true;
-  };
-
-  container.onmousemove = function(e) {
-    if(!dragging) return;
-    box.style.left = e.pageX-boxOffset.x +"px"; 
-    box.style.top = e.pageY-boxOffset.y+"px";
-  };
-
-  container.onmouseup = function(e) {
-    dragging = false;
-  };
-
-  box.onmousedown = function(e) {
-    boxOffset.x = e.offsetX;
-    boxOffset.y = e.offsetY;
-  }
-  
 
 
 });
