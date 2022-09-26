@@ -88,19 +88,26 @@ window.addEventListener("load", function() {
   var box = section.querySelector(".box");
 
   var dragging = false;
+  var offset = {x:0,y:0}; // (3)박스클릭한곳을 집기
 
   container.onmousedown = function(e) {
+    if(e.target === box) // (2)박스를 선택해야지만 박스 이동가능!
         dragging = true;
   };
 
   container.onmousemove = function(e) {
     if(!dragging) return;
-    box.style.left = e.pageX+"px"; 
-    box.style.top = e.pageY+"px"; 
+    box.style.left = e.pageX-offset.x+"px"; // (3)박스클릭한곳을 집기
+    box.style.top = e.pageY-offset.y+"px"; // (3)박스클릭한곳을 집기
   };
 
   container.onmouseup = function(e) {
     dragging = false;
+  };
+
+  box.onmousedown = function(e) { // (3)박스클릭한곳을 집기
+    offset.x = e.offsetX; // (3)박스클릭한곳을 집기
+    offset.y = e.offsetY; // (3)박스클릭한곳을 집기
   };
 
 });
@@ -114,9 +121,10 @@ window.addEventListener("load", function() {
   var box = section.querySelector(".box");
 
   container.onclick = function(e) {
-    box.style.left = e.pageX+"px"; 
-    box.style.top = e.pageY+"px"; 
-
+    box.style.left = e.pageX+"px";
+    box.style.top = e.pageY+"px";
   }
+
+
 });
 
