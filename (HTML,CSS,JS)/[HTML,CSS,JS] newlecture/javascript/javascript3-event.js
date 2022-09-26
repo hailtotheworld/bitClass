@@ -122,14 +122,22 @@ window.addEventListener("load", function() {
     console.log("client (x,y):"+e.clientX+","+e.clientY);
     console.log("page (x,y):"+e.pageX+","+e.pageY);
     console.log("offset (x,y):"+e.offsetX+","+e.offsetY);
-    // box.style.left = e.pageX+"px";
-    // box.style.top = e.pageY+"px";
 
-    // box.style.left = e.x+"px"; // clientX
+    // pageX, pageY
+    // 문서전체페이지기준
+    box.style.left = e.pageX+"px";
+    box.style.top = e.pageY+"px";
+
+    // clientX, clientY
+    // 보이는영역기준_기본값이다
+    // box.style.left = e.x+"px";
     // box.style.top = e.y+"px";
 
-    box.style.left = e.offsetX+"px";
-    box.style.top = e.offsetY+"px";
+    // offsetX, offsetY
+    // 클릭하는곳최전방영역에서의좌표
+    //   (컨테이너클릭하면컨테이너좌표적용,박스클릭하면박스좌표적용)
+    // box.style.left = e.offsetX+"px";
+    // box.style.top = e.offsetY+"px";
   }
 });
 
