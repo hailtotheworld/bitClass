@@ -53,7 +53,7 @@ window.addEventListener("load", function () {
         // a must be equal to b
         return 0;
       });
-      titleSorted=true;
+      titleSorted = true;
     }
 
 
@@ -80,52 +80,47 @@ window.addEventListener("load", function () {
 
     var inputs = tbody.querySelectorAll('input[type="checkbox"]');
 
-    for (var i = 0; i < inputs.length; i++)
+    for (var i = 0; i < inputs.length; i++) {
       inputs[i].checked = allCheckbox.checked;
+    }
 
 
   };
 
   delButton.onclick = function () {
-    var inputs = tbody.querySelectorAll('input[type="checkbox"]:checked');
 
-    if (inputs.length != 2) {
-      alert('2개 골라주세요');
-      return;
+    var checkedInputs = tbody.querySelectorAll('input[type="checkbox"]:checked');
+
+    var checkedPa = [];
+
+    for (var i = 0; i < checkedInputs.length; i++) {
+      checkedPa[i] = checkedInputs[i].parentElement;
+      for (; checkedPa[i].nodeName != "TR"; checkedPa[i] = checkedPa[i].parentElement);
+      checkedPa[i].remove();
     }
 
 
-    var tr = [];
-    for (var i = 0; i < inputs.length; i++) {
-      tr[i] = inputs[i].parentElement;
-      for (; tr[i].nodeName != "TR"; tr[i] = tr[i].parentElement);
-    }
-
-    for (var i = 0; i < tr.length; i++) {
-      tr[i].remove();
-    }
 
   };
 
   swapButton.onclick = function () {
-    var inputs = tbody.querySelectorAll('input[type="checkbox"]:checked');
+    var checkedInputs = tbody.querySelectorAll('input[type="checkbox"]:checked');
 
-    if (inputs.length != 2) {
-      alert('2개 골라주세요');
-      return;
+    if(checkedInputs.length != 2) {
+      alert('2개만 선택해주세요')
+      return false;
     }
 
-    var tr = [];
-    for (var i = 0; i < inputs.length; i++) {
-      tr[i] = inputs[i].parentElement;
-      for (; tr[i].nodeName != "TR"; tr[i] = tr[i].parentElement);
+    var checkedPa = [];
+
+    for(var i=0;i<checkedInputs.length;i++) {
+      checkedPa[i] = checkedInputs[i].parentElement;
+      for(;checkedPa[i].nodeName!="TR";checkedPa[i]=checkedPa[i].parentElement);
     }
 
-    var clone = tr[0].cloneNode(true);
-    tr[1].replaceWith(clone);
-    tr[0].replaceWith(tr[1]);
-
-
+    var clone = checkedPa[0].cloneNode(true);
+    checkedPa[1].replaceWith(clone);
+    checkedPa[0].replaceWith(checkedPa[1]);
 
   };
 

@@ -7,7 +7,13 @@ window.addEventListener("load", function () {
   var fileTriggerButton = section.querySelector('.file-trigger-button');
 
   fileTriggerButton.onclick = function (e) {
+    var event = new MouseEvent("click", {
+      bubbles: true,
+      cancelable: true,
+      view: window
+    });
 
+    fileButton.dispatchEvent(event);
   };
 
 });
@@ -19,17 +25,21 @@ window.addEventListener("load", function () {
 
   tbody.onclick = function (e) {
     e.preventDefault();
-    if (e.target.nodeName != 'A') return;
 
-    if (e.target.classList.contains('sel-button')) {
+    if(e.target.nodeName=!"A") return;
+
+    if(e.target.classList.contains('sel-button')) {
+
 
       var tr = e.target.parentElement;
-      for (; tr.nodeName != "TR"; tr = tr.parentElement);
+      for(;tr.nodeName!="TR";tr=tr.parentElement);
+      tr.style.background = 'yellow';
+    } else if(e.target.classList.contains('del-button')) {
+      var tr = e.target.parentElement;
+      for(;tr.nodeName!="TR";tr=tr.parentElement);
+      tr.style.background = 'red';
 
-      tr.style.background = "red";
     }
-
-
 
   }
 
@@ -71,26 +81,23 @@ window.addEventListener("load", function () {
   var currentImg = section.querySelector(".current-img");
 
   imgList.onclick = function (e) {
-    console.log("1");
+    console.log('changeSrc')
     if(e.target.nodeName!="IMG") return;
 
     currentImg.src = e.target.src;
-
-
   };
 
   addButton.onclick = function (e) {
-    
     e.stopPropagation();
-    console.log("2");
     
-    
+    console.log('newImg')
+
     if(e.target.nodeName!="INPUT") return;
 
-    var addImg = document.createElement('img');
-    addImg.src = "../images/img1.jpg"
-    currentImg.insertAdjacentElement("afterend",addImg);    
-
+    var newImg = document.createElement('IMG');
+    newImg.src = '../images/img1.jpg';
+    currentImg.insertAdjacentElement('afterend',newImg);
+    
 
   };
 
