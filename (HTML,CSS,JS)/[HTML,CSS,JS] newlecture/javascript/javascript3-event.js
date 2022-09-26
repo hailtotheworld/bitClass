@@ -109,13 +109,16 @@ window.addEventListener("load", function() {
     offset.y = e.offsetY;
   };
 
-
-  // (1) 클릭하면 따라오게하기
+  // (0) 마우스이동하는곳으로 따라오게하기
+  // container.onmousemove = function(e) {
+  //   box.style.left = e.pageX+"px"; //
+  //   box.style.top = e.pageY+"px";
+  // };
+  ////////////////////////////////////////////////
+  // (1) 마우스 누를때만 따라오게하기
   // var dragging = false;
-  // var offset = {x:0,y:0}; // (3)박스클릭한곳을 집기
 
   // container.onmousedown = function(e) {
-  // if(e.target === box) // (2)박스를 선택해야지만 박스 이동가능!
   //       dragging = true;
   // };
 
@@ -128,13 +131,8 @@ window.addEventListener("load", function() {
   // container.onmouseup = function(e) {
   //   dragging = false;
   // };
-
-  // box.onmousedown = function(e) { // (3)박스클릭한곳을 집기
-  //   offset.x = e.offsetX; // (3)박스클릭한곳을 집기
-  //   offset.y = e.offsetY; // (3)박스클릭한곳을 집기
-  // };
 ///////////////////////////////////////////////////////////////////////////
-  // (2)박스를 선택해야지만 박스 이동가능
+  // (2) 박스를 선택해야지만 박스 이동가능
   // var dragging = false;
 
   // container.onmousedown = function(e) {
