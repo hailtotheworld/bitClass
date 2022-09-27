@@ -86,23 +86,11 @@ window.addEventListener("load", function () {
   };
 
   delButton.onclick = function () {
-    var checkedInputs = tbody.querySelectorAll('input[type="checkbox"]:checked');
-
-
-    var tr = [];
-
-    for (var i = 0; i < checkedInputs.length; i++) {
-      tr[i] = checkedInputs[i].parentElement;
-      for (; tr[i].nodeName != "TR"; tr[i] = tr[i].parentElement);
-
-      tr[i].remove();
-    };
-
 
   };
 
   swapButton.onclick = function () {
-    var checkedInputs = tbody.querySelectorAll('input[type="checkbox"]:checked');
+    var checkedInputs = tbody.querySelectorAll('input[type=checkbox]:checked');
 
     if (checkedInputs.length != 2) {
       alert('2개만 선택하세요');
