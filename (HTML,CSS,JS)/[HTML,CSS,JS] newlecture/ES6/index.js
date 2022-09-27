@@ -50,7 +50,7 @@ console.log(getLetValue(false));//에러발생. 이게 정상이지. let변수�
 
 
 //3. const 상수//////////////////////////////////////////////////////////////////////////////////////
-
+/*
 const N=1;
 const S=5;
 
@@ -61,8 +61,26 @@ let walkTo = S;
 const add = function(a,b) {
   return a+b;
 }
-
-add = 50;
+// add = 50;
 
 console.log(add(3,4));
+*/
 
+//4. template String//////////////////////////////////////////////////////////////////////////////////////
+
+let oldTemplate = 
+"<section> \
+    <h1></h1> \
+    <p></p> \
+</section>";
+
+let title = "ES6";
+let content = "새로운 문자열";
+
+let template =
+String.raw`<section>
+    <h1>${title}</h1>\n\n
+    <p>${content}</p>
+</section>`;
+
+console.log(template);
