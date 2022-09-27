@@ -67,7 +67,7 @@ console.log(add(3,4));
 */
 
 //4. template String//////////////////////////////////////////////////////////////////////////////////////
-
+/*
 let oldTemplate = 
 "<section> \
     <h1></h1> \
@@ -84,3 +84,127 @@ String.raw`<section>
 </section>`;
 
 console.log(template);
+*/
+
+//5. 객체(키:값)에서  :값 생략할수있다//////////////////////////////////////////////////////////////////////////////////////
+
+/*
+let kor = 30;
+let eng = 40;
+let math = 50;
+
+// let exam = {
+//   kor:kor,
+//   eng:eng,
+//   math:math,         // :값 생략해도 키가 값과 이름이 같으니까 :값 생략하고 키만 남겨도돼.
+//   total:function() { // :function 생략해도 함수가 대입된다는걸 알수있으니까 키만 남겨도돼.
+//     return kor+eng;
+//   }
+// };
+
+let exam = {kor,eng,math,total(){
+  return kor+eng;
+}};
+
+console.log(exam.total())
+*/
+
+//6. (키이름:값)에서 변수를 [키이름]에 대입할수있다.//////////////////////////////////////////////////////////////////////////////////////
+/*
+let attr = "kor";
+
+let exam = {
+  [attr]:10
+};
+
+console.log(exam.kor);
+*/
+
+//////////////////////////////////////////////////////////////////////////////////
+/*
+let attr = "kor";
+let eng = 20;
+
+let exam = {
+  [attr]:10,          // [키이름] 대입가능
+  eng,                // 키이름:값 같다면  :값  생략가능
+  total() {return 30} // 함수이름:function()에서  :function()  생략가능
+};
+*/
+//////////////////////////////////////////////////////////////////////////////////
+
+//8. Object Destructuring#1////////////////////////////////////////////////////////////////////////////////////
+/*
+let exam = {
+  kor:20,
+  eng:30,
+  math:40
+};
+
+function print(exam) {
+  // 이렇게 객체에서 각각의 값을 꺼내는건 성능에 좋지 않다. 
+  // console.log(`kor:${exam.kor},eng:${exam.eng}`);
+
+  // 이렇게 객체를 미리 뽀개두고 뽀갠값을 이용하는게 성능에 더 좋다.
+  // let kor = exam.kor;
+  // let eng = exam.eng;
+  // console.log(`kor:${kor},eng:${eng}`);
+  
+  let {kor,eng} = exam;
+  console.log(`kor:${kor},eng:${eng}`);
+}
+
+print(exam);
+
+
+function printB({kor,eng,math}) { // 함수를 만들때부터 매개변수에서 객체를 뽀개서 받는다.
+  console.log(`kor:${kor},eng:${eng},math:${math}`);
+}
+
+printB(exam);
+*/
+
+//9. Object Destructuring#2////////////////////////////////////////////////////////////////////////////////////
+/*
+let exam = {
+  kor:50,
+  eng:60,
+  math:70
+};
+
+let {kor,eng,math} = exam;
+console.log(`kor:${kor},eng:${eng},math:${math}`);
+
+exam.kor=100; // 단독으로는 뽀개진객체에는 반영이 안된다
+exam.eng=90;
+({kor,eng}=exam); // 반드시 갱신해줘야한다.
+
+console.log(`kor:${kor},eng:${eng},math:${math}`);
+*/
+
+/*
+let exam = {
+  kor:50,
+  eng:60,
+  math:70
+};
+
+let {kor,eng,math,total=100} = exam; // 새로운 '키=값'을 넣을수있다.
+
+exam.avg = (kor+eng+math)/3; // 새로운 '키=값'을 넣을수있다.
+({avg}=exam);
+
+console.log(`kor:${kor},eng:${eng},math:${math},total:${total},avg:${avg}`);
+*/
+
+//10. Object Destructuring#3////////////////////////////////////////////////////////////////////////////////////
+
+let exam = {
+  kor:50,
+  eng:60,
+  math:70
+};
+
+let{kor:k, eng:e} = exam;
+console.log(kor); // 선언된 변수가 없다며 오류발생
+console.log(k);
