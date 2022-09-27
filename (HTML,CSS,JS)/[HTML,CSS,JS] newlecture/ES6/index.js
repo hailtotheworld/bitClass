@@ -14,7 +14,7 @@ console.log(window.y); // let으로 선언한건 window객체의 전역속성이
 // let y = 51; // let으로는 재선언이 불가능
 */
 
-//2. let을 통핸 변수의 지역화//////////////////////////////////////////////////////////////////////////////////////
+//2. let을 통한 변수의 지역화//////////////////////////////////////////////////////////////////////////////////////
 /*
 {var a = 30;}
 console.log(a);
@@ -47,3 +47,22 @@ function getLetValue(contidition) {
 console.log(getLetValue(true));
 console.log(getLetValue(false));//에러발생. 이게 정상이지. let변수의 생명주기가 {}까지니까.
 */
+
+
+//3. const 상수//////////////////////////////////////////////////////////////////////////////////////
+
+const N=1;
+const S=5;
+
+let walkTo = S;
+// S = 3;
+// console.log(S);
+
+const add = function(a,b) {
+  return a+b;
+}
+
+add = 50;
+
+console.log(add(3,4));
+
