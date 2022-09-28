@@ -183,19 +183,28 @@ console.log(`kor:${kor},eng:${eng},math:${math}`);
 */
 
 /*
+//쪼개진객체/////////////////////////////
 let exam = {
   kor:50,
-  eng:60,
+  eng:62,
   math:70
 };
 
-let {kor,eng,math,total=100} = exam; // 새로운 '키=값'을 넣을수있다.
+// 새로운 '키=값'을 넣을수있다. 이렇게 쪼개진객체에 직접 넣은 새로운 값은 쪼개진객체에만정용된다.
+let {kor,eng,math,total=(kor+eng+math)} = exam;
 
-exam.avg = (kor+eng+math)/3; // 새로운 '키=값'을 넣을수있다.
-({avg}=exam);
+exam.kor = 100; // 진짜객체에만적용
+exam.eng = 100; // 진짜객체에만적용
+exam.avg = (exam.kor+exam.eng+exam.math)/3;  // 진짜객체에만적용
+({kor,eng,avg}=exam);  // 쪼개진객체에적용시키기위해서는 갱신시켜야한다.
 
 console.log(`kor:${kor},eng:${eng},math:${math},total:${total},avg:${avg}`);
+// kor:100,eng:100,math:70,total:182(갱신적용안됨!),avg:90
+
+console.log(exam);
+//kor: 100, eng: 100, math: 70, avg: 90
 */
+
 
 //10. Object Destructuring#3////////////////////////////////////////////////////////////////////////////////////
 
@@ -205,6 +214,6 @@ let exam = {
   math:70
 };
 
-let{kor:k, eng:e} = exam;
-console.log(kor); // 선언된 변수가 없다며 오류발생
+let{kor:k, eng:e} = exam; // 객체의 속성과 다른이름 지정하는 방법
+// console.log(kor); // 선언된 변수가 없다며 오류발생
 console.log(k);
