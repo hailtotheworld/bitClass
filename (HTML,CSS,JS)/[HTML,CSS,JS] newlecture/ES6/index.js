@@ -208,12 +208,62 @@ console.log(exam);
 
 //10. Object Destructuring#3////////////////////////////////////////////////////////////////////////////////////
 
+/*
 let exam = {
   kor:50,
   eng:60,
-  math:70
+  math:70,
+  student:{
+   name:"newlec",
+   phone:"010-2222-3333" 
+  }
 };
 
-let{kor:k, eng:e} = exam; // 객체의 속성과 다른이름 지정하는 방법
+// 객체의 속성과 다른이름 지정하는 방법
+// 객체안의 객체에서 속성 뽑아내는방법
+let{kor:k, eng:e, student:{name,phone}} = exam;
+
 // console.log(kor); // 선언된 변수가 없다며 오류발생
 console.log(k);
+console.log(name);
+ */
+
+//11. Array Destructuring#1////////////////////////////////////////////////////////////////////////////////////
+
+/*
+let kors = [10,20,30];
+let [,kor2,kor3] = kors;
+console.log(`kor2:${kor2}, kor3:${kor3}`)
+
+let temp = [40,50,60];
+kors = temp;
+console.log(kors);
+*/
+
+//11. Array Destructuring#1////////////////////////////////////////////////////////////////////////////////////
+
+// let kors = [10,20,30];
+// let [kor1,kor2,kor3,kor4=40] = kors;
+// console.log(kor4) 
+
+// let notice = {
+//   title:"공지사항",
+//   files:["img1.png", "img.png"]
+// };
+
+// let {files:[first]} = notice;
+// console.log(first);
+
+/*
+// 객체뽀개기, 배열뽀개기
+let notices = {
+  title:"공지사항",
+  list:[
+    {title:"첫번째제목",content:"첫번째내용"},
+    {title:"두번째제목",content:"두번째내용"}
+  ]
+};
+
+let {list:[first,second]}= notices;
+console.log(second.title);
+*/
