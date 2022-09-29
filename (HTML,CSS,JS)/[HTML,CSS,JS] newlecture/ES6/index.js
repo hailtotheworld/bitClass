@@ -267,3 +267,17 @@ let notices = {
 let {list:[first,second]}= notices;
 console.log(second.title);
 */
+
+/*
+// 객체뽀개기, 배열뽀개기
+let notices = {
+  title:"공지사항",
+  list:[
+    {title:"첫번째제목",content:"첫번째내용"},
+    {title:"두번째제목",content:"두번째내용"}
+  ]
+};
+
+let {list:[first,second]}= notices;
+console.log(second.title);
+*/
