@@ -86,10 +86,7 @@ window.addEventListener("load", function() {
   var section = document.querySelector('#section7');
   var container = section.querySelector(".container");
   var box = section.querySelector(".box");
-  // (0) 마우스이동하는곳으로 따라오게하기
-  // (1) 마우스 누를때만 따라오게하기
-  // (2) 박스를 선택해야지만 박스 이동가능
-  // (3) 박스클릭한곳을 집기
+
   
 
 });

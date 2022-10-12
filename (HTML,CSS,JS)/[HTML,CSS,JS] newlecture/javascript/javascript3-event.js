@@ -80,6 +80,7 @@ window.addEventListener("load", function() {
 });
 
 // Ex7-마우스 이벤트 객체: 드래그 방식으로 박스 옮기기
+
 window.addEventListener("load", function() {
   var section = document.querySelector('#section7');
   var container = section.querySelector(".container");
@@ -110,6 +111,11 @@ window.addEventListener("load", function() {
   };
 
   // (0) 마우스이동하는곳으로 따라오게하기
+  // (1) 마우스 누를때만 따라오게하기
+  // (2) 박스를 선택해야지만 박스 이동가능
+  // (3) 박스클릭한곳을 집기
+
+  // (0) 마우스이동하는곳으로 따라오게하기
   // container.onmousemove = function(e) {
   //   box.style.left = e.pageX+"px"; //
   //   box.style.top = e.pageY+"px";
@@ -122,16 +128,16 @@ window.addEventListener("load", function() {
   //       dragging = true;
   // };
 
-  // container.onmousemove = function(e) {
+  // container.onmousemove = function(e) {   // 마우스눌렀을때 onmousemove
   //   if(!dragging) return;
   //   box.style.left = e.pageX+"px"; 
   //   box.style.top = e.pageY+"px"; 
   // };
 
-  // container.onmouseup = function(e) {
+  // container.onmouseup = function(e) {   // 마우스뗐을때 onmouseup
   //   dragging = false;
   // };
-///////////////////////////////////////////////////////////////////////////
+  ///////////////////////////////////////////////////////////////////////////
   // (2) 박스를 선택해야지만 박스 이동가능
   // var dragging = false;
 

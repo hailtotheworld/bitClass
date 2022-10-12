@@ -77,44 +77,14 @@ window.addEventListener("load", function () {
   var swapButton = section.querySelector(".swap-button");
 
   allCheckbox.onchange = function () {
-    var inputs = tbody.querySelectorAll('input[type="checkbox"]');
-
-    for (var i = 0; i < inputs.length; i++) {
-      inputs[i].checked = allCheckbox.checked;
-    }
-
   };
 
   delButton.onclick = function () {
+    
 
   };
 
   swapButton.onclick = function () {
-    var checkedInputs = tbody.querySelectorAll('input[type=checkbox]:checked');
-
-    if (checkedInputs.length != 2) {
-      alert('2개만 선택하세요');
-      return;
-    }
-
-    var tr = [];
-
-    for (var i = 0; i < checkedInputs.length; i++) {
-      tr[i] = checkedInputs[i].parentElement;
-      for (; tr[i].nodeName != "TR"; tr[i] = tr[i].parentElement);
-
-    }
-
-    var clone = tr[0].cloneNode(true);
-    tr[1].replaceWith(clone);
-    tr[0].replaceWith(tr[1]);
-
-
-    // var clone = checked0.cloneNode(true);
-    // checked1.replaceWith(clone);
-    // checked0.replaceWith(checked1);
-
-
   };
 
 });
