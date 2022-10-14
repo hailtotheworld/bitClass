@@ -268,3 +268,56 @@ let {list:[first,second]}= notices;
 console.log(second.title);
 */
 
+// 13. Set /////////////////////////////////////////////////////////////////////////////////////////////////////
+/*
+let ar = [1,3,3,2,4,4,2,5];
+let set = new Set(ar);
+console.log(set.size); //중복이 제거된다.
+
+set.forEach(function(value,key,ownerSet) {
+  console.log(`key:${key},value:${value}`)
+});
+
+for (let v of set) { //forof문은 값을 반환
+  console.log(v);
+}
+
+for (let [k,v] of set.entries()) {
+  console.log(`${k},${v}`);
+}
+
+for (let v in set) { //forin문은 키를 반환
+  console.log(v);
+}
+*/
+
+// 14. Map /////////////////////////////////////////////////////////////////////////////////////////////////////
+
+let exam = new Map();
+exam.set("kor",10);
+exam.set("eng",20);
+exam.set("math",30);
+
+for (let [k,v] of exam.entries()) {
+  console.log(`${k},${v}`);
+}
+
+let first = new Map([
+  [1, 'one'],
+  [2, 'two'],
+  [3, 'three'],
+]);
+
+for (let [k,v] of first.entries()) {
+  console.log(`${k},${v}`);
+}
+
+
+
+
+
+
+
+
+
+
