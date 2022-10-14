@@ -85,12 +85,35 @@ window.addEventListener("load", function () {
   };
 
   delButton.onclick = function () {
-    let checked = tbody.querySelectorAll('input[type="checkbox"]');
+    let checked = tbody.querySelectorAll('input[type="checkbox"]:checked');
 
+    let trs = [];
+    for (let i = 0; i < checked.length; i++) {
+      trs[i] = checked[i].parentElement;
+      for (; trs[i].nodeName != "TR"; trs[i] = trs[i].parentElement);
+      trs[i].remove();
+    }
 
   };
 
   swapButton.onclick = function () {
+    let checked = tbody.querySelectorAll('input[type="checkbox"]:checked');
+
+    if(checked.length!=2) {
+      alert('2개만 고르세요');
+      return;
+    }
+
+    let trs = [];
+    for(let i=0;i<checked.length;i++) {
+      trs[i] = checked[i].parentElement;
+      for(;trs[i].nodeName!="TR";trs[i]=trs[i].parentElement);
+    }
+
+    let clone = trs[0].cloneNode(true);
+    trs[1].replaceWith(clone);
+    trs[0].replaceWith(trs[1]);
+
   };
 
 });
