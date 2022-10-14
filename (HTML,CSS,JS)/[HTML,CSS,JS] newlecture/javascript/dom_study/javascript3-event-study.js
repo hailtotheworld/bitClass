@@ -92,20 +92,29 @@ window.addEventListener("load", function () {
   var box = section.querySelector(".box");
 
   let dragging = false;
+  let offset = {x:0,y:0};
 
-  container.onmousedown = function (e) {
+  container.onmousedown = function(e) {
+    if(e.target === box)
     dragging = true;
-  };
+  }
 
-  container.onmousemove = function (e) {
-    if (!dragging) return;
-      box.style.left = e.pageX + "px";
-      box.style.top = e.pageY + "px";  
-  };
+  container.onmousemove = function(e) {
+    if(!dragging) return;
+    box.style.left = e.pageX - offset.x+ "px";
+    box.style.top = e.pageY - offset.y+ "px";
+  }
 
-  container.onmouseup = function (e) {
+  container.onmouseup = function(e) {
     dragging = false;
-  };
+  }
+
+  box.onmousedown = function(e) {
+    offset.x = e.offsetX;
+    offset.y = e.offsetY;
+  }
+
+
 
 });
 
