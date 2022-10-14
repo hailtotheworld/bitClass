@@ -292,7 +292,7 @@ for (let v in set) { //forin문은 키를 반환
 */
 
 // 14. Map /////////////////////////////////////////////////////////////////////////////////////////////////////
-
+/*
 let exam = new Map();
 exam.set("kor",10);
 exam.set("eng",20);
@@ -311,13 +311,43 @@ let first = new Map([
 for (let [k,v] of first.entries()) {
   console.log(`${k},${v}`);
 }
+*/
 
+// 15. Rest Parameters (...value) /////////////////////////////////////////////////////////////////////////////////////////////////////
 
+/*
+// 자바스크립트에서 함수의 매개변수는 값을담는그릇이 아니라 별칭일 뿐이다.
 
+function print(x, y, ...value) {
+  console.log(`${x},${y}`);
+  console.log(`${arguments[0]},${arguments[1]}`);
 
+  for (let i = 0; i < value.length; i++) {
+    console.log(value[i]);
+  }
+};
 
+print(18, 19, 1, 2, 3, 4, 5);
+*/
 
+// 15. Spread Operator (...배열) /////////////////////////////////////////////////////////////////////////////////////////////////////
+/*
+function print(x,y,z) {
+  console.log(`${x} ${y} ${z}`)
+}
 
+let nums = [3,5,7];
+print(...nums); //배열을 흩뜨려서 전달하겠다는 의미구나
 
+let set = new Set([2,4,6]);
+print(...set);
 
+let nums2 = [...set];
+print(...nums2);
+
+let map = new Map();
+map.set("id",3);
+map.set("title","hello");
+console.log([...map][1][1]);
+*/
 
