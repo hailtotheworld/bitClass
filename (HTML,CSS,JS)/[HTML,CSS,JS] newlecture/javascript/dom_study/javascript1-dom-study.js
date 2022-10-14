@@ -77,10 +77,16 @@ window.addEventListener("load", function () {
   var swapButton = section.querySelector(".swap-button");
 
   allCheckbox.onchange = function () {
+    let check = tbody.querySelectorAll('input[type="checkbox"]');
+
+    for (let i = 0; i < check.length; i++) {
+      check[i].checked = allCheckbox.checked;
+    }
   };
 
   delButton.onclick = function () {
-    
+    let checked = tbody.querySelectorAll('input[type="checkbox"]');
+
 
   };
 
