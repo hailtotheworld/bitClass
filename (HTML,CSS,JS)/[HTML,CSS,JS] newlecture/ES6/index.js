@@ -343,7 +343,7 @@ let set = new Set([2,4,6]);
 print(...set);
 
 let nums2 = [...set];
-print(...nums2);
+print(...nums2); 
 
 let map = new Map();
 map.set("id",3);

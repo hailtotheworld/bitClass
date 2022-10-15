@@ -101,8 +101,8 @@ window.addEventListener("load", function () {
 
   container.onmousemove = function(e) {
     if(!dragging) return;
-    box.style.left = e.pageX - offset.x+ "px";
-    box.style.top = e.pageY - offset.y+ "px";
+    box.style.left = e.pageX-offset.x+"px";
+    box.style.top = e.pageY-offset.y+"px";
   }
 
   container.onmouseup = function(e) {
@@ -113,8 +113,6 @@ window.addEventListener("load", function () {
     offset.x = e.offsetX;
     offset.y = e.offsetY;
   }
-
-
 
 });
 
