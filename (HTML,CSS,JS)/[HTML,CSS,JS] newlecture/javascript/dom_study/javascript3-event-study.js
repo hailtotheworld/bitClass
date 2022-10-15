@@ -41,32 +41,27 @@ window.addEventListener("load", function() {
   };
 
 });
+*/
 
 // Ex8-마우스 이벤트 객체: 여러개 박스 드래그 방식으로 박스 옮기기
-window.addEventListener("load", function() {
+window.addEventListener("load", function () {
   var section = document.querySelector('#section8');
   var container = section.querySelector(".container");
   var box = section.querySelector(".box");
 
+
   var dragging = false;
   var offset = {x:0,y:0};
 
-  var current = null;
-
   container.onmousedown = function(e) {
-    if(e.target.classList.contains('box')){
+    if(e.target === box)
         dragging = true;
-        current = e.target;
-        offset.x = e.offsetX;
-        offset.y = e.offsetY;
-    }
   };
 
   container.onmousemove = function(e) {
     if(!dragging) return;
-
-    current.style.left = e.pageX-offset.x+"px";
-    current.style.top = e.pageY-offset.y+"px";
+    box.style.left = e.pageX-offset.x+"px";
+    box.style.top = e.pageY-offset.y+"px";
   };
 
   container.onmouseup = function(e) {
@@ -74,12 +69,15 @@ window.addEventListener("load", function() {
   };
 
   box.onmousedown = function(e) {
-
+    offset.x = e.offsetX;
+    offset.y = e.offsetY;
   };
+
+
 
 });
 
-*/
+
 
 // Ex7-마우스 이벤트 객체: 드래그 방식으로 박스 옮기기
 // (0) 마우스이동하는곳으로 따라오게하기
@@ -91,28 +89,28 @@ window.addEventListener("load", function () {
   var container = section.querySelector(".container");
   var box = section.querySelector(".box");
 
-  let dragging = false;
-  let offset = {x:0,y:0};
+  var dragging = false;
+  var offset = {x:0,y:0};
 
   container.onmousedown = function(e) {
     if(e.target === box)
-    dragging = true;
-  }
+        dragging = true;
+  };
 
   container.onmousemove = function(e) {
     if(!dragging) return;
     box.style.left = e.pageX-offset.x+"px";
     box.style.top = e.pageY-offset.y+"px";
-  }
+  };
 
   container.onmouseup = function(e) {
     dragging = false;
-  }
+  };
 
   box.onmousedown = function(e) {
     offset.x = e.offsetX;
     offset.y = e.offsetY;
-  }
+  };
 
 });
 

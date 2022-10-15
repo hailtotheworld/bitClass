@@ -50,7 +50,6 @@ window.addEventListener("load", function() {
 
   var dragging = false;
   var offset = {x:0,y:0};
-
   var current = null;
 
   container.onmousedown = function(e) {
@@ -73,9 +72,6 @@ window.addEventListener("load", function() {
     dragging = false;
   };
 
-  box.onmousedown = function(e) {
-
-  };
 
 });
 
