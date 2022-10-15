@@ -351,3 +351,154 @@ map.set("title","hello");
 console.log([...map][1][1]);
 */
 
+// 19. 클래스 /////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/*
+// ES6이전에 class 만드는 방식
+let proto = {kor:10, eng:30};
+function Exam() { }
+
+Exam.prototype = proto; // function의프로토타입으로 object를 넣는다.
+
+let exam = new Exam();
+
+console.log(exam.kor);
+console.log(typeof proto); // object
+console.log(typeof Exam); // function
+*/
+
+/*
+// ES6이후에 class 만드는 방식
+class Exam{
+  constructor(kor=0,eng=0,math=0) {
+    this.kor = kor;
+    this.eng = eng;
+    this.math = math;
+  }
+  total() {
+    return this.kor+this.eng+this.math; // this. 반드시 써줘야 한다. 생략하면 안돼.
+  }
+  avg() {
+    return this.total()/3.0;
+  }
+}
+
+let exam = new Exam(11,22,33);
+
+console.log(exam.total());
+console.log(exam.kor);
+*/
+
+// 20. 은닉화 /////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/*
+class Exam{
+  #kor; // private kor과 같은의미야. 생성자 메서드 안에서 쓰일거라서 미리 선언해줘야해.
+  #eng;
+  #math;
+  
+  constructor(kor=0,eng=0,math=0) {
+    this.#kor = kor;
+    this.#eng = eng;
+    this.#math = math;
+  }
+
+  #total() { // 메서드는 변수와 다르게 선언영역에 있어서 따로 선언해줄필요가 없지.
+    return this.#kor+this.#eng+this.#math; // this. 반드시 써줘야 한다. 생략하면 안돼.
+  }
+
+  avg() {
+    return this.#total()/3.0;
+  }
+};
+
+let exam = new Exam(11,22,33);
+
+console.log(exam.avg());
+// console.log(exam.#kor); //클래스밖에서는 은닉화된 #변수를 사용할수없어.
+*/
+
+// 21. static /////////////////////////////////////////////////////////////////////////////////////////////////////
+/*
+class Exam{
+  #kor; // private kor과 같은의미야. 생성자 메서드 안에서 쓰일거라서 미리 선언해줘야해.
+  #eng; // #을 붙히면 class내에서는 사용할 수 있지만 클래스 밖에서는 사용할 수 없어.
+  #math;
+  static #info = "안녕하세요. 저는 Exam클래스입니다."; //전역변수
+  
+  constructor(kor=0,eng=0,math=0) {
+    this.#kor = kor;
+    this.#eng = eng;
+    this.#math = math;
+  }
+
+  #total() { // 메서드는 변수와 다르게 선언영역에 있어서 따로 선언해줄필요가 없지.
+    return this.#kor+this.#eng+this.#math; // this. 반드시 써줘야 한다. 생략하면 안돼.
+  }
+
+  avg() {
+    return this.#total()/3.0;
+  }
+  static info() { // 객체를 만들지 않고 사용할 수 있도록 static함수로 만들어줘야지
+    return Exam.#info; //전역변수 사용할때는 this. 아니고 클래스이름. 으로 참조해야한다.
+  }
+};
+
+let exam1 = new Exam(11,22,33);
+let exam2 = new Exam(2,42,73);
+let exam3 = new Exam(5,62,83);
+
+console.log(exam1.avg());
+console.log(Exam.info());
+// console.log(exam.#kor); //클래스밖에서는 은닉화된 #변수를 사용할수없어.
+*/
+
+// 22. getters/setters /////////////////////////////////////////////////////////////////////////////////////////////////////
+
+class Exam{
+  #kor; // private kor과 같은의미야. 생성자 메서드 안에서 쓰일거라서 미리 선언해줘야해.
+  #eng; // #을 붙히면 class내에서는 사용할 수 있지만 클래스 밖에서는 사용할 수 없어.
+  #math;
+  static #info = "안녕하세요. 저는 Exam클래스입니다."; //전역변수
+  
+  constructor(kor=0,eng=0,math=0) {
+    this.#kor = kor;
+    this.#eng = eng;
+    this.#math = math;
+  }
+
+  getKor() {
+    return this.#kor;
+  }
+
+  setKor(value) {
+    this.#kor = value;
+  }
+
+  get kor() { // #kor은 private변수지만 public방식으로 쓸 수 있게 해준다.
+    return this.#kor;
+  }
+
+  set kor(value) { // #kor은 private변수지만 public방식으로 쓸 수 있게 해준다.
+    this.#kor = value;
+  }
+
+  #total() { // 메서드는 변수와 다르게 선언영역에 있어서 따로 선언해줄필요가 없지.
+    return this.#kor+this.#eng+this.#math; // this. 반드시 써줘야 한다. 생략하면 안돼.
+  }
+
+  avg() {
+    return this.#total()/3.0;
+  }
+  static info() { // 객체를 만들지 않고 사용할 수 있도록 static함수로 만들어줘야지
+    return Exam.#info; //전역변수 사용할때는 this. 아니고 클래스이름. 으로 참조해야한다.
+  }
+};
+
+let exam1 = new Exam(11,22,33);
+
+// exam1.setKor(20);
+// console.log(exam1.getKor());
+
+exam1.kor = 50;         // #kor은 private변수지만 public방식으로 쓸 수 있게 해준다.
+console.log(exam1.kor); // #kor은 private변수지만 public방식으로 쓸 수 있게 해준다.
