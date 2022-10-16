@@ -49,15 +49,14 @@ window.addEventListener("load", function () {
   var container = section.querySelector(".container");
   var box = section.querySelector(".box");
 
-
   var dragging = false;
   var offset = { x: 0, y: 0 };
-  let current = null;
+  let current;
 
   container.onmousedown = function (e) {
-    if (e.target.classList.contains("box")) {
+    if (e.target.classList.contains('box')) {
       dragging = true;
-      current = e.target;
+      current = e.target; 
       offset.x = e.offsetX;
       offset.y = e.offsetY;
     }
@@ -65,6 +64,7 @@ window.addEventListener("load", function () {
 
   container.onmousemove = function (e) {
     if (!dragging) return;
+
     current.style.left = e.pageX - offset.x + "px";
     current.style.top = e.pageY - offset.y + "px";
   };
