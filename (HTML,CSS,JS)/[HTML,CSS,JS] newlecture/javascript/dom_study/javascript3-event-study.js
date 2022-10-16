@@ -51,26 +51,30 @@ window.addEventListener("load", function () {
 
 
   var dragging = false;
-  var offset = {x:0,y:0};
+  var offset = { x: 0, y: 0 };
+  let current = null;
 
-  container.onmousedown = function(e) {
-    if(e.target === box)
-        dragging = true;
+  container.onmousedown = function (e) {
+    if (e.target.classList.contains("box")) {
+      dragging = true;
+      current = e.target;
+      offset.x = e.offsetX;
+      offset.y = e.offsetY;
+    }
   };
 
-  container.onmousemove = function(e) {
-    if(!dragging) return;
-    box.style.left = e.pageX-offset.x+"px";
-    box.style.top = e.pageY-offset.y+"px";
+  container.onmousemove = function (e) {
+    if (!dragging) return;
+    current.style.left = e.pageX - offset.x + "px";
+    current.style.top = e.pageY - offset.y + "px";
   };
 
-  container.onmouseup = function(e) {
+  container.onmouseup = function (e) {
     dragging = false;
   };
 
-  box.onmousedown = function(e) {
-    offset.x = e.offsetX;
-    offset.y = e.offsetY;
+  box.onmousedown = function (e) {
+
   };
 
 
@@ -90,24 +94,24 @@ window.addEventListener("load", function () {
   var box = section.querySelector(".box");
 
   var dragging = false;
-  var offset = {x:0,y:0};
+  var offset = { x: 0, y: 0 };
 
-  container.onmousedown = function(e) {
-    if(e.target === box)
-        dragging = true;
+  container.onmousedown = function (e) {
+    if (e.target === box)
+      dragging = true;
   };
 
-  container.onmousemove = function(e) {
-    if(!dragging) return;
-    box.style.left = e.pageX-offset.x+"px";
-    box.style.top = e.pageY-offset.y+"px";
+  container.onmousemove = function (e) {
+    if (!dragging) return;
+    box.style.left = e.pageX - offset.x + "px";
+    box.style.top = e.pageY - offset.y + "px";
   };
 
-  container.onmouseup = function(e) {
+  container.onmouseup = function (e) {
     dragging = false;
   };
 
-  box.onmousedown = function(e) {
+  box.onmousedown = function (e) {
     offset.x = e.offsetX;
     offset.y = e.offsetY;
   };

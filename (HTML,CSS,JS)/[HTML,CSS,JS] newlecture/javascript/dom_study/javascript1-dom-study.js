@@ -211,18 +211,22 @@ window.addEventListener("load", function () {
   var delButton = section.querySelector(".del-button");
 
   addButton.onclick = function () {
-    var li = document.createElement('li');
-    li.innerHTML = '<a href="">' + titleInput.value + '</a>';
+    let title = titleInput.value;
+    let html = '<a href="">'+title+'</a>';
+    let li = document.createElement('li');
+    li.innerHTML = html;
 
-    menuListUl.appendChild(li);
-    titleInput.value = "";
+    menuListUl.append(li);
+
+    titleInput.value="";v
+
   };
 
   delButton.onclick = function () {
-    menuListUl.firstElementChild.remove();
-    // menuListUl.lastElementChild.remove();
+    // menuListUl.children[0].remove();
 
-
+    let lis = menuListUl.querySelectorAll('li');
+    menuListUl.children[lis.length-1].remove();
   };
 
 });
@@ -237,21 +241,23 @@ window.addEventListener("load", function () {
   var colorInput = section.querySelector(".color-input");
 
   changeButton.onclick = function () {
+    // img의 src를 변경해야 한다.
+    
+    img.src = imgSelect.value;
+    img.style.borderColor =  colorInput.value;
 
   };
 
 });
 
 //Ex4 : childeNodes를 이용한 노드 선택
+// input 두개에 아무거나 써봐
 window.addEventListener("load", function () {
   var section4 = document.querySelector("#section4");
   var box = section4.querySelector(".box");
 
-  var input1 = box.children[0];// .childNodes[0];
-  var input2 = box.children[1];
-
-  input1.value = "hello";
-  input2.value = "okay";
+  box.children[0].value = "he"
+  box.children[1].value = "h2"
 
 });
 

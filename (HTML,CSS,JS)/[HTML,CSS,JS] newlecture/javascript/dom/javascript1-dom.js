@@ -247,7 +247,7 @@ window.addEventListener("load", function () {
     appedChild(노드 한개만)
     
     menuListUl.append(title);
-    // menuListUl.appendChild(title); // 에러가난다.
+    // menuListUl.appendChild(title); // 에러가난다. 텍스트를 추가할수없다. 노드(텍스트노드)만 추가가능하다.
     */
 
     // 추가할때마다 기존객체가 삭제되고 새로운객체가 생성되서 성능에 문제가 된다.
@@ -295,7 +295,7 @@ window.addEventListener("load", function () {
   var img = section.querySelector(".img");
 
   changeButton.onclick = function () {
-    img.src = 'images/' + imgSelect.value;
+    img.src = '../images/' + imgSelect.value;
     img.style.borderColor = colorInput.value;
 
   };
