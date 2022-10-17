@@ -1,6 +1,6 @@
 
 // Ex9-마우스 이벤트 객체: 박스의 옵셋 영역 좌표 이용하기 (스크롤 내려가도 기능유지하게끔)
-window.addEventListener("load", function() {
+window.addEventListener("load", function () {
   var section = document.querySelector('#section9');
   var container = section.querySelector(".container");
   var status = section.querySelector(".status");
@@ -27,6 +27,7 @@ window.addEventListener("load", function () {
   var container = section.querySelector(".container");
   var box = section.querySelector(".box");
 
+
 });
 
 
@@ -37,10 +38,11 @@ window.addEventListener("load", function () {
   var container = section.querySelector(".container");
   var box = section.querySelector(".box");
 
-  container.onmousemove = function(e) {
-    box.style.left = e.pageX-left+"px";
-    box.style.top = e.pageY-top+"px";
-  }
+
+  container.onclick = function (e) {
+    box.style.left = e.pageX - container.offsetLeft + "px";
+    box.style.top = e.pageY - container.offsetTop + "px";
+  };
 
 
 });
