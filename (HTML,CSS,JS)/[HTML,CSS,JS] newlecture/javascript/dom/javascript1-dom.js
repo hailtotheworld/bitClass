@@ -181,7 +181,6 @@ window.addEventListener("load", function () {
   ];
 
   var section = document.querySelector("#section7");
-
   var noticeList = section.querySelector(".notice-list");
   var tbodyNode = noticeList.querySelector("tbody");
   var cloneButton = section.querySelector(".clone-button");
