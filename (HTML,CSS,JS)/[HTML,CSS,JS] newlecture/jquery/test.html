@@ -9,10 +9,15 @@
 </head>
 <body>
   <img id ="img1">
-  
+
+  <div id="foobar"></div>
   <script>
-    var img1 = document.querySelector('#img');
-    img1.src = "images/img1.jpg";
+    // jQuery(img1).attr("src","images/img1.jpg");
+
+    // let img1 = document.querySelector("#img1");
+    // $(img1).attr("src","images/img1.jpg");
+
+    $("#img1").attr("src","images/img1.jpg"); // DOM의 선택하는거기능 사용안하고 바로 CSS선택자로 선택하네
   </script>
 </body>
 </html>
