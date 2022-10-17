@@ -169,31 +169,12 @@ window.addEventListener("load", function () {
   var templateButton = section.querySelector(".template-button");
 
   cloneButton.onclick = function () {
-    var tr = tbodyNode.querySelectorAll('tr');
-    var clone = tr[0].cloneNode(true);
-    var cloneTds = clone.querySelectorAll('td');
-    cloneTds[0].innerHTML = notices[0].id;
-    cloneTds[1].innerHTML = '<a href=' + notices[0].id + '>' + notices[0].title + '</a>';
-    cloneTds[2].innerHTML = notices[0].regDate;
-    cloneTds[3].innerHTML = notices[0].writerId;
-    cloneTds[4].innerHTML = notices[0].hit;
-
-    tbodyNode.appendChild(clone);
+    
 
   };
 
   templateButton.onclick = function () {
-    var template = section.querySelector('template');
-    var clone = document.importNode(template.content, true);
 
-    var cloneTds = clone.querySelectorAll('td');
-    cloneTds[0].innerHTML = notices[0].id;
-    cloneTds[1].innerHTML = '<a href=' + notices[0].id + '>' + notices[0].title + '</a>';
-    cloneTds[2].innerHTML = notices[0].regDate;
-    cloneTds[3].innerHTML = notices[0].writerId;
-    cloneTds[4].innerHTML = notices[0].hit;
-
-    tbodyNode.appendChild(clone);
 
 
   };
@@ -210,24 +191,25 @@ window.addEventListener("load", function () {
   var addButton = section.querySelector(".add-button");
   var delButton = section.querySelector(".del-button");
 
-  addButton.onclick = function () {
-    let title = titleInput.value;
-    let html = '<a href="">'+title+'</a>';
+  addButton.onclick = function(e) {
     let li = document.createElement('li');
-    li.innerHTML = html;
+    let title = titleInput.value;
+    li.innerHTML = `<a href=""> ${title} </a>`
 
     menuListUl.append(li);
 
-    titleInput.value="";v
+    titleInput.value ="";
 
   };
 
-  delButton.onclick = function () {
+  delButton.onclick = function(e) {
     // menuListUl.children[0].remove();
 
-    let lis = menuListUl.querySelectorAll('li');
+    let lis = menuListUl.querySelectorAll('li');    
+
     menuListUl.children[lis.length-1].remove();
   };
+
 
 });
 

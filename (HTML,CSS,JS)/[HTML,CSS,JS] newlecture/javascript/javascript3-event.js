@@ -187,6 +187,9 @@ window.addEventListener("load", function() {
   var container = section.querySelector(".container");
   var box = section.querySelector(".box");
 
+  let left = container.offsetLeft;
+  let top = container.offsetTop;
+
   container.onclick = function(e) {
     console.log("(x,y):"+e.x+","+e.y);
     console.log("client (x,y):"+e.clientX+","+e.clientY);
@@ -195,8 +198,8 @@ window.addEventListener("load", function() {
 
     // pageX, pageY
     // 문서전체페이지기준
-    box.style.left = e.pageX+"px";
-    box.style.top = e.pageY+"px";
+    box.style.left = e.pageX -left +"px";
+    box.style.top = e.pageY-top+"px";
 
     // clientX, clientY
     // 보이는영역기준_기본값이다
