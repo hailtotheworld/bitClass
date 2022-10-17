@@ -168,16 +168,6 @@ window.addEventListener("load", function () {
   var templateButton = section.querySelector(".template-button");
 
   cloneButton.onclick = function () {
-    let trNode = tbodyNode.querySelector('tr');
-    let clone = trNode.cloneNode(true);
-    let tds = clone.querySelectorAll('td');
-    tds[0].innerText = notices[0].id;
-    tds[1].innerHTML = `<a href=${notices[0].id}>${notices[0].title}</a>`;
-    tds[2].innerText = notices[0].regDate;
-    tds[3].innerText = notices[0].writerId;
-    tds[4].innerText = notices[0].hit;
-
-    tbodyNode.append(clone);
 
 
 
@@ -202,22 +192,12 @@ window.addEventListener("load", function () {
   var delButton = section.querySelector(".del-button");
 
   addButton.onclick = function(e) {
-    let li = document.createElement('li');
-    let title = titleInput.value;
-    li.innerHTML = `<a href=""> ${title} </a>`
 
-    menuListUl.append(li);
-
-    titleInput.value ="";
 
   };
 
   delButton.onclick = function(e) {
-    // menuListUl.children[0].remove();
 
-    let lis = menuListUl.querySelectorAll('li');    
-
-    menuListUl.children[lis.length-1].remove();
   };
 
 
