@@ -168,16 +168,7 @@ window.addEventListener("load", function () {
   var templateButton = section.querySelector(".template-button");
 
   cloneButton.onclick = function () {
-    let trOne = tbodyNode.querySelector('tr');
-    let clone = trOne.cloneNode(true);
-    let tds = clone.querySelectorAll('td');
-    tds[0].innerText = notices[0].id;
-    tds[1].innerHTML = `<a href=${notices[0].id}>${notices[0].title}</a>`;
-    tds[2].innerText = notices[0].regDate;
-    tds[3].innerText = notices[0].writerId;
-    tds[4].innerText = notices[0].hit;
 
-    tbodyNode.append(clone);    
 
   };
 
