@@ -1,15 +1,42 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-<meta charset="UTF-8">
-<title> 선택문 </title>
-<script>
-	var site = prompt("네이버, 다음, 네이트, 구글 중 \
-	즐겨 사용하는 포털 검색 사이트는?", "");
-	var url;
 
-</script>
+<head>
+  <meta charset="UTF-8">
+  <title> 선택문 </title>
 </head>
+
 <body>
+  <select name="" id="sel">
+    <option value="www.naver.com">네이버</option>
+    <option value="www.daum.net">다음</option>
+    <option value="www.google.com">구글</option>
+  </select>
+
+  <button id="btn">이동</button>
+  <!-- <img src="img1.jpg" alt="" id="img1"> -->
+
+  <script>
+    // var site = prompt("네이버, 다음, 네이트, 구글 중 즐겨 사용하는 포털 검색 사이트는?", "");
+    // var url;
+
+    let btn = document.querySelector('#btn');
+    let sel = document.querySelector('#sel');
+    // let img1 = document.querySelector('#img1');
+    
+
+    // img1.addEventListener('click',function(e) {
+    //   // e.preventDefault();
+    //   location.href = "http://" + sel.value;
+    // });
+
+    btn.addEventListener('click',function(e) {
+      // e.preventDefault();
+      location.href = "http://" + sel.value;
+    });
+
+
+  </script>
 </body>
+
 </html>

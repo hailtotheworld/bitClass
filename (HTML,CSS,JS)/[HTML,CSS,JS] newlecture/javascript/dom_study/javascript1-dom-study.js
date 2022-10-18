@@ -168,8 +168,16 @@ window.addEventListener("load", function () {
   var templateButton = section.querySelector(".template-button");
 
   cloneButton.onclick = function () {
+    let trOne = tbodyNode.querySelector('tr');
+    let clone = trOne.cloneNode(true);
+    let tds = clone.querySelectorAll('td');
+    tds[0].innerText = notices[0].id;
+    tds[1].innerHTML = `<a href=${notices[0].id}>${notices[0].title}</a>`;
+    tds[2].innerText = notices[0].regDate;
+    tds[3].innerText = notices[0].writerId;
+    tds[4].innerText = notices[0].hit;
 
-
+    tbodyNode.append(clone);    
 
   };
 
@@ -192,11 +200,16 @@ window.addEventListener("load", function () {
   var delButton = section.querySelector(".del-button");
 
   addButton.onclick = function(e) {
+    let li = document.createElement('li');
+    li.innerHTML = `<a href="">${titleInput.value}<a>`;
+    menuListUl.append(li);
 
-
+    titleInput.value = "";
   };
 
   delButton.onclick = function(e) {
+    // menuListUl.firstElementChild.remove();
+    menuListUl.lastElementChild.remove();
 
   };
 
