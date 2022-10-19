@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title> 선택자Q </title>
+  <script src="js/jquery.js"></script>
+
+</head>
+
+<body>
+  <h1>제이쿼리</h1>
+  <h2>선택자</h2>
+  <h3 id="tit3">직접 선택자</h3>
+  <h3>인접 선택자</h3>
+
+  <script>
+    $(function(){
+      $('h1, #tit3').css('background','aqua')
+    });
+
+    let hi = document.querySelectorAll('h1,#tit3');
+    hi[0].style.color = "red";
+    hi[1].style.color = "red";
+  </script>
+</body>
+
+</html>
