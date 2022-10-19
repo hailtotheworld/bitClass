@@ -2,20 +2,14 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<title> 선택자 </title>  
+<title> 선택자QQ </title>  
 <script src="js/jquery.js"></script>
 <script>
-	$(function(){
-		$(".txt1").parents()
-		.css({
-			"border":"2px dashed green"
-		});
+$(function(){
+  $('.txt1').parents().css('border','3px dotted green')
+  $('.txt2').parents('div').css('border','3px dotted red')
 
-		$(".txt2").parents("div")
-		.css({
-			"border":"2px solid red"
-		});
-	});
+});
 </script>
 </head>
 <body>

@@ -18,17 +18,10 @@
 
   <script>
     $(function(){
-      $("#wrap > h1").css("border","2px dashed #f00");
-  
-      // $("#wrap > section").children( )
-      // .css({ 
-      //   "background-color":"yellow",
-      //   "border":"2px solid #f00"
-      // });
-    });
+      $('#wrap > h1').css('border','1px red solid');
 
-    let sec = document.querySelector('section');
-    sec.children.style.border = 'red 1px solid';
+      $('#wrap section').children().css({'border':'1px green solid', 'background':'red'})
+    });
 
   </script>
 </body>
