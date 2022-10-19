@@ -161,8 +161,7 @@ window.addEventListener("load", function () {
     { id: 6, title: "나 좀 복제해줘~", regDate: "2019-01-26", writerId: "newlec", hit: 17 }
   ];
 
-  // var section = document.querySelector("#section7");
-  var section = $('#section7');
+  var section = document.querySelector("#section7");
   var noticeList = section.querySelector(".notice-list");
   var tbodyNode = noticeList.querySelector("tbody");
   var cloneButton = section.querySelector(".clone-button");
