@@ -1,31 +1,39 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
-<meta charset="UTF-8">
-<title> 선택자Q </title>  
-<script src="js/jquery.js"></script>
-<script>
-$(function(){
-  
-  $('#wrap').children('li').css('color','red');
-  // $('#wrap li').css('color','red');
-	
-});
-</script>
+  <meta charset="UTF-8">
+  <title> 선택자Q </title>
+  <script src="js/jquery.js"></script>
+  <script>
+    $(function () {
+
+      $('#wrap').children('li').css('border','3px green dotted');
+      // $('#wrap > li').css('border','3px green dotted');
+
+
+      // $('#wrap li').css('border','3px green dotted');
+
+    });
+
+  </script>
 </head>
+
 <body>
-	<h1>인접 관계 선택자</h1>
-	<ul id="wrap">
+  <h1>인접 관계 선택자</h1>
+  <ul id="wrap">
+
     <li>리스트1
-      <p>하이하이</p>
-			<ul>
-				<li id="list_1">리스트1-1</li>
-				<li>리스트1-2</li>
-        
-			</ul>
-		</li>
-		<li>리스트2</li>
-		<li>리스트3</li>
-	</ul>
+      <ul>
+        <li id="list_1">리스트1-1</li>
+        <li>리스트1-2</li>
+      </ul>
+    </li>
+
+    <li>리스트2</li>
+
+    <li>리스트3</li>
+  </ul>
 </body>
+
 </html>

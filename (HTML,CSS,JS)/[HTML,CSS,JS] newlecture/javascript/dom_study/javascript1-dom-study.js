@@ -87,10 +87,15 @@ window.addEventListener("load", function () {
   delButton.onclick = function () {
     let checked = tbody.querySelectorAll('input[type="checkbox"]:checked');
 
-    let trs = [];
-    for (let i = 0; i < checked.length; i++) {
-      trs[i] = checked[i].parentElement;
-      for (; trs[i].nodeName != "TR"; trs[i] = trs[i].parentElement);
+    // let trs = [];
+    // for (let i = 0; i < checked.length; i++) {
+    //   trs[i] = checked[i].parentElement;
+    //   for (; trs[i].nodeName != "TR"; trs[i] = trs[i].parentElement);
+    //   trs[i].remove();
+    // }
+
+    let trs = $(checked).closest('tr');
+    for(let i=0;i<trs.length;i++) {
       trs[i].remove();
     }
 
@@ -168,11 +173,15 @@ window.addEventListener("load", function () {
   var templateButton = section.querySelector(".template-button");
 
   cloneButton.onclick = function () {
+
     let trNode = tbodyNode.querySelector('tr');
+    // let trNode = $(tbodyNode).children('tr');
+
     let clone = trNode.cloneNode(true);
     // let clone = document.importNode(trNode,true);
 
     let tds = clone.querySelectorAll('td');
+    // let tds = $(clone).children('td');
     tds[0].innerText = notices[0].id;
     tds[1].innerHTML = `<a href=${notices[0].id}>${notices[0].title}</a>`;
     tds[2].innerText = notices[0].regDate;
@@ -180,7 +189,6 @@ window.addEventListener("load", function () {
     tds[4].innerText = notices[0].hit;
 
     tbodyNode.append(clone);
-
   };
 
   templateButton.onclick = function () {
