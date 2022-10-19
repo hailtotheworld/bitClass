@@ -95,7 +95,7 @@ window.addEventListener("load", function () {
     // }
 
     let trs = $(checked).closest('tr');
-    for(let i=0;i<trs.length;i++) {
+    for (let i = 0; i < trs.length; i++) {
       trs[i].remove();
     }
 
@@ -104,15 +104,15 @@ window.addEventListener("load", function () {
   swapButton.onclick = function () {
     let checked = tbody.querySelectorAll('input[type="checkbox"]:checked');
 
-    if(checked.length!=2) {
+    if (checked.length != 2) {
       alert('2개만 고르세요');
       return;
     }
 
     let trs = [];
-    for(let i=0;i<checked.length;i++) {
+    for (let i = 0; i < checked.length; i++) {
       trs[i] = checked[i].parentElement;
-      for(;trs[i].nodeName!="TR";trs[i]=trs[i].parentElement);
+      for (; trs[i].nodeName != "TR"; trs[i] = trs[i].parentElement);
     }
 
     let clone = trs[0].cloneNode(true);
@@ -126,35 +126,21 @@ window.addEventListener("load", function () {
 //Ex8-노드 삽입과 바꾸기
 window.addEventListener("load", function () {
 
-  var section = document.querySelector("#section8");
+  var section = document.querySelector("#section8"); 
 
   var noticeList = section.querySelector(".notice-list");
   var tbodyNode = noticeList.querySelector("tbody");
   var upButton = section.querySelector(".up-button");
   var downButton = section.querySelector(".down-button");
 
-  var currentNode = tbodyNode.firstElementChild;//.children[0];
+  //////
 
   downButton.onclick = function () {
-    var nextNode = currentNode.nextElementSibling;
-
-    if (nextNode == null)
-      alert('이동할 수 없어요')
-
-    currentNode.insertAdjacentElement('beforebegin', nextNode);
-
-
   };
 
   upButton.onclick = function () {
-    var prevNode = currentNode.previousElementSibling;
+  }
 
-    if (prevNode == null)
-      alert('이동할수없습니다')
-
-    currentNode.insertAdjacentElement('afterend', prevNode);
-
-  };
 
 });
 
@@ -193,7 +179,7 @@ window.addEventListener("load", function () {
 
   templateButton.onclick = function () {
     let template = document.querySelector('template');
-    let clone = document.importNode(template.content,true);
+    let clone = document.importNode(template.content, true);
     let tds = clone.querySelectorAll('td');
     tds[0].innerText = notices[0].id;
     tds[1].innerHTML = `<a href=${notices[0].id}>${notices[0].title}</a>`;
@@ -216,7 +202,7 @@ window.addEventListener("load", function () {
   var addButton = section.querySelector(".add-button");
   var delButton = section.querySelector(".del-button");
 
-  addButton.onclick = function(e) {
+  addButton.onclick = function (e) {
     let li = document.createElement('li');
     li.innerHTML = `<a href="">${titleInput.value}<a>`;
     menuListUl.append(li);
@@ -224,7 +210,7 @@ window.addEventListener("load", function () {
     titleInput.value = "";
   };
 
-  delButton.onclick = function(e) {
+  delButton.onclick = function (e) {
     // menuListUl.firstElementChild.remove();
     menuListUl.lastElementChild.remove();
 
@@ -244,9 +230,9 @@ window.addEventListener("load", function () {
 
   changeButton.onclick = function () {
     // img의 src를 변경해야 한다.
-    
+
     img.src = imgSelect.value;
-    img.style.borderColor =  colorInput.value;
+    img.style.borderColor = colorInput.value;
 
   };
 
