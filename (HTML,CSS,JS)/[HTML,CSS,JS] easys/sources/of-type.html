@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<title>CSS Structural Selectors</title>
+	<style>
+		div.first{ border: 3px solid #008000; }
+		div.second{ border: 3px solid #FFD700; }
+		/* p:nth-of-type(2n) {
+			color: red;
+			font-weight: bold;
+		} */
+
+    /* p:nth-of-type(2n-1) {
+			color: red;
+			font-weight: bold;
+		} */
+    
+    /* 1 3 5 7 9 */
+    p:nth-child(2n-1) { 
+			color: red;
+			font-weight: bold;
+		}
+
+	</style>
+</head>
+
+<body>
+
+	<h1>:nth-of-type을 이용한 선택</h1>
+	<div class="first">
+		<p>p</p>
+		<div>div</div>
+    <p>p</p>
+		<div>div</div>
+    <p>p</p>
+		<div>div</div>
+    <p>p</p>
+		<div>div</div>
+    <p>p</p>
+		<div>div</div>
+    <p>p</p>
+		<div>div</div>
+	</div>
+
+</body>
+
+</html>
