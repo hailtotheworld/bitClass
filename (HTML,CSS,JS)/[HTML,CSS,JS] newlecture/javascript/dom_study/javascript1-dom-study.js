@@ -133,7 +133,6 @@ window.addEventListener("load", function () {
   var upButton = section.querySelector(".up-button");
   var downButton = section.querySelector(".down-button");
 
-  //////
 
   downButton.onclick = function () {
   };
