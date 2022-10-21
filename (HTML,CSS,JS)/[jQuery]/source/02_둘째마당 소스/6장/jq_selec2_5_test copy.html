@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 선택자QQ </title>  
+<script src="js/jquery.js"></script>
+
+</head>
+<body>
+	<h1>탐색 선택자</h1>
+	<ul id="menu1">
+		<li>내용1-1</li>
+		<li>내용1-2</li>
+		<li>내용1-3</li>
+		<li>내용1-4</li>
+	</ul>
+	<ul id="menu2">
+		<li>내용2-1</li>
+		<li>내용2-2</li>
+		<li>내용2-3</li>
+	</ul>
+
+  <script>
+    $(function(){
+      $('#menu1 li:nth-of-type(1)').css('background','yellow');
+      $('#menu1 li:nth-of-type(2n)').css('border','1px red dotted');
+      
+      $('#menu2 li:nth-last-of-type(2n)').css('background','aqua');
+      
+    });
+    </script>
+</body>
+</html>

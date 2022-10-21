@@ -94,10 +94,13 @@ window.addEventListener("load", function () {
     //   trs[i].remove();
     // }
 
-    let trs = $(checked).closest('tr');
-    for (let i = 0; i < trs.length; i++) {
-      trs[i].remove();
-    }
+    // let trs = $(checked).closest('tr');
+    // for (let i = 0; i < trs.length; i++) {
+    //   trs[i].remove();
+    // }
+
+    $(checked).closest('tr').remove();
+
 
   };
 
@@ -126,26 +129,35 @@ window.addEventListener("load", function () {
 //Ex8-노드 삽입과 바꾸기
 window.addEventListener("load", function () {
 
-  // var section = document.querySelector("#section8"); 
-  let section = $(document).find('#section8'); 
-
-  var noticeList = section[0].querySelector(".notice-list");
+  var section = document.querySelector("#section8");
+  var noticeList = section.querySelector(".notice-list");
   var tbodyNode = noticeList.querySelector("tbody");
-  var upButton = section[0].querySelector(".up-button");
-  var downButton = section[0].querySelector(".down-button");
+  var upButton = section.querySelector(".up-button");
+  var downButton = section.querySelector(".down-button");
 
-  let selectNode = $(tbodyNode).children('tr:nth-of-type(1)');
-
+  let selectNode = $(tbodyNode).children('tr')[0];
 
   downButton.onclick = function () {
+    let nextNode = $(selectNode).next()[0];
 
-    let nextNode = $(selectNode[0]).next();
+    if(nextNode==null) {
+      alert('이동못해')
+      return;
+    }
 
-    nextNode[0].insertAdjacentElement('afterend',selectNode[0]);
+    nextNode.insertAdjacentElement('afterend',selectNode);
 
   };
 
   upButton.onclick = function () {
+    let prevNode = $(selectNode).prev()[0];
+
+    if(prevNode==null) {
+      alert('이동못해')
+      return;
+    }
+
+    prevNode.insertAdjacentElement('beforebegin',selectNode);
   }
 
 
