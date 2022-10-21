@@ -126,15 +126,23 @@ window.addEventListener("load", function () {
 //Ex8-노드 삽입과 바꾸기
 window.addEventListener("load", function () {
 
-  var section = document.querySelector("#section8"); 
+  // var section = document.querySelector("#section8"); 
+  let section = $(document).find('#section8'); 
 
-  var noticeList = section.querySelector(".notice-list");
+  var noticeList = section[0].querySelector(".notice-list");
   var tbodyNode = noticeList.querySelector("tbody");
-  var upButton = section.querySelector(".up-button");
-  var downButton = section.querySelector(".down-button");
+  var upButton = section[0].querySelector(".up-button");
+  var downButton = section[0].querySelector(".down-button");
+
+  let selectNode = $(tbodyNode).children('tr:nth-of-type(1)');
 
 
   downButton.onclick = function () {
+
+    let nextNode = $(selectNode[0]).next();
+
+    nextNode[0].insertAdjacentElement('afterend',selectNode[0]);
+
   };
 
   upButton.onclick = function () {
