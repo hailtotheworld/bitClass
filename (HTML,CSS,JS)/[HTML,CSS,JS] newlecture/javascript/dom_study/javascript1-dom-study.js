@@ -134,14 +134,15 @@ window.addEventListener("load", function () {
   var tbodyNode = noticeList.querySelector("tbody");
   var upButton = section.querySelector(".up-button");
   var downButton = section.querySelector(".down-button");
+  
+  let selectNode = $(tbodyNode).children()[0];
 
-  let selectNode = $(tbodyNode).children('tr')[0];
 
   downButton.onclick = function () {
     let nextNode = $(selectNode).next()[0];
 
     if(nextNode==null) {
-      alert('이동못해')
+      console.log('더 이상 이동할 수 없습니다.')
       return;
     }
 
@@ -153,11 +154,12 @@ window.addEventListener("load", function () {
     let prevNode = $(selectNode).prev()[0];
 
     if(prevNode==null) {
-      alert('이동못해')
+      console.log('더 이상 이동할 수 없습니다.')
       return;
     }
 
     prevNode.insertAdjacentElement('beforebegin',selectNode);
+
   }
 
 
