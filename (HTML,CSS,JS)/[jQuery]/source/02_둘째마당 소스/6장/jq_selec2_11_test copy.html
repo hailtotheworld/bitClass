@@ -2,28 +2,22 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<title> 탐색 선택자11 </title>  
+<title> 탐색 선택자Q11 </title>  
 <script src="js/jquery.js"></script>
 <script>
-	$(function(){
-		$("#wrap a[target]")
-		.css({"color":"red"});
+$(function(){
 
-		$("#wrap a[href^=https]")
-		.css({"color":"green"});
+  $('a[target]').css('color','red');
+  
+  $("a[href^='https://']").css('color','orange');
 
-		$("#wrap a[href$=net]")
-		.css({"color":"blue"});
+  $("a[href$='.net']").css('color','green')
 
-		$("#wrap a[href*=google]")
-		.css({"color":"gray"});
+  $("a[href*='google']").css('color','yellow')
 
-		$("#member_f :text")
-		.css({"background-color":"yellow"});
-
-		$("#member_f :password")
-		.css({"background-color":"aqua"});
-	});
+  $("input[type='password']").css('background','aqua')
+	
+});
 </script>
 </head>
 <body>

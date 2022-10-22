@@ -69,7 +69,6 @@ window.addEventListener("load", function () {
 window.addEventListener("load", function () {
 
   var section = document.querySelector("#section9");
-
   var noticeList = section.querySelector(".notice-list");
   var tbody = noticeList.querySelector("tbody");
   var allCheckbox = section.querySelector(".overall-checkbox");
@@ -104,7 +103,6 @@ window.addEventListener("load", function () {
     //   return;
     // }
 
-
     // var tr = [];
     // for (var i = 0; i < inputs.length; i++) {
     //   tr[i] = inputs[i].parentElement;
@@ -114,6 +112,11 @@ window.addEventListener("load", function () {
     // for(var i =0;i<tr.length;i++) {
     //   tr[i].remove();
     // }
+
+
+    //
+    // let checked = tbody.querySelectorAll('input[type="checkbox"]:checked');
+    // $(checked).closest('tr').remove();
   };
 
   swapButton.onclick = function () {

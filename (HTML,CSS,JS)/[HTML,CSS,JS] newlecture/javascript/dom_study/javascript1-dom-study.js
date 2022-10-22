@@ -69,7 +69,6 @@ window.addEventListener("load", function () {
 window.addEventListener("load", function () {
 
   var section = document.querySelector("#section9");
-
   var noticeList = section.querySelector(".notice-list");
   var tbody = noticeList.querySelector("tbody");
   var allCheckbox = section.querySelector(".overall-checkbox");
@@ -77,50 +76,22 @@ window.addEventListener("load", function () {
   var swapButton = section.querySelector(".swap-button");
 
   allCheckbox.onchange = function () {
-    let check = tbody.querySelectorAll('input[type="checkbox"]');
+    let ckbox = $(tbody).find("input[type='checkbox']");
 
-    for (let i = 0; i < check.length; i++) {
-      check[i].checked = allCheckbox.checked;
+    for (let i in ckbox) {
+      ckbox[i].checked = allCheckbox.checked;
     }
+
   };
 
   delButton.onclick = function () {
-    let checked = tbody.querySelectorAll('input[type="checkbox"]:checked');
+    let checkedBox = $(tbody).find("input[type='checkbox']:checked");
 
-    // let trs = [];
-    // for (let i = 0; i < checked.length; i++) {
-    //   trs[i] = checked[i].parentElement;
-    //   for (; trs[i].nodeName != "TR"; trs[i] = trs[i].parentElement);
-    //   trs[i].remove();
-    // }
-
-    // let trs = $(checked).closest('tr');
-    // for (let i = 0; i < trs.length; i++) {
-    //   trs[i].remove();
-    // }
-
-    $(checked).closest('tr').remove();
-
-
+      $(checkedBox).closest('tr').remove();
+    
   };
 
   swapButton.onclick = function () {
-    let checked = tbody.querySelectorAll('input[type="checkbox"]:checked');
-
-    if (checked.length != 2) {
-      alert('2개만 고르세요');
-      return;
-    }
-
-    let trs = [];
-    for (let i = 0; i < checked.length; i++) {
-      trs[i] = checked[i].parentElement;
-      for (; trs[i].nodeName != "TR"; trs[i] = trs[i].parentElement);
-    }
-
-    let clone = trs[0].cloneNode(true);
-    trs[1].replaceWith(clone);
-    trs[0].replaceWith(trs[1]);
 
   };
 
@@ -134,31 +105,31 @@ window.addEventListener("load", function () {
   var tbodyNode = noticeList.querySelector("tbody");
   var upButton = section.querySelector(".up-button");
   var downButton = section.querySelector(".down-button");
-  
+
   let selectNode = $(tbodyNode).children()[0];
 
 
   downButton.onclick = function () {
     let nextNode = $(selectNode).next()[0];
 
-    if(nextNode==null) {
+    if (nextNode == null) {
       console.log('더 이상 이동할 수 없습니다.')
       return;
     }
 
-    nextNode.insertAdjacentElement('afterend',selectNode);
+    nextNode.insertAdjacentElement('afterend', selectNode);
 
   };
 
   upButton.onclick = function () {
     let prevNode = $(selectNode).prev()[0];
 
-    if(prevNode==null) {
+    if (prevNode == null) {
       console.log('더 이상 이동할 수 없습니다.')
       return;
     }
 
-    prevNode.insertAdjacentElement('beforebegin',selectNode);
+    prevNode.insertAdjacentElement('beforebegin', selectNode);
 
   }
 
