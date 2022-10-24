@@ -91,22 +91,9 @@ window.addEventListener("load", function () {
     
     $(check).closest('tr').remove();
 
-
-
   };
 
   swapButton.onclick = function () {
-    let check = tbody.querySelectorAll('input[type="checkbox"]:checked');
-
-    if(check.length!=2) {
-      alert('두개만 고르시오')
-      return;
-    }
-    
-    let trs = $(check).closest('tr');
-    let clone = trs[0].cloneNode(true);
-    trs[1].replaceWith(clone);
-    trs[0].replaceWith(trs[1]);
 
   };
 

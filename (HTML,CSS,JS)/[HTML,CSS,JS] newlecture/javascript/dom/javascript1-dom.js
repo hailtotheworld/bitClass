@@ -135,6 +135,21 @@ window.addEventListener("load", function () {
     var cloneNode = trs[0].cloneNode(true);
     trs[1].replaceWith(cloneNode);
     trs[0].replaceWith(trs[1]);
+
+
+    
+    // let check = tbody.querySelectorAll('input[type="checkbox"]:checked');
+
+    // if(check.length!=2) {
+    //   console.log('2개고르시오')
+    //   return;
+    // }
+
+    // let trs = $(check).closest('tr');
+
+    // let clone = trs[0].cloneNode(true);
+    // trs[1].replaceWith(clone);
+    // trs[0].replaceWith(trs[1]);
   };
 
 });
