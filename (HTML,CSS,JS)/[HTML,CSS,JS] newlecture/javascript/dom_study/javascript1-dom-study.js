@@ -14,52 +14,11 @@ window.addEventListener("load", function () {
   var titldTd = section.querySelector(".title");
   var tbodyNode = noticeList.querySelector("tbody");
 
-  var bindData = function () {
-    var template = section.querySelector("template");
+  
 
-    for (var i = 0; i < notices.length; i++) {
-      var cloneNode = document.importNode(template.content, true);
-      var tds = cloneNode.querySelectorAll("td");
-      tds[0].textContent = notices[i].id;
 
-      var aNode = tds[1].children[0];
-      aNode.href = notices[i].id;
-      aNode.textContent = notices[i].title;
-
-      tds[2].textContent = notices[i].regDate;
-      tds[3].textContent = notices[i].writerId;
-      tds[4].textContent = notices[i].hit;
-
-      tbodyNode.appendChild(cloneNode);
-    }
-  };
-
-  bindData();
-
-  var titleSorted = false;
 
   titldTd.onclick = function () {
-
-    tbodyNode.innerHTML = "";
-
-    if (!titleSorted) {
-      notices.sort(function (a, b) {
-        if (a.title > b.title) {
-          return 1;
-        }
-        if (a.title < b.title) {
-          return -1;
-        }
-        // a must be equal to b
-        return 0;
-      });
-      titleSorted = true;
-    }
-
-
-    bindData();
-    notices.reverse();
-
 
 
   };
@@ -94,6 +53,17 @@ window.addEventListener("load", function () {
   };
 
   swapButton.onclick = function () {
+    let check = tbody.querySelectorAll('input[type="checkbox"]:checked');
+
+    if(check.length!=2) {
+      console.log('2개만 고르시오');
+      return;
+    }
+
+    let trs = $(check).closest('tr');
+    let clone = trs[0].cloneNode(true);
+    trs[1].replaceWith(clone);
+    trs[0].replaceWith(trs[1]);
 
   };
 
