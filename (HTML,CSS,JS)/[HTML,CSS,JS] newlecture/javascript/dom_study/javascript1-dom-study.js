@@ -14,46 +14,6 @@ window.addEventListener("load", function () {
   var tbodyNode = noticeList.querySelector("tbody");
 
 
-  let bindData = function () {
-    let template = section.querySelector('template');
-
-    for (let i = 0; i < notices.length; i++) {
-      let clone = document.importNode(template.content, true);
-      let tds = clone.querySelectorAll('td');
-      tds[0].innerText = notices[i].id;
-      tds[1].innerHTML = `<a href="${notices[i].id}">${notices[i].title}</a>`
-      tds[2].innerText = notices[i].regDate;
-      tds[3].innerText = notices[i].writerId;
-      tds[4].innerText = notices[i].hit;
-      tbodyNode.append(clone);
-    }
-  }
-
-  bindData();
-
-
-  let titleSorted = false;
-
-  titldTd.onclick = function () {
-
-    tbodyNode.innerHTML = "";
-
-    if (titleSorted == false) {
-      notices.sort(function (a, b) {
-        if (a.title > b.title) {
-          return 1;
-        }
-        if (a.title < b.title) {
-          return -1;
-        }
-        return 0;
-      });
-      titleSorted = true
-    } 
-  
-    bindData();
-    notices.reverse();
-  };
 
 
 });
