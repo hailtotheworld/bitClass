@@ -23,11 +23,9 @@ window.addEventListener("load", function () {
       var clone = document.importNode(template.content, true); //clone은 덮어쓰워지면 안되니까. 개별사용이니까 for문 안에 있어야해.
       var tds = clone.querySelectorAll('td');
       tds[0].innerText = notices[i].id;
-
       var aNode = tds[1].children[0];
       aNode.href = notices[i].id;
       aNode.innerText = notices[i].title;
-
       tds[2].innerText = notices[i].regDate;
       tds[3].innerText = notices[i].writerId;
       tds[4].innerText = notices[i].hit;
@@ -53,7 +51,6 @@ window.addEventListener("load", function () {
         if (a.title < b.title) {
           return -1;
         }
-        // a must be equal to b
         return 0;
       });
     }

@@ -9,19 +9,53 @@ window.addEventListener("load", function () {
   ];
 
   var section = document.querySelector("#section10");
-
   var noticeList = section.querySelector(".notice-list");
   var titldTd = section.querySelector(".title");
   var tbodyNode = noticeList.querySelector("tbody");
 
-  
+
+  let bindData = function () {
+    let template = section.querySelector('template');
+
+    for (let i = 0; i < notices.length; i++) {
+      let clone = document.importNode(template.content, true);
+      let tds = clone.querySelectorAll('td');
+      tds[0].innerText = notices[i].id;
+      tds[1].innerHTML = `<a href="${notices[i].id}">${notices[i].title}</a>`
+      tds[2].innerText = notices[i].regDate;
+      tds[3].innerText = notices[i].writerId;
+      tds[4].innerText = notices[i].hit;
+      tbodyNode.append(clone);
+    }
+  }
+
+  bindData();
 
 
+  let titleSorted = false;
 
   titldTd.onclick = function () {
 
+    tbodyNode.innerHTML = "";
 
+    if (titleSorted == false) {
+      notices.sort(function (a, b) {
+        if (a.title > b.title) {
+          return 1;
+        }
+        if (a.title < b.title) {
+          return -1;
+        }
+        return 0;
+      });
+      titleSorted = true
+    } 
+  
+    bindData();
+    notices.reverse();
   };
+
+
 });
 
 //Ex9-다중 노드선택 방법과 일괄삭제, 노드의 자리바꾸기
@@ -34,7 +68,7 @@ window.addEventListener("load", function () {
   var delButton = section.querySelector(".del-button");
   var swapButton = section.querySelector(".swap-button");
 
-  
+
   allCheckbox.onchange = function () {
     let check = tbody.querySelectorAll('input[type="checkbox"]');
 
@@ -47,7 +81,7 @@ window.addEventListener("load", function () {
 
   delButton.onclick = function () {
     let check = tbody.querySelectorAll('input[type="checkbox"]:checked');
-    
+
     $(check).closest('tr').remove();
 
   };
@@ -55,7 +89,7 @@ window.addEventListener("load", function () {
   swapButton.onclick = function () {
     let check = tbody.querySelectorAll('input[type="checkbox"]:checked');
 
-    if(check.length!=2) {
+    if (check.length != 2) {
       console.log('2개만 고르시오');
       return;
     }
