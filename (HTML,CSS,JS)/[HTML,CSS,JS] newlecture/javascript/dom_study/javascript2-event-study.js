@@ -26,17 +26,17 @@ window.addEventListener("load", function () {
   tbody.onclick = function (e) {
     e.preventDefault();
 
-    if(e.target.nodeName=!"A") return;
+    if (e.target.nodeName = !"A") return;
 
-    if(e.target.classList.contains('sel-button')) {
+    if (e.target.classList.contains('sel-button')) {
 
 
       var tr = e.target.parentElement;
-      for(;tr.nodeName!="TR";tr=tr.parentElement);
+      for (; tr.nodeName != "TR"; tr = tr.parentElement);
       tr.style.background = 'yellow';
-    } else if(e.target.classList.contains('del-button')) {
+    } else if (e.target.classList.contains('del-button')) {
       var tr = e.target.parentElement;
-      for(;tr.nodeName!="TR";tr=tr.parentElement);
+      for (; tr.nodeName != "TR"; tr = tr.parentElement);
       tr.style.background = 'red';
 
     }
@@ -82,22 +82,22 @@ window.addEventListener("load", function () {
 
   imgList.onclick = function (e) {
     console.log('changeSrc')
-    if(e.target.nodeName!="IMG") return;
+    if (e.target.nodeName != "IMG") return;
 
     currentImg.src = e.target.src;
   };
 
   addButton.onclick = function (e) {
     e.stopPropagation();
-    
+
     console.log('newImg')
 
-    if(e.target.nodeName!="INPUT") return;
+    if (e.target.nodeName != "INPUT") return;
 
     var newImg = document.createElement('IMG');
     newImg.src = '../images/img1.jpg';
-    currentImg.insertAdjacentElement('afterend',newImg);
-    
+    currentImg.insertAdjacentElement('afterend', newImg);
+
 
   };
 
@@ -110,7 +110,10 @@ window.addEventListener("load", function () {
   var imgList = section.querySelector(".img-list");
   var currentImg = section.querySelector(".current-img");
 
-
+  imgList.addEventListener('click',function(e) {
+    if(e.target.nodeName!='IMG') return;
+    currentImg.src =  e.target.src;
+  });
 
 
 });
@@ -123,19 +126,10 @@ window.addEventListener("load", function () {
   var delButton = tbodyNode.querySelectorAll('.del-button');
 
   tbodyNode.addEventListener('click', function (e) {
-
-    if (e.target.nodeName != "INPUT") return;
-
-    var tr = e.target.parentElement;
-    for (; tr.nodeName != "TR"; tr = tr.parentElement);
-
-    tr.remove();
-
-
-
-
+    if (e.target.nodeName == 'INPUT') {
+        $(e.target).closest('tr').remove();
+    }
   });
-
 
 });
 
@@ -145,6 +139,12 @@ window.addEventListener("load", function () {
   var section = document.querySelector("#section1");
   var imgs = section.querySelectorAll(".img");
   var currentImg = section.querySelector(".current-img");
+
+  for (let i = 0; i < imgs.length; i++) {
+    imgs[i].onclick = function (e) {
+      currentImg.src = e.target.src;
+    };
+  }
 
 
 }); 

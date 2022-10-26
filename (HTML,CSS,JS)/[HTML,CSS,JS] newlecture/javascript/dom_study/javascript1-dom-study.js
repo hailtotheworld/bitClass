@@ -31,7 +31,28 @@ window.addEventListener("load", function () {
 
   bindData();
 
+  let toggle = false;
 
+  titldTd.addEventListener('click', function () {
+
+    tbodyNode.innerHTML = "";
+
+    if (toggle == false) {
+      notices.sort(function (a, b) {
+        if (a.title > b.title) {
+          return 1;
+        }
+        if (a.title < b.title) {
+          return -1;
+        }
+        return 0;
+      });
+      toggle=true;
+    }
+
+    bindData();
+    notices.reverse();
+  });
 
 
 });
