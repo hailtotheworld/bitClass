@@ -80,26 +80,23 @@ window.addEventListener("load", function () {
   var addButton = section.querySelector(".add-button");
   var currentImg = section.querySelector(".current-img");
 
-  imgList.onclick = function (e) {
-    console.log('changeSrc')
-    if (e.target.nodeName != "IMG") return;
+  imgList.addEventListener('click',function(e) {
+    console.log('변경')
+    if(e.target.nodeName!="IMG") return;
 
     currentImg.src = e.target.src;
-  };
+  });
 
-  addButton.onclick = function (e) {
+  addButton.addEventListener('click',function(e) {
     e.stopPropagation();
-
-    console.log('newImg')
-
-    if (e.target.nodeName != "INPUT") return;
-
-    var newImg = document.createElement('IMG');
-    newImg.src = '../images/img1.jpg';
-    currentImg.insertAdjacentElement('afterend', newImg);
+    
+    console.log('f')
+    let creImg = document.createElement('img');
+    creImg.src = "../images/img1.jpg";
+    currentImg.insertAdjacentElement('afterend',creImg);
+  });
 
 
-  };
 
 });
 
@@ -111,9 +108,12 @@ window.addEventListener("load", function () {
   var currentImg = section.querySelector(".current-img");
 
   imgList.addEventListener('click',function(e) {
-    if(e.target.nodeName!='IMG') return;
-    currentImg.src =  e.target.src;
-  });
+    if(e.target.nodeName != 'IMG') return;
+
+    currentImg.src = e.target.src;
+  })
+
+
 
 
 });
@@ -125,11 +125,14 @@ window.addEventListener("load", function () {
   var tbodyNode = section.querySelector('tbody');
   var delButton = tbodyNode.querySelectorAll('.del-button');
 
-  tbodyNode.addEventListener('click', function (e) {
-    if (e.target.nodeName == 'INPUT') {
-        $(e.target).closest('tr').remove();
-    }
+  tbodyNode.addEventListener('click',function(e) {
+    if(e.target.nodeName != 'INPUT') return;
+
+    $(e.target).closest('tr').remove();
+
   });
+
+
 
 });
 
@@ -140,11 +143,6 @@ window.addEventListener("load", function () {
   var imgs = section.querySelectorAll(".img");
   var currentImg = section.querySelector(".current-img");
 
-  for (let i = 0; i < imgs.length; i++) {
-    imgs[i].onclick = function (e) {
-      currentImg.src = e.target.src;
-    };
-  }
 
 
 }); 
