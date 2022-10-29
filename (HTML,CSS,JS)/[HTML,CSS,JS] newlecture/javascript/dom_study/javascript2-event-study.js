@@ -23,25 +23,20 @@ window.addEventListener("load", function () {
   var section = document.querySelector("#section4-2");
   var tbody = section.querySelector(".notice-list tbody");
 
-  tbody.onclick = function (e) {
+  tbody.addEventListener('click', function (e) {
     e.preventDefault();
 
-    if (e.target.nodeName = !"A") return;
+    if (e.target.nodeName != "A") return;
 
     if (e.target.classList.contains('sel-button')) {
-
-
-      var tr = e.target.parentElement;
-      for (; tr.nodeName != "TR"; tr = tr.parentElement);
-      tr.style.background = 'yellow';
+      $(e.target).closest('tr').css('background', 'yellow');
+    } else if (e.target.classList.contains('edit-button')) {
+      $(e.target).closest('tr').css('background', 'green');
     } else if (e.target.classList.contains('del-button')) {
-      var tr = e.target.parentElement;
-      for (; tr.nodeName != "TR"; tr = tr.parentElement);
-      tr.style.background = 'red';
-
+      $(e.target).closest('tr').css('background', 'red');
     }
+  });
 
-  }
 
 });
 
@@ -51,24 +46,21 @@ window.addEventListener("load", function () {
   var section = document.querySelector("#section4");
   var tbody = section.querySelector(".notice-list tbody");
 
-  tbody.onclick = function (e) {
-    if (e.target.nodeName != 'INPUT') return;
+  tbody.addEventListener('click', function (e) {
+    if (e.target.nodeName != "INPUT") return;
 
     if (e.target.classList.contains('sel-button')) {
-
-      var tr = e.target.parentElement;
-      for (; tr.nodeName != "TR"; tr = tr.parentElement);
-
-      tr.style.background = "red";
+      $(e.target).closest('tr').css('background', 'yellow');
+    } else if (e.target.classList.contains('edit-button')) {
+      $(e.target).closest('tr').css('background', 'green');
     } else if (e.target.classList.contains('del-button')) {
-      var tr = e.target.parentElement;
-      for (; tr.nodeName != "TR"; tr = tr.parentElement);
-
-      tr.style.background = "green";
+      $(e.target).closest('tr').css('background', 'red');
     }
+  });
 
 
-  }
+
+
 });
 
 // Ex3-이벤트 버블링 멈추기
@@ -80,20 +72,22 @@ window.addEventListener("load", function () {
   var addButton = section.querySelector(".add-button");
   var currentImg = section.querySelector(".current-img");
 
-  imgList.addEventListener('click',function(e) {
-    console.log('변경')
-    if(e.target.nodeName!="IMG") return;
+  imgList.addEventListener('click', function (e) {
+    if (e.target.nodeName != 'IMG') return;
 
     currentImg.src = e.target.src;
   });
 
-  addButton.addEventListener('click',function(e) {
+  addButton.addEventListener('click', function (e) {
     e.stopPropagation();
-    
-    console.log('f')
-    let creImg = document.createElement('img');
-    creImg.src = "../images/img1.jpg";
-    currentImg.insertAdjacentElement('afterend',creImg);
+
+    let img1 = section.querySelector('.img');
+    let clone = img1.cloneNode(true);
+    clone.style.border = '1px solid red';
+    clone.style.width = currentImg.width + 'px';
+    clone.style.height = currentImg.height + 'px';
+    currentImg.insertAdjacentElement('afterend', clone);
+
   });
 
 
@@ -107,8 +101,8 @@ window.addEventListener("load", function () {
   var imgList = section.querySelector(".img-list");
   var currentImg = section.querySelector(".current-img");
 
-  imgList.addEventListener('click',function(e) {
-    if(e.target.nodeName != 'IMG') return;
+  imgList.addEventListener('click', function (e) {
+    if (e.target.nodeName != 'IMG') return;
 
     currentImg.src = e.target.src;
   })
@@ -125,8 +119,8 @@ window.addEventListener("load", function () {
   var tbodyNode = section.querySelector('tbody');
   var delButton = tbodyNode.querySelectorAll('.del-button');
 
-  tbodyNode.addEventListener('click',function(e) {
-    if(e.target.nodeName != 'INPUT') return;
+  tbodyNode.addEventListener('click', function (e) {
+    if (e.target.nodeName != 'INPUT') return;
 
     $(e.target).closest('tr').remove();
 
