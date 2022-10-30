@@ -26,17 +26,18 @@ window.addEventListener("load", function () {
   tbody.addEventListener('click', function (e) {
     e.preventDefault();
 
-    if (e.target.nodeName != "A") return;
+    if (e.target.nodeName != 'A') return;
 
+    document.body.classList.contains
     if (e.target.classList.contains('sel-button')) {
-      $(e.target).closest('tr').css('background', 'yellow');
-    } else if (e.target.classList.contains('edit-button')) {
-      $(e.target).closest('tr').css('background', 'green');
-    } else if (e.target.classList.contains('del-button')) {
       $(e.target).closest('tr').css('background', 'red');
+    } else if (e.target.classList.contains('edit-button')) {
+      $(e.target).closest('tr').css('background', 'yellow');
+    } else if (e.target.classList.contains('del-button')) {
+      $(e.target).closest('tr').css('background', 'blue');
     }
-  });
 
+  })
 
 });
 
@@ -46,19 +47,20 @@ window.addEventListener("load", function () {
   var section = document.querySelector("#section4");
   var tbody = section.querySelector(".notice-list tbody");
 
+
   tbody.addEventListener('click', function (e) {
-    if (e.target.nodeName != "INPUT") return;
+    if (e.target.nodeName != 'INPUT') return;
 
+    document.body.classList.contains
     if (e.target.classList.contains('sel-button')) {
-      $(e.target).closest('tr').css('background', 'yellow');
-    } else if (e.target.classList.contains('edit-button')) {
-      $(e.target).closest('tr').css('background', 'green');
-    } else if (e.target.classList.contains('del-button')) {
       $(e.target).closest('tr').css('background', 'red');
+    } else if (e.target.classList.contains('edit-button')) {
+      $(e.target).closest('tr').css('background', 'yellow');
+    } else if (e.target.classList.contains('del-button')) {
+      $(e.target).closest('tr').css('background', 'blue');
     }
+
   });
-
-
 
 
 });
@@ -81,13 +83,9 @@ window.addEventListener("load", function () {
   addButton.addEventListener('click', function (e) {
     e.stopPropagation();
 
-    let img1 = section.querySelector('.img');
-    let clone = img1.cloneNode(true);
-    clone.style.border = '1px solid red';
-    clone.style.width = currentImg.width + 'px';
-    clone.style.height = currentImg.height + 'px';
-    currentImg.insertAdjacentElement('afterend', clone);
-
+    let img = document.createElement('img');
+    img.src = '../images/img1.jpg'
+    currentImg.insertAdjacentElement('afterend', img);
   });
 
 
