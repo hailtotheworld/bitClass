@@ -6,15 +6,18 @@ window.addEventListener("load", function () {
   var fileButton = section.querySelector('.file-button');
   var fileTriggerButton = section.querySelector('.file-trigger-button');
 
-  fileTriggerButton.onclick = function (e) {
-    var event = new MouseEvent("click", {
-      bubbles: true,
-      cancelable: true,
-      view: window
-    });
+  fileTriggerButton.addEventListener('click',function(e){
+    
+    let mouseEvent = new MouseEvent('click',{
+      view:window,
+      bubbles:true,
+      cancelable:true
+    })
 
-    fileButton.dispatchEvent(event);
-  };
+    fileButton.dispatchEvent(mouseEvent);
+  });
+
+
 
 });
 // Ex4-2-엘리먼트 노드의 기본행위 막기
