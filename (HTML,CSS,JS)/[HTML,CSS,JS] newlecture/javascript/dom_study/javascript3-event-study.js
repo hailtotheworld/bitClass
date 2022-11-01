@@ -19,6 +19,32 @@ window.addEventListener("load", function () {
   var container = section.querySelector(".container");
   var box = section.querySelector(".box");
 
+  let dragging = false;
+  let boxOffset = { x: 0, y: 0 };
+
+  container.addEventListener('mousedown', function (e) {
+    if (e.target.classList.contains('box')) {
+      dragging = true;
+      boxOffset.x = e.offsetX;
+      boxOffset.y = e.offsetY;
+    }
+  });
+
+  container.addEventListener('mousemove', function (e) {
+    if (dragging == true) {
+      e.target.style.left = e.pageX - container.offsetLeft - boxOffset.x + "px";
+      e.target.style.top = e.pageY - container.offsetTop - boxOffset.y + "px";
+    }
+  })
+
+  container.addEventListener('mouseup', function (e) {
+    dragging = false;
+  });
+
+  box.addEventListener('mousedown', function (e) {
+
+
+  });
 
 
 });
@@ -34,6 +60,33 @@ window.addEventListener("load", function () {
   var section = document.querySelector('#section7');
   var container = section.querySelector(".container");
   var box = section.querySelector(".box");
+
+  let dragging = false;
+  let boxOffset = { x: 0, y: 0 };
+
+  container.addEventListener('mousedown', function (e) {
+    if (e.target == box)
+      dragging = true;
+  });
+
+  container.addEventListener('mousemove', function (e) {
+    if (dragging == true) {
+      box.style.left = e.pageX - container.offsetLeft - boxOffset.x + "px";
+      box.style.top = e.pageY - container.offsetTop - boxOffset.y + "px";
+    }
+  })
+
+  container.addEventListener('mouseup', function (e) {
+    dragging = false;
+  });
+
+  box.addEventListener('mousedown', function (e) {
+    boxOffset.x = e.offsetX;
+    boxOffset.y = e.offsetY;
+
+  });
+
+
 
 
 });
@@ -87,6 +140,7 @@ window.addEventListener("load", function () {
   container.onclick = function (e) {
     box.style.left = e.pageX - container.offsetLeft + "px";
     box.style.top = e.pageY - container.offsetTop + "px";
+
   };
 
 
