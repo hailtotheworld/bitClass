@@ -29,7 +29,6 @@ window.addEventListener("load", function () {
 
     if (e.target.nodeName != 'A') return;
 
-    document.body.classList.contains
     if (e.target.classList.contains('sel-button')) {
       $(e.target).closest('tr').css('background', 'red');
     } else if (e.target.classList.contains('edit-button')) {
