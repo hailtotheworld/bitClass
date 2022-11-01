@@ -7,16 +7,14 @@ window.addEventListener("load", function () {
   var fileTriggerButton = section.querySelector('.file-trigger-button');
 
   fileTriggerButton.addEventListener('click',function(e){
-    
-    let mouseEvent = new MouseEvent('click',{
-      view:window,
-      bubbles:true,
-      cancelable:true
-    })
-
-    fileButton.dispatchEvent(mouseEvent);
-  });
-
+    let event = new MouseEvent("click", {
+      bubbles: true,
+      cancelable: true,
+      view: window,
+    });
+  
+    fileButton.dispatchEvent(event);
+  })
 
 
 });
