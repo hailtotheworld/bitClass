@@ -64,8 +64,8 @@ window.addEventListener("load", function() {
   container.onmousemove = function(e) {
     if(!dragging) return;
 
-    current.style.left = e.pageX-offset.x+"px";
-    current.style.top = e.pageY-offset.y+"px";
+    current.style.left = e.pageX-offset.x- container.offsetLeft+"px";
+    current.style.top = e.pageY-offset.y- container.offsetTop+"px";
   };
 
   container.onmouseup = function(e) {
