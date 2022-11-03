@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title> 이벤트QQ </title>
+  <script src="js/jquery.js"></script>
+
+</head>
+
+<body>
+  <select id="rel_site">
+    <option value="">사이트 선택</option>
+    <option value="www.google.com">구글</option>
+    <option value="www.naver.com">네이버</option>
+    <option value="www.daum.net">다음</option>
+  </select>
+  <p class="txt"></p>
+</body>
+
+<script>
+  
+  let site = document.querySelector('#rel_site');
+  let txt = document.querySelector('.txt');
+  
+  site.addEventListener('change',function(e){
+    txt.innerText = site.value;
+  });
+
+
+
+  </script>
+
+</html>

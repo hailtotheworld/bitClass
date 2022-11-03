@@ -1,33 +1,68 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-<meta charset="UTF-8">
-<title> 이벤트 </title>  
-<script src="js/jquery.js"></script>
-<script>
-	$(window).on("scroll",function(){
-		var sc_top = $(this).scrollTop();
-		var sc_left = $(this).scrollLeft();
 
-		$(".top").text(sc_top);
-		$(".left").text(sc_left);
-	});
-</script>
-<style>
-	body{
-		height:10000px;
-		width:5000px;
-	}
-	#wrap{
-		position: fixed;
-		left: 10px; top: 10px;
-	}
-</style>
+<head>
+  <meta charset="UTF-8">
+  <title> 이벤트 </title>
+  <script src="js/jquery.js"></script>
+
+  <style>
+    ul {
+      display: none;
+    }
+  </style>
 </head>
+
 <body>
-<div id="wrap">
-	<p>scrollTop: <span class="top">0</span>px</p>
-	<p>scrollLeft: <span class="left">0</span>px</p>
-</div>
+  <p class="btn1"><a href="">첫번째버튼</a></p>
+  <ul class="con1">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+  </ul>
+
+  <p class="btn2"><a href="">두번째버튼</a></p>
+  <ul class="con2">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+  </ul>
 </body>
+
+<script>
+  window.addEventListener('load', function () {
+    let btn1 = document.querySelector('.btn1');
+    let aa = btn1.children[0];
+    let btn2 = document.querySelector('.btn2');
+    let bb = btn2.children[0];
+
+    aa.addEventListener('click', function (e) {
+      e.preventDefault();
+      console.log(aa.parentElement.nextElementSibling);
+
+      bb.parentElement.nextElementSibling.style.display = 'none';
+      aa.parentElement.nextElementSibling.style.display = 'block';
+    })
+
+    bb.addEventListener('click', function (e) {
+      e.preventDefault();
+      console.log(bb.parentElement.nextElementSibling);
+
+      aa.parentElement.nextElementSibling.style.display = 'none';
+
+      bb.parentElement.nextElementSibling.style.display = 'block';
+    });
+
+
+  });
+
+
+  
+
+</script>
+
 </html>
