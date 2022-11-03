@@ -6,7 +6,11 @@ window.addEventListener("load", function () {
   var status = section.querySelector(".status");
 
 
+
+
 });
+
+
 
 
 
@@ -16,15 +20,15 @@ window.addEventListener("load", function () {
 // Ex8-마우스 이벤트 객체: 여러개 박스 드래그 방식으로 박스 옮기기
 window.addEventListener("load", function () {
   var section = document.querySelector('#section8');
-  var container = section.querySelector(".container");
+  var container = section.querySelector(".container8");
   var box = section.querySelector(".box");
 
   let dragging = false;
-  let boxOffset = { x: 0, y: 0 }
-  let current  = null;
+  let current = null;
+  let boxOffset = {x:0,y:0};
 
-  container.addEventListener('mousedown', function (e) {
-    if (e.target.classList.contains('box')) {
+  section.addEventListener('mousedown',function(e){
+    if(e.target.classList.contains('box')) {
       dragging = true;
       current = e.target;
       boxOffset.x = e.offsetX;
@@ -32,21 +36,60 @@ window.addEventListener("load", function () {
     }
   });
 
-  container.addEventListener('mousemove', function (e) {
-    if (dragging == true) {
-      current.style.left = e.pageX - boxOffset.x - container.offsetLeft + "px";
-      current.style.top = e.pageY - boxOffset.y - container.offsetTop + "px";
-    }
+  section.addEventListener('mousemove',function(e){
+    if(dragging==false) return;
+
+    current.style.left = e.pageX - container.offsetLeft -boxOffset.x+ "px";
+    current.style.top = e.pageY - container.offsetTop -boxOffset.y+ "px";
+    
   });
 
-  container.addEventListener('mouseup', function (e) {
-    dragging = false;
+  section.addEventListener('mouseup',function(e) {
+    dragging=false;
   });
-
-
-
 
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
