@@ -1,23 +1,46 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
-<meta charset="UTF-8">
-<title> 이벤트Q1 </title>  
-<script src="js/jquery.js"></script>
-<script>
-$(function( ) {
-   
-});
-</script>
+  <meta charset="UTF-8">
+  <title> 이벤트Q1 </title>
+  <script src="js/jquery.js"></script>
+  <script>
+    // 한요소-한이벤트-한핸들러
+    $(function () {
+      $('.btn1').click(function () {
+        $(this).parent().next().css('color','red');
+      });
+
+      // 한요소-여러이벤트-핸들러       한요소에여러이벤트
+      // $('.btn2').on('focus mouseover',function() {
+      //   $(this).parent().next().css('color','red');
+      // });
+    
+      // 한요소-여러이벤트-핸들러       한요소에여러이벤트
+      //       -여러이벤트-핸들러
+      $('.btn2').on({
+        "focus mouseover":function() {
+          $(this).parent().next().css('color','red')
+        },
+        "click":function() {
+          $(this).parent().next().css('color','green')
+        }
+      });
+
+    });
+  </script>
 </head>
+
 <body>
-	<p>
-	<button class="btn1">버튼1</button>
-	</p>
-	<p>내용1</p>
-	<p>
-		<button class="btn2">버튼2</button>
-	</p>
-	<p>내용2</p>
+  <p>
+    <button class="btn1">버튼1</button>
+  </p>
+  <p>내용1</p>
+  <p>
+    <button class="btn2">버튼2</button>
+  </p>
+  <p>내용2</p>
 </body>
+
 </html>
