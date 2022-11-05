@@ -23,30 +23,7 @@ window.addEventListener("load", function () {
   var container = section.querySelector(".container8");
   var box = section.querySelector(".box");
 
-  let dragging = false;
-  let current = null;
-  let boxOffset = {x:0,y:0};
 
-  section.addEventListener('mousedown',function(e){
-    if(e.target.classList.contains('box')) {
-      dragging = true;
-      current = e.target;
-      boxOffset.x = e.offsetX;
-      boxOffset.y = e.offsetY;
-    }
-  });
-
-  section.addEventListener('mousemove',function(e){
-    if(dragging==false) return;
-
-    current.style.left = e.pageX - container.offsetLeft -boxOffset.x+ "px";
-    current.style.top = e.pageY - container.offsetTop -boxOffset.y+ "px";
-    
-  });
-
-  section.addEventListener('mouseup',function(e) {
-    dragging=false;
-  });
 
 });
 
