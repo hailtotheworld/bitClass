@@ -1,25 +1,35 @@
-<!DOCTYPE html>
-<html lang="ko">
+<!doctype html>
+<html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<title> Plugin </title>
-<script src="js/jquery.js"></script>
-<script src="js/jquery-ui-1.10.4.custom.min.js"></script>
-<style>
-	.layer_popup{
-		position: absolute;left: 50px; top: 50px;
-		cursor:move;
-	}
-</style>
-<script>
-$(function() {
-	$(".layer_popup").draggable();
-});
-</script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery UI Draggable - Default functionality</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <style>
+    #draggable {
+      width: 150px;
+      height: 150px;
+      padding: 0.5em;
+    }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+  <script>
+    $(function () {
+      $("#draggable").draggable();
+    });
+  </script>
 </head>
+
 <body>
-<div class="layer_popup">
-	<img src="images/pic_1.jpg" alt="">
-</div>
+
+  <div id="draggable" class="ui-widget-content">
+    <p>Drag me around</p>
+  </div>
+
+
 </body>
+
 </html>
