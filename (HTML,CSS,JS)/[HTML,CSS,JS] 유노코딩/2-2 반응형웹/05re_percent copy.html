@@ -6,10 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <style>
-    * {
-      box-sizing: border-box;
-    }
-    .container {
+    .container{
       width: 90%;
       margin: 0 auto;
       text-align: center;
@@ -17,7 +14,7 @@
     .header {
       width: 100%;
       height: 100px;
-      background-color: tomato;
+      background-color: red;
     }
     .main {
       float: left;
@@ -31,14 +28,20 @@
       float: right;
       width: 33%;
       height: 300px;
-      background-color: purple;
+      background-color: aqua;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
     }
+
     .footer {
       clear: both;
       width: 100%;
       height: 100px;
-      background-color: aqua;
+      background-color: purple;
     }
+
     
   </style>
 </head>
@@ -47,7 +50,7 @@
   <div class="container">
     <div class="header">HEADER</div>
     <div class="main"><p>MAIN Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque dolores facilis dolorum fuga unde consectetur facere vitae quod illo explicabo at quidem tempora, rerum atque dignissimos voluptatibus omnis, asperiores quos!</p></div>
-    <div class="aside">ASIDE</div>
+    <div class="aside"><p>ASIDE</p></div>
     <div class="footer">FOOTER</div>
   </div>
   
