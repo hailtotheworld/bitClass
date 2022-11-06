@@ -23,6 +23,29 @@ window.addEventListener("load", function () {
   var container = section.querySelector(".container8");
   var box = section.querySelector(".box");
 
+  let dragging = false;
+  let current = null;
+  let boxOffset = {x:0,y:0};
+
+  container.addEventListener('mousedown',function(e) {
+    if(e.target.classList.contains('box')) {
+      dragging = true;
+      current = e.target;
+      boxOffset.x = e.offsetX;
+      boxOffset.y = e.offsetY;
+    }
+  });
+
+  container.addEventListener('mousemove',function(e){
+    if(dragging!=true) return;
+
+    current.style.left = e.pageX-container.offsetLeft-boxOffset.x+"px";
+    current.style.top = e.pageY-container.offsetTop-boxOffset.y+"px";
+  })
+
+  container.addEventListener('mouseup',function(e){
+    dragging = false;
+  });
 
 
 });
