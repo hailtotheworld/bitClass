@@ -1,38 +1,41 @@
-use market_db;
+drop procedure if exists caseProc;
 
+delimiter $$
+create procedure caseProc()
+begin
+	declare score int;
+    declare grade char(1);
+    
+    set score = 97;
+    
+    case
+		when score >90 then
+		set grade='A';
+        when score>80 then
+        set grade= 'B';
+        else
+        set grade='F';
+    end case;
+    select grade;
+end $$
+delimiter ;
+
+call caseProc();
+
+select * from buy;
 select * from member;
 
-select mem_id from member;
-
-select addr 주소, debut_date "데뷔 일자", mem_name from member;
-
-select * from member where mem_name='블랙핑크';
-
-select * from member where mem_number=4;
-
-
-select *
-from member
-where height > (select height from member where mem_name='블랙핑크');
-
-select height from member where mem_name='블랙핑크';
-
-select mem_id, sum(amount) from buy group by mem_id;
-
-select mem_id, sum(amount*price) from buy group by mem_id;
-
-SELECT * FROM market_db.buy;
-
-select mem_id, avg(price) from buy group by mem_id;
-
-select mem_id, sum(price*amount) from buy group by mem_id having sum(price*amount)>=1000;
-
-
--- 가장 많이 팔린 prod_name
-
-select prod_name, sum(amount) from buy group by prod_name order by sum(amount) desc limit 0,1;
-
-
+select mem_name, sum(price*amount) 구매액,
+    case
+		when sum(price*amount)>1000 then '최우수고객'
+        when sum(price*amount)>200 then '우수고객'
+        else '유령고객'
+	end 고객등급
+from member M
+	left join buy B
+on M.mem_id=B.mem_id
+group by M.mem_id
+order by sum(price*amount) desc;
 
 
 
