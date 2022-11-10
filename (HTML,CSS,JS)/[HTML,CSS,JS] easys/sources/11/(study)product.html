@@ -7,6 +7,35 @@
   <title>QQ</title>
   <!-- <link rel="stylesheet" href="reset.css"> -->
   <style>
+    .prod-list {
+      display: flex;
+      list-style: none;
+      flex-wrap: wrap;
+    }
+
+    .prod-list li {
+      margin: 0 8px;
+      position: relative;
+      height: 200px;
+      overflow: hidden;
+    }
+
+    .caption {
+      position: absolute;
+      top: 200px;
+      width: 300px;
+      height: 200px;
+      transition: 0.6s; 
+      opacity: 0;
+      background-color: rgba(0, 0, 0, 0.459);
+      color: white;
+    }
+
+    li:hover .caption {
+      opacity: 1;
+      transform: translateY(-200px);
+    }
+
 
 
 

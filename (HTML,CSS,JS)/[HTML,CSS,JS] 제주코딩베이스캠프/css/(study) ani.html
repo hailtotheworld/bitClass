@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box {
+      width: 200px;
+      height: 200px;
+      background-color: palevioletred;
+      animation: 애니 0.1s infinite;
+    }
+
+    @keyframes 애니 {
+      0%{transform: translateX();}
+      25%{transform: translateX(300px);}
+      50%{transform: translate(300px,300px);}
+      75%{transform: translateY(300px);}
+      100%{transform: rotateX(45deg) perspective(100px);}
+    }
+  </style>
+</head>
+<body>
+  <div class="box">hello</div>
+</body>
+</html>
