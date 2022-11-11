@@ -1,23 +1,24 @@
+-- 데뷔일자
 
 drop procedure if exists ifT;
-
 delimiter $$
 create procedure ifT()
 begin
 	declare days int;
-    declare now date;
-    declare debuDate date;
+    declare today date;
+    declare debutDate date;
     
-    set now = current_date();
-    select debut_date into debuDate from member where mem_id='BLK';
-    set days = datediff(now,debuDate);
+    set today = current_date();
+    select debut_date into debutDate from member where mem_id='GRL';
+    set days = datediff(today, debutDate);
     
-    if(days>365) then
-    select '1년넘었습니다';
-    elseif(datediff<365) then
-    select '1년미만입니다.';
+	if(days/365>5) then
+    select concat('5년 이상이네요. 데뷔한지',days,'지났습니다.');
+	elseif(days/365<5) then
+    select concat('5년미만이네요. 데뷔한지',days,'지났습니다.');
     end if;
+    
 end $$
 delimiter ;
 
-call ifT();
+select * from member;

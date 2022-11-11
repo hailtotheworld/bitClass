@@ -1,41 +1,105 @@
-drop procedure if exists caseProc;
+-- 데뷔일자
+
+drop procedure if exists ifT;
 
 delimiter $$
-create procedure caseProc()
+create procedure ifT()
 begin
-	declare score int;
-    declare grade char(1);
+	declare days int;
+    declare today date;
+    declare debutDate date;
     
-    set score = 97;
+    set today = current_date();
+    select debut_date into debutDate from member where mem_id='GRL';
+    set days = datediff(today, debutDate);
     
-    case
-		when score >90 then
-		set grade='A';
-        when score>80 then
-        set grade= 'B';
-        else
-        set grade='F';
-    end case;
-    select grade;
+	if(days/365>5) then
+    select concat('5년 이상이네요. 데뷔한지',days,'지났습니다.');
+	elseif(days/365<5) then
+    select concat('5년미만이네요. 데뷔한지',days,'지났습니다.');
+    end if;
+    
 end $$
 delimiter ;
 
-call caseProc();
+call ifT();
 
-select * from buy;
-select * from member;
 
-select mem_name, sum(price*amount) 구매액,
-    case
-		when sum(price*amount)>1000 then '최우수고객'
-        when sum(price*amount)>200 then '우수고객'
-        else '유령고객'
-	end 고객등급
-from member M
-	left join buy B
-on M.mem_id=B.mem_id
-group by M.mem_id
-order by sum(price*amount) desc;
+drop procedure if exists whileT;
+
+delimiter $$
+create procedure whileT()
+begin
+	declare i int;
+    declare sum int;
+    set sum=0;
+    set i=1;
+    
+    while(i<=100) do
+    set sum=sum+i;
+    set i=i+1;
+    end while;
+    
+    select sum as '1~100합';
+end $$
+delimiter ;
+
+call whileT();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+drop procedure if exists whileT2;
+delimiter $$
+create procedure whileT2()
+begin
+	declare i int;
+    declare sum int;
+    
+    set i=1;
+    set sum=0;
+    
+    myWhile:
+    while(i<=100) do
+    if(i%4=0) then
+        set i=i+1;
+    iterate myWhile;
+    end if;
+    set sum=sum+i;
+        set i=i+1;
+    if(sum>1000) then
+    leave myWhile;
+    end if;
+
+	end while;
+    
+    select sum;
+    
+end $$
+delimiter ;
+
+call whileT2();
 
 
 
