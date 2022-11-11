@@ -3,18 +3,102 @@
   top: 0;
   left: 0;
   width: 100%;
-  background-color: wheat;
-  box-shadow: 0 0 10px red;
+  background-color: white;
+  box-shadow: 0 0 4px black;
+  z-index: 20;
+}
+
+.header_wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  padding: 0 16px;
+}
+/* 1.header_start----------------------- */
+.header_start {
+  display: flex;
+  align-items: center;
+}
+
+.header_hamburger {
+  margin-right: 6px;
+  border: none;
+  background-color: transparent;
+  font-size: 1.5rem;
+}
+
+.header_title {
+  font-size: 1.2rem;
+}
+
+@media screen and (max-width: 800px) {
+  .header_title{
+    display: none;
+  }
+}
+
+/* 2.header_center------------------------ */
+
+.header_center {
+  width: 50%;
+}
+
+.header_form {
+  display: flex;
+  max-width: 100%;
+}
+
+.header_input_text {
+  width: calc(100% - 60px);
+  height: 40px;
+  border: 1px solid gray;
+  border-right: none;
+  border-radius: 50px 0 0 50px;
+
+}
+
+.header_input_button {
+  width: 60px;
+  border: 1px solid gray;
+  border-left: none;
+  border-radius: 0 50px 50px 0;
 }
 
 
-.test {
-  position: relative;
-  top: 300px;
-  left: 200px;
-  width: 100px;
-  height: 100px;
-  border: 1px solid green;
-  box-shadow: 0 50px 10px red;
-  /* offsetX offsetY 흐릿하게번지면서커진다 */
+/* 3.header_end------------------------ */
+.header_end {
+  display: flex;
 }
+
+.header_search {
+  display: none;
+  border: none;
+  background-color: transparent;
+  font-size: 1.5rem;
+
+}
+
+.header_profile {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid gray;
+  background-image: url(dog-gd6ca4c02f_1280.jpg);
+  background-size: cover;
+}
+
+
+@media screen and (max-width:400px) {
+  .header_center{
+    display: none;
+  }
+
+  .header_search {
+    display: block;
+  }
+}
+
+
+
+

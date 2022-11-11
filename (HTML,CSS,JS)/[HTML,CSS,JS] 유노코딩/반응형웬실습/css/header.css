@@ -1,3 +1,4 @@
+/* 0.전체-------------------------- */
 .header {
   position: fixed;
   top: 0;
@@ -16,6 +17,7 @@
   padding: 0 16px;
 }
 
+/* 1.header_start-------------------------- */
 .header_start {
   height: 40px;
   line-height: 40px;
@@ -32,6 +34,13 @@
   margin-left: 6px;
 }
 
+@media screen and (max-width: 800px) {
+  .header_title {
+    display: none;
+  }
+}
+
+/* 2.header_center-------------------------- */
 .header_center {
   width: 50%;
 }
@@ -59,6 +68,7 @@
   cursor: pointer;
 }
 
+/* 3.header_end-------------------------- */
 .header_end {
   display: flex;
 }
@@ -81,11 +91,7 @@
   background-size: cover;
 }
 
-@media screen and (max-width: 800px) {
-  .header_title {
-    display: none;
-  }
-}
+/* @media-------------------------- */
 
 @media screen and (max-width: 400px) {
   .header_center{
