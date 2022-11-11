@@ -6,21 +6,22 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/header.css">
 </head>
 
 <body>
 
   <header class="header">
-    <div class="header—wrapper">
+    <div class="header_wrapper">
 
       <h1 class="header_start">
         <button class="header_hamburger">&#9776;</button>
-        <span class="header_titte">TestTube</span>
+        <span class="header_title">TestTube</span>
       </h1>
 
       <div class="header_center">
-        <form class="header_form">
-          <!--onsubmit="return false;" -->
+        <form class="header_form" onsubmit="return false;">
           <input class="header_input_text" placeholder="보고싶은동영상">
           <button class="header_input_button">검색</button>
         </form>
@@ -35,23 +36,4 @@
   </header>
 
 </body>
-
-<script>
-
-  window.addEventListener('load', function () {
-
-  //   let headerInputButton = document.querySelector('.header_input_button');
-
-  //   headerInputButton.addEventListener('click', function (e) {
-  //     e.preventDefault();
-  //   })
-  
-  let headerForm = document.querySelector('.header_form');
-  headerForm.addEventListener('submit',function(e) {
-    e.preventDefault();
-  })
-
-  });
-</script>
-
 </html>

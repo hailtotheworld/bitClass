@@ -1,0 +1,97 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  box-shadow: 0 0 3px black;
+  z-index: 20;
+}
+
+.header_wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  padding: 0 16px;
+}
+
+.header_start {
+  height: 40px;
+  line-height: 40px;
+}
+
+.header_hamburger {
+  border: none;
+  background-color: transparent;
+  font-size: 1.5rem;  /* rem은16px이니까 1.5배하니까24px */
+}
+
+.header_title {
+  font-size: 1.2rem;
+  margin-left: 6px;
+}
+
+.header_center {
+  width: 50%;
+}
+
+.header_form {
+  display: flex;
+  max-width: 100%;
+}
+
+.header_input_text {
+  width: calc(100% - 60px);
+  height: 40px;
+  padding: 0 6px;
+  border: 1px solid gray;
+  border-right: none;
+  border-radius: 100px 0 0 100px;
+}
+
+.header_input_button {
+  width: 60px;
+  height: 40px;
+  border: 1px solid gray;
+  border-left: none;
+  border-radius: 0 100px 100px 0;
+  cursor: pointer;
+}
+
+.header_end {
+  display: flex;
+}
+
+.header_search {
+  display: none;
+  margin-right: 5px;
+  border: none;
+  background-color: transparent;
+  font-size: 1.5rem;
+}
+
+.header_profile {
+  width: 40px;
+  height: 40px;
+  border: 1px solid gray;
+  border-radius: 50%;
+  /* background-color: tomato; */
+  background-image: url(dog-gd6ca4c02f_1280.jpg);
+  background-size: cover;
+}
+
+@media screen and (max-width: 800px) {
+  .header_title {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .header_center{
+    display: none;
+  }
+  .header_search {
+    display: block;
+  }
+}
