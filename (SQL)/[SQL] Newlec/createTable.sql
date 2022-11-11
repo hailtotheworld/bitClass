@@ -15,6 +15,13 @@ drop table member;
 
 INSERT into member(gender) VALUES('남성');
 
+
+INSERT into member(id) VALUES('두글');
+INSERT into member(PWD) VALUES('두글');
+
+select lengthb(id) from member;
+select lengthb(PWD) from member;
+
 select * from member;
 
 select length('ab') from dual;
