@@ -5,7 +5,7 @@ CREATE TABLE MEMBER (
 --  GENDER   CHAR(6),      --1글자3바이트
 --  GENDER   CHAR(2 CHAR), --1글자3바이트
     GENDER   NCHAR(2),     --1글자2바이트
-    AGE      NUMBER,
+    AGE      NUMBER(3),
     BIRTHDAY CHAR(10), --1990-10-29
     PHONE    CHAR(13), --010-1234-5678
     REGDATE  DATE

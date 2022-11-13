@@ -34,11 +34,7 @@
   margin-left: 6px;
 }
 
-@media screen and (max-width: 800px) {
-  .header_title {
-    display: none;
-  }
-}
+
 
 /* 2.header_center-------------------------- */
 .header_center {
@@ -92,6 +88,12 @@
 }
 
 /* @media-------------------------- */
+
+@media screen and (max-width: 800px) {
+  .header_title {
+    display: none;
+  }
+}
 
 @media screen and (max-width: 400px) {
   .header_center{
