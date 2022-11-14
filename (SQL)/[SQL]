@@ -25,26 +25,60 @@ delimiter ;
 call ifT();
 
 
-drop procedure if exists whileT;
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+drop procedure if exists while1;
 delimiter $$
-create procedure whileT()
+create procedure while1()
 begin
 	declare i int;
     declare sum int;
+   
+	set i=1;
     set sum=0;
-    set i=1;
     
     while(i<=100) do
-    set sum=sum+i;
-    set i=i+1;
+    set sum = sum+i;
+    set i = i+1;
     end while;
-    
-    select sum as '1~100합';
+    select sum;
 end $$
 delimiter ;
 
-call whileT();
+call while1();
 
 
 
@@ -58,21 +92,9 @@ call whileT();
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-drop procedure if exists whileT2;
+drop procedure if exists while2;
 delimiter $$
-create procedure whileT2()
+create procedure while2()
 begin
 	declare i int;
     declare sum int;
@@ -83,23 +105,86 @@ begin
     myWhile:
     while(i<=100) do
     if(i%4=0) then
-        set i=i+1;
+    set i=i+1;
     iterate myWhile;
-    end if;
+	end if;
+    
     set sum=sum+i;
-        set i=i+1;
+    set i=i+1;
+    
     if(sum>1000) then
     leave myWhile;
     end if;
-
-	end while;
-    
+    end while;
     select sum;
-    
 end $$
 delimiter ;
+call while2();
 
-call whileT2();
+
+set @name = 'BLK';
+prepare myQ from 'select * from member where mem_id=?';
+execute myQ using @name;
+deallocate prepare myQ;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+set @name = 'BLK';
+prepare myQ from 'select * from member where mem_id=?';
+execute myQ using @name;
+deallocate prepare myQ;
+
+drop table if exists gate;
+create table gate (number int auto_increment primary key, entrytime timestamp);
+
+set @entrytimeD = CURRENT_TIMESTAMP();
+prepare myQ from 'insert into gate values(null,?)';
+execute myQ using @entrytimeD;
+
+select * from gate;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
