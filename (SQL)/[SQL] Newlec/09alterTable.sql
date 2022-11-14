@@ -1,0 +1,19 @@
+CREATE TABLE MEMBER (
+    ID       VARCHAR2(50), --NVARCHAR2(50) 수정
+    PWD      NVARCHAR2(50),
+    NAME     NVARCHAR2(50),
+    GENDER   NCHAR(2),
+    AGE      NUMBER(3), --삭제
+    BIRTHDAY CHAR(10),
+    PHONE    CHAR(13),
+                        --EMAIL VARCHAR2(200) 추가
+    REGDATE  DATE
+);
+
+ALTER TABLE member MODIFY id NVARCHAR2(50);
+
+ALTER TABLE member DROP COLUMN AGE;
+
+ALTER TABLE member ADD EMAIL VARCHAR2(200);
+
+desc member;
