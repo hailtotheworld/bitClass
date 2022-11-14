@@ -1,0 +1,89 @@
+.header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 60px;
+  width: 100%;
+  z-index: 20;
+}
+
+.header_wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  box-shadow: 0 0 4px;
+}
+
+/*  */
+.header_hamburger {
+  border: none;
+  background-color: transparent;
+  font-size: 1.6rem;
+}
+
+.header_title {
+  font-size: 1.2rem;
+}
+
+/*  */
+.header_center {
+  width: 50%;
+}
+
+.header_form {
+  max-width: 75%;
+  display: flex;
+}
+
+.header_input_text {
+  width: calc(100% - 60px);
+  padding: 12px;
+  border-radius: 50px 0 0 50px;
+  border: 1px solid gray;
+  border-right: none;
+  font-size: 1rem;
+}
+
+.header_input_button {
+  width: 60px;
+  border-radius: 0 50px 50px 0;
+  border: 1px solid gray;
+  border-left: none;
+  font-size: 1rem;
+}
+
+/*  */
+.header_end {
+  display: flex;
+}
+
+.header_search {
+  display: none;
+  border: none;
+  background-color: transparent;
+  font-size: 1.6rem;
+}
+
+.header_profile {
+  background-image: url(dog-gd6ca4c02f_1280.jpg);
+  background-size: cover;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+
+@media screen and (max-width:800px) {
+  .header_title {
+    display: none;
+  }
+}
+
+@media screen and (max-width:400px) {
+  .header_center {
+    display: none;
+  }
+  .header_search {
+    display: block;
+  }
+}
