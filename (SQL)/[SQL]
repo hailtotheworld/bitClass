@@ -169,8 +169,12 @@ select * from gate;
 
 
 
+select 1+'7' from dual;
+select 1||7 from dual;
 
+select * from member;
 
+select * from member where REGEXP_LIKE(mem_id,'01[016-9]-\d{3,4}-\d{4}');
 
 
 
