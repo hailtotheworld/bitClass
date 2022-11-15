@@ -1,0 +1,78 @@
+.thumbs_wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 60px 0 0 200px;
+  padding: 20px 0 0 10px;
+}
+
+.thumbs_item {
+  width: 25%;
+  margin: 0 0 15px 0;
+  padding: 0 10px;
+}
+
+.thumbs_thumbnail {
+  max-width: 100%; /*자기가 속한 영역에서 벗어날수없게된다*/
+  margin: 0 0 10px 0;
+}
+
+.thumbs_info {
+  display: flex;
+}
+
+.thumbs_profile {
+  width: 36px;
+  height: 36px;
+  /* border-radius: 50%; */
+  border-radius: 18px;
+  background-color: tomato;
+}
+
+.thumbs_text {
+  width: calc(100% - 36px);
+  padding-left: 10px;
+}
+
+.thumbs_text_title {
+  font-size: 1.2rem;
+  margin-bottom: 0.5em;
+}
+
+.thumbs_text_owner {
+  font-size: 1rem;
+  color: gray;
+  margin-bottom: 0.2em;
+}
+
+.thumbs_text_anal {
+  font-size: 0.9rem;
+  color: gray;
+}
+
+@media screen and (max-width:1000px) {
+  .thumbs_item {
+    width: 33%;
+  }
+}
+
+@media screen and (max-width:800px) {
+  .thumbs_wrapper {
+    margin: 60px 0 0 60px;
+  }
+  .thumbs_item {
+    width: 50%;
+  }
+
+}
+
+@media screen and (max-width:400px) {
+  .thumbs_wrapper {
+    margin: 60px 0 0 0;
+    padding: 20px 0 0 0;
+  }
+  .thumbs_item {
+    width: 100%;
+  }
+
+}
