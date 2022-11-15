@@ -192,3 +192,47 @@ select * from member where REGEXP_LIKE(mem_id,'01[016-9]-\d{3,4}-\d{4}');
 
 
 
+
+
+
+
+
+
+drop table if exists gate;
+create table gate(
+	num int auto_increment primary key,
+    nowData datetime
+);
+
+set @time = current_timestamp();
+prepare myQ from 'insert into gate values(null, ?)';
+execute myQ using @time;
+deallocate prepare myQ;
+select * from gate;
+
+create table testTT(
+	name varchar(2)
+);
+
+insert into testTT values('한글자');
+
+select * from testTT;
+
+drop table testTT;
+
+
+select * from member;
+
+drop view if exists mem_v;
+create view  mem_v
+as
+	select mem_id '멤버 아이디', mem_name  from member;
+
+select `멤버 아이디`, mem_name from mem_v;
+
+show create view mem_v;
+
+
+
+
+

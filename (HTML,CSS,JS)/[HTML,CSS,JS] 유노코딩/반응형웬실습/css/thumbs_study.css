@@ -1,0 +1,12 @@
+.thumbs_wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.thumbs_item {
+  width: 25%;
+}
+
+.thumbs_thumbnail {
+  max-width: 100%;
+}

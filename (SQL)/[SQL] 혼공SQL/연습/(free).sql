@@ -22,3 +22,8 @@ end $$
 delimiter ;
 
 select * from member;
+
+select * from member;
+desc member;
+SHOW CREATE TABLE member;
+SHOW INDEX FROM member;
