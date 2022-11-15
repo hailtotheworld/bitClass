@@ -21,3 +21,14 @@ SELECT CURRENT_DATE, CURRENT_TIMESTAMP FROM DUAL;
 
 select SYSTIMESTAMP from dual;
 select to_char(systimestamp, 'YYYY-MM-DD AMHH:MI') from dual;
+
+select EXTRACT(month from sysdate) || '월' from dual;
+
+select EXTRACT(month from regdate) from member where EXTRACT(month from regdate) in(11,12);
+
+select * from member where 180>EXTRACT(day from sysdate)-EXTRACT(day from regdate);
+
+select * from member where ADD_MONTHS(SYSDATE,-6) < regdate;
+
+
+
