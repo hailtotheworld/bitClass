@@ -86,5 +86,51 @@ select @myValue;
 
 
 
+drop procedure if exists testP;
+delimiter $$
+create procedure testP(in namep varchar(10), out idp int)
+begin
+	insert into notable values(null, namep);
+end $$
+delimiter ;
+
+drop table if exists notable;
+create table notable(
+	id int primary key auto_increment,
+    name varchar(10)
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

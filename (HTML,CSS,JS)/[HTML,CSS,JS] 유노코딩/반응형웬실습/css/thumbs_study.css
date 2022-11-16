@@ -1,3 +1,7 @@
+.thumbs {
+  margin: 65px 0 0 205px;
+}
+
 .thumbs_wrapper {
   display: flex;
   flex-wrap: wrap;
@@ -9,4 +13,25 @@
 
 .thumbs_thumbnail {
   max-width: 100%;
+}
+
+@media screen and (max-width:800px) {
+  .thumbs {
+    margin: 65px 0 0 65px;
+  }
+  
+  .thumbs_item {
+    width: 33.33%;
+  }
+}
+
+
+@media screen and (max-width:400px) {
+  .thumbs {
+    margin: 65px 0 0 5px;
+  }
+  
+  .thumbs_item {
+    width: 100%;
+  }
 }
