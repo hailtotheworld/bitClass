@@ -91,6 +91,7 @@ delimiter $$
 create procedure testP(in namep varchar(10), out idp int)
 begin
 	insert into notable values(null, namep);
+    select max(id) into idp from notable;
 end $$
 delimiter ;
 
@@ -100,12 +101,32 @@ create table notable(
     name varchar(10)
 );
 
+call testP('테스트',@idCount);
+select @idCount from dual;
 
+drop procedure if exists testTT;
+delimiter $$
+create procedure testTT(in tnamep varchar(10))
+begin
+	set @sqlQ = concat('select * from ', tnamep);
+	prepare myQ from @sqlQ;
+    execute myQ;
+    deallocate prepare myQ;
+end $$
+delimiter ;
 
+call testTT('buy');
 
-
-
-
+drop procedure if exists testTT;
+delimiter $$
+create procedure testTT(in tnamep varchar(10))
+begin
+	set @sqlQ = concat('select * from ', tnamep);
+	prepare myQ from @sqlQ;
+    execute myQ;
+    deallocate prepare myQ;
+end $$
+delimiter ;
 
 
 
