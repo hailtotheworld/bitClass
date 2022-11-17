@@ -1,28 +1,40 @@
--- 데뷔일자
+USE market_db;
+DROP PROCEDURE IF EXISTS user_proc1;
+DELIMITER $$
+CREATE PROCEDURE user_proc1(IN userName VARCHAR(10))
+BEGIN
+  SELECT * FROM member WHERE mem_name = userName; 
+END $$
+DELIMITER ;
 
-drop procedure if exists ifT;
+CALL user_proc1('에이핑크');
 
+drop procedure if exists proc1;
 delimiter $$
-create procedure ifT()
+create procedure proc1(in name varchar(10))
 begin
-	declare days int;
-    declare today date;
-    declare debutDate date;
-    
-    set today = current_date();
-    select debut_date into debutDate from member where mem_id='GRL';
-    set days = datediff(today, debutDate);
-    
-	if(days/365>5) then
-    select concat('5년 이상이네요. 데뷔한지',days,'지났습니다.');
-	elseif(days/365<5) then
-    select concat('5년미만이네요. 데뷔한지',days,'지났습니다.');
-    end if;
-    
+	select * from member where mem_name=name;
 end $$
 delimiter ;
 
-call ifT();
+call proc1('소녀시대');
+
+
+
+DROP PROCEDURE IF EXISTS dynamic_proc;
+DELIMITER $$
+CREATE PROCEDURE dynamic_proc(
+    IN tableName VARCHAR(20)
+)
+BEGIN
+  SET @sqlQuery = CONCAT('SELECT * FROM ', tableName);
+  PREPARE myQuery FROM @sqlQuery;
+  EXECUTE myQuery;
+  DEALLOCATE PREPARE myQuery;
+END $$
+DELIMITER ;
+
+CALL dynamic_proc ('member');
 
 
 
@@ -51,186 +63,145 @@ call ifT();
 
 
 
-
-
-
-
-
-
-
-
-
-drop procedure if exists while1;
+drop procedure if exists testP1;
 delimiter $$
-create procedure while1()
+create procedure testP1(
+	IN txtValue varchar(10),
+    OUT outValue int)
 begin
-	declare i int;
-    declare sum int;
-   
-	set i=1;
-    set sum=0;
-    
-    while(i<=100) do
-    set sum = sum+i;
-    set i = i+1;
-    end while;
-    select sum;
+	insert into notable values(null, txtValue);
+    select max(id) into outValue from notable;
 end $$
 delimiter ;
 
-call while1();
+drop table if exists notable;
+create table notable(
+	id int auto_increment primary key,
+    text varchar(10));
+
+call testP1('아이디',@myValue);
+select @myValue;
 
 
 
 
 
-
-
-
-
-
-
-
-
-drop procedure if exists while2;
+drop procedure if exists testP;
 delimiter $$
-create procedure while2()
+create procedure testP(in namep varchar(10), out idp int)
 begin
-	declare i int;
-    declare sum int;
-    
-    set i=1;
-    set sum=0;
-    
-    myWhile:
-    while(i<=100) do
-    if(i%4=0) then
-    set i=i+1;
-    iterate myWhile;
-	end if;
-    
-    set sum=sum+i;
-    set i=i+1;
-    
-    if(sum>1000) then
-    leave myWhile;
-    end if;
-    end while;
-    select sum;
+	insert into notable values(null, namep);
+    select max(id) into idp from notable;
 end $$
 delimiter ;
-call while2();
 
-
-set @name = 'BLK';
-prepare myQ from 'select * from member where mem_id=?';
-execute myQ using @name;
-deallocate prepare myQ;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-set @name = 'BLK';
-prepare myQ from 'select * from member where mem_id=?';
-execute myQ using @name;
-deallocate prepare myQ;
-
-drop table if exists gate;
-create table gate (number int auto_increment primary key, entrytime timestamp);
-
-set @entrytimeD = CURRENT_TIMESTAMP();
-prepare myQ from 'insert into gate values(null,?)';
-execute myQ using @entrytimeD;
-
-select * from gate;
-
-
-
-select 1+'7' from dual;
-select 1||7 from dual;
-
-select * from member;
-
-select * from member where REGEXP_LIKE(mem_id,'01[016-9]-\d{3,4}-\d{4}');
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-drop table if exists gate;
-create table gate(
-	num int auto_increment primary key,
-    nowData datetime
+drop table if exists notable;
+create table notable(
+	id int primary key auto_increment,
+    name varchar(10)
 );
 
-set @time = current_timestamp();
-prepare myQ from 'insert into gate values(null, ?)';
-execute myQ using @time;
-deallocate prepare myQ;
-select * from gate;
+call testP('테스트',@idCount);
+select @idCount from dual;
 
-create table testTT(
-	name varchar(2)
-);
+drop procedure if exists testTT;
+delimiter $$
+create procedure testTT(in tnamep varchar(10))
+begin
+	set @sqlQ = concat('select * from ', tnamep);
+	prepare myQ from @sqlQ;
+    execute myQ;
+    deallocate prepare myQ;
+end $$
+delimiter ;
 
-insert into testTT values('한글자');
+call testTT('buy');
 
-select * from testTT;
+drop procedure if exists testTT;
+delimiter $$
+create procedure testTT(in tnamep varchar(10))
+begin
+	set @sqlp = concat('select * from ', tnamep);
+	prepare myQ from @sqlp;
+    execute myQ;
+    deallocate prepare myQ;
+end $$
+delimiter ;
 
-drop table testTT;
+call testTT('member');
 
+
+
+
+
+
+
+
+drop procedure if exists testTT;
+delimiter $$
+create procedure testTT(in tname varchar(10))
+begin
+	set @tnameSet = concat('select * from ',tname);
+	prepare myQ from @tnameSet;
+    execute myQ;
+    deallocate prepare myQ;
+end $$
+delimiter ;
+
+call testTT('buy');
+
+SET GLOBAL log_bin_trust_function_creators = 1;
+
+drop function if exists sumFunc;
+delimiter $$
+create function sumFunc(num1 INT, num2 INT)
+	returns INT
+begin
+	return num1 + num2;
+end $$
+delimiter ;
+
+select sumFunc(50,70) from dual;
+
+drop function if exists calcYearFunc;
+delimiter $$
+create function calcYearFunc(dYear date)
+	returns int
+begin
+	return extract(year from sysdate()) - extract(year from dYear);
+end $$
+delimiter ;
 
 select * from member;
+select extract(year from sysdate())from dual;
 
-drop view if exists mem_v;
-create view  mem_v
-as
-	select mem_id '멤버 아이디', mem_name  from member;
+select mem_id, debut_date, calcYearFunc(debut_date) from member;
 
-select `멤버 아이디`, mem_name from mem_v;
 
-show create view mem_v;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
