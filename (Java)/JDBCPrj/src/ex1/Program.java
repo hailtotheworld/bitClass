@@ -24,7 +24,7 @@ public class Program {
 			int id = rs.getInt("ID");
 			String title = rs.getString("TITLE");
 			String writerId = rs.getString("WRITER_ID");
-			Date regdate = rs.getDate("REGDATE");
+			Date regdate = rs.getDate("REGDATE"); // import java.util.Date;
 			String content = rs.getString("CONTENT");
 			int hit = rs.getInt("hit");
 			
@@ -38,3 +38,5 @@ public class Program {
 	}
 
 }
+
+
