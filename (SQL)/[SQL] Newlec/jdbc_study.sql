@@ -35,3 +35,28 @@ INSERT INTO notice (
 );
 
 rollback;
+
+INSERT INTO notice (
+    title,
+    writer_id,
+    content,
+    files
+) VALUES (
+    'test',
+    'java',
+    '내용',
+    ''
+);
+
+
+
+UPDATE notice
+SET
+    title ='수정테스트',
+    content='갑니다',
+    files=''
+where id=12;
+
+rollback;
+
+
