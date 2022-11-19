@@ -180,12 +180,15 @@ select mem_id, debut_date, calcYearFunc(debut_date) from member;
 
 
 
+grant all privileges on market_db.* to newlecture;
 
+grant SUPER on *.* TO newlecture;
 
+UPDATE mysql.user SET Super_Priv='Y' WHERE user='newlecture' AND host='%';
 
+FLUSH PRIVILEGES;
 
-
-
+GRANT SUPER ON *.* TO newlecture@localhost;
 
 
 

@@ -7,10 +7,10 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class select {
-
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {
+
 		String url = "jdbc:oracle:thin:@192.168.1.2:1521/xepdb1";
-		String sql = "select * from notice";
+		String sql = "SELECT * FROM notice where hit >= 10";
 
 		Class.forName("oracle.jdbc.driver.OracleDriver");
 		Connection con = DriverManager.getConnection(url, "SCOTT", "tiger");
@@ -18,18 +18,21 @@ public class select {
 		ResultSet rs = st.executeQuery(sql);
 		
 		while(rs.next()) {
-			int id = rs.getInt("id");
-			String title = rs.getString("title");
+			int id = rs.getInt("ID");
+			String title = rs.getString("TITLE");
+			String writerId = rs.getString("WRITER_ID");
 			
-			System.out.println(id);
-			System.out.println(title);
-			System.out.println();
+			System.out.printf("%d,%s,%s",id,title,writerId);
+			
 		}
-
+		
+		
+		
 		rs.close();
 		st.close();
 		con.close();
 		
 	}
+
 
 }

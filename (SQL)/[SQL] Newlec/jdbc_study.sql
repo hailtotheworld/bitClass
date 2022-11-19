@@ -59,4 +59,12 @@ where id=12;
 
 rollback;
 
+select * from notice;
 
+
+delete from notice where id=31;
+
+rollback;
+
+update notice set
+    title=''

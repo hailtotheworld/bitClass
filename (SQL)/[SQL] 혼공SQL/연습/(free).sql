@@ -27,3 +27,40 @@ select * from member;
 desc member;
 SHOW CREATE TABLE member;
 SHOW INDEX FROM member;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+SET GLOBAL log_bin_trust_function_creators = 1;
+
+drop function if exists testTT;
+delimiter $$
+create function testTT()
+begin
+end $$
+delimiter ;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
