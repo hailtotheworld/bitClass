@@ -13,7 +13,7 @@ import com.newlecture.app.entity.Notice;
 public class NoticeService {
 	public List<Notice> getList() throws ClassNotFoundException, SQLException {
 		String url = "jdbc:oracle:thin:@192.168.1.2:1521/xepdb1";
-		String sql = "SELECT * FROM notice where hit >= 10";
+		String sql = "SELECT * FROM notice";
 
 		Class.forName("oracle.jdbc.driver.OracleDriver");
 		Connection con = DriverManager.getConnection(url, "SCOTT", "tiger");
@@ -44,4 +44,15 @@ public class NoticeService {
 		return list;
 	}
 
+	public int insert(Notice notice) {
+		return 0;
+	}
+	
+	public int update(Notice notice) {
+		return 0;
+	}
+	
+	public int delete(int id) {
+		return 0;
+	}
 }
