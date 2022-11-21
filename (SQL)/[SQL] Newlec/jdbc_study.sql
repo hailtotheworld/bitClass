@@ -67,4 +67,39 @@ delete from notice where id=31;
 rollback;
 
 update notice set
-    title=''
+    title='';
+    
+    
+INSERT INTO notice (
+    title,
+    writer_id,
+    content,
+    files
+) VALUES (
+    :v0,
+    :v1,
+    :v2,
+    :v3
+);
+    
+select * from notice;    
+    
+UPDATE notice
+SET
+    title='변경테스트22',
+    content='갑니다',
+    files=''
+WHERE
+    id = 10;
+    
+    
+DELETE FROM notice
+WHERE
+        id = :v0
+    AND title = :v1
+    AND writer_id = :v2
+    AND content = :v3
+    AND regdate = :v4
+    AND hit = :v5
+    AND files = :v6
+    AND pub = :v7;
