@@ -1,23 +1,31 @@
 package com.newlecture.app.entity;
 
-// 값을 담을 수 있는 그릇. 그룹화된 자료형
-public class Notice {
+public class NoticeCl {
+	
+//	ID
+//	TITLE
+//	WRITER_ID
+//	CONTENT
+//	REGDATE
+//	HIT
+//	FILES
+//	PUB
+	
 	private int id;
 	private String title;
-	private String writerID;
+	private String writerId;
 	private String content;
 	private String regdate;
 	private int hit;
 	private String files;
-
-	public Notice() {
-
+	
+	public NoticeCl() {
 	}
 
-	public Notice(int id, String title, String writerID, String content, String regdate, int hit, String files) {
+	public NoticeCl(int id, String title, String writerId, String content, String regdate, int hit, String files) {
 		this.id = id;
 		this.title = title;
-		this.writerID = writerID;
+		this.writerId = writerId;
 		this.content = content;
 		this.regdate = regdate;
 		this.hit = hit;
@@ -40,12 +48,12 @@ public class Notice {
 		this.title = title;
 	}
 
-	public String getWriterID() {
-		return writerID;
+	public String getwriterId() {
+		return writerId;
 	}
 
-	public void setWriterID(String writerID) {
-		this.writerID = writerID;
+	public void setwriterId(String writerId) {
+		this.writerId = writerId;
 	}
 
 	public String getContent() {
@@ -79,5 +87,8 @@ public class Notice {
 	public void setFiles(String files) {
 		this.files = files;
 	}
-
+	
+	
+	
+	
 }
