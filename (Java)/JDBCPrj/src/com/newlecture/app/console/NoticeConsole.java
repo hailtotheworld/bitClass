@@ -9,7 +9,7 @@ import com.newlecture.app.service.NoticeService;
 // Controller
 public class NoticeConsole {
 	
-	private NoticeService service;
+	private NoticeService service; // 생성자 밖에서 변수를 '선언'해서 생성자가 아닌 다른 메서드도 이 변수를 사용할 수 있게한다.
 	
 	public NoticeConsole() {
 		service = new NoticeService();

@@ -48,11 +48,11 @@ public class NoticeCl {
 		this.title = title;
 	}
 
-	public String getwriterId() {
+	public String getWriterId() {
 		return writerId;
 	}
 
-	public void setwriterId(String writerId) {
+	public void setWriterId(String writerId) {
 		this.writerId = writerId;
 	}
 

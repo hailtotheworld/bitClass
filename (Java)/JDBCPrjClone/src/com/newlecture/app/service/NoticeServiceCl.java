@@ -45,7 +45,6 @@ public class NoticeServiceCl {
 			
 			list.add(noticecl);
 			
-			System.out.printf("%d,%s,%s,%s,%s,%d,%s\n",id, title, writerId, content, regdate, hit, files);
 		}
 		
 		
@@ -73,7 +72,7 @@ public class NoticeServiceCl {
 		Connection con = DriverManager.getConnection(url, uid, pwd); //로드된 드라이버가 연결객체를 만들어
 		PreparedStatement st = con.prepareStatement(sql); //연결객체가 실행도구를 생성해
 		st.setString(1, noticecl.getTitle());
-		st.setString(2, noticecl.getwriterId());
+		st.setString(2, noticecl.getWriterId());
 		st.setString(3, noticecl.getContent());
 		st.setString(4, noticecl.getFiles());
 
