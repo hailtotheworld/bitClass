@@ -128,7 +128,9 @@ WHERE
     
     
     
-    
+DELETE FROM notice
+WHERE
+    id = :v0;
     
     
     
