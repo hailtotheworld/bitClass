@@ -103,3 +103,52 @@ WHERE
     AND hit = :v5
     AND files = :v6
     AND pub = :v7;
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+UPDATE notice
+SET
+    title = '',
+    content = '',
+    files = ''
+WHERE
+    id = :v0;
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
