@@ -4,11 +4,12 @@ import java.sql.SQLException;
 
 import com.newlecture.app.console.NoticeConsoleCl;
 
-public class programCl {
+public class ProgramCl {
 
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {
-		
+
 		NoticeConsoleCl console = new NoticeConsoleCl();
+		
 		console.printNoticeList();
 		int menu = console.inputNoticeMenu();
 		
@@ -22,7 +23,6 @@ public class programCl {
 		case 4: // 글쓰기
 			break;
 		}
-
 	}
 
 }
