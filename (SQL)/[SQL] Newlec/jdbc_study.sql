@@ -123,24 +123,21 @@ WHERE
     id = :v0;
     
     
-select * from (select rownum n, notice.* from notice) where n between 2 and 10;
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+create view notice_view
+as
+select * from
+(select rownum num, n.* from
+ (select * from notice order by regdate) n
+);
+ 
+ 
+select * from notice_view where num between 2 and 10;
+
+
+
+-- from
+-- where
+-- group by
+-- select
+-- order by
+
