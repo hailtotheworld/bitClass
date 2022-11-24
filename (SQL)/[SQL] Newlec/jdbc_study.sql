@@ -108,16 +108,6 @@ WHERE
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 UPDATE notice
 SET
     title = '',
@@ -133,7 +123,7 @@ WHERE
     id = :v0;
     
     
-    
+select * from (select rownum n, notice.* from notice) where n between 2 and 10;
     
     
     

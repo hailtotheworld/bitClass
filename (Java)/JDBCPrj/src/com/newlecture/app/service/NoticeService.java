@@ -18,13 +18,19 @@ public class NoticeService {
 	private String pwd = "tiger";
 	private String driver = "oracle.jdbc.driver.OracleDriver";
 	
-	public List<Notice> getList() throws ClassNotFoundException, SQLException {
-		String sql = "SELECT * FROM notice";
+	public List<Notice> getList(int page) throws ClassNotFoundException, SQLException {
+		
+		int start = (page-1)*10 + 1; // 1 11 21 31
+		int end = page*10; // 10 20 30
+		
+		String sql = "select * from notice_view where num between ? and ?";
 
 		Class.forName(driver);
 		Connection con = DriverManager.getConnection(url, uid, pwd);
-		Statement st = con.createStatement();
-		ResultSet rs = st.executeQuery(sql);
+		PreparedStatement st = con.prepareStatement(sql);
+		st.setInt(1, start);
+		st.setInt(2, end);
+		ResultSet rs = st.executeQuery();
 
 		List<Notice> list = new ArrayList<Notice>();
 

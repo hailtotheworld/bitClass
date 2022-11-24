@@ -13,13 +13,15 @@ public class NoticeConsole {
 	// 생성자 밖에서 변수를 '선언'해서 생성자가 아닌 다른 메서드도 이 변수를 사용할 수 있게한다.
 	// private를 붙혀서 캡슐화한다. 다른 클래스에서 접근하지 못하도록해. 선언하는 변수(참조변수포함)에게 거의 필수라고 보면된다.
 	private NoticeService service;
+	private int page;
 
 	public NoticeConsole() {
 		service = new NoticeService();
+		page = 1;
 	}
 
 	public void printNoticeList() throws ClassNotFoundException, SQLException {
-		List<Notice> list = service.getList();
+		List<Notice> list = service.getList(page);
 
 		System.out.println("───────────────────────────────────────────");
 		System.out.printf("<공지사항> 총%d게시글\n", 12);
@@ -45,6 +47,20 @@ public class NoticeConsole {
 		// 문제2) 버퍼에 남겨져있는 엔터키의 키값이 다음입력에 영향을 줄 수 있다.
 				
 		return menu;
+	}
+
+	public void movePrevList() {
+		if(page==1) {
+			System.out.println("첫번째페이지입니다.");
+			return;
+		}
+		page--;
+		
+	}
+
+	public void moveNextList() {
+		page++;
+		
 	}
 
 }
