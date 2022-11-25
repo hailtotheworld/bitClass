@@ -14,8 +14,11 @@ public class NoticeConsoleCl {
 	// private를 붙혀서 캡슐화한다. 다른 클래스에서 접근하지 못하도록해. 선언하는 변수(참조변수포함)에게 거의 필수라고 보면된다.
 	private NoticeServiceCl service;
 
+
 	public NoticeConsoleCl() {
 		service = new NoticeServiceCl();
+
+
 	}
 
 	public void printNoticeList() throws ClassNotFoundException, SQLException {
@@ -44,5 +47,6 @@ public class NoticeConsoleCl {
 		
 		return menu;
 	}
+
 
 }

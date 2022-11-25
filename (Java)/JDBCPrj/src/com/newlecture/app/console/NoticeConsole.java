@@ -14,17 +14,20 @@ public class NoticeConsole {
 	// private를 붙혀서 캡슐화한다. 다른 클래스에서 접근하지 못하도록해. 선언하는 변수(참조변수포함)에게 거의 필수라고 보면된다.
 	private NoticeService service;
 	private int page;
-
+	private int count;
+	
 	public NoticeConsole() {
 		service = new NoticeService();
 		page = 1;
+		count = 0;
 	}
 
 	public void printNoticeList() throws ClassNotFoundException, SQLException {
 		List<Notice> list = service.getList(page);
+		count = service.getCount();
 
 		System.out.println("───────────────────────────────────────────");
-		System.out.printf("<공지사항> 총%d게시글\n", 12);
+		System.out.printf("<공지사항> 총 %d게시글\n", count);
 		System.out.println("───────────────────────────────────────────");
 
 		for (Notice n : list) {

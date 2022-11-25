@@ -20,15 +20,20 @@ public class NoticeServiceCl {
 	private String pwd = "tiger";
 
 	
-	public List<NoticeCl> getList() throws SQLException, ClassNotFoundException {
+	public List<NoticeCl> getList(int page) throws SQLException, ClassNotFoundException {
 
-		String sql = "SELECT * FROM notice";
+		String sql = "SELECT * FROM notice_view where num between ? and ?";
 
+		int start = (page-1)*10+1; // 1 11 21 31 41
+		int end = page*10; // 10 20 30 40
+		
 		Class.forName(driver); //드라이버를 로드해
 		Connection con = DriverManager.getConnection(url, uid, pwd); //로드된 드라이버가 연결객체를 만들어
-		Statement st = con.createStatement(); //연결객체가 실행도구를 생성해
-		ResultSet rs = st.executeQuery(sql); //실행도구가 결과집합을 패치하는도구 객체를 만들어.
-		//기본적으로 예외를 처리하는 곳은 UI이기 때문에 생기는 예외는 다 던져버려
+		PreparedStatement st = con.prepareStatement(sql);
+		st.setInt(1, start);
+		st.setInt(2, end);
+		
+		ResultSet rs = st.executeQuery(); 
 		
 		List<NoticeCl> list = new ArrayList<NoticeCl>();
 		

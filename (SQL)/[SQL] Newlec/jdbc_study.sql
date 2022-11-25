@@ -141,3 +141,40 @@ select * from notice_view where num between 2 and 10;
 -- select
 -- order by
 
+
+drop view notice_view;
+
+create view notice_view
+as
+select * from
+(select rownum num, N.* from (select * from notice order by REGDATE) N);
+
+select * from notice_view where num between 2 and 10;
+
+select * from notice_view;
+
+select count(*) count from notice_view;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
