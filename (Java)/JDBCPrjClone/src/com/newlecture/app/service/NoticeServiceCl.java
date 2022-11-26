@@ -139,6 +139,29 @@ public class NoticeServiceCl {
 		return result;
 	}
 	
+	public int getCount() throws ClassNotFoundException, SQLException {
+		String sql = "select count(*) count from notice";
+		
+		int count=0;
+		
+		Class.forName(driver); //드라이버를 로드해
+		Connection con = DriverManager.getConnection(url, uid, pwd); //로드된 드라이버가 연결객체를 만들어
+		Statement st = con.createStatement();
+		ResultSet rs = st.executeQuery(sql); 
+		
+		if(rs.next()) {
+			count = rs.getInt("count");
+		}
+		
+
+		rs.close();
+		st.close();
+		con.close();
+		
+		
+		return count;
+	}
+	
 }
 
 

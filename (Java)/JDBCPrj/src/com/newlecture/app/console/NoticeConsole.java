@@ -14,18 +14,23 @@ public class NoticeConsole {
 	// private를 붙혀서 캡슐화한다. 다른 클래스에서 접근하지 못하도록해. 선언하는 변수(참조변수포함)에게 거의 필수라고 보면된다.
 	private NoticeService service;
 	private int page;
-	private int count;
-	
+
 	public NoticeConsole() {
 		service = new NoticeService();
 		page = 1;
-		count = 0;
 	}
 
 	public void printNoticeList() throws ClassNotFoundException, SQLException {
 		List<Notice> list = service.getList(page);
-		count = service.getCount();
-
+		
+		/*
+		list를 구할때마다 count 값이 1매번 달라지기때문에 다시 구해야하며, 2지역내에서만 써야한다.
+		공유되야할 멤버변수로 쓰는건 바람직하지 않다. 지역변수로 둔다.
+		*/
+		int count = service.getCount(); 
+		int lastPage = count/10;
+		lastPage = count%10>0?lastPage+1:lastPage;
+		
 		System.out.println("───────────────────────────────────────────");
 		System.out.printf("<공지사항> 총 %d게시글\n", count);
 		System.out.println("───────────────────────────────────────────");
@@ -35,7 +40,7 @@ public class NoticeConsole {
 		}
 
 		System.out.println("───────────────────────────────────────────");
-		System.out.printf("               %d/%d pages\n", 1, 2);
+		System.out.printf("               %d/%d pages\n", page, lastPage);
 	}
 
 	public int inputNoticeMenu() {
@@ -61,8 +66,19 @@ public class NoticeConsole {
 		
 	}
 
-	public void moveNextList() {
-		page++;
+	public void moveNextList() throws ClassNotFoundException, SQLException {
+		int count = service.getCount(); 
+		int lastPage = count/10;
+		lastPage = count%10>0?lastPage+1:lastPage;
+		
+		if(page == lastPage) {
+			System.out.println("마지막 페이지 입니다.");
+			return;
+		} else {
+			page++;
+	
+		}
+		
 		
 	}
 
