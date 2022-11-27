@@ -2,7 +2,9 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
-	id="WebApp_ID" version="4.0">
+	id="WebApp_ID"
+	version="4.0"
+	metadata-complete="false"> <!-- false로 설정해야 어노테이션을 읽는다  -->
 	<display-name>JspPrj</display-name>
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
@@ -13,7 +15,7 @@
 		<welcome-file>default.htm</welcome-file>
 	</welcome-file-list>
 
-	<servlet>
+<!-- 	<servlet>
 		<servlet-name>na</servlet-name>
 		<servlet-class>com.newlecture.web.Nana</servlet-class>
 	</servlet>
@@ -21,5 +23,6 @@
 	<servlet-mapping>
 		<servlet-name>na</servlet-name>
 		<url-pattern>/hello</url-pattern>
-	</servlet-mapping>
+	</servlet-mapping> -->
+	
 </web-app>
