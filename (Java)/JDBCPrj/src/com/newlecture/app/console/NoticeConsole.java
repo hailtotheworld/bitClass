@@ -14,14 +14,18 @@ public class NoticeConsole {
 	// private를 붙혀서 캡슐화한다. 다른 클래스에서 접근하지 못하도록해. 선언하는 변수(참조변수포함)에게 거의 필수라고 보면된다.
 	private NoticeService service;
 	private int page;
+	private String searchField;
+	private String searchWord;
 
 	public NoticeConsole() {
 		service = new NoticeService();
 		page = 1;
+		searchField = "TITLE";
+		searchWord = "";
 	}
 
 	public void printNoticeList() throws ClassNotFoundException, SQLException {
-		List<Notice> list = service.getList(page);
+		List<Notice> list = service.getList(page,searchField,searchWord);
 		
 		/*
 		list를 구할때마다 count 값이 1매번 달라지기때문에 다시 구해야하며, 2지역내에서만 써야한다.
@@ -84,6 +88,13 @@ public class NoticeConsole {
 
 	public void inputSearchWord() {
 		Scanner scan = new Scanner(System.in);
+		System.out.println("검색범주(title/content/writerId)중에 하나를 입력하세요");
+		System.out.print(" > ");
+		searchField = scan.nextLine();
+		
+		System.out.println("검색어");
+		System.out.print(" > ");
+		searchWord = scan.nextLine();
 	}
 
 	

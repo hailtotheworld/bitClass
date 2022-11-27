@@ -18,18 +18,21 @@ public class NoticeService {
 	private String pwd = "tiger";
 	private String driver = "oracle.jdbc.driver.OracleDriver";
 
-	public List<Notice> getList(int page) throws ClassNotFoundException, SQLException {
+	public List<Notice> getList(int page, String field, String query) throws ClassNotFoundException, SQLException {
 
 		int start = (page - 1) * 10 + 1; // 1 11 21 31
 		int end = page * 10; // 10 20 30
 
-		String sql = "select * from notice_view where num between ? and ?";
-
+		String sql = "select * from notice_view where " + field + " like ? and num between ? and ?";
+		// field를 st.setString(1, field); 로 설정하면 값이 들어가는 걸로 인식해서 'TITLE' 이렇게 홑따옴표가 같이 들어게 된다.
+		
+		
 		Class.forName(driver);
 		Connection con = DriverManager.getConnection(url, uid, pwd);
 		PreparedStatement st = con.prepareStatement(sql);
-		st.setInt(1, start);
-		st.setInt(2, end);
+		st.setString(1, "%"+query+"%");
+		st.setInt(2, start);
+		st.setInt(3, end);
 		ResultSet rs = st.executeQuery();
 
 		List<Notice> list = new ArrayList<Notice>();
