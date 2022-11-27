@@ -46,7 +46,7 @@ public class NoticeConsole {
 	public int inputNoticeMenu() {
 		Scanner scan = new Scanner(System.in);
 		
-		System.out.println("1.상세조회 / 2.이전 / 3.다음 / 4.글쓰기 / 5.종료 >>");
+		System.out.println("1.상세조회 / 2.이전 / 3.다음 / 4.글쓰기 / 5.검색 / 6.종료 >>");
 		String menu_ = scan.nextLine();
 		int menu = Integer.parseInt(menu_);
 		
@@ -82,4 +82,14 @@ public class NoticeConsole {
 		
 	}
 
+	public void inputSearchWord() {
+		Scanner scan = new Scanner(System.in);
+	}
+
+	
+	
+	
+	
+	
+	
 }

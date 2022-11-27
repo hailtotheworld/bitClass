@@ -25,6 +25,8 @@ public class NoticeConsoleCl {
 	public void printNoticeList() throws ClassNotFoundException, SQLException {
 		List<NoticeCl> list = service.getList(page);
 		count=service.getCount();
+		int lastPage = count/10;
+		lastPage = count%10>0?lastPage+1:lastPage;
 		
 		System.out.println("───────────────────────────────────────────");
 		System.out.printf("<공지사항> 총%d게시글\n", count);
@@ -35,7 +37,7 @@ public class NoticeConsoleCl {
 		}
 
 		System.out.println("───────────────────────────────────────────");
-		System.out.printf("               %dxx/%dxx pages\n", 1, 2);
+		System.out.printf("               %d/%d pages\n", page, lastPage);
 	}
 
 	public int inputNoticeMenu() {
@@ -60,6 +62,16 @@ public class NoticeConsoleCl {
 	}
 
 	public void moveNextPage() {
+		
+		int lastPage = count/10;
+		lastPage = count%10>0?lastPage+1:lastPage;
+		
+		if(page<lastPage) {
+			page++;
+		} else {
+			System.out.println("마지막 페이지입니다.");
+			return;
+		}
 
 	}
 

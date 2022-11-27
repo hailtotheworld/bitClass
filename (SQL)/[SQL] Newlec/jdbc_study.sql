@@ -174,6 +174,40 @@ select count(*) count from notice_view;
 
 
 
+select count(*) count from notice;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
