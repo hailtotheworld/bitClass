@@ -19,7 +19,7 @@ public class Nana extends HttpServlet{
 //		out.println("Hello~~ hihi");
 		
 		for(int i=0;i<100;i++) {
-			out.println((i+1)+":Hello Servlet!! <br>");
+			out.println((i+1)+": 안녕 Hello Servlet!! <br>");
 		}
 	}
 

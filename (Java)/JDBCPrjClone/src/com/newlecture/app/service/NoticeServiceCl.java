@@ -20,9 +20,9 @@ public class NoticeServiceCl {
 	private String pwd = "tiger";
 
 	
-	public List<NoticeCl> getList(int page) throws SQLException, ClassNotFoundException {
+	public List<NoticeCl> getList(int page,String query,String searchWord) throws SQLException, ClassNotFoundException {
 
-		String sql = "SELECT * FROM notice_view where num between ? and ?";
+		String sql = "SELECT * FROM notice_view where " + query + " like ? and num between ? and ?";
 
 		int start = (page-1)*10+1; // 1 11 21 31 41
 		int end = page*10; // 10 20 30 40
@@ -30,8 +30,9 @@ public class NoticeServiceCl {
 		Class.forName(driver); //드라이버를 로드해
 		Connection con = DriverManager.getConnection(url, uid, pwd); //로드된 드라이버가 연결객체를 만들어
 		PreparedStatement st = con.prepareStatement(sql);
-		st.setInt(1, start);
-		st.setInt(2, end);
+		st.setString(1, "%"+searchWord+"%");
+		st.setInt(2, start);
+		st.setInt(3, end);
 		
 		ResultSet rs = st.executeQuery(); 
 		

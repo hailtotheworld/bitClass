@@ -26,11 +26,14 @@ public class ProgramCl {
 				break;
 			case 4: // 글쓰기
 				break;
-			case 5: // 종료
+			case 5: // 검색
+				console.inputSearchWord();
+				break;
+			case 6: // 종료
 				System.out.println("bye~~");
 				break EXIT;
 			default:
-				System.out.println("1~5까지만 입력할 수 있습니다.");
+				System.out.println("1~6까지만 입력할 수 있습니다.");
 				break;
 			}
 		}
