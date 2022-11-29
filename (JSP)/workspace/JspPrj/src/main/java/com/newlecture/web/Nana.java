@@ -15,6 +15,9 @@ public class Nana extends HttpServlet{
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		response.setCharacterEncoding("UTF-8"); //서버가 UTF-8로 보내겠다.
+		response.setContentType("text/html; charset=UTF-8"); //클라이언트야 이문서는 HTML문서다. UTF-8로 읽어라.
+		
 		PrintWriter out = response.getWriter();
 //		out.println("Hello~~ hihi");
 		
