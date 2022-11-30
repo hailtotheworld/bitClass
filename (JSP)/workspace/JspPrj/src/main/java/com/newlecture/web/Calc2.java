@@ -89,6 +89,8 @@ public class Calc2 extends HttpServlet {
 			// (1)쿠키를 만든다.
 			Cookie valueCookie = new Cookie("value", String.valueOf(v));
 			Cookie opCookie = new Cookie("op", op);
+			valueCookie.setPath("/calc2");
+			opCookie.setPath("/calc2");
 
 			// (2)쿠키를 클라이언트에 보낸다
 			response.addCookie(valueCookie);
