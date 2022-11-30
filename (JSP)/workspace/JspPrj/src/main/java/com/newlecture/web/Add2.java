@@ -22,15 +22,13 @@ public class Add2 extends HttpServlet {
 
 		String[] num_ = request.getParameterValues("num");
 
-		int num=0;
 		int result = 0;
 
 		for (int i = 0; i < num_.length; i++) {
-
 			if (num_[i] != null && !num_[i].equals("")) {
-				num = Integer.parseInt(num_[i]);
+				int num = Integer.parseInt(num_[i]);
+				result += num;
 			}
-			result += num;
 		}
 
 		out.printf("result is %d\n", result);
