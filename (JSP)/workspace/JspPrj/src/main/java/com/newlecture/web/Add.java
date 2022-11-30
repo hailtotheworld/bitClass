@@ -33,8 +33,7 @@ public class Add extends HttpServlet {
 			y = Integer.parseInt(y_);
 		}
 		
-		out.print("x+y = ");
-		out.print(x+y);
+		out.printf("x+y = %d\n", x+y);
 		
 		
 	}
