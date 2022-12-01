@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/hello")
-public class hello extends HttpServlet {
+@WebServlet("/nana")
+public class Nana extends HttpServlet {
 
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response)
@@ -20,13 +20,6 @@ public class hello extends HttpServlet {
 		response.setContentType("text/html; charset=UTF-8"); // 클라이언트야 이문서는 HTML문서다. UTF-8로 읽어라.
 
 		PrintWriter out = response.getWriter();
-//		out.println("Hello~~ hihi");
-
-//		for(int i=0;i<100;i++) {
-//			out.println((i+1)+": 안녕 Hello Servlet!! <br>");
-//		}
-
-//		int cnt = Integer.parseInt(request.getParameter("cnt"));
 
 		String cnt_ = request.getParameter("cnt");
 		
