@@ -12,19 +12,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebServlet("/calcpage")
-public class CalcPage extends HttpServlet {
+@WebServlet("/calcpagetest")
+public class CalcPagetest extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
-
-		// 5)서버에서 보낸 쿠키를 받아서 쿠키이름에 맞는값을꺼낸다.
-		Cookie[] cookies = request.getCookies();
+		
 		String exp = "0";
-		if(cookies != null)
+		Cookie[] cookies = request.getCookies();
+		
+		if(cookies!=null)
 			for(Cookie c : cookies) {
 				if(c.getName().equals("exp")) {
 					exp = c.getValue();
@@ -32,7 +33,6 @@ public class CalcPage extends HttpServlet {
 				}
 			}
 		
-		// 1)post로 서버에 값을 보낸다.
 		out.write("");
 		out.write("<!DOCTYPE html>");
 		out.write("<html>");
@@ -55,7 +55,7 @@ public class CalcPage extends HttpServlet {
 		out.write("</style>");
 		out.write("</head>");
 		out.write("<body>");
-		out.write("	<form action=\"calc3\" method=\"post\">");
+		out.write("	<form action=\"calc3test\" method=\"post\">");
 		out.write("		<table>");
 		out.write("			<tr>");
 		out.printf("				<td class=\"output\" colspan=\"4\">%s</td>",exp);
