@@ -15,10 +15,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.newlecture.web.entity.Notice;
+
 @WebServlet("/notice/detail")
 public class NoticeDetailController extends HttpServlet {
-   
-
 	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -28,15 +28,19 @@ public class NoticeDetailController extends HttpServlet {
 		String uid = "SCOTT";
 		String pwd = "tiger";
 		String sql = "SELECT * FROM notice where ID=?";
+		Connection con = null;
+		PreparedStatement st = null;
+		ResultSet rs = null;
 
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			Connection con = DriverManager.getConnection(url, uid, pwd);
-			PreparedStatement st = con.prepareStatement(sql);
+			con = DriverManager.getConnection(url, uid, pwd);
+			st = con.prepareStatement(sql);
 			st.setInt(1, id);
-			ResultSet rs = st.executeQuery();
+			rs = st.executeQuery();
 			
 			rs.next();
+			
 			
 			String title = rs.getString("TITLE");
 			Date regdate = rs.getDate("REGDATE");
@@ -46,26 +50,34 @@ public class NoticeDetailController extends HttpServlet {
 			String content = rs.getString("CONTENT");
 			
 			
-			request.setAttribute("title", title);
-			request.setAttribute("regdate", regdate);
-			request.setAttribute("writerId", writerId);
-			request.setAttribute("hit", hit);
-			request.setAttribute("files", files);
-			request.setAttribute("content", content);
+			Notice notice = new Notice(id, title, regdate, writerId, hit, files, content);
 			
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/notice/detail.jsp");
+			request.setAttribute("n", notice);
+//			request.setAttribute("regdate", regdate);
+//			request.setAttribute("writerId", writerId);
+//			request.setAttribute("hit", hit);
+//			request.setAttribute("files", files);
+//			request.setAttribute("content", content);
+			
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/notice/detail.jsp");
 			dispatcher.forward(request, response);
 					
+//			rs.close();
+//			st.close();
+//			con.close();
 			
-			rs.close();
-			st.close();
-			con.close();
+
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} finally {
+			if (rs != null)	try {rs.close();} catch (SQLException e) {e.printStackTrace();} 
+			if (st != null) try {st.close();} catch (SQLException e) {e.printStackTrace();} 
+			if (con != null) try {con.close();} catch (SQLException e) {e.printStackTrace();} 
+			
 		}
 	}
 
