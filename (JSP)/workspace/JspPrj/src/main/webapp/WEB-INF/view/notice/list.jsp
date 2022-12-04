@@ -2,7 +2,7 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 
 
@@ -179,14 +179,16 @@
 					</thead>
 					<tbody>
 					
-					<%
+  <%-- 	<%
 					List<Notice> list = (List<Notice>) request.getAttribute("list"); /* list를 지역변수로 뽑아왔다.  */
 					for(Notice n : list) { /* list를 쓰려면 list가 지역변수로 있어야 한다. */
 						
 						/* EL은 지역변수에 있는걸 사용하지 못한다!! 저장소에 있는것만 사용할수있어. */
 						pageContext.setAttribute("n", n);
 						
-					%>
+					%> --%>
+				
+				<c:forEach var="n" items="${list}">
 					
 					<tr>
 						<td> ${n.id}</td>
@@ -195,7 +197,9 @@
 						<td> ${n.regdate } </td>
 						<td> ${n.hit} </td>
 					</tr>
-				<%} %>
+					
+					</c:forEach>
+				<%-- <%} %> --%>
 				
 					</tbody>
 				</table>
