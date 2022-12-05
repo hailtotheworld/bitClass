@@ -188,10 +188,10 @@
 						
 					%> --%>
 				
-				<c:forEach var="n" items="${list}">
+				<c:forEach var="n" items="${list}" varStatus="st">
 					
 					<tr>
-						<td> ${n.id}</td>
+						<td> ${st.index+1} / ${n.id}</td>
 						<td class="title indent text-align-left"><a href="/notice/detail?id=${n.id}"> ${n.title==null?"제목없습니다":n.title} </a></td>
 						<td> ${n.writerId} </td>
 						<td> ${n.regdate } </td>
