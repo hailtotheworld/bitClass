@@ -26,7 +26,7 @@ public class NoticeListController extends HttpServlet {
 			throws ServletException, IOException {
 
 		String url = "jdbc:oracle:thin:@192.168.1.2:1521/xepdb1";
-		String sql = "SELECT * FROM notice";
+		String sql = "SELECT * FROM notice order by regdate desc";
 		String uid = "SCOTT";
 		String pwd = "tiger";
 		Connection con = null;
