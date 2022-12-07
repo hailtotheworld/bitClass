@@ -202,7 +202,7 @@
 				
 				<c:set var="page" value="${param.p}"/>
 				<c:set var="startNum" value="${page-(page-1)%5}" />
-				<c:set var="lastPage" value="${21}"/>
+				<c:set var="lastPage" value="${23}"/>
 
 
 					<div>
@@ -229,11 +229,11 @@
 					</ul>
 
 					<div>
-					<c:if test="${startNum>=lastPage-(lastPage-1)%5}"> <!-- lastpage의시작번호==startnum -->
+					<c:if test="${startNum==lastPage-(lastPage-1)%5 }"> <!-- lastPage의시작번호==startNum -->
 						<span class="btn btn-next" onclick="alert('다음 페이지가 없습니다.');">다음</span>
 					</c:if>
-					<c:if test="${startNum<lastPage-(lastPage-1)%5}">
-						<a class="btn btn-next" href="?p=${startNum+5}&t=&q=">다음</a>
+					<c:if test="${startNum!=lastPage-(lastPage-1)%5 }">
+						<a href="?p=${startNum+5}&t=&q=" class="btn btn-next" >다음</a>
 					</c:if>
 					</div>
 
