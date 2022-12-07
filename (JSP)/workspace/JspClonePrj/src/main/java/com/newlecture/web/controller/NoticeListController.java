@@ -58,7 +58,7 @@ public class NoticeListController extends HttpServlet {
 			}
 		
 			request.setAttribute("list", list);
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/notice/list.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/notice/list.jsp");
 			dispatcher.forward(request, response);
 						
 		} catch (ClassNotFoundException e) {

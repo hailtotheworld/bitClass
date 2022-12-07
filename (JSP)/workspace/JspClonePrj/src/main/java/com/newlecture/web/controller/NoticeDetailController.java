@@ -53,7 +53,7 @@ public class NoticeDetailController extends HttpServlet {
 			Notice notice = new Notice(id, title, writerId, content, regdate, hit, files);
 			
 			request.setAttribute("n", notice);
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/notice/detail.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view//notice/detail.jsp");
 			dispatcher.forward(request, response);
 
 		} catch (ClassNotFoundException e) {
