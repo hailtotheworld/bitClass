@@ -33,8 +33,7 @@ public class NoticeService {
 				+ "select rownum num, N.* "
 				+ "from (select * from notice where "+ field +" like ? order by regdate desc) N) "
 				+ "where num between ? and ?";
-		// 1, 11, 21, 31 -> 1 + (page-1)*10
-		// 10, 20, 30, 40 -> 10page
+		// field를 st.setString(1, field); 로 설정하면 값이 들어가는 걸로 인식해서 'TITLE' 이렇게 홑따옴표가 같이 들어가게 된다.
 		
 		String url = "jdbc:oracle:thin:@192.168.1.2:1521/xepdb1";
 		String uid = "SCOTT";
@@ -48,8 +47,8 @@ public class NoticeService {
 			con = DriverManager.getConnection(url, uid, pwd);
 			st = con.prepareStatement(sql);
 			st.setString(1, "%"+query+"%"); // 값이들어갈때는 '값' 이렇게 홑따옴표가 같이 들어가는거다.
-			st.setInt(2, 1+(page-1)*10);    // 값이들어갈때는 '값' 이렇게 홑따옴표가 같이 들어가는거다.
-			st.setInt(3, 10*page);          // 값이들어갈때는 '값' 이렇게 홑따옴표가 같이 들어가는거다.
+			st.setInt(2, 1+(page-1)*10);    // 1, 11, 21, 31 -> 1 + (page-1)*10
+			st.setInt(3, 10*page);         	// 10, 20, 30, 40 -> 10page 
 			rs = st.executeQuery();
 
 			while (rs.next()) {
@@ -79,10 +78,12 @@ public class NoticeService {
 			if(con!=null) try { con.close();} catch (SQLException e) {e.printStackTrace();};
 		}
 		
-		
 		return list; 
 	}
 
+	
+	
+	
 	////
 	public int getNoticeCount() {
 		return getNoticeCount("title", "");
@@ -91,50 +92,195 @@ public class NoticeService {
 	
 	public int getNoticeCount(String field, String query) {
 		
-		String sql = "select * from ( "
-				+ "select rownum num, N.* "
-				+ "from (select * from notice order by regdate desc) N) "
-				+ "where num between ? and ?";
+		int count = 0;
 		
-		return 0;
+		String sql = "select count(id) count from ( "
+				+ "select rownum num, N.* "
+				+ "from (select * from notice where "+ field +" like ? order by regdate desc) N) ";
+		
+		String url = "jdbc:oracle:thin:@192.168.1.2:1521/xepdb1";
+		String uid = "SCOTT";
+		String pwd = "tiger";
+		Connection con = null;
+		PreparedStatement st = null;
+		ResultSet rs = null;
+		
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			con = DriverManager.getConnection(url, uid, pwd);
+			st = con.prepareStatement(sql);
+			st.setString(1, "%"+query+"%"); // 값이들어갈때는 '값' 이렇게 홑따옴표가 같이 들어가는거다.
+			rs = st.executeQuery();
+
+			if(rs.next()) { 
+				count =  rs.getInt("count");
+			}				
+			
+			
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			if(rs!=null) try { rs.close();} catch (SQLException e) {e.printStackTrace();};
+			if(st!=null) try { st.close();} catch (SQLException e) {e.printStackTrace();};
+			if(con!=null) try { con.close();} catch (SQLException e) {e.printStackTrace();};
+		}
+		
+		return count;
 	}
+	
+	
+	
 	
 	////
 	public Notice getNotice(int id) {
+		
+		Notice notice = null;
+		
 		String sql = "select * from notice where id = ?";
-		return null;
+		
+		String url = "jdbc:oracle:thin:@192.168.1.2:1521/xepdb1";
+		String uid = "SCOTT";
+		String pwd = "tiger";
+		Connection con = null;
+		PreparedStatement st = null;
+		ResultSet rs = null;
+		
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			con = DriverManager.getConnection(url, uid, pwd);
+			st = con.prepareStatement(sql);
+			st.setInt(1, id);
+			rs = st.executeQuery();
+
+			if (rs.next()) {
+				int nid = rs.getInt("ID");
+				String title = rs.getString("TITLE");
+				Date regdate = rs.getDate("REGDATE");
+				String writerId = rs.getString("WRITER_ID");
+				int hit = rs.getInt("HIT");
+				String files = rs.getString("FILES");
+				String content = rs.getString("CONTENT");
+				
+				notice = new Notice( nid,  title,  regdate,  writerId,  hit,  files,  content);
+			}
+			
+			
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			if(rs!=null) try { rs.close();} catch (SQLException e) {e.printStackTrace();};
+			if(st!=null) try { st.close();} catch (SQLException e) {e.printStackTrace();};
+			if(con!=null) try { con.close();} catch (SQLException e) {e.printStackTrace();};
+		}
+		
+		return notice;
 	}
+	
 	
 	public Notice getNextNotice(int id) {
 		
-		/*
-		String sql = "select * " 
-				+ "from "
-				+ "(select rownum num, N.* "
-				+ "from "
-				+ "(select * from notice order by regdate desc) N) "
-				+ "where num = (select num "
-				+ "from "
-				+ "(select rownum num, N.* "
-				+ "from "
-				+ "(select * from notice order by regdate desc) N) "
-				+ "where id = ?)-1";
-		*/
-		
+		Notice notice = null;
+
 		String sql = "select * "
-				+ "from "
-				+ "(select * from notice where regdate > (select regdate from notice where id = ?) order by regdate) "
+				+ "from (select * from notice where regdate > (select regdate from notice where id=?) order by regdate) "
 				+ "where rownum = 1";
-		return null;
+		String url = "jdbc:oracle:thin:@192.168.1.2:1521/xepdb1";
+		String uid = "SCOTT";
+		String pwd = "tiger";
+		Connection con = null;
+		PreparedStatement st = null;
+		ResultSet rs = null;
+		
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			con = DriverManager.getConnection(url, uid, pwd);
+			st = con.prepareStatement(sql);
+			st.setInt(1, id);
+			rs = st.executeQuery();
+
+			if (rs.next()) {
+				int nid = rs.getInt("ID");
+				String title = rs.getString("TITLE");
+				Date regdate = rs.getDate("REGDATE");
+				String writerId = rs.getString("WRITER_ID");
+				int hit = rs.getInt("HIT");
+				String files = rs.getString("FILES");
+				String content = rs.getString("CONTENT");
+				
+				notice = new Notice( nid,  title,  regdate,  writerId,  hit,  files,  content);
+			}
+			
+			
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			if(rs!=null) try { rs.close();} catch (SQLException e) {e.printStackTrace();};
+			if(st!=null) try { st.close();} catch (SQLException e) {e.printStackTrace();};
+			if(con!=null) try { con.close();} catch (SQLException e) {e.printStackTrace();};
+		}
+		
+		return notice;
 	}
 	
 	public Notice getPrevNotice(int id) {
+		Notice notice = null;
 		
 		String sql = "select * "
-				+ "from "
-				+ "(select * from notice where regdate < (select regdate from notice where id = ?) order by regdate desc) "
+				+ "from (select * from notice where regdate < (select regdate from notice where id=?) order by regdate desc) "
 				+ "where rownum = 1";
-		return null;
+		
+		String url = "jdbc:oracle:thin:@192.168.1.2:1521/xepdb1";
+		String uid = "SCOTT";
+		String pwd = "tiger";
+		Connection con = null;
+		PreparedStatement st = null;
+		ResultSet rs = null;
+		
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			con = DriverManager.getConnection(url, uid, pwd);
+			st = con.prepareStatement(sql);
+			st.setInt(1, id);
+			rs = st.executeQuery();
+
+			if (rs.next()) {
+				int nid = rs.getInt("ID");
+				String title = rs.getString("TITLE");
+				Date regdate = rs.getDate("REGDATE");
+				String writerId = rs.getString("WRITER_ID");
+				int hit = rs.getInt("HIT");
+				String files = rs.getString("FILES");
+				String content = rs.getString("CONTENT");
+				
+				notice = new Notice( nid,  title,  regdate,  writerId,  hit,  files,  content);
+			}
+			
+			
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			if(rs!=null) try { rs.close();} catch (SQLException e) {e.printStackTrace();};
+			if(st!=null) try { st.close();} catch (SQLException e) {e.printStackTrace();};
+			if(con!=null) try { con.close();} catch (SQLException e) {e.printStackTrace();};
+		}
+		
+		return notice;
 	}
 }
 
