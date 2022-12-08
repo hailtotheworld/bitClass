@@ -176,7 +176,7 @@
 
 							<c:forEach var="n" items="${list}" varStatus="st">
 								<tr>
-									<td>${st.count}/ ${n.id}</td>
+									<td>${st.count}/${n.id}</td>
 									<td class="title indent text-align-left"><a
 										href="/JspClonePrj/notice/detail?id=${n.id}">${n.title==null?"제목없음":n.title}</a></td>
 									<td>${n.writerId}</td>
@@ -201,27 +201,25 @@
 				<div class="margin-top align-center pager">
 				
 				<c:set var="page" value="${param.p}"/>
-				<c:set var="startNum" value="${page-(page-1)%5}" />
-				<c:set var="lastPage" value="${23}"/>
-
+				<c:set var="startNum" value="${page-(page-1)%5}"/>
+				<c:set var="lastPage" value="${21}"/>
 
 					<div>
-					<c:if test="${startNum==1}"> <!-- startNum==1 -->
+					<c:if test="${startNum<=1}">
 						<span class="btn btn-prev" onclick="alert('이전 페이지가 없습니다.');">이전</span>
 					</c:if>
-					<c:if test="${startNum!=1}">
-						<a href="?p=${startNum-5}&t=&q=" class="btn btn-prev">이전</a>
+					<c:if test="${startNum>1}">
+						<a href="?p=${startNum-5}&t=&q=" class="btn btn-prev" >이전</a>
 					</c:if>
 					</div>
 
 					<ul class="-list- center">
-					<c:if test="${startNum==lastPage-(lastPage-1)%5}">
+					<c:if test="${startNum==lastPage-(lastPage-1)%5 }">
 					<c:forEach var="i" begin="0" end="${lastPage-startNum}">
 						<li><a class="-text- orange bold" href="?p=${startNum+i}&t=&q=">${startNum+i}</a></li>
 					</c:forEach>
 					</c:if>
-					
-					<c:if test="${startNum!=lastPage-(lastPage-1)%5}"> <!--  -->
+					<c:if test="${startNum!=lastPage-(lastPage-1)%5 }">
 					<c:forEach var="i" begin="0" end="4">
 						<li><a class="-text- orange bold" href="?p=${startNum+i}&t=&q=">${startNum+i}</a></li>
 					</c:forEach>
@@ -229,15 +227,16 @@
 					</ul>
 
 					<div>
-					<c:if test="${startNum==lastPage-(lastPage-1)%5 }"> <!-- lastPage의시작번호==startNum -->
+					<c:if test="${startNum>=lastPage-(lastPage-1)%5}">
 						<span class="btn btn-next" onclick="alert('다음 페이지가 없습니다.');">다음</span>
 					</c:if>
-					<c:if test="${startNum!=lastPage-(lastPage-1)%5 }">
-						<a href="?p=${startNum+5}&t=&q=" class="btn btn-next" >다음</a>
+					<c:if test="${startNum<lastPage-(lastPage-1)%5}">
+						<a href="?p=${startNum+5}&t=&q=" class="btn btn-next">다음</a>
 					</c:if>
 					</div>
 
 				</div>
+
 
 			</main>
 
