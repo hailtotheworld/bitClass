@@ -152,7 +152,7 @@
 
 				<div class="search-form margin-top first align-right">
 					<h3 class="hidden">공지사항 검색폼</h3>
-					<!--  -->
+				<!-- ---------------------------------------------------------------------------------------------------- -->
 					<form class="table-form">
 						<fieldset>
 							<legend class="hidden">공지사항 검색 필드</legend>
@@ -169,7 +169,7 @@
 							
 						</fieldset>
 					</form>
-
+				<!-- ---------------------------------------------------------------------------------------------------- -->
 				</div>
 
 				<div class="notice margin-top">
@@ -223,7 +223,7 @@
 				<div class="indexer margin-top align-right">
 					<h3 class="hidden">현재 페이지</h3>
 					<div>
-						<span class="text-orange text-strong">${empty param.p?"1":param.p }</span> / ${lastNum} pages
+						<span class="text-orange text-strong">${page}</span> / ${lastNum} pages
 					</div>
 				</div>
 

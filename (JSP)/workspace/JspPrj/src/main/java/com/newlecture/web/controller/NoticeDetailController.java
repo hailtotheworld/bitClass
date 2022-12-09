@@ -1,12 +1,6 @@
 package com.newlecture.web.controller;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.Date;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -16,70 +10,28 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.newlecture.web.entity.Notice;
+import com.newlecture.web.service.NoticeService;
 
 @WebServlet("/notice/detail")
 public class NoticeDetailController extends HttpServlet {
-	
+
 	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		//컨트롤러는 사용자의 입출력을 관할하는 것이다.
+		
 		int id = Integer.parseInt(request.getParameter("id"));
 
-		String url = "jdbc:oracle:thin:@192.168.1.2:1521/xepdb1";
-		String uid = "SCOTT";
-		String pwd = "tiger";
-		String sql = "SELECT * FROM notice where ID=?";
-		Connection con = null;
-		PreparedStatement st = null;
-		ResultSet rs = null;
+		
+		NoticeService service = new NoticeService();
+		Notice notice = service.getNotice(id);
 
-		try {
-			Class.forName("oracle.jdbc.driver.OracleDriver");
-			con = DriverManager.getConnection(url, uid, pwd);
-			st = con.prepareStatement(sql);
-			st.setInt(1, id);
-			rs = st.executeQuery();
-			
-			rs.next();
-			
-			
-			String title = rs.getString("TITLE");
-			Date regdate = rs.getDate("REGDATE");
-			String writerId = rs.getString("WRITER_ID");
-			int hit = rs.getInt("HIT");
-			String files = rs.getString("FILES");
-			String content = rs.getString("CONTENT");
-			
-			
-			Notice notice = new Notice(id, title, regdate, writerId, hit, files, content);
-			
-			request.setAttribute("n", notice);
-//			request.setAttribute("regdate", regdate);
-//			request.setAttribute("writerId", writerId);
-//			request.setAttribute("hit", hit);
-//			request.setAttribute("files", files);
-//			request.setAttribute("content", content);
-			
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/notice/detail.jsp");
-			dispatcher.forward(request, response);
-					
-//			rs.close();
-//			st.close();
-//			con.close();
-			
+		
+		request.setAttribute("n", notice);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/notice/detail.jsp");
+		dispatcher.forward(request, response);
 
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} finally {
-			if (rs != null)	try {rs.close();} catch (SQLException e) {e.printStackTrace();} 
-			if (st != null) try {st.close();} catch (SQLException e) {e.printStackTrace();} 
-			if (con != null) try {con.close();} catch (SQLException e) {e.printStackTrace();} 
-			
-		}
 	}
-
 
 }
