@@ -151,17 +151,24 @@
 
 				<div class="search-form margin-top first align-right">
 					<h3 class="hidden">공지사항 검색폼</h3>
+					<!--  -->
 					<form class="table-form">
 						<fieldset>
 							<legend class="hidden">공지사항 검색 필드</legend>
-							<label class="hidden">검색분류</label> <select name="f">
+							
+							<label class="hidden">검색분류</label>
+							<select name="f">
 								<option value="title">제목</option>
-								<option value="writerId">작성자</option>
-							</select> <label class="hidden">검색어</label> <input type="text" name="q"
-								value="" /> <input class="btn btn-search" type="submit"
-								value="검색" />
+								<option value="writer_Id">작성자</option>
+							</select>
+							
+							<label class="hidden">검색어</label>
+							<input type="text" name="q" value="" />
+							<input class="btn btn-search" type="submit" value="검색" />
+							
 						</fieldset>
 					</form>
+
 				</div>
 
 				<div class="notice margin-top">
@@ -194,7 +201,8 @@
 										href="/notice/detail?id=${n.id}">
 											${n.title==null?"제목없습니다":n.title} </a></td>
 									<td>${n.writerId}</td>
-									<td><fmt:formatDate value="${n.regdate}" pattern="yyyy-MM-dd HH:mm"/></td>
+									<td><fmt:formatDate value="${n.regdate}"
+											pattern="yyyy-MM-dd HH:mm" /></td>
 									<td>${n.hit}</td>
 								</tr>
 							</c:forEach>
@@ -211,47 +219,54 @@
 					</div>
 				</div>
 
-					<div class="margin-top align-center pager">
+				<div class="margin-top align-center pager">
 
-					<c:set var="page" value="${param.p}"/>
-					<c:set var="startNum" value="${page-(page-1)%5}"/>
-					<c:set var="lastNum" value="${23}"/>
+					<c:set var="page" value="${param.p}" />
+					<c:set var="startNum" value="${page-(page-1)%5}" />
+					<c:set var="lastNum" value="${23}" />
 
-						<div>
-						<c:if test="${startNum!=1}"> <!-- 첫페이지가 아니라면 -->
+					<div>
+						<c:if test="${startNum!=1}">
+							<!-- 첫페이지가 아니라면 -->
 							<a href="?p=${startNum-5}&t=&q=" class="btn btn-prev">이전</a>
 						</c:if>
-						<c:if test="${startNum==1}"> <!-- 첫페이지라면 -->
+						<c:if test="${startNum==1}">
+							<!-- 첫페이지라면 -->
 							<span class="btn btn-prev" onclick="alert('이전 페이지가 없습니다.');">이전</span>
 						</c:if>
-						</div>
+					</div>
 
 
-						<ul class="-list- center">
+					<ul class="-list- center">
 						<c:if test="${startNum!=lastNum-(lastNum-1)%5}">
-						<c:forEach var="i" begin="0" end="4">
-							<li><a class="-text- orange bold" href="?p=${startNum+i}&t=&q=">${startNum+i}</a></li>
-						</c:forEach>
+							<c:forEach var="i" begin="0" end="4">
+								<li><a class="-text- orange bold"
+									href="?p=${startNum+i}&t=&q=">${startNum+i}</a></li>
+							</c:forEach>
 						</c:if>
-						<c:if test="${startNum==lastNum-(lastNum-1)%5}"> <!-- 마지막페이지일때 -->
-						<c:forEach var="i" begin="0" end="${lastNum-startNum}">
-							<li><a class="-text- orange bold" href="?p=${startNum+i}&t=&q=">${startNum+i}</a></li>
-						</c:forEach>
+						<c:if test="${startNum==lastNum-(lastNum-1)%5}">
+							<!-- 마지막페이지일때 -->
+							<c:forEach var="i" begin="0" end="${lastNum-startNum}">
+								<li><a class="-text- orange bold"
+									href="?p=${startNum+i}&t=&q=">${startNum+i}</a></li>
+							</c:forEach>
 						</c:if>
-						</ul>
+					</ul>
 
 
-						<div>
-						<c:if test="${startNum+5<=lastNum}"> <!-- 마지막페이지가아니면이동 -->
+					<div>
+						<c:if test="${startNum+5<=lastNum}">
+							<!-- 마지막페이지가아니면이동 -->
 							<a href="?p=${startNum+5}&t=&q=" class="btn btn-next">다음</a>
-						</c:if>        
-						<c:if test="${startNum+5>lastNum}"> <!-- 마지막페이지일때 -->
+						</c:if>
+						<c:if test="${startNum+5>lastNum}">
+							<!-- 마지막페이지일때 -->
 							<span class="btn btn-next" onclick="alert('다음 페이지가 없습니다.');">다음</span>
 						</c:if>
-						</div>
-
-
 					</div>
+
+
+				</div>
 			</main>
 
 
