@@ -25,8 +25,8 @@ public class NoticeListController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		String url = "jdbc:oracle:thin:@192.168.1.2:1521/xepdb1";
 		String sql = "SELECT * FROM notice";
+		String url = "jdbc:oracle:thin:@192.168.1.2:1521/xepdb1";
 		String uid = "SCOTT";
 		String pwd = "tiger";
 		Connection con = null;
