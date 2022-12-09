@@ -83,36 +83,31 @@ where rownum = 1;
 --2정렬
 --3rownum
                 
-select * from notice order by regdate desc;                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
+select count(*) from notice order by regdate desc;
+
+
+drop view notice_view;
+
+-- 예약어랑 겹치면 ""안에 넣어줘야한다. ""안에 넣을때는 대소문자를 가린다..!
+create view NOTICE_VIEW
+as
+select n.id, n.title, n.writer_id, n.regdate, n.hit, n.files, count(C.id) CMT_COUNT
+from notice N left join "COMMENT" C
+on N.id = C.notice_id
+group by n.id, n.title, n.writer_id, n.regdate, n.hit, n.files;
+-- 집계함수와 같이 사용하기위해 group by해준다
+-- content 데이터형식CLOB은 join문장에 들어갈 수 없다. CLOB을 varchar로 변환하면 join문장에 들어갈 수 있는데 그러면 4000자 내로 잘리게 된다.
+-- view에는 order by빼는게 좋다. order
+
+select * from (
+select rownum num, N.* 
+from (select * from NOTICE_VIEW where title like '%%' order by regdate desc) N)
+where num between 1 and 10;
+
+
+
+
+
+
+
 

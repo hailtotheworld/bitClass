@@ -5,33 +5,31 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import javax.servlet.RequestDispatcher;
-
 import com.newlecture.web.entity.Notice;
+import com.newlecture.web.entity.NoticeView;
 
 public class NoticeService {
 	
 	////
-	public List<Notice> getNoticeList() {
+	public List<NoticeView> getNoticeList() {
 		return getNoticeList("title", "", 1);
 	}
 	
-	public List<Notice> getNoticeList(int page) {
+	public List<NoticeView> getNoticeList(int page) {
 		return getNoticeList("title", "", page);
 	}
 	
-	public List<Notice> getNoticeList(String field/*title, writer_id*/, String query /*a*/, int page) {
+	public List<NoticeView> getNoticeList(String field/*title, writer_id*/, String query /*a*/, int page) {
 		
-		List<Notice> list = new ArrayList<Notice>();
+		List<NoticeView> list = new ArrayList<NoticeView>();
 		
 		String sql = "select * from ( "
 				+ "select rownum num, N.* "
-				+ "from (select * from notice where "+ field +" like ? order by regdate desc) N) "
+				+ "from (select * from notice_view where "+ field +" like ? order by regdate desc) N) "
 				+ "where num between ? and ?";
 		// field를 st.setString(1, field); 로 설정하면 값이 들어가는 걸로 인식해서 'TITLE' 이렇게 홑따옴표가 같이 들어가게 된다.
 		
@@ -58,9 +56,18 @@ public class NoticeService {
 				String writerId = rs.getString("WRITER_ID");
 				int hit = rs.getInt("HIT");
 				String files = rs.getString("FILES");
-				String content = rs.getString("CONTENT");
+       			//String content = rs.getString("CONTENT");
+				int cmtCount = rs.getInt("CMT_COUNT");
 				
-				Notice notice = new Notice( id,  title,  regdate,  writerId,  hit,  files,  content);
+				NoticeView notice = new NoticeView(
+						id,
+						title,
+						regdate,
+						writerId,
+						hit,
+						files,
+						// content,
+						cmtCount);
 
 				list.add(notice);				
 			}
