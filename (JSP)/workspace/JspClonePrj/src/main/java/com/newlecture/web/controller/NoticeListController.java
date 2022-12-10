@@ -1,13 +1,6 @@
 package com.newlecture.web.controller;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -17,7 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.newlecture.web.entitiy.Notice;
+import com.newlecture.web.entitiy.NoticeView;
+import com.newlecture.web.service.NoticeService;
 
 
 @WebServlet("/notice/list")
@@ -25,72 +19,37 @@ public class NoticeListController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		String sql = "SELECT * FROM notice";
-		String url = "jdbc:oracle:thin:@192.168.1.2:1521/xepdb1";
-		String uid = "SCOTT";
-		String pwd = "tiger";
-		Connection con = null;
-		Statement st = null;
-		ResultSet rs = null;
-		
-		List<Notice> list = new ArrayList<Notice>();
-		
-
-		try {
-			Class.forName("oracle.jdbc.driver.OracleDriver");
-			con = DriverManager.getConnection(url, uid, pwd);
-			st = con.createStatement();
-			rs = st.executeQuery(sql);
+			String field_ = request.getParameter("f");
+			String query_ = request.getParameter("q");
+			String page_ = request.getParameter("p");
 			
-			while(rs.next()) {
-				
-				int id = rs.getInt("ID");
-				String title = rs.getString("TITLE");
-				String writerId = rs.getString("WRITER_ID");
-				Date regdate = rs.getDate("REGDATE");
-				String content = rs.getString("CONTENT");
-				int hit = rs.getInt("hit");
-				String files = rs.getString("FILES");
-			
-				Notice notice = new Notice(id, title, writerId, content, regdate, hit, files);
-				
-				list.add(notice);
+			String field = "title";
+			if(field_!=null && !field_.equals("")) {
+				field = field_;
 			}
-		
+			
+			String query = "";
+			if(query_!=null && !query_.equals("")) {
+				query = query_;
+			}
+			
+			int page = 1;
+			if(page_!=null && !page_.equals("")) {
+				page = Integer.parseInt(page_);
+			}
+			
+			
+			
+			NoticeService service = new NoticeService();
+			List<NoticeView> list = service.getNoticeList(field, query, page);
+			int count = service.getNoticeCount(field, query);
+			
 			request.setAttribute("list", list);
+			request.setAttribute("count", count);
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/notice/list.jsp");
 			dispatcher.forward(request, response);
 						
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} finally {
-			if(rs!=null)
-				try {
-					rs.close();
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			if(st!=null)
-				try {
-					st.close();
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			if(con!=null)
-				try {
-					con.close();
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			
-		}
+	
 			
 		
 	}

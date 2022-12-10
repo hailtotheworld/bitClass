@@ -5,32 +5,30 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import javax.servlet.RequestDispatcher;
-
 import com.newlecture.web.entitiy.Notice;
+import com.newlecture.web.entitiy.NoticeView;
 
 public class NoticeService {
 	
-	public List<Notice> getNoticeList() {
+	public List<NoticeView> getNoticeList() {
 		return getNoticeList("title", "", 1);
 	}
 	
-	public List<Notice> getNoticeList(int page) {
+	public List<NoticeView> getNoticeList(int page) {
 		return getNoticeList("title", "", page);
 	}
 	
-	public List<Notice> getNoticeList(String field, String query, int page) {
+	public List<NoticeView> getNoticeList(String field, String query, int page) {
 		
-		List<Notice> list = new ArrayList<Notice>();
+		List<NoticeView> list = new ArrayList<NoticeView>();
 		
 		String sql = "select * from "
 				+ "(select rownum num, N.* "
-				+ "from (select * from notice where "+ field + " like ? order by regdate desc) N) "
+				+ "from (select * from notice_view where "+ field + " like ? order by regdate desc) N) "
 				+ "where num between ? and ?";
 		
 		String url = "jdbc:oracle:thin:@192.168.1.2:1521/xepdb1";
@@ -56,11 +54,19 @@ public class NoticeService {
 				String title = rs.getString("TITLE");
 				String writerId = rs.getString("WRITER_ID");
 				Date regdate = rs.getDate("REGDATE");
-				String content = rs.getString("CONTENT");
+//				String content = rs.getString("CONTENT");
 				int hit = rs.getInt("hit");
 				String files = rs.getString("FILES");
+				int cmtCount = rs.getInt("CMT_COUNT");
 			
-				Notice notice = new Notice(id, title, writerId, content, regdate, hit, files);
+				NoticeView notice = new NoticeView(id,
+						title,
+						writerId,
+//						content,
+						regdate,
+						hit,
+						files,
+						cmtCount);
 				
 				list.add(notice);
 			}
@@ -113,7 +119,7 @@ public class NoticeService {
 		
 		String sql = "select count(id) count from "
 				+ "(select rownum num, N.* "
-				+ "from (select * from notice where "+ field +" like ? order by regdate desc) N);";
+				+ "from (select * from notice where "+ field +" like ? order by regdate desc) N)";
 		
 		String url = "jdbc:oracle:thin:@192.168.1.2:1521/xepdb1";
 		String uid = "SCOTT";

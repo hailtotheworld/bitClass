@@ -110,4 +110,57 @@ where num between 1 and 10;
 
 
 
+-- 91
+
+
+--regdate이상
+
+select * from
+(select * from notice
+where regdate > (select regdate from notice where id = 92)
+order by regdate)
+where rownum = 1;
+
+select * from
+(select * from notice
+where regdate < (select regdate from notice where id = 92)
+order by regdate desc)
+where rownum = 1;
+
+
+select count(id) count from 
+(select rownum num, N.* 
+from (select * from notice where title like '%%' order by regdate desc) N);
+
+
+
+select n.id, n.title, n.writer_id, n.regdate, n.hit, n.files, n.pub, count(c.notice_id)
+from notice N left join "COMMENT" C on n.id = c.notice_id
+group by n.id, n.title, n.writer_id, n.regdate, n.hit, n.files, n.pub;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
