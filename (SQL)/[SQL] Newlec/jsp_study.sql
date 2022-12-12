@@ -150,11 +150,11 @@ select * from
 where regdate < (select regdate from notice where id = 93)
 order by regdate desc) where rownum = 1;
 
-DELETE FROM notice
-WHERE id in(127,128);
+DELETE FROM notice WHERE id in(127,128);
 
+select * from notice_view;
 
-
+INSERT INTO notice(title,content) VALUES ('제목인가요', '내용입니다');
 
 
 

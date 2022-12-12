@@ -119,7 +119,7 @@
 				<nav class="menu text-menu">
 					<h1>알림관리</h1>
 					<ul>
-						<li><a href="/admin/notice/list">공지사항</a></li>
+						<li><a href="/admin/board/notice/list">공지사항</a></li>
 					</ul>
 				</nav>
 
@@ -178,7 +178,7 @@
 									<tr>
 										<td>${n.id}</td>
 										<td class="title indent text-align-left"><a
-											href="/notice/detail?id=${n.id}">
+											href="/admin/board/notice/detail?id=${n.id}">
 												${n.title==null?"제목없습니다":n.title} </a><span> [${n.cmtCount}]</span></td>
 										<td>${n.writerId}</td>
 										<td><fmt:formatDate value="${n.regdate}" pattern="yyyy-MM-dd HH:mm" /></td>

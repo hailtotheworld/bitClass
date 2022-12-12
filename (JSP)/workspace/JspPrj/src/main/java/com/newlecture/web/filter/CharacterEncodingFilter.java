@@ -18,15 +18,11 @@ public class CharacterEncodingFilter implements Filter {
 			FilterChain chain)
 			throws IOException, ServletException {
 		
-//		System.out.println("before filter");
 		request.setCharacterEncoding("UTF-8");
-//		response.setCharacterEncoding("UTF-8");
-
 		
 		chain.doFilter(request, response);
 		
 
-//		System.out.println("after filter");
 
 	}
 
