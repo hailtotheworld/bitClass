@@ -138,9 +138,20 @@ select n.id, n.title, n.writer_id, n.regdate, n.hit, n.files, n.pub, count(c.not
 from notice N left join "COMMENT" C on n.id = c.notice_id
 group by n.id, n.title, n.writer_id, n.regdate, n.hit, n.files, n.pub;
 
+-- 93
 
+select * from
+(select * from notice
+where regdate > (select regdate from notice where id = 93)
+order by regdate) where rownum = 1;
 
+select * from
+(select * from notice
+where regdate < (select regdate from notice where id = 93)
+order by regdate desc) where rownum = 1;
 
+DELETE FROM notice
+WHERE id in(127,128);
 
 
 

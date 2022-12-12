@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -14,8 +15,44 @@ import com.newlecture.web.entity.NoticeView;
 
 public class NoticeService {
 	
-	public int removeNoticeAll(int[] ids){
-		return 0;
+	public int deleteNoticeAll(int[] ids){
+		
+		int result = 0;
+		
+		String params = "";
+		
+		for(int i = 0;i<ids.length;i++) {
+			params += ids[i];
+			if(i < ids.length-1) {
+				params += ",";
+			}
+		}
+		
+		String sql = "DELETE FROM notice WHERE id in("+params +")";
+		String url = "jdbc:oracle:thin:@192.168.1.2:1521/xepdb1";
+		String uid = "SCOTT";
+		String pwd = "tiger";
+		Connection con = null;
+		Statement st = null;
+	
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			con = DriverManager.getConnection(url, uid, pwd);
+			st = con.createStatement();
+			result = st.executeUpdate(sql);
+			
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			if(st!=null) try { st.close();} catch (SQLException e) {e.printStackTrace();};
+			if(con!=null) try { con.close();} catch (SQLException e) {e.printStackTrace();};
+		}
+		
+		return result;
 	}
 	
 	public int pubNoticeAll(int[] ids){
