@@ -6,8 +6,6 @@ public class NoticeView extends Notice {
 	
 	private int cmtCount;
 
-
-
 	public NoticeView() {
 	}
 
@@ -24,8 +22,7 @@ public class NoticeView extends Notice {
 		this.cmtCount = cmtCount;
 	}
 
-
- 
+	
 	
 	
 
