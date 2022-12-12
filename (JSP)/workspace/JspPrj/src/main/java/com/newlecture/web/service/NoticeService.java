@@ -14,16 +14,41 @@ import com.newlecture.web.entity.NoticeView;
 
 public class NoticeService {
 	
+	public int removeNoticeAll(int[] ids){
+		return 0;
+	}
+	
+	public int pubNoticeAll(int[] ids){
+		return 0;
+	}
+	
+	public int insertNotice(Notice notice){
+		return 0;
+	}
+	
+	public int deleteNotice(int id){
+		return 0;
+	}
+	public int updateNotice(Notice notice){
+		return 0;
+	}
+	
+	public List<Notice> getNoticeNewestList(){
+		return null;
+	}
+	
+	//////////////////////////////////////////////////////////////////////////////////////////////////
+	
 	////
-	public List<NoticeView> getNoticeList() {
-		return getNoticeList("title", "", 1);
+	public List<NoticeView> getNoticeViewList() {
+		return getNoticeViewList("title", "", 1);
 	}
 	
-	public List<NoticeView> getNoticeList(int page) {
-		return getNoticeList("title", "", page);
+	public List<NoticeView> getNoticeViewList(int page) {
+		return getNoticeViewList("title", "", page);
 	}
 	
-	public List<NoticeView> getNoticeList(String field/*title, writer_id*/, String query /*a*/, int page) {
+	public List<NoticeView> getNoticeViewList(String field/*title, writer_id*/, String query /*a*/, int page) {
 		
 		List<NoticeView> list = new ArrayList<NoticeView>();
 		
