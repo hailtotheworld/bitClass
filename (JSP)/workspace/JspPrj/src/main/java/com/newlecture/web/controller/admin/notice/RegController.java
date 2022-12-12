@@ -15,6 +15,17 @@ public class RegController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+		// 기본값을 넣어야하는지 고민해봐. 기본값 안넣어도 되겠구나.
+		String title = request.getParameter("title");
+		String content = request.getParameter("content");
+		String isOpen = request.getParameter("open");
+		
+		System.out.printf("%s\n",title);
+		System.out.printf("%s\n",content);
+		System.out.printf("%s\n",isOpen);
+		
+		
 
 	}
 
