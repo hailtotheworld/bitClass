@@ -37,6 +37,25 @@ public class RegController extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
 		
+		String title = request.getParameter("title");
+		String content = request.getParameter("content");
+		String isOpen = request.getParameter("open");
+		boolean pub = false;
+		if(isOpen != null) {
+			pub = true;
+		}
+		
+		Notice notice = new Notice();
+		notice.setTitle(title);
+		notice.setContent(content);
+		notice.setPub(pub);
+		
+		NoticeService service = new NoticeService();
+		
+		service.insertNotice(notice);
+		
+		response.sendRedirect("list");
+		
 
 	}
 
