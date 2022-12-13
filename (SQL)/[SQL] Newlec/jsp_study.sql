@@ -160,7 +160,7 @@ DELETE FROM notice WHERE id in(135,136);
 
 rollback;
 
-
+INSERT INTO notice (title, writer_id, content,pub) VALUES ();
 
 
 

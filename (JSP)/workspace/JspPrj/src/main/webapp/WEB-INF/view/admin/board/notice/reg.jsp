@@ -151,7 +151,8 @@
 					</ul>
 				</div>
 
-				<form action="reg" method="post">
+				<!-- ------------------------------------------------------------------- -->
+				<form action="reg" method="post" enctype="multipart/form-data">
 					<div class="margin-top first">
 						<h3 class="hidden">공지사항 입력</h3>
 						<table class="table">
@@ -187,6 +188,7 @@
 							class="btn-text btn-cancel" href="list">취소</a>
 					</div>
 				</form>
+				<!-- ------------------------------------------------------------------- -->
 
 			</main>
 		</div>
