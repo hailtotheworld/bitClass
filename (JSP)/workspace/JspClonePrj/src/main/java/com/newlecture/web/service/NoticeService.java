@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -58,6 +59,7 @@ public class NoticeService {
 				int hit = rs.getInt("hit");
 				String files = rs.getString("FILES");
 				int cmtCount = rs.getInt("CMT_COUNT");
+				boolean pub = rs.getBoolean("PUB");
 			
 				NoticeView notice = new NoticeView(id,
 						title,
@@ -66,6 +68,7 @@ public class NoticeService {
 						regdate,
 						hit,
 						files,
+						pub,
 						cmtCount);
 				
 				list.add(notice);
@@ -208,8 +211,10 @@ public class NoticeService {
 				String content = rs.getString("CONTENT");
 				int hit = rs.getInt("hit");
 				String files = rs.getString("FILES");
+				boolean pub = rs.getBoolean("PUB");
+				
 			
-				notice = new Notice(nid, title, writerId, content, regdate, hit, files);
+				notice = new Notice(nid, title, writerId, content, regdate, hit, files, pub);
 			}
 		
 						
@@ -278,8 +283,10 @@ public class NoticeService {
 				String content = rs.getString("CONTENT");
 				int hit = rs.getInt("hit");
 				String files = rs.getString("FILES");
-			
-				notice = new Notice(nid, title, writerId, content, regdate, hit, files);
+				boolean pub = rs.getBoolean("PUB");
+				
+				
+				notice = new Notice(nid, title, writerId, content, regdate, hit, files, pub);
 			}
 		
 						
@@ -349,8 +356,10 @@ public class NoticeService {
 				String content = rs.getString("CONTENT");
 				int hit = rs.getInt("hit");
 				String files = rs.getString("FILES");
-			
-				notice = new Notice(nid, title, writerId, content, regdate, hit, files);
+				boolean pub = rs.getBoolean("PUB");
+				
+				
+				notice = new Notice(nid, title, writerId, content, regdate, hit, files, pub);
 			}
 		
 						
@@ -386,6 +395,117 @@ public class NoticeService {
 		}
 		
 		return notice;
+	}
+
+	public int removeNoticeAll(int[] delId) {
+		
+		int result = 0;
+		String ids = "";
+		
+		for(int i=0;i<delId.length;i++) {
+			ids += delId[i];
+			if(i<delId.length-1) {
+				ids += ",";
+			}
+		}
+		
+		String sql = "DELETE FROM notice WHERE id in("+ ids +")";
+		
+		String url = "jdbc:oracle:thin:@192.168.1.2:1521/xepdb1";
+		String uid = "SCOTT";
+		String pwd = "tiger";
+		Connection con = null;
+		Statement st = null;
+			
+
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			con = DriverManager.getConnection(url, uid, pwd);
+			st = con.createStatement();
+			result = st.executeUpdate(sql);
+			
+						
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			
+			if(st!=null)
+				try {
+					st.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			if(con!=null)
+				try {
+					con.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			
+		}
+		
+		return result;
+		
+		
+	}
+
+	public int insertNotice(Notice notice) {
+
+
+		int result = 0;
+		
+		String sql = "INSERT INTO notice (title, writer_id, content,pub) VALUES (?,?,?,?)";
+		
+		String url = "jdbc:oracle:thin:@192.168.1.2:1521/xepdb1";
+		String uid = "SCOTT";
+		String pwd = "tiger";
+		Connection con = null;
+		PreparedStatement st = null;
+			
+
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			con = DriverManager.getConnection(url, uid, pwd);
+			st = con.prepareStatement(sql);
+			st.setString(1, notice.getTitle());
+			st.setString(2, notice.getWriterId());
+			st.setString(3, notice.getContent());
+			st.setBoolean(4, notice.getPub());
+			result = st.executeUpdate();
+			
+						
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			
+			if(st!=null)
+				try {
+					st.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			if(con!=null)
+				try {
+					con.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			
+		}
+		
+		return result;
 	}
 
 }

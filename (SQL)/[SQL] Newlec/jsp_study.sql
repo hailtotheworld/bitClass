@@ -156,10 +156,9 @@ select * from notice_view;
 
 INSERT INTO notice(title,content) VALUES ('제목인가요', '내용입니다');
 
+DELETE FROM notice WHERE id in(135,136);
 
-
-
-
+rollback;
 
 
 
