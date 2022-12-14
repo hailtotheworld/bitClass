@@ -45,15 +45,15 @@ public class RegController extends HttpServlet {
 			pub = true;
 		}
 		
-		////////////////////////////////////////////////////////////////////////////////////
+		//↓단일파일업로드//////////////////////////////////////////////////////////////////////////////////
 		
-		Part filePart= request.getPart("file");
+		Part filePart = request.getPart("file");
 		// request.getParameter("title")는 전달된 것의 문자열을 받는다.
 		// request.getPart("file");는 특정 part를 받는것이다. 바이너리라고하는 컨텐츠를 받는거다.
 		String fileName = filePart.getSubmittedFileName();
 		// 파일명을 얻는방법
 		
-		InputStream fis =filePart.getInputStream();
+		InputStream fis = filePart.getInputStream();
 		// InputStream이 있으면 파일을 저장할수있다. 스트림을 통해서 파일을 전달받는거다. 입력받기위한 버퍼다.
 		// InputStream은 인터페이스다. System.in도 InputStream인터페이스를 구현받았다. 그러니 상속받은 같은 메서드를 사용하지.
 		
@@ -67,10 +67,7 @@ public class RegController extends HttpServlet {
 		// 코드가 개발할때 사용했던 워크스페이스에 있는게 아니라 임시서비스를 위한 배포서비스로 옮겨지게 된다. 개발하고 있는 개발폴더에 업로드되는 일은 없다.
 		// 이클립스가 운영하고 있는 서비스를위해사용되는배포서버가 C:\Users\TH\Documents\GitHub\bitClass\(JSP)\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp1\wtpwebapps\JspPrj\ 안에 저장되는거다.
 		// 서비스되고 있는 어플리케이션에 업로드가 되는거다.
-		
-		// int b = fis.read();
-		// .read()가 1바이트씩 읽어준다. 실제 반환하는건 byte타입이다.
-		// 그런데 반환하는 타입은 int타입이다. 다 읽었다고 표현하기 위해서 -1을 반환하기때문이다. Returns:the next byte of data, or -1 if the end of thestream is reached.
+		// (해당폴더없어서 오류떠가지고, 폴더를 직접만들었더니 해결됐다)
 		
 		String filePath = realPath + File.separator + fileName;
 		// realPath -> C:\Users\TH\Documents\GitHub\bitClass\(JSP)\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp1\wtpwebapps\JspPrj\ upload
@@ -80,17 +77,30 @@ public class RegController extends HttpServlet {
 		FileOutputStream fos = new FileOutputStream(filePath);
 		// 출력하기위한 버퍼
 		
-		int b; // 읽은걸 담아놓는그릇이다.
-		while((b=fis.read()) != -1) {
-			fos.write(b);
+		// int b = fis.read();
+		// .read()가 1바이트씩 읽어준다. 실제 반환하는건 byte타입이다.
+		// 그런데 반환하는 타입은 int타입이다. 다 읽었다고 표현하기 위해서 -1을 반환하기때문이다. Returns:the next byte of data, or -1 if the end of thestream is reached.
+		
+		
+		// int b; // 읽은걸 담아놓는그릇이다.
+		// while((b=fis.read()) != -1) {
+		//	 fos.write(b);
+		// }
+		// 이렇게하면 1바이트씩 읽어서 1바이트씩 쓰는거라서 시간이 굉장히 오래 걸린다. 마치 티스푼으로 양동이 물 옮기는거처럼.
+		
+		byte[] buf = new byte[1024]; // 바가지로 퍼서 올리는거야
+		int size = 0; // 읽어온 데이터바이트의 개수를 알려준다
+		while((size = fis.read(buf)) != -1) {
+		//	fos.write(buf); // buf크기만큼 담겨져있는걸 다 쓰는거야. 예를들어서 300개 읽어도 1024를 쓰는거지.
+			fos.write(buf,0,size); // 0번째부터,size길이만큼읽어들이는거다
 		}
 		
+		fos.close();
+		fis.close();
+		
+		//↑단일파일업로드//////////////////////////////////////////////////////////////////////////////////
 		
 		
-		
-		
-		
-		////////////////////////////////////////////////////////////////////////////////////
 		
 		Notice notice = new Notice();
 		notice.setTitle(title);
@@ -99,7 +109,7 @@ public class RegController extends HttpServlet {
 		notice.setPub(pub);
 		
 		NoticeService service = new NoticeService();
-		//// int result = service.insertNotice(notice);
+		///////////////////// int result = service.insertNotice(notice);
 		
 		/*
 		PrintWriter out = response.getWriter();
