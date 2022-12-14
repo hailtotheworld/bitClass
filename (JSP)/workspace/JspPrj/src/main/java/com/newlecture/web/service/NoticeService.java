@@ -75,7 +75,7 @@ public class NoticeService {
 
 		int result = 0;
 
-		String sql = "INSERT INTO notice (title,content,writer_id,pub) VALUES (?, ?, ?, ?)";
+		String sql = "INSERT INTO notice (title,content,writer_id,pub,files) VALUES (?, ?, ?, ?, ?)";
 		String url = "jdbc:oracle:thin:@192.168.1.2:1521/xepdb1";
 		String uid = "SCOTT";
 		String pwd = "tiger";
@@ -90,6 +90,7 @@ public class NoticeService {
 			st.setString(2, notice.getContent());
 			st.setString(3, notice.getWriterId());
 			st.setBoolean(4, notice.getPub());
+			st.setString(5, notice.getFiles());
 			result = st.executeUpdate();
 
 		} catch (ClassNotFoundException e) {
