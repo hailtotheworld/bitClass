@@ -102,35 +102,33 @@ public class RegController extends HttpServlet {
 		
 		//↑단일파일업로드//////////////////////////////////////////////////////////////////////////////////
 		*/
-		
-		
 
 		//↓다중파일업로드//////////////////////////////////////////////////////////////////////////////////
 		
 		Collection<Part> parts = request.getParts();
 		StringBuilder builder = new StringBuilder();
 		
-		for(Part p : parts) {
-			if(!p.getName().equals("file")) continue;
-			if(p.getSize()==0) continue; // 파일을 하나만 혹은 아예 입력하지 않았을때도 정상적으로 글등록하게 하기위해.
+		for(Part filePart : parts) {
+			if(!filePart.getName().equals("file")) continue;
+			if(filePart.getSize()==0) continue; // 파일을 하나만 혹은 아예 입력하지 않았을때도 정상적으로 글등록하게 하기위해.
 								
-			// Part filePart = request.getPart("file");
-			Part filePart = p;
+			InputStream fis = filePart.getInputStream();
+
+			
 			String fileName = filePart.getSubmittedFileName();
 			builder.append(fileName); //
 			builder.append(","); //
-			InputStream fis = filePart.getInputStream();
 			
 			String realPath = request.getServletContext().getRealPath("/upload");
-			
-			File path = new File(realPath);
-			// 실제 realPath가 있는지 알아보고 없으면 만드는작업도 해야한다.
-			if(path.exists()) {
-				// path.mkdir();  // 경로끝에 있는 물리적인경로만 만든다.
-				path.mkdirs(); // 부모path까지 다 만들어준다
-			}
-						
+			  File path = new File(realPath);
+			  // 실제 realPath가 있는지 알아보고 없으면 만드는작업도 해야한다.
+			  if(!path.exists()) {
+				  // path.mkdir();  // 경로끝에 있는 물리적인경로만 만든다.
+				  path.mkdirs(); // 부모path까지 다 만들어준다
+			  }
 			String filePath = realPath + File.separator + fileName;
+			
+			
 			FileOutputStream fos = new FileOutputStream(filePath);
 			
 			byte[] buf = new byte[1024];
@@ -150,13 +148,6 @@ public class RegController extends HttpServlet {
 		// notice.setFiles(builder.toString()); //builder.toString()을 넣어주는구나..!
 		
 		//↑다중파일업로드//////////////////////////////////////////////////////////////////////////////////
-		
-		
-		
-		
-		
-		
-		
 		
 		
 		
