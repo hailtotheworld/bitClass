@@ -1,6 +1,7 @@
 package com.newlecture.web.controller.admin.notice;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -27,22 +28,44 @@ public class ListController extends HttpServlet {
 			throws ServletException, IOException {
 
 		// 키s가같은데 값이다르면 배열로온다.
-		String[] openIds = request.getParameterValues("open-id");
+		String[] openIds = request.getParameterValues("open-id"); // 체크선택된 id들이 전달되서 만들어진 배열
 		String[] delIds_ = request.getParameterValues("del-id");
 		// value값                                    name키
 		String cmd = request.getParameter("cmd");
+		
+		String ids_ = request.getParameter("ids");
+		String[] ids = ids_.trim().split(" "); // 전체id저장된 배열
+		// .trim()으로 앞뒤공백없애주고 - .split(" ")로 공백별로 나눠서 배열에 저장한다.
+		
+		
+		NoticeService service = new NoticeService();
 
 		switch (cmd) {
 		case "일괄공개":
 			for (String openId : openIds) {
 				System.out.printf("openId: %s\n", openId);
 			}
+			
+			List<String> openIdsList = Arrays.asList(openIds);
+			// 배열을 List형태로 바꿔준다
+			// 왜바꾸냐고? .contains메서드를 사용하기위해서 List로 바꿔주는거다.
+			
+			for(int i=0;i<ids.length;i++) {
+				// 1. 현재 id가 open된 상태인지확인해야지
+				if(openIdsList.contains(ids[i])) {
+					
+				} else {
+					
+				}
+			}
+			
+			service.pubNoticeList(opnIds);
+			service.closeNoticeList(clsIds);
+			
+			
 			break;
 
 		case "일괄삭제":
-			NoticeService service = new NoticeService();
-			
-			
 			int[] delIds = new int[delIds_.length];
 //			(x) int[] delIds = new int[]; //배열길이안정해서 컴파일오류
 //			(x) int[] delIds = null; //이렇게 지정하면 안된다.
@@ -55,13 +78,15 @@ public class ListController extends HttpServlet {
 			
 			break;
 		}
-		
-		
+				
 		// get방식으로 다시 같은 url로 돌려준다
 		response.sendRedirect("/admin/board/notice/list"); 
 
 	}
 
+	
+	
+	
 	
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)

@@ -79,7 +79,7 @@
 						<h1 class="hidden">고객메뉴</h1>
 						<ul class="linear-layout">
 							<li><a href="/member/home"><img src="/images/txt-mypage.png" alt="마이페이지" /></a></li>
-							<li><a href="/notice/list.html"><img src="/images/txt-customer.png" alt="고객센터" /></a></li>
+							<li><a href="/notice/list"><img src="/images/txt-customer.png" alt="고객센터" /></a></li>
 						</ul>
 					</nav>
 
@@ -175,15 +175,19 @@
 							<tbody>
 	
 								<c:forEach var="n" items="${list}" varStatus="st">
+								<c:set var="open" value=""/>
+								<c:if test="${n.pub == true}">
+									<c:set var="open" value="checked"/>
+								</c:if>
 									<tr>
 										<td>${n.id}</td>
-										<td class="title indent text-align-left"><a
-											href="/admin/board/notice/detail?id=${n.id}">
-												${n.title==null?"제목없습니다":n.title} </a><span> [${n.cmtCount}]</span></td>
+										<td class="title indent text-align-left">
+										  <a	href="/admin/board/notice/detail?id=${n.id}">${n.title==null?"제목없습니다":n.title} </a><span> [${n.cmtCount}]</span></td>
 										<td>${n.writerId}</td>
 										<td><fmt:formatDate value="${n.regdate}" pattern="yyyy-MM-dd HH:mm" /></td>
 										<td>${n.hit}</td>
-										<td><input type="checkbox" name="open-id" value="${n.id}"></td>
+
+										<td><input type="checkbox" name="open-id" ${open} value="${n.id}"></td>
 									  <td><input type="checkbox" name="del-id" value="${n.id}"></td>
 									</tr>
 								</c:forEach>
@@ -204,6 +208,13 @@
 					</div>
 	
 					<div class="text-align-right margin-top">
+					<!--아이디 모아두기--------------------------- -->
+						<c:set var="ids" value=""/>
+						<c:forEach var="n" items="${list}">
+							<c:set var="ids" value="${ids} ${n.id}"/> <!-- ids변수에 값을누적시킨다 -->
+						</c:forEach>
+					<!-- --------------------------- -->
+						<input type="hidden" name="ids" value="${ids}">
 						<input type="submit" class="btn-text btn-default" name="cmd" value="일괄공개">
 						<input type="submit" class="btn-text btn-default" name="cmd" value="일괄삭제">
 						<a class="btn-text btn-default" href="reg">글쓰기</a>				

@@ -81,7 +81,7 @@
 						<ul class="linear-layout">
 							<li><a href="/member/home"><img
 									src="/images/txt-mypage.png" alt="마이페이지" /></a></li>
-							<li><a href="/notice/list.html"><img
+							<li><a href="/notice/list"><img
 									src="/images/txt-customer.png" alt="고객센터" /></a></li>
 						</ul>
 					</nav>
@@ -198,8 +198,7 @@
 							<c:forEach var="n" items="${list}" varStatus="st">
 								<tr>
 									<td>${n.id}</td>
-									<td class="title indent text-align-left"><a
-										href="/notice/detail?id=${n.id}">
+									<td class="title indent text-align-left"><a	href="/notice/detail?id=${n.id}">
 											${n.title==null?"제목없습니다":n.title} </a><span> [${n.cmtCount}]</span></td>
 									<td>${n.writerId}</td>
 									<td><fmt:formatDate value="${n.regdate}" pattern="yyyy-MM-dd HH:mm" /></td>

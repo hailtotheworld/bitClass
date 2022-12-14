@@ -156,7 +156,7 @@ public class RegController extends HttpServlet {
 		notice.setContent(content);
 		notice.setWriterId("newlec"); //인증권한배우고 바꿀거야.
 		notice.setPub(pub);
-		notice.setFiles(builder.toString());
+		notice.setFiles(builder.toString());  //builder.toString()을 넣어주는구나..!
 		
 		NoticeService service = new NoticeService();
 		int result = service.insertNotice(notice);

@@ -218,6 +218,84 @@ public class NoticeService {
 		return list;
 	}
 
+	public List<NoticeView> getNoticeViewPubList(String field, String query, int page) {
+		List<NoticeView> list = new ArrayList<NoticeView>();
+
+		String sql = "select * from ( " +
+					"select rownum num, N.* " +
+					"from (select * from notice_view where " + field + " like ? and pub=1 order by regdate desc) N) " +
+					"where num between ? and ?";
+		// field를 st.setString(1, field); 로 설정하면 값이 들어가는 걸로 인식해서 'TITLE' 이렇게 홑따옴표가 같이
+		// 들어가게 된다.
+
+		String url = "jdbc:oracle:thin:@192.168.1.2:1521/xepdb1";
+		String uid = "SCOTT";
+		String pwd = "tiger";
+		Connection con = null;
+		PreparedStatement st = null;
+		ResultSet rs = null;
+
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			con = DriverManager.getConnection(url, uid, pwd);
+			st = con.prepareStatement(sql);
+			st.setString(1, "%" + query + "%"); // 값이들어갈때는 '값' 이렇게 홑따옴표가 같이 들어가는거다.
+			st.setInt(2, 1 + (page - 1) * 10); // 1, 11, 21, 31 -> 1 + (page-1)*10
+			st.setInt(3, 10 * page); // 10, 20, 30, 40 -> 10page
+			rs = st.executeQuery();
+
+			while (rs.next()) {
+				int id = rs.getInt("ID");
+				String title = rs.getString("TITLE");
+				Date regdate = rs.getDate("REGDATE");
+				String writerId = rs.getString("WRITER_ID");
+				int hit = rs.getInt("HIT");
+				String files = rs.getString("FILES");
+				// String content = rs.getString("CONTENT");
+				boolean pub = rs.getBoolean("PUB");
+				int cmtCount = rs.getInt("CMT_COUNT");
+
+				NoticeView notice = new NoticeView(id, title, regdate, writerId, hit, files,
+						// content,
+						pub, cmtCount);
+
+				list.add(notice);
+			}
+
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			if (rs != null)
+				try {
+					rs.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			;
+			if (st != null)
+				try {
+					st.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			;
+			if (con != null)
+				try {
+					con.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			;
+		}
+
+		return list;
+	}
+	
+	
 	////
 	public int getNoticeCount() {
 		return getNoticeCount("title", "");
@@ -229,6 +307,63 @@ public class NoticeService {
 
 		String sql = "select count(id) count from ( " + "select rownum num, N.* " + "from (select * from notice where "
 				+ field + " like ? order by regdate desc) N) ";
+
+		String url = "jdbc:oracle:thin:@192.168.1.2:1521/xepdb1";
+		String uid = "SCOTT";
+		String pwd = "tiger";
+		Connection con = null;
+		PreparedStatement st = null;
+		ResultSet rs = null;
+
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			con = DriverManager.getConnection(url, uid, pwd);
+			st = con.prepareStatement(sql);
+			st.setString(1, "%" + query + "%"); // 값이들어갈때는 '값' 이렇게 홑따옴표가 같이 들어가는거다.
+			rs = st.executeQuery();
+
+			if (rs.next()) {
+				count = rs.getInt("count");
+			}
+
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			if (rs != null)
+				try {
+					rs.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			;
+			if (st != null)
+				try {
+					st.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			;
+			if (con != null)
+				try {
+					con.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			;
+		}
+
+		return count;
+	}
+	
+	public int getNoticePubCount(String field, String query) {
+		int count = 0;
+
+		String sql = "select count(id) count from ( " + "select rownum num, N.* " + "from (select * from notice where "
+				+ field + " like ? and pub = 1 order by regdate desc) N) ";
 
 		String url = "jdbc:oracle:thin:@192.168.1.2:1521/xepdb1";
 		String uid = "SCOTT";
@@ -481,4 +616,8 @@ public class NoticeService {
 
 		return notice;
 	}
+
+
+
+
 }
