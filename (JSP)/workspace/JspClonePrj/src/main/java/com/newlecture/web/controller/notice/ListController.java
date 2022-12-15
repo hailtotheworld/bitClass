@@ -13,6 +13,10 @@ import javax.servlet.http.HttpServletResponse;
 import com.newlecture.web.entitiy.NoticeView;
 import com.newlecture.web.service.NoticeService;
 
+/*
+http://localhost:8080/JspClonePrj/notice/list
+*/
+
 @WebServlet("/notice/list")
 public class ListController extends HttpServlet {
 
@@ -39,8 +43,8 @@ public class ListController extends HttpServlet {
 		}
 
 		NoticeService service = new NoticeService();
-		List<NoticeView> list = service.getNoticeList(field, query, page);
-		int count = service.getNoticeCount(field, query);
+		List<NoticeView> list = service.getNoticePubList(field, query, page);
+		int count = service.getNoticePubCount(field, query);
 
 		request.setAttribute("list", list);
 		request.setAttribute("count", count);

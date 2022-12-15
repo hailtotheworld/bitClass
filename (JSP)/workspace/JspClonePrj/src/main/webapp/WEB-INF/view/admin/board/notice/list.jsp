@@ -182,7 +182,11 @@
 									<td>${n.writerId}</td>
 									<td>${n.regdate}</td>
 									<td>${n.hit}</td>
-									<td><input type="checkbox" name="open" value="${n.id}"></td>
+									<c:set var="checked" value=""/>
+									<c:if test="${n.pub==true}">
+										<c:set var="checked" value="checked"/>
+									</c:if>
+									<td><input type="checkbox" name="open" ${checked} value="${n.id}"></td>
 								  <td><input type="checkbox" name="del" value="${n.id}"></td>
 								</tr>
 							</c:forEach>
@@ -204,6 +208,14 @@
 				</div>
 
 				<div class="text-align-right margin-top">
+<%-- 					<c:set var="ids" value=""/>
+					<c:forEach var="n" items="${list}">
+						<c:set var="ids" value="${ids} ${n.id}"/>
+					</c:forEach>
+					<input type="text" name="ids" value="${ids}"> --%>
+					<c:forEach var="n" items="${list}">
+						<input type="hidden" name="ids" value="${n.id}">
+					</c:forEach>
 					<input type="submit" class="btn-text btn-default" name="cmd" value="일괄공개">
 					<input type="submit" class="btn-text btn-default" name="cmd" value="일괄삭제">
 					<a class="btn-text btn-default" href="reg">글쓰기</a>				

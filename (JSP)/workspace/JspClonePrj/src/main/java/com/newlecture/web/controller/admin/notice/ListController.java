@@ -1,6 +1,8 @@
 package com.newlecture.web.controller.admin.notice;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -13,7 +15,11 @@ import javax.servlet.http.HttpServletResponse;
 import com.newlecture.web.entitiy.NoticeView;
 import com.newlecture.web.service.NoticeService;
 
-@WebServlet("/admin/notice/list")
+/*
+http://localhost:8080/JspClonePrj/admin/board/notice/list
+ */
+
+@WebServlet("/admin/board/notice/list")
 public class ListController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -55,17 +61,26 @@ public class ListController extends HttpServlet {
 		String[] openIds = request.getParameterValues("open");
 		String[] delIds = request.getParameterValues("del");
 		String cmd = request.getParameter("cmd");
+		String[] ids = request.getParameterValues("ids");
+		
+		NoticeService service = new NoticeService();
 		
 		switch (cmd) {
 		case "일괄공개":
-			for(String openid : openIds) {
-				System.out.printf("openid: %s\n", openid);
-			}
+
+			List<String> openIdsList = Arrays.asList(openIds);
+			
+			List<String> closeIdsList = new ArrayList<>(Arrays.asList(ids));
+			
+			closeIdsList.removeAll(openIdsList);
+			
+			service.updatePubList(openIdsList,closeIdsList);
+			
 			break;
 
 		case "일괄삭제":
 			
-			NoticeService service = new NoticeService();
+
 			
 			int[] delId = new int[delIds.length];
 			
