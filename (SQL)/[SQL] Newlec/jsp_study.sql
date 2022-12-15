@@ -164,7 +164,7 @@ INSERT INTO notice (title, writer_id, content,pub) VALUES ();
 
 
 
-
+UPDATE notice SET pub = 1 WHERE id IN();
 
 
 
