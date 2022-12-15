@@ -1,6 +1,7 @@
 package com.newlecture.web.controller.admin.notice;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -13,7 +14,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.newlecture.web.entity.NoticeView;
 import com.newlecture.web.service.NoticeService;
-import com.oracle.js.parser.ir.RuntimeNode.Request;
 
 /*
 
@@ -33,6 +33,7 @@ public class ListController extends HttpServlet {
 		// value값                                    name키
 		String cmd = request.getParameter("cmd");
 		
+		
 		String ids_ = request.getParameter("ids");
 		String[] ids = ids_.trim().split(" "); // 전체id저장된 배열
 		// .trim()으로 앞뒤공백없애주고 - .split(" ")로 공백별로 나눠서 배열에 저장한다.
@@ -46,21 +47,31 @@ public class ListController extends HttpServlet {
 				System.out.printf("openId: %s\n", openId);
 			}
 			
-			List<String> openIdsList = Arrays.asList(openIds);
-			// 배열을 List형태로 바꿔준다
-			// 왜바꾸냐고? .contains메서드를 사용하기위해서 List로 바꿔주는거다.
+			List<String> oids = Arrays.asList(openIds);
+			// 배열을 List형태로 바꿔준다. 왜바꾸냐고? .contains메서드를 사용하기위해서 List로 바꿔주는거다.
+			
+			List<String> cids = new ArrayList(Arrays.asList(ids));
+			// 전체아이디배열을 ArrayList로 바꿔준다. List가 아닌 ArrayList로 바꿔주는 이유는 .removeAll메서드를 사용하기 위해서다.
+			
+			cids.removeAll(oids);
+			// 전체아이디에서 오픈된id를 빼라
+
+			System.out.println(oids);
+			System.out.println(cids);
+			
 			
 			for(int i=0;i<ids.length;i++) {
 				// 1. 현재 id가 open된 상태인지확인해야지
-				if(openIdsList.contains(ids[i])) {
+				if(oids.contains(ids[i])) {
 					
 				} else {
 					
 				}
 			}
 			
-			service.pubNoticeList(opnIds);
-			service.closeNoticeList(clsIds);
+			
+			// Transaction
+			service.pubNoticeAll(opnIds,clsIds);
 			
 			
 			break;

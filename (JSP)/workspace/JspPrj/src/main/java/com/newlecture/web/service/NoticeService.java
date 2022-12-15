@@ -67,7 +67,7 @@ public class NoticeService {
 		return result;
 	}
 
-	public int pubNoticeAll(int[] ids) {
+	public int pubNoticeAll(int[] oids, int[] cids) {
 		return 0;
 	}
 
