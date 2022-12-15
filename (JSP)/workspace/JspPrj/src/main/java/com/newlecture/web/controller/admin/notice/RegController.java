@@ -133,8 +133,9 @@ public class RegController extends HttpServlet {
 			
 			byte[] buf = new byte[1024];
 			int size = 0; // 읽어온 데이터바이트의 개수(길이)를 알려주는거야
-			while((size = fis.read(buf)) != -1) {
+			while((size = fis.read(buf)) != -1) { // 읽을때는 고정스쿱으로
 				fos.write(buf, 0, size); // buf를 write한다, 0부터, size까지
+				                         // 쓸때는 유동스쿱으로
 			}
 			
 			fos.close();

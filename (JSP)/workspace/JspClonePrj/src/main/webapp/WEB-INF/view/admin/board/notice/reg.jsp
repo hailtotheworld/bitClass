@@ -153,7 +153,7 @@
                     </ul>
                 </div>
 
-                <form action="reg" method="post" enctype="multipart/form-data">
+                <form action="reg" method="post">
                     <div class="margin-top first">
                         <h3 class="hidden">공지사항 입력</h3>
                         <table class="table">
@@ -170,11 +170,7 @@
                                     <td colspan="3" class="text-align-left text-indent">
                                     <input type="file" name="file" /> </td>
                                 </tr>
-                                <tr>
-                                    <th>첨부파일</th>
-                                    <td colspan="3" class="text-align-left text-indent">
-                                    <input type="file" name="file" /> </td>
-                                </tr>
+                                
                                 
                                 <tr class="content">
                                     <td colspan="4"><textarea class="content" name="content"></textarea></td>

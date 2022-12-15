@@ -460,7 +460,7 @@ public class NoticeService {
 
 		int result = 0;
 		
-		String sql = "INSERT INTO notice (title, writer_id, content,pub,files) VALUES (?,?,?,?,?)";
+		String sql = "INSERT INTO notice (title, writer_id, content,pub) VALUES (?,?,?,?)";
 		
 		String url = "jdbc:oracle:thin:@192.168.1.2:1521/xepdb1";
 		String uid = "SCOTT";
@@ -477,7 +477,6 @@ public class NoticeService {
 			st.setString(2, notice.getWriterId());
 			st.setString(3, notice.getContent());
 			st.setBoolean(4, notice.getPub());
-			st.setString(5, notice.getFiles());
 			result = st.executeUpdate();
 			
 						

@@ -18,10 +18,6 @@ import javax.servlet.http.Part;
 import com.newlecture.web.entitiy.Notice;
 import com.newlecture.web.service.NoticeService;
 
-@MultipartConfig(
-		fileSizeThreshold = 1024*1024,
-		maxFileSize = 1024*1024*50,
-		maxRequestSize = 1024*1024*50*5)
 @WebServlet("/admin/notice/reg")
 public class RegController extends HttpServlet {
 
@@ -48,49 +44,13 @@ public class RegController extends HttpServlet {
 			pub = true;
 		}
 		
-		Collection<Part> parts = request.getParts();
-		StringBuilder builder = new StringBuilder();
-		
-		for(Part filePart : parts) {
-			if(filePart.getSize()==0) continue;
-			if(!filePart.getName().equals("file")) continue;
-			
-			InputStream fis = filePart.getInputStream();
-			
-			String fileName = filePart.getSubmittedFileName();
-			builder.append(fileName);
-			builder.append(",");
-			
-			String realPath = request.getServletContext().getRealPath("/upload");
-			File realPath_ = new File(realPath);
-			if(!realPath_.exists()) {
-				realPath_.mkdirs();
-			}
-			
-			String filePath = realPath + File.separator + fileName;
-			
-			FileOutputStream fos = new FileOutputStream(filePath);
-			
-			//
-			byte[] buf = new byte[1024];
-			int size = 0;
-			while((size = fis.read(buf)) != -1) {
-				fos.write(buf, 0, size);
-			}
-			
-			fos.close();
-			fis.close();
-		}
-		
-		builder.delete(builder.length()-1, builder.length());
-		
+
 		
 		
 		Notice notice = new Notice();
 		notice.setTitle(title);
 		notice.setContent(content);
 		notice.setPub(pub);
-		notice.setFiles(builder.toString());
 		
 		NoticeService service = new NoticeService();
 		
