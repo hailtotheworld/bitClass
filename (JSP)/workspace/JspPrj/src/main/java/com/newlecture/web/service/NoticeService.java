@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -14,7 +15,101 @@ import com.newlecture.web.entity.Notice;
 import com.newlecture.web.entity.NoticeView;
 
 public class NoticeService {
+	
+	// 오버로드
+	public int pubNoticeAll(int[] oids, int[] cids) {
+		
+		
+		// (3) int[]를  List<String>으로 바꿔준다.
+		List<String> oidsList = new ArrayList<>();
+		for(int i=0;i<oids.length;i++) {
+			oidsList.add(String.valueOf(oids[i]));
+		}
+		
+		List<String> cidsList = new ArrayList<>();
+		for(int i=0;i<oids.length;i++) {
+			cidsList.add(String.valueOf(cids[i]));
+		}
+				
+//		List<String> oidsList = Arrays.asList(oids);
+		// (2) 아 int[]이라서 List<String>에 안들어가네
+		
+//		String oidsCSV = String.join(",",oids);
+		// (1) Iterable을 구현한객체만 매개변수로 올수있다. 즉 Collection형태가 인자로 와야한다는 것이다.
+		
+		return pubNoticeAll(oidsList,cidsList);
+	}
+	
+	public int pubNoticeAll(List<String> oids, List<String> cids) {
+		
+		// (4) List<String>을 String으로 바꿔준다.
+		String oidsCSV = String.join(",",oids);
+		String cidsCSV = String.join(",",cids);
+		
+		return pubNoticeAll(oidsCSV,cidsCSV);
+	}
+	
+	// 구현하기 가장 쉬우니까 이걸 구현하는거야 eg) "20,30,43,56"
+	public int pubNoticeAll(String oidsCSV, String cidsCSV) { // CSV: Comma Separated Value 콤마로 구분된 값
+		
+		int result = 0;
+		
+//		String sqlOpen  = "UPDATE NOTICE SET PUB=1 WHERE ID IN("+ oidsCSV +")";
+		String sqlOpen  = String.format("UPDATE NOTICE SET PUB=1 WHERE ID IN(%s)",oidsCSV);
+//		String sqlClose = "UPDATE NOTICE SET PUB=0 WHERE ID IN("+ cidsCSV +")";
+		String sqlClose = String.format("UPDATE NOTICE SET PUB=0 WHERE ID IN(%s)",cidsCSV);
+		
+		String url = "jdbc:oracle:thin:@192.168.1.2:1521/xepdb1";
+		String uid = "SCOTT";
+		String pwd = "tiger";
+		Connection con = null;
+		Statement stOpen = null;
+		Statement stClose = null;
 
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			con = DriverManager.getConnection(url, uid, pwd);
+			
+			stOpen = con.createStatement();
+			result += stOpen.executeUpdate(sqlOpen);
+			
+			stClose = con.createStatement();
+			result += stClose.executeUpdate(sqlClose);
+			
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			if (stOpen != null)
+				try {
+					stOpen.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			;
+			if (stClose != null)
+				try {
+					stClose.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			;
+			if (con != null)
+				try {
+					con.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			;
+		}
+		
+		return result;
+	}
+	
+	/////////////
 	public int deleteNoticeAll(int[] ids) {
 
 		int result = 0;
@@ -65,10 +160,6 @@ public class NoticeService {
 		}
 
 		return result;
-	}
-
-	public int pubNoticeAll(int[] oids, int[] cids) {
-		return 0;
 	}
 
 	public int insertNotice(Notice notice) {

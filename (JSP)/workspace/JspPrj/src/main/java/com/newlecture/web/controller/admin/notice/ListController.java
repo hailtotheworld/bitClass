@@ -43,12 +43,10 @@ public class ListController extends HttpServlet {
 
 		switch (cmd) {
 		case "일괄공개":
-			for (String openId : openIds) {
-				System.out.printf("openId: %s\n", openId);
-			}
+			
 			
 			List<String> oids = Arrays.asList(openIds);
-			// 배열을 List형태로 바꿔준다. 왜바꾸냐고? .contains메서드를 사용하기위해서 List로 바꿔주는거다.
+			// 배열을 List형태로 바꿔준다.
 			
 			List<String> cids = new ArrayList(Arrays.asList(ids));
 			// 전체아이디배열을 ArrayList로 바꿔준다. List가 아닌 ArrayList로 바꿔주는 이유는 .removeAll메서드를 사용하기 위해서다.
@@ -56,22 +54,12 @@ public class ListController extends HttpServlet {
 			cids.removeAll(oids);
 			// 전체아이디에서 오픈된id를 빼라
 
-			System.out.println(oids);
-			System.out.println(cids);
+//			System.out.println(oids);
+//			System.out.println(cids);
 			
-			
-			for(int i=0;i<ids.length;i++) {
-				// 1. 현재 id가 open된 상태인지확인해야지
-				if(oids.contains(ids[i])) {
-					
-				} else {
-					
-				}
-			}
-			
-			
+	
 			// Transaction
-			service.pubNoticeAll(opnIds,clsIds);
+			service.pubNoticeAll(oids,cids);
 			
 			
 			break;
