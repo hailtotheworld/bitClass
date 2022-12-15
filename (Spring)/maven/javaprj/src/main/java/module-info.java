@@ -1,0 +1,12 @@
+/**
+ * 
+ */
+/**
+ * @author TH
+ *
+ */
+
+/*
+module javaprj {
+}
+*/
