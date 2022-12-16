@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	JSP Index Page ${3+4+3}
+	JSP Index Page ${3+3}
 </body>
 </html>
