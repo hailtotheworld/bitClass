@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 이 setting파일은 이름을 아무렇게나 지어도 된다. -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+  
+<!-- 스프링은 bean이라는 태그를 이용해서 생성할 객체를 지시해달라고 말한다.-->
+<!-- Exam exam = new NewlecExam(); -->     
+<bean id="exam" class="spring.di.entity.NewlecExam" />
+<!-- 같은이름의 클래스가 있을수 있기때문에 반드시 패키지명도 써줘야한다. -->
+
+<!-- ExamConsole console = new GridExamConsole(); -->
+<bean id="console" class="spring.di.ui.GridExamConsole" >
+<!-- console.setExam(exam); -->
+	<property name="exam" value="" ref="exam"/>
+ <!-- property라고 속성을 의미하는게 아니라 함수를 호출한다고 이해하면된다. property명으로써 쓰겠다는 의미이다.
+  즉, 'setExam'함수를 호출하기위해서 'exam'이라고 써주면된다. -->
+ <!-- value="" ↔ ref="exam" 둘이 배타적으로 쓰인다.
+  console.setExam(exam)에서 exam에 들어가는걸 쓰는거다. -->
+</bean>
+
+ 
+</beans>
+
+
+
+ 

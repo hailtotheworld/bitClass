@@ -24,4 +24,10 @@ public class GridExamConsole implements ExamConsole {
 		System.out.println("└──────────┴──────────┘");
 	}
 
+	@Override
+	public void setExam(Exam exam) {
+		this.exam = exam;
+		
+	}
+
 }
