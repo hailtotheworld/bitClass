@@ -12,6 +12,8 @@ public class InlineExamConsole implements ExamConsole {
 	public InlineExamConsole(Exam exam) {
 		this.exam = exam;
 	}
+	
+	
 
 	@Override
 	public void print() {
