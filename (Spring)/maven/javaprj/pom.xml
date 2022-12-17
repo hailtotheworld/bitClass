@@ -29,6 +29,11 @@
 			<artifactId>tomcat-jsp-api</artifactId>
 			<version>9.0.69</version>
 		</dependency>
+		<dependency>
+			<groupId>com.newlecture</groupId>
+			<artifactId>examlib</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<pluginManagement>
