@@ -1,9 +1,13 @@
 package spring.di;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import spring.di.entity.Exam;
+import spring.di.entity.NewlecExam;
 import spring.di.ui.ExamConsole;
 
 public class Program {
@@ -45,6 +49,15 @@ public class Program {
 		// 자료형으로 꺼내는게 이름을가지고 꺼내는거보다 더 선호되는 방식이다. 형변환을 할 필요가 없고 클래스명을 깔끔하게 설정할수있기 때문이다.
 		console.print();
 		
+		///////////////////
+        // List<Exam> exams = new ArrayList<>();
+		List<Exam> exams = (List<Exam>) context.getBean("exams");
+		
+		exams.add(new NewlecExam(1,1,1,1));
+		
+		for(Exam e: exams) {
+			System.out.println(e);
+		}
 		
 	}
 
