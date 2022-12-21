@@ -53,10 +53,14 @@ public class Program {
 		///////////////////
         // List<Exam> exams = new ArrayList<>();
 		List<Exam> exams = (List<Exam>) context.getBean("exams");
+//		List<Exam> exams = (List<Exam>) context.getBean(ArrayList.class);
 		
-		exams.add(new NewlecExam(1,1,1,1));
+		List<Exam> madeExams = (List<Exam>) context.getBean("madeExams");
+
 		
-		for(Exam e: exams) {
+		// exams.add(new NewlecExam(1,1,1,1));
+		
+		for(Exam e: madeExams) {
 			System.out.println(e);
 		}
 		
