@@ -58,6 +58,8 @@ exam.setCom(50) -->
    console.setExam(exam)에서 exam에 들어가는걸 쓰는거다. -->
 </bean>
 
+
+
 <!-- ////////////////////////////////////////////////////////////////////////// -->
 <bean id="exams" class="java.util.ArrayList">
 </bean>
