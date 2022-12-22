@@ -1,5 +1,7 @@
 package spring.di.ui;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import spring.di.entity.Exam;
 
 public class GridExamConsole implements ExamConsole {
@@ -24,6 +26,7 @@ public class GridExamConsole implements ExamConsole {
 		System.out.println("└──────────┴──────────┘");
 	}
 
+	@Autowired
 	@Override
 	public void setExam(Exam exam) {
 		this.exam = exam;

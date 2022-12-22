@@ -3,98 +3,89 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:p="http://www.springframework.org/schema/p"
 	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 	 http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
 	 http://www.springframework.org/schema/util
-	http://www.springframework.org/schema/util/spring-util-4.0.xsd">
-<!-- xmlns는 xml name space를 의미한다 xmlns:p="http://www.springframework.org/schema/p"  xmlns:p약어="풀네임" -->
-  
-<!-- ////////////////////////////////////////////////////////////////////////// -->
-<!-- 스프링은 bean이라는 태그를 이용해서 생성할 객체를 지시해달라고 말한다.-->
-<!-- Exam exam = new NewlecExam(); -->     
-<!-- exam.setKor(20)
-exam.setEng(50)
-exam.setMath(80)
-exam.setCom(50) -->
-<!-- 같은이름의 클래스가 있을수 있기때문에 반드시 패키지명도 써줘야한다. -->
-<!--  
-<bean id="exam" class="spring.di.entity.NewlecExam">
-	<property name="kor" value="20"/>
-	<property name="eng" value="50"/>
-	<property name="math" value="80"/>
-	<property name="com">
-		<value>50</value>
-	</property>
-</bean> -->
+	http://www.springframework.org/schema/util/spring-util-4.0.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+	<!-- xmlns는 xml name space를 의미한다 xmlns:p="http://www.springframework.org/schema/p" 
+		xmlns:p약어="풀네임" -->
+
+	<context:annotation-config />
+	<!-- ////////////////////////////////////////////////////////////////////////// -->
+	<!-- 스프링은 bean이라는 태그를 이용해서 생성할 객체를 지시해달라고 말한다. -->
+	<!-- Exam exam = new NewlecExam(); -->
+	<!-- exam.setKor(20) exam.setEng(50) exam.setMath(80) exam.setCom(50) -->
+	<!-- 같은이름의 클래스가 있을수 있기때문에 반드시 패키지명도 써줘야한다. -->
+	<!-- <bean id="exam" class="spring.di.entity.NewlecExam"> <property name="kor" 
+		value="20"/> <property name="eng" value="50"/> <property name="math" value="80"/> 
+		<property name="com"> <value>50</value> </property> </bean> -->
 
 
-<!-- ////////////////////////////////////////////////////////////////////////// -->
-<!-- Exam exam = new Exam(10,20,30,40) -->
-<!--  <bean id="exam" class="spring.di.entity.NewlecExam">
-	<constructor-arg value="10"/>
-	<constructor-arg value="20"/>
-	<constructor-arg value="30"/>
-	<constructor-arg value="40"/>
-</bean>  -->
-<!--  <bean id="exam" class="spring.di.entity.NewlecExam">
-	<constructor-arg index="3" value="40"/>
-	<constructor-arg index="1" value="20"/>
-	<constructor-arg index="0" value="10"/>
-	<constructor-arg index="2" value="30"/>
-</bean>  -->
-<!-- <bean id="exam" class="spring.di.entity.NewlecExam">
-	<constructor-arg name="kor" value="10" type="int"/>
-	<constructor-arg name="eng" value="20"/>
-	<constructor-arg name="math" value="30"/>
-	<constructor-arg name="com" value="40"/>
-</bean> -->
-<!--beans에 이 속성을 넣어야지 사용할수있다. xmlns:p="http://www.springframework.org/schema/p"  -->
-<bean id="exam" class="spring.di.entity.NewlecExam" p:kor="10" p:eng="20" p:math="30" p:com="40"/>
+	<!-- ////////////////////////////////////////////////////////////////////////// -->
+	<!-- Exam exam = new Exam(10,20,30,40) -->
+	<!-- <bean id="exam" class="spring.di.entity.NewlecExam"> <constructor-arg 
+		value="10"/> <constructor-arg value="20"/> <constructor-arg value="30"/> 
+		<constructor-arg value="40"/> </bean> -->
+	<!-- <bean id="exam" class="spring.di.entity.NewlecExam"> <constructor-arg 
+		index="3" value="40"/> <constructor-arg index="1" value="20"/> <constructor-arg 
+		index="0" value="10"/> <constructor-arg index="2" value="30"/> </bean> -->
+	<!-- <bean id="exam" class="spring.di.entity.NewlecExam"> <constructor-arg 
+		name="kor" value="10" type="int"/> <constructor-arg name="eng" value="20"/> 
+		<constructor-arg name="math" value="30"/> <constructor-arg name="com" value="40"/> 
+		</bean> -->
+	<!--beans에 이 속성을 넣어야지 사용할수있다. xmlns:p="http://www.springframework.org/schema/p" -->
+	<bean id="exam" class="spring.di.entity.NewlecExam" p:kor="10"
+		p:eng="20" p:math="30" p:com="40" />
 
 
 
-<!-- ////////////////////////////////////////////////////////////////////////// -->
-<!-- ExamConsole console = new GridExamConsole(); -->
-<bean id="console" class="spring.di.ui.GridExamConsole" >
-<!-- ExamConsole console = new InlineExamConsole(); -->
-<!--<bean id="console" class="spring.di.ui.InlineExamConsole" > -->
+	<!-- ////////////////////////////////////////////////////////////////////////// -->
+	<!-- ExamConsole console = new GridExamConsole(); -->
+	<bean id="console" class="spring.di.ui.GridExamConsole">
+		<!-- ExamConsole console = new InlineExamConsole(); -->
+		<!--<bean id="console" class="spring.di.ui.InlineExamConsole" > -->
 
- <!-- console.setExam(exam); -->
- <property name="exam" ref="exam"/>
- <!-- property라고 속성을 의미하는게 아니라 함수를 호출한다고 이해하면된다. property명으로써 쓰겠다는 의미이다.
-   즉, 'setExam'함수를 호출하기위해서 'exam'이라고 써주면된다. -->
- <!-- value="" ↔ ref="exam" 둘이 배타적으로 쓰인다. 하나를 이용하면 다른 하나는 빈값이라도 쓰면 안된다.
-   console.setExam(exam)에서 exam에 들어가는걸 쓰는거다. -->
-</bean>
+		<!-- console.setExam(exam); -->
+		<!-- <property name="exam" ref="exam"/> -->
+		<!-- property라고 속성을 의미하는게 아니라 함수를 호출한다고 이해하면된다. property명으로써 쓰겠다는 의미이다. 
+			즉, 'setExam'함수를 호출하기위해서 'exam'이라고 써주면된다. -->
+		<!-- value="" ↔ ref="exam" 둘이 배타적으로 쓰인다. 하나를 이용하면 다른 하나는 빈값이라도 쓰면 안된다. 
+			console.setExam(exam)에서 exam에 들어가는걸 쓰는거다. -->
+	</bean>
 
 
 
-<!-- ////////////////////////////////////////////////////////////////////////// -->
-<!-- ArrayList컬렉션을 개별적으로 따로 만드는 방법. -->
-<!-- xmlns:util="http://www.springframework.org/schema/util" -->
-<!-- <util:list>처리기는 실제로 객체를 만들수 있도록하는 능력을 갖고있다. -->
-<util:list id="madeExams" list-class="java.util.ArrayList">
- <!-- 어떤 컬렉션을 만들지 list-class에 적어줘야 한다. -->
- <!-- 실제로 만들어진 객체니까 id(이름)을 정해줘야 한다. -->
-	<bean class="spring.di.entity.NewlecExam" p:kor="66" p:eng="77" p:math="88" p:com="99"/> <!-- 객체를 만들어서 넣는거다. 이름을 굳이 넣어줄필요가 없다. -->
-	<ref bean="exam"/> <!-- 만들어진 객체를 참조하며 넣는거다  -->
-</util:list>
+	<!-- ////////////////////////////////////////////////////////////////////////// -->
+	<!-- ArrayList컬렉션을 개별적으로 따로 만드는 방법. -->
+	<!-- xmlns:util="http://www.springframework.org/schema/util" -->
+	<!-- <util:list>처리기는 실제로 객체를 만들수 있도록하는 능력을 갖고있다. -->
+	<util:list id="madeExams" list-class="java.util.ArrayList">
+		<!-- 어떤 컬렉션을 만들지 list-class에 적어줘야 한다. -->
+		<!-- 실제로 만들어진 객체니까 id(이름)을 정해줘야 한다. -->
+		<bean class="spring.di.entity.NewlecExam" p:kor="66" p:eng="77"
+			p:math="88" p:com="99" /> <!-- 객체를 만들어서 넣는거다. 이름을 굳이 넣어줄필요가 없다. -->
+		<ref bean="exam" /> <!-- 만들어진 객체를 참조하며 넣는거다 -->
+	</util:list>
 
-<!-- 컬렉션을 ArrayList의 생성자에 넘기는 방식으로 만든다.-->
-<!-- new ArrayList(Collection c) -> ArrayList생성자에 콜렉션을 넣어서 초기화할수있다. -->
-<!-- list.add() add메서드는 set메서드가 아니라서 <property>는 이용할수 없겠다. -->
-<bean id="exams" class="java.util.ArrayList">
-	<constructor-arg>
-		<list> <!-- 자체로 객체를 만드는 역할은 하지 못한다. -->
-			<bean class="spring.di.entity.NewlecExam" p:kor="11" p:eng="22" p:math="33" p:com="44"/> <!-- 실제로 만들어지는게 아니고 대입만 되는 용도라서 이름을 굳이 넣어줄필요가 없다. -->
-			<ref bean="exam"/> <!-- 이미 만들어진 객체를 참조하며 넣는거다  -->
-		</list>
-	</constructor-arg>
-</bean>
- 
- 
- 
+	<!-- 컬렉션을 ArrayList의 생성자에 넘기는 방식으로 만든다. -->
+	<!-- new ArrayList(Collection c) -> ArrayList생성자에 콜렉션을 넣어서 초기화할수있다. -->
+	<!-- list.add() add메서드는 set메서드가 아니라서 <property>는 이용할수 없겠다. -->
+	<bean id="exams" class="java.util.ArrayList">
+		<constructor-arg>
+			<list> <!-- 자체로 객체를 만드는 역할은 하지 못한다. -->
+				<bean class="spring.di.entity.NewlecExam" p:kor="11" p:eng="22"
+					p:math="33" p:com="44" /> <!-- 실제로 만들어지는게 아니고 대입만 되는 용도라서 이름을 굳이 넣어줄필요가 없다. -->
+				<ref bean="exam" /> <!-- 이미 만들어진 객체를 참조하며 넣는거다 -->
+			</list>
+		</constructor-arg>
+	</bean>
+
+
+
 </beans>
 
 
