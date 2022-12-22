@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import spring.di.entity.Exam;
@@ -33,8 +34,9 @@ public class Program {
 		
 		////// 스프링에게 지시하는 방법으로 코드를 변경
 		
-		ApplicationContext context = new ClassPathXmlApplicationContext("spring/di/setting.xml");
+//		ApplicationContext context = new ClassPathXmlApplicationContext("spring/di/setting.xml");
 		// 스프링라이브러리를 받기위해서 Maven프로젝트로 변경해준다.(프로젝트 우클릭-configure-Convert to Maven Project)
+		ApplicationContext context = new AnnotationConfigApplicationContext(NewlecDIConfig.class);
 		
 //		ExamConsole console = (ExamConsole) context.getBean("console");
 		// 부품을 생성하고 조립해서 나에게 던져주는게 스프링이다.

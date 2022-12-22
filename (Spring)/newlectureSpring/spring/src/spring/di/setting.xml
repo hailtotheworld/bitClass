@@ -14,7 +14,11 @@
 	<!-- xmlns는 xml name space를 의미한다 xmlns:p="http://www.springframework.org/schema/p" 
 		xmlns:p약어="풀네임" -->
 
-	<context:annotation-config />
+	<context:component-scan base-package="spring.di.ui, spring.di.entity" />
+	
+	<!-- <context:annotation-config /> -->
+	
+	
 	<!-- ////////////////////////////////////////////////////////////////////////// -->
 	<!-- 스프링은 bean이라는 태그를 이용해서 생성할 객체를 지시해달라고 말한다. -->
 	<!-- Exam exam = new NewlecExam(); -->
@@ -47,7 +51,7 @@
 
 	<!-- ////////////////////////////////////////////////////////////////////////// -->
 	<!-- ExamConsole console = new GridExamConsole(); -->
-	<bean id="console" class="spring.di.ui.InlineExamConsole">
+	<!-- <bean id="console" class="spring.di.ui.InlineExamConsole"> -->
 		<!-- ExamConsole console = new InlineExamConsole(); -->
 		<!--<bean id="console" class="spring.di.ui.InlineExamConsole" > -->
 
@@ -57,7 +61,7 @@
 			즉, 'setExam'함수를 호출하기위해서 'exam'이라고 써주면된다. -->
 		<!-- value="" ↔ ref="exam" 둘이 배타적으로 쓰인다. 하나를 이용하면 다른 하나는 빈값이라도 쓰면 안된다. 
 			console.setExam(exam)에서 exam에 들어가는걸 쓰는거다. -->
-	</bean>
+	<!-- </bean> -->
 
 
 
