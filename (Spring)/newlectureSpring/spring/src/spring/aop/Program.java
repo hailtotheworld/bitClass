@@ -4,17 +4,30 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 import spring.aop.entity.Exam;
 import spring.aop.entity.NewlecExam;
 
 public class Program {
 
 	public static void main(String[] args) {
+		
+		ApplicationContext context = new ClassPathXmlApplicationContext("spring/aop/setting.xml");
+//		ApplicationContext context = new AnnotationConfigApplicationContext(NewlecDIConfig.class);
 
-		Exam exam = new NewlecExam(1, 2, 3, 4);
+		Exam proxy = (Exam) context.getBean("proxyFactoryBean");
+		
+		System.out.printf("total is %d\n", proxy.total());
+		System.out.printf("total is %f\n", proxy.avg());
+		
+		/*
+		Exam exam = new NewlecExam(10, 20, 30, 40);
 
 		// proxy는 원본과 기능이 똑같다. 사용자에게는 원본을 사용하는것과 차이가 없다.
 
+		
 //		Exam proxy = Proxy.newProxyInstance(loader, interfaces, h)
 		// loader 실제업무를 호출하는거다. 실질적인 객체를 load하는거야.
 		// interfaces 인터페이스 여러개 implements할수있으니까 배열로 제공. 원본이 여러개 인터페이스구현했다면 여러개인터페이스
@@ -45,9 +58,9 @@ public class Program {
 				return result;
 			}
 		});
+		*/
 
-		System.out.printf("total is %d\n", proxy.total());
-		System.out.printf("total is %f\n", proxy.avg());
+
 
 	}
 
