@@ -40,8 +40,8 @@ public class Program {
 		// 부품을 생성하고 조립해서 나에게 던져주는게 스프링이다.
 		// 이름을 가지고 꺼내면 이름에 해당하는 객체가 어떤건지 알수없기 때문에 형변환을 해줘야한다.
 		
-		Exam exam = context.getBean(Exam.class);
-		System.out.println(exam.toString());
+//		Exam exam = context.getBean(Exam.class);
+//		System.out.println(exam.toString());
 
 		ExamConsole console = context.getBean(ExamConsole.class);
 		// 자료형명으로도 꺼낼수 있다.
@@ -52,17 +52,17 @@ public class Program {
 		
 		///////////////////
         // List<Exam> exams = new ArrayList<>();
-		List<Exam> exams = (List<Exam>) context.getBean("exams");
+//		List<Exam> exams = (List<Exam>) context.getBean("exams");
 //		List<Exam> exams = (List<Exam>) context.getBean(ArrayList.class);
 		
-		List<Exam> madeExams = (List<Exam>) context.getBean("madeExams");
+//		List<Exam> madeExams = (List<Exam>) context.getBean("madeExams");
 
 		
 		// exams.add(new NewlecExam(1,1,1,1));
 		
-		for(Exam e: madeExams) {
-			System.out.println(e);
-		}
+//		for(Exam e: madeExams) {
+//			System.out.println(e);
+//		}
 		
 	}
 
