@@ -4,25 +4,32 @@
 	<artifactId>webprjClone</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
-	<properties>
+	
+	<properties> <!-- 자바버전설정 -->
 		<maven.compiler.source>1.11</maven.compiler.source>
 		<maven.compiler.target>1.11</maven.compiler.target>
 	</properties>
+	
 	<build>
 		<plugins>
-			<plugin>
+			<plugin> <!-- pom.xml첫줄오류 could not initialize class org.apache.maven.plugin.war.util.webappstructureserializer -->
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-war-plugin</artifactId>
 				<version>3.3.1</version>
 			</plugin>
 		</plugins>
 	</build>
+	
 	<dependencies>
-		<!-- https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-api -->
-		<dependency>
+		<dependency> <!-- JSP파일 읽기위해 -->
 			<groupId>org.apache.tomcat</groupId>
 			<artifactId>tomcat-api</artifactId>
 			<version>9.0.69</version>
+		</dependency>
+		<dependency> <!-- Spring Web MVC검색, Spring Web MVC / org.springframework » spring-webmvc -->
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>5.3.18</version>
 		</dependency>
 	</dependencies>
 </project>
