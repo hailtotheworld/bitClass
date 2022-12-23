@@ -17,7 +17,7 @@ public class Program {
 		ApplicationContext context = new ClassPathXmlApplicationContext("spring/aop/setting.xml");
 //		ApplicationContext context = new AnnotationConfigApplicationContext(NewlecDIConfig.class);
 
-		Exam proxy = (Exam) context.getBean("proxyFactoryBean");
+		Exam proxy = (Exam) context.getBean("proxy");
 		
 		System.out.printf("total is %d\n", proxy.total());
 		System.out.printf("total is %f\n", proxy.avg());
