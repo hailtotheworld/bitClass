@@ -9,14 +9,14 @@
 	<servlet>
 		<servlet-name>dispatcher</servlet-name> <!-- 이름은 내 맘대로 지어도 된다 -->
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class> <!-- .class는 지워줘야한다 -->
-		<!-- 여기서 설정한 클래스가 아래의 url을 받는다는의미이다. -->
+		<!-- 여기서 설정한 클래스가 아래의 url패턴을 받는다는의미이다. -->
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>dispatcher</servlet-name>
-		<url-pattern>/*</url-pattern> <!-- 위에서 설정한 클래스가 여기의 url을 받는다는 의미이다. -->
-		<!-- <url-pattern>/</url-pattern> 정적인파일을 다 막고있는거다. jsp는 허락해주는거다 -->
-		<!-- <url-pattern>/*</url-pattern> 정적인파일뿐만아니라 jsp파일까지 다 막고있는거다. 이렇게 설정하면 
-			프론트컨트롤러가 매핑해주지 않은 url은 오류나며 출력되지 않는다. -->
+		<url-pattern>/</url-pattern> <!-- 위에서 설정한 클래스가 여기의 url을 받는다는 의미이다. -->
+		<!-- <url-pattern>/*</url-pattern> 바로 get요청을 한것이든, 포워딩이든 모두 걸리게 된다. -->
+		<!-- <url-pattern>/</url-pattern> DispatcherServlet을 거치긴한다. DispatcherServlet가 
+			갖고있는 id들(url)을 찾아보다가 알맞는 id(url)이 없으면 직접 리소스를 요청하게 해준다.!! -->
 	</servlet-mapping>
 
 	<display-name>Welcome to Tomcat</display-name>
