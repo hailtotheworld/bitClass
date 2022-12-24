@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>인덱스입니다</title>
+<title>Insert title here</title>
 </head>
 <body>
-	<h1>인덱스 내용입니다 ${data}</h1>
+test
 </body>
 </html>
