@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>인덱스입니다</title>
 </head>
 <body>
-	Hello JSP
+	<h1>인덱스 내용입니다</h1>
 </body>
 </html>
