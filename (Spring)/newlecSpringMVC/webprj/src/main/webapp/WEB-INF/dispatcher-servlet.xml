@@ -10,9 +10,15 @@
 
 	<!-- 사용자가요청한 url에 맞게 컨트롤러를 배분해준다. -->
     <bean id="/index" class="com.newlecture.web.controller.IndexController" />  <!-- id="/index" 에서 /(루트) 반드시써줘야한다. -->
-	<bean id="/notice/list" class="com.newlecture.web.controller.notice.ListController" />  
+	<bean id="/notice/list" class="com.newlecture.web.controller.notice.ListController" >
+		<property name="noticeService" ref="noticeService" />
+	</bean>  
 	<bean id="/notice/detail" class="com.newlecture.web.controller.notice.DetailController" />  
 
+	<!-- DI시켜줄 객체 -->
+	<bean id="noticeService" class="com.newlecture.web.service.NoticeService"/>
+
+	
 
 	<!-- tiles설정한곳으로 데려간다. -->
     <bean class="org.springframework.web.servlet.view.UrlBasedViewResolver">
@@ -33,4 +39,5 @@
 	<!-- 사용자가 요청한 정적인파일의 경로를 알려준다.  -->
 	<mvc:resources location="/static/" mapping="/**"></mvc:resources>
 	
+
 </beans>
