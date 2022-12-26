@@ -166,7 +166,12 @@ INSERT INTO notice (title, writer_id, content,pub) VALUES ();
 
 UPDATE notice SET pub = 1 WHERE id IN();
 
+select * from notice;
 
+select * from
+(select rownum NUM, N.*
+from (select * from notice_view where title like '%제목%' order by regdate desc) N)
+where num between 2 and 10;
 
 
 
