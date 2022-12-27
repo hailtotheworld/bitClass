@@ -2,17 +2,22 @@
 
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.springframework.org/schema/beans
         https://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/mvc
-        https://www.springframework.org/schema/mvc/spring-mvc.xsd">
-
+        https://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/context
+        https://www.springframework.org/schema/context/spring-context.xsd">
+        
+       
+   	<context:annotation-config />
 
 	<!-- 사용자가요청한 url에 맞게 컨트롤러를 배분해준다. -->
     <bean id="/index" class="com.newlecture.web.controller.IndexController" />  <!-- id="/index" 에서 /(루트) 반드시써줘야한다. -->
 	<bean id="/notice/list" class="com.newlecture.web.controller.notice.ListController" >
-		<property name="noticeService" ref="noticeService" /> <!-- name은 set이니 인터페이스를 set해주고, 실제ref는 인터페이스구현객체를 꽂아넣어준다 -->
+		 <!-- <property name="noticeService" ref="noticeService" /> -->  <!-- name은 set이니 인터페이스를 set해주고, 실제ref는 인터페이스구현객체를 꽂아넣어준다 -->
 	</bean>  
 	<bean id="/notice/detail" class="com.newlecture.web.controller.notice.DetailController" />  
 
