@@ -11,11 +11,18 @@
         http://www.springframework.org/schema/context
         https://www.springframework.org/schema/context/spring-context.xsd">
         
-       
-   	<context:annotation-config />
+    <!-- 스캔범위를 너무 넓게 잡으면 성능상의 문제가 있다. -->
+    <!-- 클래스의 어노테이션을 찾아서실행하는 설정 @Controller,@Component,@Service,@Repository / @Autowired -->
+    <context:component-scan base-package="com.newlecture.web.controller" />
+    
+    <!-- 클래스내부의 어노테이션을 찾아보는 설정 @Autowired -->
+   	<!-- <context:annotation-config /> -->
+   	
+   	<!-- 사용자요청을 수반하는 어노테이션이 작동하게 하는 설정 @RequestMapping("/index") -->
+   	<mvc:annotation-driven />
 
 	<!-- 사용자가요청한 url에 맞게 컨트롤러를 배분해준다. -->
-    <bean id="/index" class="com.newlecture.web.controller.IndexController" />  <!-- id="/index" 에서 /(루트) 반드시써줘야한다. -->
+    <!-- <bean id="/index" class="com.newlecture.web.controller.IndexController" /> -->  <!-- id="/index" 에서 /(루트) 반드시써줘야한다. -->
 	<bean id="/notice/list" class="com.newlecture.web.controller.notice.ListController" >
 		 <!-- <property name="noticeService" ref="noticeService" /> -->  <!-- name은 set이니 인터페이스를 set해주고, 실제ref는 인터페이스구현객체를 꽂아넣어준다 -->
 	</bean>  
