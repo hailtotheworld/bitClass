@@ -6,15 +6,38 @@
                       http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
 	version="4.0" metadata-complete="false"> <!-- metadata-complete="false"여야지만 어노테이션을 읽는다 -->
 
+	<listener> <!-- 톰캣이 시작될때, 톰캣이 끝날때, 세션이 시작될때 뭔가 행위할수있는 이벤트를 처리할수있는거다. -->
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+			/WEB-INF/spring/service-context.xml
+			/WEB-INF/spring/security-context.xml
+		</param-value>
+	</context-param>
+
 	<servlet>
 		<servlet-name>dispatcher</servlet-name> <!-- 이름은 내 맘대로 지어도 된다 -->
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class> <!-- .class는 지워줘야한다 -->
 		<!-- 여기서 설정한 클래스가 아래의 url패턴을 받는다는의미이다. -->
+		<!-- 이 DispatcherServlet가 listener를 갖다쓸수있다. -->
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>/WEB-INF/spring/servlet-context.xml</param-value> <!-- <init-param> 이방식으로는 파일을 하나만 지정할수있다. -->
+		</init-param>
+		<load-on-startup>1</load-on-startup><!-- 설정부분이니까 우선 로드되는게 좋겠지.
+여기서 startup은 톰캣을 의미하는거고 톰캣이 시작될때 이 서블릿을 로드하고 싶다고할때 설정하는거다.
+그렇게 톰캣이 로드될때 같이 로드하고 싶은 서블릿이 여러개있으면 우선순위를 둘수있다. -->
+<async-supported>true</async-supported>
+<!-- 이 서블릿이 로드되는게 다른것들과 연관해서 동기적으로 하나씩하나씩 줄서서 로드하는 과정을 겪지않고,
+비동기적으로 로드되는걸 원할때 적어주면된다. (async: asynchronous 비동기) -->
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>dispatcher</servlet-name>
 		<url-pattern>/</url-pattern> <!-- 위에서 설정한 클래스가 여기의 url을 받는다는 의미이다. -->
-		<!-- <url-pattern>/*</url-pattern> 바로 get요청을 한것이든, 포워딩이든 모두 걸리게 된다. 포워딩할때는 걸리면 안되는데.. -->
+		<!-- <url-pattern>/*</url-pattern> 바로 get요청을 한것이든, 포워딩이든 모두 걸리게 된다. 포워딩할때는 
+			걸리면 안되는데.. -->
 		<!-- <url-pattern>/</url-pattern> DispatcherServlet을 거치긴한다. DispatcherServlet가 
 			갖고있는 id들(url)을 찾아보다가 알맞는 id(url)이 없으면 직접 리소스를 요청하게 해준다.!! 아주좋네. -->
 		<!-- 정적인파일은막음. jsp은허락. -->

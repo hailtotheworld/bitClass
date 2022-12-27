@@ -50,5 +50,12 @@
 			<artifactId>ojdbc8</artifactId>
 			<version>21.8.0.0</version>
 		</dependency>
+		<dependency>
+			<!-- Spring JDBC / org.springframework » spring-jdbc -->
+			<!-- Spring Web MVC과버전이 같아야한다! -->
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>5.3.18</version>
+		</dependency>
 	</dependencies>
 </project>

@@ -11,13 +11,22 @@
 	<!-- 사용자가요청한 url에 맞게 컨트롤러를 배분해준다. -->
     <bean id="/index" class="com.newlecture.web.controller.IndexController" />  <!-- id="/index" 에서 /(루트) 반드시써줘야한다. -->
 	<bean id="/notice/list" class="com.newlecture.web.controller.notice.ListController" >
-		<property name="noticeService" ref="noticeService" />
+		<property name="noticeService" ref="noticeService" /> <!-- name은 set이니 인터페이스를 set해주고, 실제ref는 인터페이스구현객체를 꽂아넣어준다 -->
 	</bean>  
 	<bean id="/notice/detail" class="com.newlecture.web.controller.notice.DetailController" />  
 
-	<!-- DI시켜줄 객체 -->
-	<bean id="noticeService" class="com.newlecture.web.service.NoticeService"/>
 
+	<!-- DI시켜줄 객체 -->
+	<bean id="noticeService" class="com.newlecture.web.service.jdbc.JDBCNoticeService">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
+		<property name="url" value="jdbc:oracle:thin:@localhost:1521/xepdb1"/>
+		<property name="username" value="SCOTT"/>
+		<property name="password" value="tiger"/>
+	</bean>
 	
 
 	<!-- tiles설정한곳으로 데려간다. -->
