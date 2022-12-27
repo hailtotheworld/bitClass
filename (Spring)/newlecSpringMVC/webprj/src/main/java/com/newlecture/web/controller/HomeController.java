@@ -31,9 +31,10 @@ public class IndexController implements Controller{
 
 
 @Controller
+@RequestMapping("/")
 public class HomeController {
 
-	@RequestMapping("/index")
+	@RequestMapping("index")
 	public String index() {
 		return "root.index";
 	}
