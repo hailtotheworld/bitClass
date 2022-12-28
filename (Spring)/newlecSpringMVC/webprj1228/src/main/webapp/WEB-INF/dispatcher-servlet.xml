@@ -15,4 +15,10 @@
 	 
 <bean id="/index" class="com.newlecture.web.controller.IndexController"></bean>
 
+<!-- 컨트롤러에서 포워딩할때(=InternalResource) 뷰 경로를 줄여준다. -->
+<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+  <property name="prefix" value="/WEB-INF/view/" />
+  <property name="suffix" value=".jsp" />
+</bean>
+
 </beans>
