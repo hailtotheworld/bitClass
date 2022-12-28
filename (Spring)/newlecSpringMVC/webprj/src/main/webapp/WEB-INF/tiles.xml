@@ -4,6 +4,7 @@
        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 <tiles-definitions>
 
+<!-- <definition>의 name속성은 컨트롤러가 반환하게될 이름이다. -->
   <definition name="root.*" template="/WEB-INF/view/inc/layout.jsp">
     <put-attribute name="header" value="/WEB-INF/view/inc/header.jsp" />
     <put-attribute name="body" value="/WEB-INF/view/{1}.jsp" />
@@ -11,8 +12,8 @@
   </definition>
   
   <definition name="notice.*" template="/WEB-INF/view/customer/inc/layout.jsp"> <!-- definition에서 name="패턴을 내가 만들어 . - 가능" -->
-    <put-attribute name="title" value="공지사항" /> <!-- 문자열을 담아서 쓸수도 있네..! -->
-    <put-attribute name="header" value="/WEB-INF/view/inc/header.jsp" />
+    <put-attribute name="title" value="공지사항" /> <!-- <tiles:getAsString name="title"/> -->
+    <put-attribute name="header" value="/WEB-INF/view/inc/header.jsp" /> <!-- <tiles:insertAttribute name="header"/> -->
     <put-attribute name="visual" value="/WEB-INF/view/customer/inc/visual.jsp" />
     <put-attribute name="aside" value="/WEB-INF/view/customer/inc/aside.jsp" />
     <put-attribute name="body" value="/WEB-INF/view/customer/notice/{1}.jsp" />
