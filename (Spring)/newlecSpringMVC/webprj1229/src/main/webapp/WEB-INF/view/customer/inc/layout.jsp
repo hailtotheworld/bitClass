@@ -5,8 +5,9 @@
 <html>
 
 <head>
+<title>코딩 전문가를 만들기 위한 온라인 강의 시스템</title>
 <meta charset="UTF-8">
-<title><tiles:getAsString name="title" /></title>
+<title>공지사항목록</title>
 
 <link href="/css/customer/layout.css" type="text/css" rel="stylesheet" />
 <style>
@@ -26,6 +27,7 @@
 
 	<!-- --------------------------- <visual> --------------------------------------- -->
 	<!-- visual 부분 -->
+
 	<tiles:insertAttribute name="visual" />
 
 	<!-- --------------------------- <body> --------------------------------------- -->
@@ -34,18 +36,23 @@
 
 			<!-- --------------------------- aside --------------------------------------- -->
 			<!-- aside 부분 -->
+
 			<tiles:insertAttribute name="aside" />
 
 
 			<!-- --------------------------- main --------------------------------------- -->
+
 			<tiles:insertAttribute name="body" />
+
+
+
 
 		</div>
 	</div>
 
 	<!-- ------------------- <footer> --------------------------------------- -->
-	<tiles:insertAttribute name="footer" />
 
+	<tiles:insertAttribute name="footer" />
 
 
 </body>
