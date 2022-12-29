@@ -1,10 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
- <!-- content 부분 -->
-
-
-
-    <div id="visual" class="">
+ <div id="visual" class="">
         <div class="content-container">
             <h2 class="hidden">신규 강좌목록</h2>
             <!-- <ul class="mov-button">

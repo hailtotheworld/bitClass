@@ -17,6 +17,7 @@
 <bean id="/notice/list" class="com.newlecture.web.controller.notice.ListController"></bean>
 <bean id="/notice/detail" class="com.newlecture.web.controller.notice.DetailController"></bean>
 
+<!-- tiles설정한곳으로 데려간다. -->
 <bean class="org.springframework.web.servlet.view.UrlBasedViewResolver">
   <property name="viewClass" value="org.springframework.web.servlet.view.tiles3.TilesView" />
   <property name="order" value="1" /> <!-- 우선순위를 높게둔다 -->
@@ -24,6 +25,7 @@
 <bean class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
   <property name="definitions" value="/WEB-INF/tiles.xml" />
 </bean>
+
 
 <!-- 컨트롤러에서 포워딩할때(=InternalResource) 뷰 경로를 줄여준다. -->
 <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">

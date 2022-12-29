@@ -1,8 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<footer id="footer">
+
+
+    <footer id="footer">
         <div class="content-container">
-            <h2 id="footer-logo"><img src="images/logo-footer.png" alt="회사정보"></h2>
+            <h2 id="footer-logo"><img src="/images/logo-footer.png" alt="회사정보"></h2>
 
             <div id="company-info">
                 <dl>

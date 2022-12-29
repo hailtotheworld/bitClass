@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-			<aside class="aside">
+<aside class="aside">
 				<h1>고객센터</h1>
 
 				<nav class="menu text-menu first margin-top">

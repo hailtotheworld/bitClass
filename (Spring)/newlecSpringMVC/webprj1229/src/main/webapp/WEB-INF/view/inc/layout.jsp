@@ -19,20 +19,26 @@
 <body>
     <!-- header 부분 -->
 
-    <tiles:insertAttribute name="header"/>
+
+	<tiles:insertAttribute name="header"/>	
 
     <!-- --------------------------- <body> --------------------------------------- -->
 
+    <!-- content 부분 -->
+
+	<tiles:insertAttribute name="body"/>	
+
+
    
-	<tiles:insertAttribute name="body"/>
+
 
 
 
     <!-- ------------------- <footer> --------------------------------------- -->
-
-	<tiles:insertAttribute name="footer"/>
-
+    	<tiles:insertAttribute name="footer"/>	
     
+
+
 </body>
 
 </html>
