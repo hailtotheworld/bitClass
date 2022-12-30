@@ -174,6 +174,36 @@ from (select * from notice_view where title like '%제목%' order by regdate des
 where num between 2 and 10;
 
 
+select * from notice_view;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+select rownum, N.*
+from (select * from notice order by regdate desc) N;
 
 
 
