@@ -201,9 +201,9 @@ select * from notice_view;
 
 
 
-
-select rownum, N.*
-from (select * from notice order by regdate desc) N;
+select *
+from (select rownum NUM, N.* from (select * from notice where title like '%%' order by regdate desc) N)
+where num between 2 and 10;
 
 
 
