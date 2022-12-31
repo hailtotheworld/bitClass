@@ -54,7 +54,7 @@ public class HomeController {
 	@RequestMapping("index")
 	@ResponseBody //@ResponseBody가 있어야지 view로 가지 않고, 문자열자체가 사용자에게 가길 원한다고 알려주는거다.
 	public String index()  {
-		return "Hello Index";
+		return "Hello Index1";
 	}
 	
 }
