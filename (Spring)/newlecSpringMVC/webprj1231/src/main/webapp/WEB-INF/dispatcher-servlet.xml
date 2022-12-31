@@ -19,10 +19,16 @@
 </bean>
 <bean id="/notice/detail" class="com.newlecture.web.controller.notice.DetailController"></bean>
 
-<bean id="noticeService" class="com.newlecture.web.service.jdbc.JDBCNoticeService"></bean>
+<bean id="noticeService" class="com.newlecture.web.service.jdbc.JDBCNoticeService">
+	<property name="dataSource" ref="dataSource" />
+</bean>
 
-
-
+<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+  <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
+  <property name="url" value="jdbc:oracle:thin:@localhost:1521/xepdb1"/>
+  <property name="username" value="SCOTT"/>
+  <property name="password" value="tiger"/>
+</bean>
 
 <bean class="org.springframework.web.servlet.view.UrlBasedViewResolver">
   <property name="viewClass" value="org.springframework.web.servlet.view.tiles3.TilesView" />

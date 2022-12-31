@@ -31,6 +31,12 @@
 			<artifactId>spring-webmvc</artifactId> <!-- Spring Web MVC다운받으면, Spring Web,context은 알아서 땡겨온다 -->
 			<version>5.3.18</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>5.3.18</version>
+		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.apache.tiles/tiles-jsp -->
 		<dependency>
 			<groupId>org.apache.tiles</groupId>

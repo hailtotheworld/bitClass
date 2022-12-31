@@ -1,4 +1,4 @@
-package com.newlecture.web.service;
+package com.newlecture.web.service.jdbc;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -10,14 +10,24 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import com.newlecture.web.entity.Notice;
+import javax.sql.DataSource;
 
-public class NoticeService {
-	private String url = "jdbc:oracle:thin:@localhost:1521/xepdb1";
-	private String uid = "NEWLEC";
-	private String pwd = "11111";
-	private String driver = "oracle.jdbc.driver.OracleDriver";
+import com.newlecture.web.entity.Notice;
+import com.newlecture.web.service.NoticeService;
+
+public class JDBCNoticeService implements NoticeService {
 	
+//	private String url = "jdbc:oracle:thin:@localhost:1521/xepdb1";
+//	private String uid = "SCOTT";
+//	private String pwd = "tiger";
+//	private String driver = "oracle.jdbc.driver.OracleDriver";
+	
+	DataSource dataSource;
+		
+	public void setDataSource(DataSource dataSource) {
+		this.dataSource = dataSource;
+	}
+
 	public List<Notice> getList(int page, String field, String query) throws ClassNotFoundException, SQLException{
 		
 		int start = 1 + (page-1)*10;     // 1, 11, 21, 31, ..
@@ -25,9 +35,14 @@ public class NoticeService {
 		
 		String sql = "SELECT * FROM NOTICE_VIEW WHERE "+field+" LIKE ? AND NUM BETWEEN ? AND ?";	
 		
-		Class.forName(driver);
-		Connection con = DriverManager.getConnection(url,uid, pwd);
-		PreparedStatement st = con.prepareStatement(sql);
+		String sql2 = "select * "
+				+ "from (select rownum NUM, N.* from (select * from notice where " +field +" like ? order by regdate desc) N) "
+				+ "where num between ? and ?";
+		
+		Connection con = dataSource.getConnection();
+//		Class.forName(driver);
+//		Connection con = DriverManager.getConnection(url,uid, pwd);
+		PreparedStatement st = con.prepareStatement(sql2);
 		st.setString(1, "%"+query+"%");
 		st.setInt(2, start);
 		st.setInt(3, end);
@@ -72,8 +87,9 @@ public class NoticeService {
 		
 		String sql = "SELECT COUNT(ID) COUNT FROM NOTICE";	
 		
-		Class.forName(driver);
-		Connection con = DriverManager.getConnection(url,uid, pwd);
+		Connection con = dataSource.getConnection();
+//		Class.forName(driver);
+//		Connection con = DriverManager.getConnection(url,uid, pwd);
 		Statement st = con.createStatement();
 		
 		ResultSet rs = st.executeQuery(sql);
@@ -102,8 +118,9 @@ public class NoticeService {
 				"    files" + 
 				") VALUES (?,?,?,?)";	
 		
-		Class.forName(driver);
-		Connection con = DriverManager.getConnection(url,uid, pwd);                   
+		Connection con = dataSource.getConnection();
+//		Class.forName(driver);
+//		Connection con = DriverManager.getConnection(url,uid, pwd);                
 		//Statement st = con.createStatement();
 		//st.ex....(sql)
 		PreparedStatement st = con.prepareStatement(sql);
@@ -135,8 +152,9 @@ public class NoticeService {
 				"    FILES=?" + 
 				"WHERE ID=?";
 		
-		Class.forName(driver);
-		Connection con = DriverManager.getConnection(url,uid, pwd);                   
+		Connection con = dataSource.getConnection();
+//		Class.forName(driver);
+//		Connection con = DriverManager.getConnection(url,uid, pwd);           
 		//Statement st = con.createStatement();
 		//st.ex....(sql)
 		PreparedStatement st = con.prepareStatement(sql);
@@ -158,8 +176,9 @@ public class NoticeService {
 		String url = "jdbc:oracle:thin:@localhost:1521/xepdb1";
 		String sql = "DELETE NOTICE WHERE ID=?";
 		
-		Class.forName(driver);
-		Connection con = DriverManager.getConnection(url,uid, pwd);                  
+		Connection con = dataSource.getConnection();
+//		Class.forName(driver);
+//		Connection con = DriverManager.getConnection(url,uid, pwd);              
 		//Statement st = con.createStatement();
 		//st.ex....(sql)
 		PreparedStatement st = con.prepareStatement(sql);		
