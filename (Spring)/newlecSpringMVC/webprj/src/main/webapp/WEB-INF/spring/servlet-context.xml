@@ -3,50 +3,69 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:mvc="http://www.springframework.org/schema/mvc"
 	xmlns:context="http://www.springframework.org/schema/context"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.springframework.org/schema/beans
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
         https://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/mvc
         https://www.springframework.org/schema/mvc/spring-mvc.xsd
         http://www.springframework.org/schema/context
         https://www.springframework.org/schema/context/spring-context.xsd">
-        
-    <!-- 스캔범위를 너무 넓게 잡으면 성능상의 문제가 있다. -->
-    <!-- 클래스의 어노테이션을 찾아서실행하는 설정 @Controller,@Component,@Service,@Repository / @Autowired -->
-    <context:component-scan base-package="com.newlecture.web.controller" />
-    
-    <!-- 클래스내부의 어노테이션을 찾아보는 설정 @Autowired -->
-   	<!-- <context:annotation-config /> -->
-   	
-   	<!-- 사용자요청을 수반하는 어노테이션이 작동하게 하는 설정 @RequestMapping("/index") -->
-   	<mvc:annotation-driven />
+
+	<!-- 스캔범위를 너무 넓게 잡으면 성능상의 문제가 있다. -->
+	<!-- 클래스의 어노테이션을 찾아서실행하는 설정 @Controller,@Component,@Service,@Repository 
+		/ @Autowired -->
+	<context:component-scan
+		base-package="com.newlecture.web.controller" />
+
+	<!-- 클래스내부의 어노테이션을 찾아보는 설정 @Autowired -->
+	<!-- <context:annotation-config /> -->
+
+	<!-- 사용자요청을 수반하는 어노테이션이 작동하게 하는 설정 @RequestMapping("/index") -->
+	<mvc:annotation-driven>
+		<mvc:message-converters> <!-- @ResponseBody로 String 처리할때 한글처리 -->
+			<bean class="org.springframework.http.converter.StringHttpMessageConverter">
+				<property name="supportedMediaTypes">
+					<list>
+						<value>text/html;charset=UTF-8</value>
+					</list>
+				</property>
+			</bean>
+		</mvc:message-converters>
+	</mvc:annotation-driven>
 
 	<!-- 사용자가요청한 url에 맞게 컨트롤러를 배분해준다. -->
-    <!-- <bean id="/index" class="com.newlecture.web.controller.IndexController" /> -->  <!-- id="/index" 에서 /(루트) 반드시써줘야한다. -->
-	<!-- <bean id="/notice/list" class="com.newlecture.web.controller.notice.ListController" > -->
-		 <!-- <property name="noticeService" ref="noticeService" />   --><!-- name은 set이니 인터페이스를 set해주고, 실제ref는 인터페이스구현객체를 꽂아넣어준다 -->
+	<!-- <bean id="/index" class="com.newlecture.web.controller.IndexController" 
+		/> -->  <!-- id="/index" 에서 /(루트) 반드시써줘야한다. -->
+	<!-- <bean id="/notice/list" class="com.newlecture.web.controller.notice.ListController" 
+		> -->
+	<!-- <property name="noticeService" ref="noticeService" /> --><!-- name은 set이니 인터페이스를 set해주고, 실제ref는 인터페이스구현객체를 꽂아넣어준다 -->
 	<!-- </bean> -->
-	<!-- <bean id="/notice/detail" class="com.newlecture.web.controller.notice.DetailController" /> -->
+	<!-- <bean id="/notice/detail" class="com.newlecture.web.controller.notice.DetailController" 
+		/> -->
 
 
 
 	<!-- tiles설정한곳으로 데려간다. -->
-    <bean class="org.springframework.web.servlet.view.UrlBasedViewResolver">
-		<property name="viewClass" value="org.springframework.web.servlet.view.tiles3.TilesView" />
+	<bean
+		class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+		<property name="viewClass"
+			value="org.springframework.web.servlet.view.tiles3.TilesView" />
 		<property name="order" value="1" /> <!-- 우선순위를 높게둔다 -->
 	</bean>
-	<bean class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+	<bean
+		class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
 		<property name="definitions" value="/WEB-INF/tiles.xml" />
 	</bean>
 
 	<!-- 컨트롤러에서 포워딩할때(=InternalResource) 뷰 경로를 줄여준다. -->
- 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/view/" />
 		<property name="suffix" value=".jsp" />
 		<property name="order" value="2" />
-	</bean> 
-	
-	<!-- 사용자가 요청한 정적인파일의 경로를 알려준다.  -->
+	</bean>
+
+	<!-- 사용자가 요청한 정적인파일의 경로를 알려준다. -->
 	<mvc:resources location="/static/" mapping="/**"></mvc:resources>
-	
+
 </beans>

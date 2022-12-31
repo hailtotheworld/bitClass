@@ -40,10 +40,10 @@ public class IndexController implements Controller{
 @RequestMapping("/")
 public class HomeController {
 
-//	@RequestMapping("index")
-//	public String index() {
-//		return "root.index";
-//	}
+	@RequestMapping("index")
+	public String index() {
+		return "root.index";
+	}
 	
 //	@RequestMapping("index")
 //	public void index(HttpServletResponse response) throws IOException {
@@ -51,10 +51,10 @@ public class HomeController {
 //		out.println("Hello Index");
 //	}
 	
-	@RequestMapping("index")
-	@ResponseBody //@ResponseBody가 있어야지 view로 가지 않고, 문자열자체가 사용자에게 가길 원한다고 알려주는거다.
-	public String index()  {
-		return "Hello Index1";
-	}
+//	@RequestMapping("index")
+//	@ResponseBody //@ResponseBody가 있어야지 view로 가지 않고, 문자열자체가 사용자에게 가길 원한다고 알려주는거다.
+//	public String index()  {
+//		return "Hello Index1";
+//	}
 	
 }
