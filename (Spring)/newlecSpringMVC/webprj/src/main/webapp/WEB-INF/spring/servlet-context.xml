@@ -22,7 +22,7 @@
 
 	<!-- 사용자요청을 수반하는 어노테이션이 작동하게 하는 설정 @RequestMapping("/index") -->
 	<mvc:annotation-driven>
-		<mvc:message-converters> <!-- @ResponseBody로 String 처리할때 한글처리 -->
+ 		<mvc:message-converters> <!-- @ResponseBody로 String 처리할때 한글처리 -->
 			<bean class="org.springframework.http.converter.StringHttpMessageConverter">
 				<property name="supportedMediaTypes">
 					<list>
@@ -30,7 +30,7 @@
 					</list>
 				</property>
 			</bean>
-		</mvc:message-converters>
+		</mvc:message-converters> 
 	</mvc:annotation-driven>
 
 	<!-- 사용자가요청한 url에 맞게 컨트롤러를 배분해준다. -->
