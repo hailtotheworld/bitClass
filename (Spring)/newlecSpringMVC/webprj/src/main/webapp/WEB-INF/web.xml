@@ -26,12 +26,12 @@
 			<param-name>contextConfigLocation</param-name>
 			<param-value>/WEB-INF/spring/servlet-context.xml</param-value> <!-- <init-param> 이방식으로는 파일을 하나만 지정할수있다. -->
 		</init-param>
-		<load-on-startup>1</load-on-startup><!-- 설정부분이니까 우선 로드되는게 좋겠지.
-여기서 startup은 톰캣을 의미하는거고 톰캣이 시작될때 이 서블릿을 로드하고 싶다고할때 설정하는거다.
-그렇게 톰캣이 로드될때 같이 로드하고 싶은 서블릿이 여러개있으면 우선순위를 둘수있다. -->
-<async-supported>true</async-supported>
-<!-- 이 서블릿이 로드되는게 다른것들과 연관해서 동기적으로 하나씩하나씩 줄서서 로드하는 과정을 겪지않고,
-비동기적으로 로드되는걸 원할때 적어주면된다. (async: asynchronous 비동기) -->
+		<load-on-startup>1</load-on-startup><!-- 설정부분이니까 우선 로드되는게 좋겠지. 여기서 startup은 
+			톰캣을 의미하는거고 톰캣이 시작될때 이 서블릿을 로드하고 싶다고할때 설정하는거다. 그렇게 톰캣이 로드될때 같이 로드하고 싶은 서블릿이 
+			여러개있으면 우선순위를 둘수있다. -->
+		<async-supported>true</async-supported>
+		<!-- 이 서블릿이 로드되는게 다른것들과 연관해서 동기적으로 하나씩하나씩 줄서서 로드하는 과정을 겪지않고, 비동기적으로 로드되는걸 
+			원할때 적어주면된다. (async: asynchronous 비동기) -->
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>dispatcher</servlet-name>
@@ -42,6 +42,26 @@
 			갖고있는 id들(url)을 찾아보다가 알맞는 id(url)이 없으면 직접 리소스를 요청하게 해준다.!! 아주좋네. -->
 		<!-- 정적인파일은막음. jsp은허락. -->
 	</servlet-mapping>
+
+
+	<filter>
+		<filter-name>charaterEncodingFilter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+		<init-param>
+			<param-name>forceEncoding</param-name>
+			<param-value>true</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>charaterEncodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+
 
 	<display-name>Welcome to Tomcat</display-name>
 	<description>

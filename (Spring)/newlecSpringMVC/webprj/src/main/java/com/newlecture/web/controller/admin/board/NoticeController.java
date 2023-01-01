@@ -19,8 +19,13 @@ public class NoticeController {
 
 	@RequestMapping("reg")
 	@ResponseBody
-	public String reg() {
-		return "reg입니다";
+	public String reg(String title, String content, String pets, String[] monsters,String drone) {
+		
+		for(String monster : monsters) {
+			System.out.println(monster);
+		}
+		
+		return String.format("title:%s <br> content:%s <br> pets:%s <br>drone:%s", title, content, pets,drone);
 	}
 	
 	@RequestMapping("edit")

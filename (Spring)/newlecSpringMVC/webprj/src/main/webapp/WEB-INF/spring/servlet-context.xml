@@ -14,8 +14,7 @@
 	<!-- 스캔범위를 너무 넓게 잡으면 성능상의 문제가 있다. -->
 	<!-- 클래스의 어노테이션을 찾아서실행하는 설정 @Controller,@Component,@Service,@Repository 
 		/ @Autowired -->
-	<context:component-scan
-		base-package="com.newlecture.web.controller" />
+	<context:component-scan base-package="com.newlecture.web.controller" />
 
 	<!-- 클래스내부의 어노테이션을 찾아보는 설정 @Autowired -->
 	<!-- <context:annotation-config /> -->
@@ -42,7 +41,6 @@
 	<!-- </bean> -->
 	<!-- <bean id="/notice/detail" class="com.newlecture.web.controller.notice.DetailController" 
 		/> -->
-
 
 
 	<!-- tiles설정한곳으로 데려간다. -->
