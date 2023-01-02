@@ -9,13 +9,14 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.newlecture.web.entity.Notice;
 import com.newlecture.web.service.NoticeService;
 
-@RestController
+@Controller
 @RequestMapping("/customer/notice/")
 public class NoticeController{
 	
@@ -33,9 +34,9 @@ public class NoticeController{
 //	}
 	
 	@RequestMapping("list")
-	public List<Notice>  list() throws ClassNotFoundException, SQLException {
-		List<Notice> list = noticeService.getList(1, "title", "");
-		return list;
+	public String list(@RequestParam(name = "p", defaultValue = "1") int page) {
+		System.out.println(page);
+		return "notice.list";
 	}
 	
 	@RequestMapping("detail")

@@ -146,7 +146,7 @@
                     </ul>
                 </div>
 
-                <form method="post" enctype="multipart/form-data">
+                <form action="reg" method="post" > <!-- enctype="multipart/form-data" -->
                     <div class="margin-top first">
                         <h3 class="hidden">공지사항 입력</h3>
                         <table class="table">
@@ -162,6 +162,41 @@
                                     <td colspan="3" class="text-align-left text-indent"><input type="file"
                                             name="file" /> </td>
                                 </tr>
+                                <tr>
+                                    <th>select</th>
+                                    <td class="text-align-left text-indent text-strong text-orange" colspan="3">
+										<select name="pets" id="pet-select">
+										    <option value="dog">Dog</option>
+										    <option value="cat">Cat</option>
+										    <option value="hamster">Hamster</option>
+										    <option value="parrot">Parrot</option>
+										    <option value="spider">Spider</option>
+										    <option value="goldfish">Goldfish</option>
+										</select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>checkbox</th>
+                                    <td class="text-align-left text-indent text-strong text-orange" colspan="3">
+									    <input type="checkbox" id="coding" name="interests" value="coding" />
+									    <label for="coding">Coding</label>
+									    <input type="checkbox" id="music" name="interests" value="music" />
+									    <label for="music">Music</label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>라디오</th>
+                                    <td class="text-align-left text-indent text-strong text-orange" colspan="3">
+                                              <input type="radio" id="contactChoice1" name="contact" value="email" />
+										      <label for="contactChoice1">Email</label>
+										
+										      <input type="radio" id="contactChoice2" name="contact" value="phone" />
+										      <label for="contactChoice2">Phone</label>
+										
+										      <input type="radio" id="contactChoice3" name="contact" value="mail" />
+										      <label for="contactChoice3">Mail</label>
+                                    </td>
+                                </tr>
                                 <tr class="content">
                                     <td colspan="4"><textarea class="content" name="content"></textarea></td>
                                 </tr>
@@ -176,6 +211,8 @@
                         <a class="btn-text btn-cancel" href="list.html">취소</a>
                     </div>
                 </form>
+                
+                
 
             </main>
         </div>
