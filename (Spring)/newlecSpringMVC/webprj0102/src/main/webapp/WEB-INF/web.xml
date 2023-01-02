@@ -7,14 +7,34 @@
 	version="4.0" metadata-complete="false"> <!-- metadata-complete="false"여야지만 어노테이션을 읽는다 -->
 
 
-	<servlet>
-		<servlet-name>dispatcher</servlet-name> <!-- 이름은 내 맘대로 지어도 된다 -->
-		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>dispatcher</servlet-name>
-		<url-pattern>/</url-pattern> 
-	</servlet-mapping>
+	
+
+<listener> 
+  <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+</listener>
+<context-param>
+  <param-name>contextConfigLocation</param-name>
+  <param-value>
+	/WEB-INF/spring/service-context.xml
+	/WEB-INF/spring/security-context.xml
+  </param-value>              
+</context-param>
+
+<servlet>
+  <servlet-name>dispatcher</servlet-name>
+  <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+  <init-param> 
+    <param-name>contextConfigLocation</param-name>
+    <param-value>/WEB-INF/spring/servlet-context.xml</param-value>
+  </init-param>
+  <load-on-startup>1</load-on-startup>
+  <async-supported>true</async-supported>
+</servlet>
+
+<servlet-mapping>
+  <servlet-name>dispatcher</servlet-name>
+  <url-pattern>/</url-pattern>
+</servlet-mapping>
 
 	<display-name>Welcome to Tomcat</display-name>
 	<description>

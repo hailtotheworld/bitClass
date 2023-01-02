@@ -12,9 +12,13 @@ import java.util.List;
 
 import javax.sql.DataSource;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.newlecture.web.entity.Notice;
 import com.newlecture.web.service.NoticeService;
 
+@Service
 public class JDBCNoticeService implements NoticeService {
 	
 //	private String url = "jdbc:oracle:thin:@localhost:1521/xepdb1";
@@ -22,11 +26,12 @@ public class JDBCNoticeService implements NoticeService {
 //	private String pwd = "tiger";
 //	private String driver = "oracle.jdbc.driver.OracleDriver";
 	
+	@Autowired
 	DataSource dataSource;
 		
-	public void setDataSource(DataSource dataSource) {
-		this.dataSource = dataSource;
-	}
+//	public void setDataSource(DataSource dataSource) {
+//		this.dataSource = dataSource;
+//	}
 
 	public List<Notice> getList(int page, String field, String query) throws ClassNotFoundException, SQLException{
 		
