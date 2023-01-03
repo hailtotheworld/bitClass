@@ -8,7 +8,7 @@ import com.newlecture.web.entity.NoticeView;
 
 public interface NoticeService {
 
-	List<NoticeView> getList(int page, String field, String query) throws ClassNotFoundException, SQLException;
+	List<Notice> getList(int page, String field, String query) throws ClassNotFoundException, SQLException;
 	
 	int getCount() throws ClassNotFoundException, SQLException;
 	

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.newlecture.web.entity.Notice;
 import com.newlecture.web.entity.NoticeView;
 import com.newlecture.web.service.NoticeService;
 
@@ -26,8 +27,8 @@ public class NoticeController {
 	private NoticeService service;
 	
 	@RequestMapping("list")
-	public List<NoticeView> list() throws ClassNotFoundException, SQLException {
-		List<NoticeView> list = service.getList(1, "TITLE", "");
+	public List<Notice> list() throws ClassNotFoundException, SQLException {
+		List<Notice> list = service.getList(1, "TITLE", "");
 		return list;
 	}
 

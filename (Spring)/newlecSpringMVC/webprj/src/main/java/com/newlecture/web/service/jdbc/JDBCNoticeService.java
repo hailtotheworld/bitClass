@@ -5,17 +5,16 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
 import com.newlecture.web.entity.Notice;
-import com.newlecture.web.entity.NoticeView;
 import com.newlecture.web.service.NoticeService;
 
 @Service // @Component @Controller @Service @Repository
@@ -33,13 +32,25 @@ public class JDBCNoticeService implements NoticeService{
 //		this.dataSource = dataSource;
 //	}
 	
-	public List<NoticeView> getList(int page, String field, String query) throws ClassNotFoundException, SQLException{
+	public List<Notice> getList(int page, String field, String query) throws ClassNotFoundException, SQLException{
 		
 		int start = 1 + (page-1)*10;     // 1, 11, 21, 31, ..
 		int end = 10*page; // 10, 20, 30, 40...
 		
-//		String sql = "SELECT * FROM NOTICE_VIEW WHERE "+field+" LIKE ? AND NUM BETWEEN ? AND ?";	
+		String sql = "SELECT * FROM NOTICE";
 		
+		JdbcTemplate template = new JdbcTemplate();
+		template.setDataSource(dataSource);
+		List<Notice> list = template.query(sql,new BeanPropertyRowMapper(Notice.class));
+		//                 ㄴ서버쪽에 있는 데이터베이스 컬럼과 그것을 데이터객체에 담을건데 매핑해주는 정보를 달라고한다.
+		// new BeanPropertyRowMapper(Notice.class) Bean이라는 Property를 자동으로 매핑해준다.
+		
+		// .query          목록을 반환.
+		// .queryForList   목록을 반환. 과거버전의 호환성을 위해서 사용하기도 하는데 가능하면 안씀.
+		// .queryForObject 단일객체를 반환할때 쓴다. row하나 혹은 특정값을 반환할때 쓴다.
+		
+//		String sql = "SELECT * FROM NOTICE_VIEW WHERE "+field+" LIKE ? AND NUM BETWEEN ? AND ?";	
+		/*
 		String sql = "select * from "
 				+ "(select rownum NUM, N.* "
 				+ "from (select * from notice_view where "+ field +" like ? order by regdate desc) N) "
@@ -85,6 +96,7 @@ public class JDBCNoticeService implements NoticeService{
 		rs.close();
 		st.close();
 		con.close();
+		*/
 		
 		return list;
 	}
