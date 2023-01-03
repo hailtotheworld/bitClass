@@ -4,10 +4,14 @@ import java.io.File;
 import java.io.IOException;
 
 import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
@@ -21,18 +25,26 @@ http://localhost:8080/admin/board/notice/reg
 public class NoticeController {
 	@Autowired
 	ServletContext ctx;
+	
+	@Autowired
+	HttpServletRequest request;
 
 	@RequestMapping("list")
 	public String list() {
 		return "admin.board.notice.list";
 	}
-
-	@RequestMapping("reg")
+	
+//	@GetMapping("reg")
+	@RequestMapping(value="reg", method=RequestMethod.GET)
+	public String reg() {
+		return "admin.board.notice.reg";
+	}
+	
+	@PostMapping("reg")
 //	@ResponseBody
 	public String reg(String title, String content, MultipartFile[] files, String pets, String[] monsters, String drone)
 			throws IllegalStateException, IOException {
 		// get요청에서는 form에서 전달된 인자들이 필요가 없다. post요청에서만 필요하지.
-		
 		
 		// MultipartFile[] files는 사용하고있으니까 null이 오면 안된다.
 		for(MultipartFile file : files) {
@@ -82,7 +94,7 @@ public class NoticeController {
 //		}
 
 //		return String.format("title:%s <br> content:%s <br> pets:%s <br>drone:%s", title, content, pets, drone);
-		return "admin.board.notice.reg";
+		return "admin.board.notice.list";
 	}
 
 	@RequestMapping("edit")
