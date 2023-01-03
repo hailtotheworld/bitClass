@@ -11,6 +11,17 @@
     <put-attribute name="footer" value="/WEB-INF/view/inc/footer.jsp" />
   </definition>
   
+  <definition name="admin.board.*.*" template="/WEB-INF/view/admin/inc/layout.jsp"> <!-- definition에서 name="패턴을 내가 만들어 . - 가능" -->
+    <put-attribute name="title" value="공지사항" /> <!-- <tiles:getAsString name="title"/> -->
+    <put-attribute name="header" value="/WEB-INF/view/inc/header.jsp" /> <!-- <tiles:insertAttribute name="header"/> -->
+    <put-attribute name="visual" value="/WEB-INF/view/admin/inc/visual.jsp" />
+    <put-attribute name="aside" value="/WEB-INF/view/admin/inc/aside.jsp" />
+    <put-attribute name="body" value="/WEB-INF/view/admin/board/{1}/{2}.jsp" />
+    <put-attribute name="footer" value="/WEB-INF/view/inc/footer.jsp" />
+  </definition>
+  
+  
+  
   <definition name="notice.*" template="/WEB-INF/view/customer/inc/layout.jsp"> <!-- definition에서 name="패턴을 내가 만들어 . - 가능" -->
     <put-attribute name="title" value="공지사항" /> <!-- <tiles:getAsString name="title"/> -->
     <put-attribute name="header" value="/WEB-INF/view/inc/header.jsp" /> <!-- <tiles:insertAttribute name="header"/> -->
