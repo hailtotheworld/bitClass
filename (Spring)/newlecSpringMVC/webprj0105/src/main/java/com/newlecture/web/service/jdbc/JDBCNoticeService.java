@@ -12,6 +12,8 @@ import java.util.List;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
 import com.newlecture.web.entity.Notice;
@@ -37,7 +39,12 @@ public class JDBCNoticeService implements NoticeService {
 		int start = 1 + (page-1)*10;     // 1, 11, 21, 31, ..
 		int end = 10*page; // 10, 20, 30, 40...
 		
-
+		String sql = "SELECT * FROM NOTICE";
+		JdbcTemplate template = new JdbcTemplate();
+		template.setDataSource(dataSource);
+		List<Notice> list = template.query(sql, new BeanPropertyRowMapper(Notice.class));
+		
+		/*
 		String sql = "SELECT * FROM NOTICE_VIEW WHERE "+field+" LIKE ? AND NUM BETWEEN ? AND ?";	
 		
 		String sql2 = "select * "
@@ -82,7 +89,7 @@ public class JDBCNoticeService implements NoticeService {
 		rs.close();
 		st.close();
 		con.close();
-		
+		*/
 		return list;
 	}
 	
