@@ -22,9 +22,9 @@ public class random {
 		Set<Integer> set = new HashSet<Integer>();
 
 		Scanner scan = new Scanner(System.in);
-		System.out.println("(작은숫자)이숫자보다큰숫자들을담아봐>");
+		System.out.println("(작은숫자)이숫자포함부터큰숫자들을담아봐>");
 		int from = scan.nextInt();
-		System.out.println("(큰숫자)이숫자보자작은숫자들을담아봐>");
+		System.out.println("(큰숫자)이숫자포함보다작은숫자들을담아봐>");
 		int to = scan.nextInt();
 
 		int diff = to - from + 1;
