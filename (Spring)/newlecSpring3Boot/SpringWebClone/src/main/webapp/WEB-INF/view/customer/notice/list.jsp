@@ -45,7 +45,7 @@
 							
 					<tr>
 						<td>8</td>
-						<td class="title indent text-align-left"><a href="detail.html">스프링 8강까지의 예제 코드</a></td>
+						<td class="title indent text-align-left"><a href="detail">스프링 8강까지의 예제 코드</a></td>
 						<td>newlec</td>
 						<td>
 							2019-08-18		

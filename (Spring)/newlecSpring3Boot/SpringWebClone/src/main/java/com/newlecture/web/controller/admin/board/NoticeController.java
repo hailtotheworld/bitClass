@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 /*
 
 http://localhost:8080/admin/board/notice/list
+http://localhost:8080/admin/board/notice/detail
+http://localhost:8080/admin/board/notice/reg
 
 */
 
@@ -17,17 +19,17 @@ public class NoticeController {
 	
 	@GetMapping("list")
 	public String list() {
-		return "admin/board/notice/list";
+		return "admin.board.notice.list";
 	}
 
 	@GetMapping("detail")
 	public String detail() {
-		return "admin/board/notice/detail";
+		return "admin.board.notice.detail";
 	}
 	
 	@GetMapping("reg")
 	public String reg() {
-		return "admin/board/notice/reg";
+		return "admin.board.notice.reg";
 	}
 
 
