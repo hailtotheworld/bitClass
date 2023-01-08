@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<!-- 인터페이스에서 정의한 함수들을 전부 구현하지 않아도 에러가 나지는 않는다 -->
+  
+<mapper namespace="com.newlecture.web.dao.NoticeDao">
+  <!-- <select id="함수이름" resultType="반환하는게목록인지단일값인지까지는안써줘도된다"> -->
+  <select id="getViewList" resultType="com.newlecture.web.entity.NoticeView">
+			select * from noticeview
+			where ${field} like '%${query}%'
+			order by regdate desc
+			limit #{offset},#{size}
+  </select>
+  
+  <select id="getCount">
+  			select count(id) count from notice
+			where ${field} like '%${query}%'
+  </select>
+  
+  <select id="getView" resultType="com.newlecture.web.entity.NoticeView">
+  			select * from noticeview
+			where id = #{id}
+  </select>
+  
+  <select id="getNext" resultType="com.newlecture.web.entity.Notice">
+	    select * from notice
+		where regdate &gt; (select regdate from notice where id=#{id})
+		limit 1
+  </select>
+  
+  <select id="getPrev" resultType="com.newlecture.web.entity.Notice">
+	    select * from notice
+		where regdate &lt; (select regdate from notice where id=#{id})
+		order by regdate desc
+		limit 1
+  </select>
+  
+  <update id="update" parameterType="com.newlecture.web.entity.Notice">
+  	update Notice
+  	set
+  		title = #{title}
+  		content = #{content},
+  		hit = #{hit},
+  		pub = #{pub}
+	where id = #{id}
+  </update>
+  
+  <insert id="insert" parameterType="com.newlecture.web.entity.Notice">
+  	insert into Notice(title, content, memberId)
+  	values(#{title},#{content},#{memberId})
+  </insert>
+  
+  <delete id="delete">
+  	delete from Notice
+  	where id = #{id}
+  </delete>
+  
+  <delete id="deleteAll">
+  	delete from Notice
+  	where id in
+  	<foreach item="id" collection="ids"
+        open="(" separator="," close=")" >
+          #{id}
+    </foreach>
+  </delete>
+
+  <update id="updatePubAll">
+<!--   update Notice
+  set
+  	pub = case id
+  			when 14 then 1
+  			when 15 then 1
+  			when 21 then 0
+  			when 22 then 0
+  		end
+  where id in (14,15,21,22) -->
+  </update>
+  
+
+  
+</mapper>
+
