@@ -16,7 +16,7 @@ public class NoticeServiceImp implements NoticeService {
 	private NoticeDao noticeDao;
 	
 	@Override
-	public List<NoticeView> getList() {
+	public List<NoticeView> getList(int page, String field, String query) {
 		
 		List<NoticeView> list = noticeDao.getList();
 		
