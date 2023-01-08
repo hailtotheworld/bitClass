@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.newlecture.web.entity.Notice;
+import com.newlecture.web.entity.NoticeView;
 import com.newlecture.web.service.NoticeService;
 
 /*
@@ -28,7 +29,7 @@ public class NoticeController {
 	@GetMapping("list")
 	public String list() {
 		
-		List<Notice> list = service.getList();
+		List<NoticeView> list = service.getList();
 		
 		return "admin.board.notice.list";
 	}
