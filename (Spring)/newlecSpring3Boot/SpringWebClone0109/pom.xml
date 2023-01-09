@@ -9,9 +9,9 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.newlecture</groupId>
-	<artifactId>SpringWebClone0107</artifactId>
+	<artifactId>SpringWebClone0109</artifactId>
 	<version>1.0</version>
-	<name>SpringWebClone0107</name>
+	<name>SpringWebClone0109</name>
 	<description>Newlecture Spring Boot Project</description>
 	<properties>
 		<java.version>1.8</java.version>
@@ -46,6 +46,17 @@
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.mybatis.spring.boot</groupId>
+			<artifactId>mybatis-spring-boot-starter</artifactId>
+			<version>2.1.4</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<scope>runtime</scope>
 		</dependency>
 	</dependencies>
 	<build>
