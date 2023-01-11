@@ -25,7 +25,7 @@ public class NoticeServiceImp implements NoticeService {
 		int size = 10;
 		int offset = 0 + (page-1)*size;
 		
-		List<NoticeView> list = noticeDao.getList(offset, size, field, query);
+		List<NoticeView> list = noticeDao.getViewList(offset, size, field, query);
 		return list;
 	}
 	
