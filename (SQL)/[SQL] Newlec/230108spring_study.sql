@@ -44,7 +44,7 @@ select * from notice;
   		  end
   where id in(6,7);
   
-  
+
 
   
 update notice
@@ -89,7 +89,15 @@ select * from notice;
 delete from notice;
 commit;
 
-
+  	update notice
+  	set pub =
+  		case
+			when id = 1 then 0
+			when id = 2 then 0
+			when id = 14 then 1
+			when id = 15 then 1
+  	    end
+  	where id in(1,2,14,15);
 
 
 
