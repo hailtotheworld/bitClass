@@ -73,15 +73,19 @@ class NoticeDaoTest {
 		int result = noticeDao.delete(7);
 		System.out.println(result);
 	}
-	*/
+	
 	
 	@Test
 	void updatePubAll() {
 		int[] arr = {};
 		int[] arr2 = {4,5,6};
 		noticeDao.updatePubAll(arr,arr2);
+	}*/
+	@Test
+	void deleteAll() {
+		int result = noticeDao.deleteAll();
+		System.out.println(result);
 	}
-
 	
 
 

@@ -43,4 +43,64 @@ select * from notice;
             when 7 then 1
   		  end
   where id in(6,7);
+  
+  
+
+  
+update notice
+  		set pub = 
+  		case
+  			when id = 14 then 0
+  			when id = 15 then 0
+  		end
+where id in(14,15);
+
+delete from notice
+where id;
+rollback;
+
+select * from notice;
+
+SELECT @@AUTOCOMMIT;
+SET AUTOCOMMIT = 0; 
+
+SHOW GLOBAL VARIABLES;
+
+select * from notice;
+commit;
+rollback;
+delete from notice;
+
+use sys;
+
+select * from notice;
+commit;
+
+delete from notice where id = 21;
+commit;
+
+show binary logs;
+
+select * from notice;
+commit;
+
+
+select * from notice;
+delete from notice;
+commit;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
