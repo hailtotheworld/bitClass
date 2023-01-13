@@ -98,17 +98,13 @@ commit;
 			when id = 15 then 1
   	    end
   	where id in(1,2,14,15);
+    
+select * from notice;
 
+commit;
+delete from notice where title like '%18%';
 
-
-
-
-
-
-
-
-
-
+use newlecture;
 
 
 
