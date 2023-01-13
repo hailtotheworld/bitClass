@@ -9,7 +9,7 @@ public class HomeController {
 
     @GetMapping("")
     public String home(Model model) {
-        model.addAttribute("data","template동적인페이지입니다");
+            model.addAttribute("data","template동적인페이지입니다");
         return "home";
     }
 
@@ -24,7 +24,6 @@ public class HomeController {
          model.addAttribute("data","Spring~!");
         return "hello"; //  /resources/templates/ hello .html
      }
-
 
 
 }
