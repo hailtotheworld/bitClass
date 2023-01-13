@@ -13,67 +13,75 @@ import com.newlecture.web.entity.NoticeView;
 @Repository
 public class MybatisNoticeDao implements NoticeDao{
 
-	@Autowired
-	private SqlSession sqlSession;
+	private NoticeDao mapper;
 	
+	public MybatisNoticeDao() {
+		super();
+	}
+
+	@Autowired
+	public MybatisNoticeDao(SqlSession sqlSession) {
+		mapper = sqlSession.getMapper(NoticeDao.class);
+	}
+
 	@Override
 	public List<NoticeView> getViewList(int offset, int size, String field, String query, boolean pub) {
-		NoticeDao noticeDao = sqlSession.getMapper(NoticeDao.class);
-		return noticeDao.getViewList(offset, size, field, query, pub);
+//		NoticeDao mapper = sqlSession.getMapper(NoticeDao.class);
+		return mapper.getViewList(offset, size, field, query, pub);
 	}
 
 	@Override
 	public int getCount(String field, String query) {
 		// TODO Auto-generated method stub
-		return 0;
+		return mapper.getCount(field, query);
 	}
 
 	@Override
 	public NoticeView getView(int id) {
 		// TODO Auto-generated method stub
-		return null;
+		return mapper.getView(id);
 	}
 
 	@Override
 	public Notice getNext(int id) {
 		// TODO Auto-generated method stub
-		return null;
+		return mapper.getNext(id);
 	}
 
 	@Override
 	public Notice getPrev(int id) {
 		// TODO Auto-generated method stub
-		return null;
+		return mapper.getPrev(id);
 	}
 
 	@Override
 	public int update(Notice notice) {
 		// TODO Auto-generated method stub
-		return 0;
+		return mapper.update(notice);
 	}
 
 	@Override
 	public int insert(Notice notice) {
 		// TODO Auto-generated method stub
-		return 0;
+		return mapper.update(notice);
 	}
 
 	@Override
 	public int delete(int id) {
 		// TODO Auto-generated method stub
-		return 0;
+		return mapper.delete(id);
 	}
 
 	@Override
 	public int deleteAll(int[] ids) {
 		// TODO Auto-generated method stub
-		return 0;
+		return mapper.deleteAll(ids);
 	}
 
 	@Override
 	public int updatePubAll(int[] pubIds, int[] closeIds) {
 		// TODO Auto-generated method stub
-		return 0;
+		return mapper.updatePubAll(pubIds, closeIds);
 	}
 
 }

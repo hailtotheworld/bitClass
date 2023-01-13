@@ -33,7 +33,7 @@
 	    <if test="query != null and query !=''">
 			${field} like '%${query}%'
 		</if>
-			and pub #{pub}
+			and pub = #{pub}
 	</trim>
 	order by regdate desc
 	limit #{offset},#{size}
