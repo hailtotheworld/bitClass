@@ -42,7 +42,12 @@
 
   <select id="getCount" resultType="int">
   	select count(id) count from notice
-	where ${field} like '%${query}%'
+    <where>
+	    <if test="query != null and query !=''">
+			${field} like '%${query}%'
+		</if>
+			and pub = #{pub}
+	</where>
   </select>  
   
    <select id="getView" resultType="com.newlecture.web.entity.NoticeView">
