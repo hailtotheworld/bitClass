@@ -16,39 +16,39 @@ public class NoticeServiceImp implements NoticeService {
 	private NoticeDao noticeDao;
 
 	@Override
-	public List<NoticeView> getViewList() {
+	public List<NoticeView> getViewList(boolean pub) {
 		// TODO Auto-generated method stub
-		return getViewList(1, "title", "");
+		return getViewList(1, "title", "", pub);
 	}
 
 	@Override
-	public List<NoticeView> getViewList(String field, String query) {
+	public List<NoticeView> getViewList(String field, String query, boolean pub) {
 		// TODO Auto-generated method stub
-		return getViewList(1, field, query);
+		return getViewList(1, field, query, pub);
 	}
 	
 	@Override
-	public List<NoticeView> getViewList(int page, String field, String query) {
+	public List<NoticeView> getViewList(int page, String field, String query, boolean pub) {
 		
 		int size = 10;
 		int offset = 0+(page-1)*size; // page 1->0, 2->20, 3->30     an=a1+(n-1)d
 		
-		List<NoticeView> list = noticeDao.getViewList(offset, size, field, query);
+		List<NoticeView> list = noticeDao.getViewList(offset, size, field, query, pub);
 		
 		return list;
 	}
 
 	
 	@Override
-	public int getCount() {
+	public int getCount(boolean pub) {
 		// TODO Auto-generated method stub
-		return getCount("title","");
+		return getCount("title","", true);
 	}
 
 	@Override
-	public int getCount(String field, String query) {
+	public int getCount(String field, String query, boolean pub) {
 		// TODO Auto-generated method stub
-		return noticeDao.getCount(field, query);
+		return noticeDao.getCount(field, query, pub);
 	}
 
 	@Override
