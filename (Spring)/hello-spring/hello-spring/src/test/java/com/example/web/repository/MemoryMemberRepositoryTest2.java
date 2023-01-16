@@ -1,16 +1,14 @@
 package com.example.web.repository;
 
 import com.example.web.domain.Member;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
-import java.util.Optional;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
-class MemoryMemberRepositoryTest { // 다른데서 갖다쓸게 아니라서 public으로 안해도 된다.
+class MemoryMemberRepositoryTest2 { // 다른데서 갖다쓸게 아니라서 public으로 안해도 된다.
 
     MemoryMemberRepository repository = new MemoryMemberRepository();
 

@@ -8,18 +8,18 @@ import java.util.*;
 //@Repository
 public class MemoryMemberRepository implements MemberRepository{
 
-    private static Map<Long, Member> store = new HashMap<>();
+    private static Map<Long, String> store = new HashMap<>();
     private static long sequence = 0L;
 
     @Override
     public Member save(Member member) {
         member.setId(++sequence);
-        store.put(member.getId(), member); //name은 고객이 회원가입할때 적는이름이다
+        store.put(member.getId(), member.getName()); //name은 고객이 회원가입할때 적는이름이다
         return member;
     }
 
     @Override
-    public Optional<Member> findById(Long id) {
+    public Optional<String> findById(Long id) {
         return Optional.ofNullable(store.get(id));
         // null이 반환될 가능성이 있으면 Optional의 .ofNullable()메서드로 감싼다. 이렇게 null이어도 감쌀수있다.
         // 이렇게 감싸서 반환을해주면 클라이언트에서 뭘 할 수가 있다.
@@ -33,7 +33,7 @@ public class MemoryMemberRepository implements MemberRepository{
     }
 
     @Override
-    public List<Member> findAll() {
+    public List<String> findAll() {
         return new ArrayList<>(store.values());
     }
 
