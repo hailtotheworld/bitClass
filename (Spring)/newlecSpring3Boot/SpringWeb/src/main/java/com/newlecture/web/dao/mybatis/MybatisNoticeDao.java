@@ -16,14 +16,13 @@ public class MybatisNoticeDao implements NoticeDao{
 	private NoticeDao mapper;
 	
 	public MybatisNoticeDao() {
-		super();
 	}
 
 	@Autowired
 	public MybatisNoticeDao(SqlSession sqlSession) {
 		mapper = sqlSession.getMapper(NoticeDao.class);
 	}
-
+	
 	@Override
 	public List<NoticeView> getViewList(int offset, int size, String field, String query, boolean pub) {
 //		NoticeDao mapper = sqlSession.getMapper(NoticeDao.class);
