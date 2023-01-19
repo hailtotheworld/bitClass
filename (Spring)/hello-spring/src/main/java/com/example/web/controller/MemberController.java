@@ -27,8 +27,22 @@ public class MemberController {
         return "members/createMemberForm";
     }
 
+    @PostMapping("/new")
+    public String create(String name) { //html로부터 받을값을 매개변수에 적어준다
+        Member member = new Member();
+        member.setName(name);
+
+//      System.out.println("member.getName() = " + member.getName());
+
+        memberService.join(member);
+
+        return "redirect:/";
+    }
+
+
 //    @PostMapping("/new")
 //    public String create(MemberForm form) {
+//    //form.setName()에 html에서 받아온 name의 값을 넣어준다. private요소에는 접근못하지.
 //        Member member = new Member();
 //        member.setName(form.getName());
 //
@@ -39,20 +53,9 @@ public class MemberController {
 //        return "redirect:/";
 //    }
 
-    @PostMapping("/new")
-    public String create(String name) {
-        Member member = new Member();
-        member.setName(name);
-
-        System.out.println("member.getName() = " + member.getName());
-
-        memberService.join(member);
-
-        return "redirect:/";
-    }
 
     @GetMapping("")
-    public String list(Model model) {
+    public String list(Model model) { //html로 전달할model을 매개변수에 적어준다
         List<Member> members = memberService.findMembers();
         model.addAttribute("members",members);
         return "members/memberList";

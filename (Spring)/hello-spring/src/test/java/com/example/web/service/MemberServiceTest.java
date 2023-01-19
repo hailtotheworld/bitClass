@@ -17,15 +17,23 @@ class MemberServiceTest {
 
     MemberService memberService;
 
+    // 2. 만든 MemoryMemberRepository의 주소를 담아둔다.
     MemoryMemberRepository memberRepository;
+
 
     //    MemoryMemberRepository memberRepository = new MemoryMemberRepository();
     //MemberService와 MemberServiceTest가 new한 MemoryMemberRepository 객체가 서로 다르다는점이 문제가 된다.
     //같은 repository로 테스트되어야 한다. (만약 MemoryMemberRepository에서 store에 static빼면 DB가 다른게 되잖아.)
 
+
+    // 테스트는 독립적으로 시행되어야 하기때문에 테스트를 실행할때마다 각각 생성해준다.
     @BeforeEach
     public void beforeEach() {
+        // 1.MemoryMemberRepository()를 만든다
         memberRepository = new MemoryMemberRepository();
+        
+        // 3.MemoryMemberRepository의 주소를 memberService에 넣어준다.
+        // 그러면 service와  service테스트에서 같은 memberRepository를 사용하게 된다.
         memberService = new MemberService(memberRepository);
     }
 
@@ -38,7 +46,7 @@ class MemberServiceTest {
     public void join() {
         //given 뭔가가 주어졌는데
         Member member = new Member();
-        member.setName("hello");
+        member.setName("spring12");
 
         //when  이걸로 실행했을때
         Long saveId = memberService.join(member);
@@ -62,8 +70,8 @@ class MemberServiceTest {
         IllegalStateException e = assertThrows(IllegalStateException.class, () -> memberService.join(member2));
 //        assertThrows(이예외가터져야해, 이 로직을 실행할거야);
         assertThat(e.getMessage()).isEqualTo("이미 존재하는 회원입니다");
-        
-        
+
+
 //        try {
 //            memberService.join(member2);
 //            fail("예외가 발생해야합니다.");
