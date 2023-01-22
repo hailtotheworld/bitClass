@@ -22,17 +22,27 @@ public class MemberService {
 //    @Autowired
     public MemberService(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
+//        System.out.println("memberRepository.getClass() = " + memberRepository.getClass()); //memberRepository.getClass() = class com.sun.proxy.$Proxy105
     }
 
     // 회원가입
     public Long join(Member member) {
-        validateDuplicateMember(member); // 중복회원 검증
+
+//        long start = System.currentTimeMillis();
+//        try {
+            validateDuplicateMember(member); // 중복회원 검증
+            memberRepository.save(member);
+            return member.getId();
+//        } finally { //예외가 터져도 finally구문은 항상 실행된다.
+//            long finish = System.currentTimeMillis();
+//            long timeMs = finish - start;
+//            System.out.println("join = " + timeMs + "ms");
+//        }
+
 
 //        result.get(); // 그냥 꺼내는거다
 //        result.orElseGet(() -> ); // 값이 있으면 꺼내고, 값이 없으면 supplier
 
-        memberRepository.save(member);
-        return member.getId();
     }
 
     private void validateDuplicateMember(Member member) {

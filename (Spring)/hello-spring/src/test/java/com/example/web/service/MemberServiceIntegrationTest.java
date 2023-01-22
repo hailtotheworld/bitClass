@@ -18,8 +18,8 @@ class MemberServiceIntegrationTest {
     @Autowired
     MemberService memberService;
 
-    @Autowired
-    MemberRepository memberRepository;
+//    @Autowired
+//    MemberRepository memberRepository;
 
 
     /*
