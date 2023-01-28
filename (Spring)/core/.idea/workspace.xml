@@ -5,12 +5,40 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6d4aae6b-d25b-4ef3-8074-7006f1f02eef" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/hello/core/member/Grade.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/hello/core/member/Member.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/hello/core/member/MemberRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/hello/core/member/MemberService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/hello/core/member/MemberServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/hello/core/member/MemeryMemberRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/hello/core/MemberApp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/hello/core/OrderApp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/hello/core/discount/DiscountPolicy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/hello/core/discount/FixDiscountPolicy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/hello/core/order/Order.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/hello/core/order/OrderService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/hello/core/order/OrderServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/test/java/hello/core/member/memberServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/test/java/hello/core/order/OrderServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../coreClone/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../coreClone/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../coreClone/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../coreClone/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../coreClone/gradlew" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../coreClone/gradlew.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../coreClone/settings.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../coreClone/src/main/java/hello/coreClone/CoreCloneApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../coreClone/src/main/java/hello/coreClone/discount/DiscountPolicy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../coreClone/src/main/java/hello/coreClone/discount/FixDiscountPolicy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../coreClone/src/main/java/hello/coreClone/member/Grade.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../coreClone/src/main/java/hello/coreClone/member/Member.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../coreClone/src/main/java/hello/coreClone/member/MemberRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../coreClone/src/main/java/hello/coreClone/member/MemberService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../coreClone/src/main/java/hello/coreClone/member/MemberServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../coreClone/src/main/java/hello/coreClone/member/MemoryMemberRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../coreClone/src/main/java/hello/coreClone/order/Order.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../coreClone/src/main/java/hello/coreClone/order/OrderService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../coreClone/src/main/java/hello/coreClone/order/OrderServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../coreClone/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../coreClone/src/test/java/hello/coreClone/CoreCloneApplicationTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../coreClone/src/test/java/hello/coreClone/member/MemberServiceImplTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../coreClone/src/test/java/hello/coreClone/order/OrderServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -20,6 +48,9 @@
   </component>
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$/core">
+      <ProjectState />
+    </projectState>
+    <projectState path="$PROJECT_DIR$/../coreClone">
       <ProjectState />
     </projectState>
   </component>
@@ -41,6 +72,7 @@
         <option value="Enum" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -57,19 +89,39 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "settings.editor.selected.configurable": "preferences.keymap"
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "last_opened_file_path": "C:/Users/TH/Documents/GitHub/bitClass/(Spring)/coreClone",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle"
   }
 }]]></component>
-  <component name="RunManager">
-    <configuration name="CoreApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="hello.core.CoreApplication" />
-      <module name="core.core.main" />
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="hello.coreClone.member" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="hello.coreClone.order" />
+      <recent name="hello.coreClone.member" />
+      <recent name="hello.core.order" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.OrderServiceTest.createOrder">
+    <configuration name="CoreCloneApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="hello.coreClone.CoreCloneApplication" />
+      <module name="coreClone.main" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="hello.core.*" />
+          <option name="PATTERN" value="hello.coreClone.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -77,9 +129,75 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="MemberServiceImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="coreClone.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="hello.coreClone.member.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="hello.coreClone.member" />
+      <option name="MAIN_CLASS_NAME" value="hello.coreClone.member.MemberServiceImplTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MemberServiceImplTest.join" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="coreClone.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="hello.coreClone.member.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="hello.coreClone.member" />
+      <option name="MAIN_CLASS_NAME" value="hello.coreClone.member.MemberServiceImplTest" />
+      <option name="METHOD_NAME" value="join" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OrderServiceTest (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="coreClone.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="hello.coreClone.order.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="hello.coreClone.order" />
+      <option name="MAIN_CLASS_NAME" value="hello.coreClone.order.OrderServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OrderServiceTest.createOrder" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="coreClone.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="hello.coreClone.order.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="hello.coreClone.order" />
+      <option name="MAIN_CLASS_NAME" value="hello.coreClone.order.OrderServiceTest" />
+      <option name="METHOD_NAME" value="createOrder" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.CoreApplication" />
+        <item itemvalue="JUnit.OrderServiceTest.createOrder" />
+        <item itemvalue="JUnit.OrderServiceTest (1)" />
+        <item itemvalue="JUnit.MemberServiceImplTest" />
+        <item itemvalue="JUnit.MemberServiceImplTest.join" />
+        <item itemvalue="Application.CoreCloneApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -93,6 +211,9 @@
       <updated>1674823999585</updated>
     </task>
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
