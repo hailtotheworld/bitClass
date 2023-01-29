@@ -5,15 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6d4aae6b-d25b-4ef3-8074-7006f1f02eef" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../coreClone/src/main/java/hello/coreClone/AppConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/test/java/hello/core/beanfind/ApplicationContextBasicFindTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/test/java/hello/core/beanfind/ApplicationContextExtendsFindTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/test/java/hello/core/beanfind/ApplicationContextInfoTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/test/java/hello/core/beanfind/ApplicationContextSameBeanFindTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../coreClone/src/main/java/hello/coreClone/discount/RateDiscountPolicy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../coreClone/src/test/java/hello/coreClone/beanfind/ApplicationContextBasicFindTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../coreClone/src/test/java/hello/coreClone/beanfind/ApplicationContextExtendsFindTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../coreClone/src/test/java/hello/coreClone/beanfind/ApplicationContextInfoTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../coreClone/src/test/java/hello/coreClone/beanfind/ApplicationContextSameBeanFindTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../coreClone/src/test/java/hello/coreClone/discount/RateDiscountPolicyTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/hello/core/AppConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/hello/core/AppConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/hello/core/MemberApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/hello/core/MemberApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/hello/core/OrderApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/hello/core/OrderApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../coreClone/src/main/java/hello/coreClone/member/MemberServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../coreClone/src/main/java/hello/coreClone/member/MemberServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../coreClone/src/main/java/hello/coreClone/order/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../coreClone/src/main/java/hello/coreClone/order/OrderServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../coreClone/src/test/java/hello/coreClone/member/MemberServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../coreClone/src/test/java/hello/coreClone/member/MemberServiceImplTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../coreClone/src/test/java/hello/coreClone/order/OrderServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../coreClone/src/test/java/hello/coreClone/order/OrderServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../coreClone/src/main/java/hello/coreClone/AppConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../coreClone/src/main/java/hello/coreClone/AppConfig.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,22 +67,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "extract.method.default.visibility": "public",
-    "last_opened_file_path": "C:/Users/TH/Documents/GitHub/bitClass/(Spring)/coreClone",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "configurable.group.tools"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;extract.method.default.visibility&quot;: &quot;public&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/TH/Documents/GitHub/bitClass/(Spring)/coreClone&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="hello.coreClone.member" />
@@ -88,74 +91,101 @@
       <recent name="" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="hello.coreClone.discount" />
       <recent name="hello.core.discount" />
       <recent name="hello.coreClone.order" />
       <recent name="hello.coreClone.member" />
       <recent name="hello.core.order" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.All in coreClone.test (1)">
-    <configuration name="All in coreClone.test (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="coreClone.test" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TEST_OBJECT" value="package" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="All in coreClone.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="coreClone.test" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TEST_OBJECT" value="package" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="All in core.core.test (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="core.core.test" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TEST_OBJECT" value="package" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MemberServiceImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.ApplicationContextExtendsFindTest.findBeanByObjectType">
+    <configuration name="ApplicationContextExtendsFindTest.findBeanByObjectType" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="coreClone.test" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="hello.coreClone.member.*" />
+          <option name="PATTERN" value="hello.coreClone.beanfind.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="hello.coreClone.member" />
-      <option name="MAIN_CLASS_NAME" value="hello.coreClone.member.MemberServiceImplTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="hello.coreClone.beanfind" />
+      <option name="MAIN_CLASS_NAME" value="hello.coreClone.beanfind.ApplicationContextExtendsFindTest" />
+      <option name="METHOD_NAME" value="findBeanByObjectType" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="OrderServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ApplicationContextExtendsFindTest.findBeanByParentType" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="coreClone.test" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="hello.coreClone.order.*" />
+          <option name="PATTERN" value="hello.coreClone.beanfind.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="hello.coreClone.order" />
-      <option name="MAIN_CLASS_NAME" value="hello.coreClone.order.OrderServiceTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="hello.coreClone.beanfind" />
+      <option name="MAIN_CLASS_NAME" value="hello.coreClone.beanfind.ApplicationContextExtendsFindTest" />
+      <option name="METHOD_NAME" value="findBeanByParentType" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ApplicationContextExtendsFindTest.findBeanByParentTypeBeanName" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="coreClone.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="hello.coreClone.beanfind.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="hello.coreClone.beanfind" />
+      <option name="MAIN_CLASS_NAME" value="hello.coreClone.beanfind.ApplicationContextExtendsFindTest" />
+      <option name="METHOD_NAME" value="findBeanByParentTypeBeanName" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ApplicationContextExtendsFindTest.findBeanByParentTypeDuplicate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="coreClone.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="hello.coreClone.beanfind.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="hello.coreClone.beanfind" />
+      <option name="MAIN_CLASS_NAME" value="hello.coreClone.beanfind.ApplicationContextExtendsFindTest" />
+      <option name="METHOD_NAME" value="findBeanByParentTypeDuplicate" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ApplicationContextExtendsFindTest.findBeanBySubType" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="coreClone.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="hello.coreClone.beanfind.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="hello.coreClone.beanfind" />
+      <option name="MAIN_CLASS_NAME" value="hello.coreClone.beanfind.ApplicationContextExtendsFindTest" />
+      <option name="METHOD_NAME" value="findBeanBySubType" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.All in coreClone.test (1)" />
-        <item itemvalue="JUnit.OrderServiceTest" />
-        <item itemvalue="JUnit.MemberServiceImplTest" />
-        <item itemvalue="JUnit.All in coreClone.test" />
-        <item itemvalue="JUnit.All in core.core.test (1)" />
+        <item itemvalue="JUnit.ApplicationContextExtendsFindTest.findBeanByObjectType" />
+        <item itemvalue="JUnit.ApplicationContextExtendsFindTest.findBeanByParentType" />
+        <item itemvalue="JUnit.ApplicationContextExtendsFindTest.findBeanBySubType" />
+        <item itemvalue="JUnit.ApplicationContextExtendsFindTest.findBeanByParentTypeBeanName" />
+        <item itemvalue="JUnit.ApplicationContextExtendsFindTest.findBeanByParentTypeDuplicate" />
       </list>
     </recent_temporary>
   </component>

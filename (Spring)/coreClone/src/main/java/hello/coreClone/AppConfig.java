@@ -2,6 +2,7 @@ package hello.coreClone;
 
 import hello.coreClone.discount.DiscountPolicy;
 import hello.coreClone.discount.FixDiscountPolicy;
+import hello.coreClone.discount.RateDiscountPolicy;
 import hello.coreClone.member.MemberRepository;
 import hello.coreClone.member.MemberService;
 import hello.coreClone.member.MemberServiceImpl;
@@ -17,7 +18,8 @@ public class AppConfig {
 
     @Bean
     public DiscountPolicy discountPolicy() {
-        return new FixDiscountPolicy();
+//        return new FixDiscountPolicy();
+        return new RateDiscountPolicy();
     }
     @Bean
     public MemberService memberService() {
