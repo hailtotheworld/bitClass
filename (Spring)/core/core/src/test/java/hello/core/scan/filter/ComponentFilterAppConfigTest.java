@@ -24,8 +24,16 @@ public class ComponentFilterAppConfigTest {
     @Configuration
     @ComponentScan(
             includeFilters = @ComponentScan.Filter(type =  FilterType.ANNOTATION, classes = MyIncludeComponent.class),
+//            includeFilters = @ComponentScan.Filter(classes = MyIncludeComponent.class), //type =  FilterType.ANNOTATION 기본값이라서 생략해도 잘 동작한다
             excludeFilters = @ComponentScan.Filter(type =  FilterType.ANNOTATION, classes = MyExcludeComponent.class)
     )
+    /*
+    @ComponentScan(
+            includeFilters = @ComponentScan.Filter(type = FilterType.ANNOTATION, classes =MyIncludeComponent.class),
+            excludeFilters = {@ComponentScan.Filter(type = FilterType.ANNOTATION, classes =MyExcludeComponent.class),
+                    @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, classes = BeanA.class)
+            }
+    )*/
     static class ComponentFilterAppConfig {
 
     }
