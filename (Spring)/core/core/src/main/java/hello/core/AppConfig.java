@@ -19,16 +19,19 @@ public class AppConfig {
     // 생성자를 통해서 객체가 들어간다고해서, 생성자 주입이라고 한다
     @Bean
     public MemberService memberService() {
+//        System.out.println("call AppConfig.memberService");
         return new MemberServiceImpl(memberRepository());
     } // return 구체적인객체주소반환(구체적인객체주소주입)
 
     @Bean
     public MemberRepository memberRepository() { //역할
+//        System.out.println("call AppConfig.memberRepository");
         return new MemoryMemberRepository(); //구현
     }
 
     @Bean
     public OrderService orderService() {
+//        System.out.println("call AppConfig.orderService");
         return new OrderServiceImpl(memberRepository(), discountPolicy());
     }
 

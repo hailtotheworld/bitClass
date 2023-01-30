@@ -25,7 +25,7 @@ public class ApplicationContextExtendsFindTest {
     @DisplayName("부모 타입으로 조회시, 자식이 둘 이상 있으면, 중복 오류가 발생한다")
     void findBeanByParentTypeDuplicate() {
 //        DiscountPolicy bean = ac.getBean(DiscountPolicy.class);
-        assertThrows(NoUniqueBeanDefinitionException.class,() -> ac.getBean(DiscountPolicy.class));
+        assertThrows(NoUniqueBeanDefinitionException.class, () -> ac.getBean(DiscountPolicy.class));
     }
 
     @Test
@@ -36,7 +36,8 @@ public class ApplicationContextExtendsFindTest {
     }
 
     @Test
-    @DisplayName("특정 하위 타입으로 조회") //구체화에 의존하는건 좋은방법은 아니야
+    @DisplayName("특정 하위 타입으로 조회")
+        //구체화에 의존하는건 좋은방법은 아니야
     void findBeanBySubType() {
         RateDiscountPolicy bean = ac.getBean(RateDiscountPolicy.class);
         assertThat(bean).isInstanceOf(RateDiscountPolicy.class);
@@ -61,7 +62,6 @@ public class ApplicationContextExtendsFindTest {
             System.out.println("key = " + key + " //value = " + beansOfType.get(key));
         }
     }
-
 
 
     @Configuration
