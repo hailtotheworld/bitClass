@@ -1,7 +1,7 @@
 package hello.core.beanfind;
 
 import hello.core.member.MemberRepository;
-import hello.core.member.MemeryMemberRepository;
+import hello.core.member.MemoryMemberRepository;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -54,12 +54,12 @@ public class ApplicationContextSameBeanFindTest {
         // bean의 이름이 다르고 인스턴스타입이 같을수 있다. 매개변수달리해서 bean생성되는 상황도 있잖아.
         @Bean
         public MemberRepository memberRepository1() {
-            return new MemeryMemberRepository();
+            return new MemoryMemberRepository();
         }
 
         @Bean
         public MemberRepository memberRepository2() {
-            return new MemeryMemberRepository();
+            return new MemoryMemberRepository();
         }
 
     }
