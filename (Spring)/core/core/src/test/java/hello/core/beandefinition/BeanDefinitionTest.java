@@ -1,6 +1,7 @@
 package hello.core.beandefinition;
 
 import hello.core.AppConfig;
+import hello.core.CoreApplication;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.config.BeanDefinition;
@@ -21,9 +22,9 @@ public class BeanDefinitionTest {
         for (String beanDefinitionName : beanDefinitionNames) {
             BeanDefinition beanDefinition = ac.getBeanDefinition(beanDefinitionName);
 
-//            if(beanDefinition.getRole() == BeanDefinition.ROLE_APPLICATION) {
+            if(beanDefinition.getRole() == BeanDefinition.ROLE_APPLICATION) {
                 System.out.println("beanDefinitionName = " + beanDefinitionName + " //beanDefinition = " + beanDefinition);
-//            }
+            }
         }
     }
 
