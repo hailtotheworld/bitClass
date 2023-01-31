@@ -3,7 +3,9 @@ package hello.coreClone.order;
 import hello.coreClone.discount.DiscountPolicy;
 import hello.coreClone.member.Member;
 import hello.coreClone.member.MemberService;
+import org.springframework.stereotype.Component;
 
+@Component
 public class OrderServiceImpl implements OrderService{
 
 //    MemberService memberService = new MemberServiceImpl();

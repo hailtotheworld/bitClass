@@ -5,9 +5,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6d4aae6b-d25b-4ef3-8074-7006f1f02eef" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/core/src/test/java/hello/core/autowired/AutowiredTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/hello/core/HelloLombok.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/hello/core/annotation/MainDiscountPolicy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/test/java/hello/core/autowired/AllBeanTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../coreClone/src/main/java/hello/coreClone/AutoAppConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../coreClone/src/test/java/hello/coreClone/autowired/AllBeanTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../coreClone/src/test/java/hello/coreClone/filter/BeanA.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../coreClone/src/test/java/hello/coreClone/filter/BeanB.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../coreClone/src/test/java/hello/coreClone/filter/BeanC.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../coreClone/src/test/java/hello/coreClone/filter/ComponentFilterAppConfigTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../coreClone/src/test/java/hello/coreClone/filter/MyExcludeComponent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../coreClone/src/test/java/hello/coreClone/filter/MyIncludeComponent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/test/java/hello/core/beandefinition/BeanDefinitionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/test/java/hello/core/beandefinition/BeanDefinitionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/core/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/hello/core/discount/FixDiscountPolicy.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/hello/core/discount/FixDiscountPolicy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/hello/core/discount/RateDiscountPolicy.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/hello/core/discount/RateDiscountPolicy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/hello/core/member/MemberServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/hello/core/member/MemberServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/hello/core/order/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/hello/core/order/OrderServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/test/java/hello/core/scan/filter/MyExcludeComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/test/java/hello/core/scan/filter/MyExcludeComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../coreClone/src/main/java/hello/coreClone/discount/FixDiscountPolicy.java" beforeDir="false" afterPath="$PROJECT_DIR$/../coreClone/src/main/java/hello/coreClone/discount/FixDiscountPolicy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../coreClone/src/main/java/hello/coreClone/discount/RateDiscountPolicy.java" beforeDir="false" afterPath="$PROJECT_DIR$/../coreClone/src/main/java/hello/coreClone/discount/RateDiscountPolicy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../coreClone/src/main/java/hello/coreClone/member/MemberServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../coreClone/src/main/java/hello/coreClone/member/MemberServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../coreClone/src/main/java/hello/coreClone/member/MemoryMemberRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../coreClone/src/main/java/hello/coreClone/member/MemoryMemberRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../coreClone/src/main/java/hello/coreClone/order/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../coreClone/src/main/java/hello/coreClone/order/OrderServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,7 +48,23 @@
       <state>
         <projects_view>
           <tree_state>
-            <expand />
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="core" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="core" type="f1a62948:ProjectNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="core" type="f1a62948:ProjectNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="compileClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
+              </path>
+            </expand>
             <select />
           </tree_state>
         </projects_view>
@@ -70,9 +107,9 @@
     &quot;extract.method.default.visibility&quot;: &quot;public&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/TH/Documents/GitHub/bitClass/(Spring)/coreClone&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.projectsettings.compiler.annotationProcessors&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -93,7 +130,15 @@
       <recent name="hello.core.scan.filter" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.AutowiredTest.AutowiredOption">
+  <component name="RunManager" selected="JUnit.AllBeanTest.findAllBean (1)">
+    <configuration name="All in core.core.test (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="core.core.test" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="All in core.core.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="core.core.test" />
       <option name="PACKAGE_NAME" value="" />
@@ -102,75 +147,53 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AutowiredTest (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="core.core.test" />
+    <configuration name="AllBeanTest.findAllBean (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="coreClone.test" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="hello.core.autowired.*" />
+          <option name="PATTERN" value="hello.coreClone.autowired.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="hello.core.autowired" />
-      <option name="MAIN_CLASS_NAME" value="hello.core.autowired.AutowiredTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AutowiredTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="core.core.test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="hello.core.autowired.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="hello.core.autowired" />
-      <option name="MAIN_CLASS_NAME" value="hello.core.autowired.AutowiredTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AutowiredTest.AutowiredOption" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="core.core.test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="hello.core.autowired.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="hello.core.autowired" />
-      <option name="MAIN_CLASS_NAME" value="hello.core.autowired.AutowiredTest" />
-      <option name="METHOD_NAME" value="AutowiredOption" />
+      <option name="PACKAGE_NAME" value="hello.coreClone.autowired" />
+      <option name="MAIN_CLASS_NAME" value="hello.coreClone.autowired.AllBeanTest" />
+      <option name="METHOD_NAME" value="findAllBean" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BeanDefinitionTest.findApplicaionBean" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AllBeanTest.findAllBean" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="core.core.test" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="hello.core.beandefinition.*" />
+          <option name="PATTERN" value="hello.core.autowired.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="hello.core.beandefinition" />
-      <option name="MAIN_CLASS_NAME" value="hello.core.beandefinition.BeanDefinitionTest" />
-      <option name="METHOD_NAME" value="findApplicaionBean" />
+      <option name="PACKAGE_NAME" value="hello.core.autowired" />
+      <option name="MAIN_CLASS_NAME" value="hello.core.autowired.AllBeanTest" />
+      <option name="METHOD_NAME" value="findAllBean" />
       <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="core in core.core.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="core.core.test" />
+      <option name="TEST_OBJECT" value="directory" />
+      <dir value="$PROJECT_DIR$/core/src/test/java/hello/core" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.AutowiredTest.AutowiredOption" />
-        <item itemvalue="JUnit.AutowiredTest (1)" />
-        <item itemvalue="JUnit.AutowiredTest" />
+        <item itemvalue="JUnit.AllBeanTest.findAllBean (1)" />
+        <item itemvalue="JUnit.AllBeanTest.findAllBean" />
+        <item itemvalue="JUnit.All in core.core.test (1)" />
         <item itemvalue="JUnit.All in core.core.test" />
-        <item itemvalue="JUnit.BeanDefinitionTest.findApplicaionBean" />
+        <item itemvalue="JUnit.core in core.core.test" />
       </list>
     </recent_temporary>
   </component>

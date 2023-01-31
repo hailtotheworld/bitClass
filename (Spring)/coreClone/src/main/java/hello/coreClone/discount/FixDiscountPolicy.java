@@ -4,7 +4,9 @@ import hello.coreClone.member.Grade;
 import hello.coreClone.member.Member;
 import hello.coreClone.member.MemberService;
 import hello.coreClone.member.MemberServiceImpl;
+import org.springframework.stereotype.Component;
 
+@Component
 public class FixDiscountPolicy implements DiscountPolicy{
 
     private int discountPrice = 1000;
