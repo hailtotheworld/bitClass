@@ -15,7 +15,8 @@ import java.util.Map;
 public class AllBeanTest {
 
 
-    AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(DiscountService.class, AutoAppConfig.class);
+//    AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(DiscountService.class, AutoAppConfig.class);
+    ApplicationContext ac = new AnnotationConfigApplicationContext(DiscountService.class, AutoAppConfig.class);
 
     @Test
     void findAllBean() {
