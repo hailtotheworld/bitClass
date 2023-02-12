@@ -5,14 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6d4aae6b-d25b-4ef3-8074-7006f1f02eef" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/hello/core/common/MyLogger.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/hello/core/web/LogDemoController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/hello/core/web/LogDemoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/test/java/hello/core/myApplicationContextTest/ApplicationContextTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/core/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/test/java/scope/SingletonWithPrototypeTest1.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/test/java/scope/SingletonWithPrototypeTest1.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,22 +77,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "extract.method.default.visibility": "public",
-    "last_opened_file_path": "C:/Users/TH/Documents/GitHub/bitClass/(Spring)/core",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "advanced.settings"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;extract.method.default.visibility&quot;: &quot;public&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/TH/Documents/GitHub/bitClass/(Spring)/core&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;advanced.settings&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="hello.core.web" />
@@ -118,7 +112,7 @@
       <recent name="hello.core.scan.filter" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.CoreApplication (1)">
+  <component name="RunManager" selected="JUnit.ApplicationContextTest.handmadeBean">
     <configuration name="CoreApplication (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="hello.core.CoreApplication" />
       <module name="core.core.main" />
@@ -132,64 +126,65 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CoreApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="ALTERNATIVE_JRE_PATH" value="11 (2)" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <option name="MAIN_CLASS_NAME" value="hello.core.CoreApplication" />
-      <module name="core.core" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="hello.core.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="SingletonWithPrototypeTest1.prototypeFind" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="core.core.test~1" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="scope.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="scope" />
-      <option name="MAIN_CLASS_NAME" value="scope.SingletonWithPrototypeTest1" />
-      <option name="METHOD_NAME" value="prototypeFind" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="SingletonWithPrototypeTest1.singletonClientUsePrototype (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ApplicationContextExtendsFindTest.findBeanByParentType" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="core.core.test" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="scope.*" />
+          <option name="PATTERN" value="hello.core.beanfind.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="scope" />
-      <option name="MAIN_CLASS_NAME" value="scope.SingletonWithPrototypeTest1" />
-      <option name="METHOD_NAME" value="singletonClientUsePrototype" />
+      <option name="PACKAGE_NAME" value="hello.core.beanfind" />
+      <option name="MAIN_CLASS_NAME" value="hello.core.beanfind.ApplicationContextExtendsFindTest" />
+      <option name="METHOD_NAME" value="findBeanByParentType" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SingletonWithPrototypeTest1.singletonClientUsePrototype" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="core.core.test~1" />
+    <configuration name="ApplicationContextTest.handmadeBean" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="core.core.test" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="scope.*" />
+          <option name="PATTERN" value="hello.core.myApplicationContextTest.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="scope" />
-      <option name="MAIN_CLASS_NAME" value="scope.SingletonWithPrototypeTest1" />
-      <option name="METHOD_NAME" value="singletonClientUsePrototype" />
+      <option name="PACKAGE_NAME" value="hello.core.myApplicationContextTest" />
+      <option name="MAIN_CLASS_NAME" value="hello.core.myApplicationContextTest.ApplicationContextTest" />
+      <option name="METHOD_NAME" value="handmadeBean" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ApplicationContextTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="core.core.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="hello.core.myApplicationContextTest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="hello.core.applicationContextTest" />
+      <option name="MAIN_CLASS_NAME" value="hello.core.myApplicationContextTest.ApplicationContextTest" />
+      <option name="METHOD_NAME" value="test" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BeanDefinitionTest.findApplicaionBean" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="core.core.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="hello.core.beandefinition.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="hello.core.beandefinition" />
+      <option name="MAIN_CLASS_NAME" value="hello.core.beandefinition.BeanDefinitionTest" />
+      <option name="METHOD_NAME" value="findApplicaionBean" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -197,11 +192,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ApplicationContextTest.handmadeBean" />
+        <item itemvalue="JUnit.ApplicationContextTest.test" />
+        <item itemvalue="JUnit.ApplicationContextExtendsFindTest.findBeanByParentType" />
+        <item itemvalue="JUnit.BeanDefinitionTest.findApplicaionBean" />
         <item itemvalue="Application.CoreApplication (1)" />
-        <item itemvalue="Application.CoreApplication" />
-        <item itemvalue="JUnit.SingletonWithPrototypeTest1.singletonClientUsePrototype (1)" />
-        <item itemvalue="JUnit.SingletonWithPrototypeTest1.singletonClientUsePrototype" />
-        <item itemvalue="JUnit.SingletonWithPrototypeTest1.prototypeFind" />
       </list>
     </recent_temporary>
   </component>
