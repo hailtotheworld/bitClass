@@ -5,10 +5,9 @@ import hello.servlet.domain.member.MemberRepository;
 import hello.servlet.web.frontcontroller.ModelView;
 import hello.servlet.web.frontcontroller.v3.ControllerV3;
 
-import java.util.HashMap;
 import java.util.Map;
 
-public class MemberSavaControllerV3 implements ControllerV3 {
+public class MemberSaveControllerV3 implements ControllerV3 {
 
     private MemberRepository memberRepository = MemberRepository.getInstance();
 

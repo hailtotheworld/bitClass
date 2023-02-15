@@ -1,9 +1,8 @@
 package hello.servlet.web.frontcontroller.v1;
 
-import hello.servlet.basic.HelloServlet;
 import hello.servlet.web.frontcontroller.v1.controller.MemberFormControllerV1;
 import hello.servlet.web.frontcontroller.v1.controller.MemberListControllerV1;
-import hello.servlet.web.frontcontroller.v1.controller.MemberSavaControllerV1;
+import hello.servlet.web.frontcontroller.v1.controller.MemberSaveControllerV1;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -22,7 +21,7 @@ public class FrontControllerServletV1 extends HttpServlet {
     public FrontControllerServletV1() {
         // 이 프론트컨트롤러가 생성될때 매핑정보를 담아놓는다.
         controllerMap.put("/front-controller/v1/members/new-form",new MemberFormControllerV1());
-        controllerMap.put("/front-controller/v1/members/save",new MemberSavaControllerV1());
+        controllerMap.put("/front-controller/v1/members/save",new MemberSaveControllerV1());
         controllerMap.put("/front-controller/v1/members",new MemberListControllerV1());
         // 해당 url로 접속이오면, 객체를 꺼내쓸수있게 미리 생성해둔거다.
     }

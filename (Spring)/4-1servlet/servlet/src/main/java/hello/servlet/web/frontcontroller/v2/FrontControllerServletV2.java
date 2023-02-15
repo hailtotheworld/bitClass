@@ -3,7 +3,7 @@ package hello.servlet.web.frontcontroller.v2;
 import hello.servlet.web.frontcontroller.MyView;
 import hello.servlet.web.frontcontroller.v2.controller.MemberFormControllerV2;
 import hello.servlet.web.frontcontroller.v2.controller.MemberListControllerV2;
-import hello.servlet.web.frontcontroller.v2.controller.MemberSavaControllerV2;
+import hello.servlet.web.frontcontroller.v2.controller.MemberSaveControllerV2;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -22,7 +22,7 @@ public class FrontControllerServletV2 extends HttpServlet {
     public FrontControllerServletV2() {
         // 이 프론트컨트롤러가 생성될때 매핑정보를 담아놓는다.
         controllerMap.put("/front-controller/v2/members/new-form",new MemberFormControllerV2());
-        controllerMap.put("/front-controller/v2/members/save",new MemberSavaControllerV2());
+        controllerMap.put("/front-controller/v2/members/save",new MemberSaveControllerV2());
         controllerMap.put("/front-controller/v2/members",new MemberListControllerV2());
         // 해당 uri로 접속이오면, 객체를 꺼내쓸수있게 미리 생성해둔거다.
     }
