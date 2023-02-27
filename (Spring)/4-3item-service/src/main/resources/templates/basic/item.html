@@ -18,8 +18,10 @@
 <body>
 <div class="container">
     <div class="py-5 text-center">
-        <h2>상품 상세123</h2>
+        <h2>상품 상세</h2>
     </div>
+
+    <h2 th:if="${param.status}" th:text="'저장 완료'" color="red"></h2> <!--http요청파라미터 워낙 많이 쓰기때문에 param으로 직접 꺼낼수있도록 지원한다.-->
     <div>
         <label for="itemId">상품 ID</label>
         <input type="text" id="itemId" name="itemId" class="form-control" value="1" th:value="${item.id}" readonly>
