@@ -83,11 +83,20 @@ public class BasicItemController {
     }
 
 
-    @PostMapping ("/add")
+//    @PostMapping ("/add")
     public String addItemV4(Item item) {
         itemRepository.save(item);
         return "basic/item";
     }
+
+    @PostMapping ("/add")
+    public String addItemV5(Item item) {
+        itemRepository.save(item);
+        return "redirect:/basic/items/" + item.getId();
+    }
+
+
+
 
     @GetMapping("/{itemId}/edit")
     public String editForm(@PathVariable Long itemId, Model model) {
@@ -97,8 +106,9 @@ public class BasicItemController {
     }
 
     @PostMapping ("/{itemId}/edit")
-    public String edit(@PathVariable Long itemId, Model model) {
-        return "basic/editForm";
+    public String edit(@ModelAttribute Item item, @PathVariable Long itemId) {
+        itemRepository.update(itemId, item);
+        return "redirect:/basic/items/{itemId}"; //@PathVariable에 있는걸 redirect에서도 쓸수있게 해준다.
     }
 
 
