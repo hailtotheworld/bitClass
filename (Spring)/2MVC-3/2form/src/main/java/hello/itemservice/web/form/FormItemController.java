@@ -37,10 +37,10 @@ public class FormItemController {
     }
 
     @PostMapping("/add")
-    public String addItem(@ModelAttribute Item item, RedirectAttributes redirectAttributes) {
+    public String addItem(@ModelAttribute Item item, RedirectAttributes redirectAttributes) { //RedirectAttributes는 Model을 상속받은 인터페이스다.
         Item savedItem = itemRepository.save(item);
-        redirectAttributes.addAttribute("itemId", savedItem.getId());
-        redirectAttributes.addAttribute("status", true);
+        redirectAttributes.addAttribute("itemId", savedItem.getId()); // pathVariable
+        redirectAttributes.addAttribute("status", true); // 쿼리파라미터로 전달
         return "redirect:/form/items/{itemId}";
     }
 
