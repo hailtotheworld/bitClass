@@ -24,7 +24,8 @@
             <input type="text" id="itemName" th:field="*{itemName}" class="form-control" placeholder="이름을 입력하세요">
             <!--1) id="itemName" name="itemName"-->
             <!--2) th:field="${item.itemName}"-->
-            <!--3) th:field="*{itemName}" --> <!--id="itemName"는 <label for속성>과 연결하기위해 남겨둬도되고 지워도 된다. IDE에서는 오류로 나는데 지워도 상관없어-->
+            <!--3) th:field="*{itemName}" -->
+            <!--id="itemName"는 <label for속성>과 연결하기위해 남겨둬도되고 지워도 된다. IDE에서는 오류로 나는데 지워도 상관없어-->
         </div>
         <div>
             <label for="price">가격</label>
@@ -58,6 +59,30 @@
             </div>
         </div>
 
+        <!-- radio button -->
+        <div>
+            <div>상품 종류</div>
+            <div th:each="type : ${itemTypes}" class="form-check form-check-inline">
+                <input type="radio" th:field="*{itemType}" th:value="${type.name()}" class="form-check-input">
+                <label th:for="${#ids.prev('itemType')}" th:text="${type.description}" class="form-check-label">
+                    BOOK
+                </label>
+            </div>
+        </div>
+
+        <!-- SELECT -->
+        <div>
+            <div>배송 방식</div>
+            <select th:field="*{deliveryCode}" class="form-select">
+                <option value="" disabled>==배송 방식 선택==</option>
+                <option th:each="deliveryCode : ${deliveryCodes}" th:value="${deliveryCode.code}" th:text="${deliveryCode.displayName}">
+                    FAST
+                </option>
+            </select>
+        </div>
+
+        <hr class="my-4">
+
         <div class="row">
             <div class="col">
                 <button class="w-100 btn btn-primary btn-lg" type="submit">상품 등록</button>
@@ -66,7 +91,8 @@
                 <button class="w-100 btn btn-secondary btn-lg"
                         onclick="location.href='items.html'"
                         th:onclick="|location.href='@{/form/items}'|"
-                        type="button">취소</button>
+                        type="button">취소
+                </button>
             </div>
         </div>
     </form>
