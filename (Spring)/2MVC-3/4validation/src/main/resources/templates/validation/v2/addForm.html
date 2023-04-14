@@ -37,7 +37,6 @@
                 <!--th:field에 있는 필드명으로된 오류가 bindingresult에 있으면, th:errorclass에 기재한 class를 추가해준다.-->
 
             <div class="field-error" th:errors="*{itemName}"> <!--<div class="field-error" th:if="${errors?.containsKey('itemName')}" th:text="${errors['itemName']}">-->
-
                 상품명 오류
             </div>
         </div>
