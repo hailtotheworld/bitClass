@@ -10,6 +10,7 @@ import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.validation.ObjectError;
+import org.springframework.validation.ValidationUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -188,14 +189,13 @@ public class ValidationItemControllerV2 {
         log.info("bindingResult.getTarget()={}",bindingResult.getTarget()); //bindingResult.getTarget()=Item(id=null, itemName=, price=null, quantity=null)
 
         // 검증 로직
-        if(!StringUtils.hasText(item.getItemName())) { //org.springframework.util.StringUtils;
-//            bindingResult.addError(new FieldError("item", "itemName", "상품 이름은 필수입니다."));
-//            bindingResult.addError(new FieldError("item", "itemName", item.getItemName(), false, new String[] {"required.item.itemName"},null, null));
-            //public FieldError(String objectName, String field, String defaultMessage) {..}
-            // objectName은 ModelAttribute에 담기는 이름을 담으면 된다
-            bindingResult.rejectValue("itemName", "required");
+//        if(!StringUtils.hasText(item.getItemName())) { //org.springframework.util.StringUtils;
+//            bindingResult.rejectValue("itemName", "required");
+//        }
+        ValidationUtils.rejectIfEmptyOrWhitespace(bindingResult,"itemName","required");
 
-        }
+
+
         if(item.getPrice() == null || item.getPrice() < 1000 || item.getPrice() > 1000000) {
 //            bindingResult.addError(new FieldError("item", "price", "가격은 1,000 ~ 1,000,000 까지 허용합니다."));
 //            bindingResult.addError(new FieldError("item", "price", item.getPrice(), false, new String[] {"range.item.price"}, new Object[]{1000,1000000},null));
@@ -212,6 +212,7 @@ public class ValidationItemControllerV2 {
         if (item.getPrice() != null && item.getQuantity() != null) {
             int resultPrice = item.getPrice() * item.getQuantity();
             if (resultPrice < 10000) {
+                System.out.println("resultPrice = " + resultPrice);
 //                bindingResult.addError(new ObjectError("item","가격 * 수량의 합은 10,000원 이상이어야 합니다. 현재 값 = " + resultPrice));
 //                bindingResult.addError(new ObjectError("item", new String[]{"totalPriceMin"}, new Object[]{10000,resultPrice},null));
                 bindingResult.reject("totalPriceMin",new Object[]{10000,resultPrice},null);
