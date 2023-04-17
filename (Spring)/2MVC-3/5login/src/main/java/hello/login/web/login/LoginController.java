@@ -41,10 +41,8 @@ public class LoginController {
         }
 
         // 로그인 성공 처리
-
         // 쿠키에 시간 정보를 주지 않으면 세션 쿠키(브라우저 종료시 모두 종료)가 된다
-        //                    Cookie(String name, String value)
-        Cookie idCookie = new Cookie("memberId", String.valueOf(loginMember.getId()));
+        Cookie idCookie = new Cookie("memberId", String.valueOf(loginMember.getId())); // Cookie(String name, String value)
         response.addCookie(idCookie);
 
         return "redirect:/";
@@ -60,7 +58,7 @@ public class LoginController {
 
     private void expireCookie(HttpServletResponse response, String memberId) {
         Cookie cookie = new Cookie(memberId, null);
-        cookie.setMaxAge(0);
+        cookie.setMaxAge(0); // 예전시간으로 보내버려서 쿠키만료하게 한다. Set-Cookie: memberId=; Max-Age=0; Expires=Thu, 01-Jan-1970 00:00:10 GMT
         response.addCookie(cookie);
     }
 

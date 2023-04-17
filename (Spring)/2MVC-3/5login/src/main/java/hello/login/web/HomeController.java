@@ -41,7 +41,7 @@ public class HomeController {
             return "home";
         }
 
-        //쿠키가 있는 사용자 성공로직
+        //쿠키가 있는 사용자-성공로직
         model.addAttribute("member",loginMember);
         return "loginHome";
 
