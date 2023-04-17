@@ -16,6 +16,9 @@ public class ValidationItemApiController {
 
     @PostMapping("/add")
     public Object addItem(@RequestBody @Validated ItemSaveForm form, BindingResult bindingResult) {
+//        {"itemName":"hello", "price":"QQQ", "quantity": 10}
+        // 이 경우에는 JSON 파싱 자체를 하지 못해서, 컨트롤러가 호출되지 않는다.
+
         log.info("API 컨트롤러 호출");
 
         if(bindingResult.hasErrors()) {
@@ -25,7 +28,5 @@ public class ValidationItemApiController {
 
         log.info("성공 로직 실행");
         return form;
-
-
     }
 }
