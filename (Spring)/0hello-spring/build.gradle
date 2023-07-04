@@ -10,11 +10,12 @@ sourceCompatibility = '11' /*자바버전임을 나타낸다.*/
 
 repositories {
 	mavenCentral()
-}
 /*
 여기 mavenCentral이라는 공개된 사이트에서 dependencies를 다운 받으라고 설정을 해둔거다.
 필요하면 스스로 특정사이트 url을 넣을수도 있다.
 */
+}
+
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
