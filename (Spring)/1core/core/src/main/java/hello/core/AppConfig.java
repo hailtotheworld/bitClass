@@ -38,10 +38,6 @@ public class AppConfig {
         return new RateDiscountPolicy();
     }
 
-    @Bean
-    public Integer intTest() {
-        return null;
-    }
 
 
 }
