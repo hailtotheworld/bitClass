@@ -5,6 +5,7 @@ import hello.servlet.domain.member.MemberRepository;
 import hello.servlet.web.frontcontroller.ModelView;
 import hello.servlet.web.frontcontroller.v3.ControllerV3;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -16,7 +17,11 @@ public class MemberListControllerV3 implements ControllerV3 {
     public ModelView process(Map<String, String> paramMap) {
         List<Member> members = memberRepository.findAll();
         ModelView mv = new ModelView("members");
-        mv.getModel().put("members",members);
+//        mv.getModel().put("members",members);
+
+        Map<String,Object> modelMap = new HashMap<>();
+        modelMap.put("members",members);
+        mv.setModel(modelMap);
 
         return mv;
     }
