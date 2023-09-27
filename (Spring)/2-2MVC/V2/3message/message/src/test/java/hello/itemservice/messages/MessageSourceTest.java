@@ -7,6 +7,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.MessageSource;
 import org.springframework.context.NoSuchMessageException;
 
+import java.util.Locale;
+
 import static org.assertj.core.api.Assertions.*;
 
 @SpringBootTest
@@ -36,7 +38,13 @@ public class MessageSourceTest {
     void argumentMessage() {
         String result = ms.getMessage("hello.name", new Object[]{"spring"}, null);
         assertThat(result).isEqualTo("안녕 spring");
+    }
 
+    @Test
+    void defaultLang() {
+        assertThat(ms.getMessage("hello",null,null)).isEqualTo("안녕");
+        assertThat(ms.getMessage("hello",null,Locale.FRANCE)).isEqualTo("안녕");
+        assertThat(ms.getMessage("hello",null, Locale.ENGLISH)).isEqualTo("hello");
     }
 
 }
