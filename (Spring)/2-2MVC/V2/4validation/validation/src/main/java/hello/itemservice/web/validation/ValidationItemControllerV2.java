@@ -158,24 +158,29 @@ public class ValidationItemControllerV2 {
     @PostMapping("/add")
     public String addItemV4(@ModelAttribute Item item, BindingResult bindingResult, RedirectAttributes redirectAttributes, Model model) {
 
+        //bindingResult는 어떤 객체를 다루는지 이미 알고 있다. bindingResult를 추가할 객체 바로 뒤에 쓰니까 알고있겠지.
+        log.info("objectName={}",bindingResult.getObjectName());
+        log.info("target={}",bindingResult.getTarget());
+
         // 필드 검증 로직
         if (!StringUtils.hasText(item.getItemName())) {
-            bindingResult.addError(new FieldError("item", "itemName", item.getItemName(), false, new String[]{"required.item.itemName"},null,null));
+            bindingResult.rejectValue("itemName","required");
+            // 객체는 이미 알고있으니 필드명만 적어준다
+            // 적어준에러코드.객체이름.필드명  ← 이 에러코드에 해당하는 메시지를 찾아준다
         }
         if (item.getPrice() == null || item.getPrice() < 1000 || item.getPrice() > 1000000) {
-            bindingResult.addError(new FieldError("item", "price", item.getPrice(),false, new String[] {"range.item.price"},new Object[]{1000,10000},null
-            ));
+            bindingResult.rejectValue("price","range", new Object[]{1000,10000},null);
 
         }
         if (item.getQuantity() == null || item.getQuantity() >= 9999) {
-            bindingResult.addError(new FieldError("item", "quantity",item.getQuantity(),false,new String[]{"max.item.quantity"},new Object[]{9999},null));
+            bindingResult.rejectValue("quantity","max",new Object[]{9999},null);
         }
 
         // 특정 필드가 아닌 복합 룰 검증
         if (item.getPrice() != null && item.getQuantity() != null) {
             int resultPrice = item.getPrice() * item.getQuantity();
             if (resultPrice < 10000) {
-                bindingResult.addError(new ObjectError("item", new String[]{"totalPriceMin"}, new Object[]{10000,resultPrice},null));
+                bindingResult.reject("totalPriceMin",new Object[]{10000,resultPrice},null);
             }
         }
 
