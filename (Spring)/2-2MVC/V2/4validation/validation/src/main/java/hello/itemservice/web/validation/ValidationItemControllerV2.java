@@ -11,6 +11,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.validation.ObjectError;
 import org.springframework.validation.ValidationUtils;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -23,6 +25,12 @@ import java.util.List;
 public class ValidationItemControllerV2 {
 
     private final ItemRepository itemRepository;
+    private final ItemValidator itemValidator;
+
+    @InitBinder
+    public void init(WebDataBinder dataBinder) {
+        dataBinder.addValidators(itemValidator);
+    }
 
     @GetMapping
     public String items(Model model) {
@@ -44,7 +52,7 @@ public class ValidationItemControllerV2 {
         return "validation/v2/addForm";
     }
 
-    //    @PostMapping("/add") //  BindingResult과 FieldError, ObjectError
+    //    @PostMapping("/add") //  BindingResult
     public String addItemV1(@ModelAttribute Item item, BindingResult bindingResult, RedirectAttributes redirectAttributes, Model model) {
 
         // 필드 검증 로직
@@ -81,7 +89,7 @@ public class ValidationItemControllerV2 {
         return "redirect:/validation/v2/items/{itemId}";
     }
 
-    //    @PostMapping("/add") // 에러나도 값 노출되게끔 rejectedValue추가
+    //    @PostMapping("/add")
     public String addItemV2(@ModelAttribute Item item, BindingResult bindingResult, RedirectAttributes redirectAttributes, Model model) {
 
         // 필드 검증 로직
@@ -118,7 +126,7 @@ public class ValidationItemControllerV2 {
         return "redirect:/validation/v2/items/{itemId}";
     }
 
-    //    @PostMapping("/add") // 오류메시지 추가
+    //    @PostMapping("/add") // 오류메시지
     public String addItemV3(@ModelAttribute Item item, BindingResult bindingResult, RedirectAttributes redirectAttributes, Model model) {
 
         // 필드 검증 로직
@@ -156,7 +164,7 @@ public class ValidationItemControllerV2 {
         return "redirect:/validation/v2/items/{itemId}";
     }
 
-    @PostMapping("/add") // bindingResult.rejectValue() bindingResult.reject(
+    //    @PostMapping("/add") // bindingResult.rejectValue() bindingResult.reject()
     public String addItemV4(@ModelAttribute Item item, BindingResult bindingResult, RedirectAttributes redirectAttributes, Model model) {
 
         // 검증실패했을때 로직을 위에 적어줘서,
@@ -193,6 +201,47 @@ public class ValidationItemControllerV2 {
         if (bindingResult.hasErrors()) { //에러가 있으면
             log.info("bindingResult = {}", bindingResult);
 //            model.addAttribute("errors", errors);  bindingResult는 자동으로 뷰에 넘어간다!
+            return "validation/v2/addForm";
+        }
+
+        // 성공 로직
+        Item savedItem = itemRepository.save(item);
+        redirectAttributes.addAttribute("itemId", savedItem.getId());
+        redirectAttributes.addAttribute("status", true);
+        return "redirect:/validation/v2/items/{itemId}";
+    }
+
+    // @PostMapping("/add") // Validator분리
+    public String addItemV5(@ModelAttribute Item item, BindingResult bindingResult, RedirectAttributes redirectAttributes, Model model) {
+
+        // 검증실패했을때 로직을 위에 적어줘서,
+        // (typeMismatch 에러처럼) 각필드에바인딩되기전발생하는에러가 발생하면 각필드에바인딩될때발생하는에러는 확인도 안하고 바로 입력 폼으로 돌려버린다.
+        if (bindingResult.hasErrors()) { //에러가 있으면
+            log.info("bindingResult = {}", bindingResult);
+            return "validation/v2/addForm";
+        }
+
+        itemValidator.validate(item, bindingResult);
+
+        //검증에 실패하면 다시 입력 폼으로 이동
+        if (bindingResult.hasErrors()) { //에러가 있으면
+            log.info("bindingResult = {}", bindingResult);
+            return "validation/v2/addForm";
+        }
+
+        // 성공 로직
+        Item savedItem = itemRepository.save(item);
+        redirectAttributes.addAttribute("itemId", savedItem.getId());
+        redirectAttributes.addAttribute("status", true);
+        return "redirect:/validation/v2/items/{itemId}";
+    }
+
+    @PostMapping("/add")
+    public String addItemV6(@Validated @ModelAttribute Item item, BindingResult bindingResult, RedirectAttributes redirectAttributes, Model model) {
+
+        //검증에 실패하면 다시 입력 폼으로 이동
+        if (bindingResult.hasErrors()) {
+            log.info("bindingResult = {}", bindingResult);
             return "validation/v2/addForm";
         }
 
