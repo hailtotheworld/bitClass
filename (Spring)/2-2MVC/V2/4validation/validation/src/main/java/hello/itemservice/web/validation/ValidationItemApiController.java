@@ -24,7 +24,7 @@ public class ValidationItemApiController {
             return bindingResult.getAllErrors(); //필드에러, 오브젝트에러 다 list로 반환해준다
         }
 
-        log.info();
-        
+        log.info("성공 로직 실행");
+        return form;
     }
 }
