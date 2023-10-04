@@ -19,7 +19,6 @@ import java.util.DuplicateFormatFlagsException;
 @RequiredArgsConstructor
 public class LoginController {
 
-
     private final LoginService loginService;
 
     @GetMapping("/login")
