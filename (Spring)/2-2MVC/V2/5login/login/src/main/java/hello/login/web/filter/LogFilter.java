@@ -11,7 +11,7 @@ import java.util.UUID;
 public class LogFilter implements Filter { //싱글톤으로 구현된다
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-        log.info("log filter init");
+        log.info("log filter init~~~~~~");
 
 
     }
@@ -21,6 +21,7 @@ public class LogFilter implements Filter { //싱글톤으로 구현된다
         log.info("log filter doFilter");
 
         HttpServletRequest httpRequest = (HttpServletRequest) request;
+//        StringBuffer requestURL = httpRequest.getRequestURL();
         String requestURI = httpRequest.getRequestURI();
 
         String uuid = UUID.randomUUID().toString();
@@ -31,14 +32,14 @@ public class LogFilter implements Filter { //싱글톤으로 구현된다
         } catch (Exception e) {
             throw e;
         } finally {
-            log.info("");
+            log.info("RESPONSE [{}][{}]",uuid,requestURI);
         }
 
     }
 
     @Override
     public void destroy() {
-        log.info("log filter destroy");
+        log.info("log filter destroy~~~~~~");
     }
 
 }
