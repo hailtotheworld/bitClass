@@ -22,7 +22,7 @@ public class HomeController {
 
     private final MemberRepository memberRepository;
     private final SessionManager sessionManager;
-
+/*
     //    @GetMapping("/")
     public String homeLogin(@CookieValue(name = "memberId", required = false) Long memberId, Model model) {
 
@@ -74,7 +74,7 @@ public class HomeController {
         model.addAttribute("member", loginMember);
         return "loginHome";
     }
-
+ */
     @GetMapping("/")
     public String homeLoginV3Spring(@SessionAttribute(name = SessionConst.LOGIN_MEMBER, required = false) Member loginMember, Model model) {
 
