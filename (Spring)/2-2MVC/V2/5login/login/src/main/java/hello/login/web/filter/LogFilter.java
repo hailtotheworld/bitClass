@@ -9,11 +9,10 @@ import java.util.UUID;
 
 @Slf4j
 public class LogFilter implements Filter { //싱글톤으로 구현된다
+
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
         log.info("log filter init~~~~~~");
-
-
     }
 
     @Override
