@@ -97,6 +97,7 @@ public class LoginController {
     @PostMapping("/login")
     public String loginV4(@Validated @ModelAttribute LoginForm form, BindingResult bindingResult, HttpServletRequest request,
                           @RequestParam(defaultValue = "/") String redirectURL) {
+
         if (bindingResult.hasErrors()) {
             return "login/loginForm";
         }
