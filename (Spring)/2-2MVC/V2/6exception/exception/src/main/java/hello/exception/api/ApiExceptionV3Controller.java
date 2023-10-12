@@ -10,13 +10,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 @Slf4j
 @RestController
-public class ApiExceptionV2Controller {
+public class ApiExceptionV3Controller {
 
     //@ExceptionHandler는 이 컨트롤러 안에서 발생한 예외만 처리해준다
 
-
-
-    @GetMapping("/api2/members/{id}")
+    @GetMapping("/api3/members/{id}")
     public MemberDto getMember(@PathVariable("id") String id) {
 
         if (id.equals("ex")) {
