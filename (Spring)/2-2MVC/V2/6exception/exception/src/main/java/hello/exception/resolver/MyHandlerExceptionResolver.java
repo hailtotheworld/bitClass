@@ -19,7 +19,7 @@ public class MyHandlerExceptionResolver implements HandlerExceptionResolver {
                 log.info("IllegalArgumentException resolver to 400");
                 response.sendError(HttpServletResponse.SC_BAD_REQUEST, ex.getMessage()); // Exception을 sendError로 바꿔치기한 거다.
                 return new ModelAndView();
-                // return new ModelAndView(); 빈 값으로 넘기면, 정상흐름으로 진행된다.
+                // return new ModelAndView(); 빈 값으로 넘기면, exception 없는 듯이 정상흐름으로 진행된다.
 
                 // return new ModelAndView(ModelAndView 지정); ModelAndView 에 View , Model 등의 정보를 지정해서 반환하면 뷰를 렌더링 한다.
 
