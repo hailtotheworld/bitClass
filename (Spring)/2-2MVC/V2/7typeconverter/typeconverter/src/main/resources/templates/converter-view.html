@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    <li>${number}: <span th:text="${number}"></span></li>     <!--컨버전 적용안됐으니 그냥숫자-->
+    <li>${{number}}: <span th:text="${{number}}"></span></li> <!-- 숫자 → string -->
+    <li>${ipPort}: <span th:text="${ipPort}"></span></li>     <!--컨버전 적용안됐으니 .toString()-->
+    <li>${{ipPort}}: <span th:text="${{ipPort}}"></span></li> <!-- 객체 → String -->
+</ul>
+</body>
+</html>
