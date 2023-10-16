@@ -10,6 +10,7 @@ import org.springframework.core.io.FileUrlResource;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -61,13 +62,13 @@ public class ItemController {
         return "item-view";
     }
 
-//    @ResponseBody
-//    @GetMapping("/images/{filename}")
-//    public Resource downloadImage(@PathVariable String filename) throws MalformedURLException {
-//        // file:/Users/../9f718a91-ef9f-497e-8b5d-061e850fc03c.png
-////        return new UrlResource("file:" + fileStore.getFullPath(filename));
-//        return new FileUrlResource(fileStore.getFullPath(filename));
-//    }
+    @ResponseBody
+    @GetMapping("/images/{filename}")
+    public Resource downloadImage(@PathVariable String filename) throws MalformedURLException {
+        // file:/Users/../9f718a91-ef9f-497e-8b5d-061e850fc03c.png
+//        return new UrlResource("file:" + fileStore.getFullPath(filename));
+        return new FileUrlResource(fileStore.getFullPath(filename));
+    }
 
     @GetMapping("/attach/{itemId}")
     public ResponseEntity<Resource> downloadAttach(@PathVariable Long itemId) throws MalformedURLException {
@@ -77,11 +78,10 @@ public class ItemController {
 
         UrlResource urlResource = new UrlResource("file:" + fileStore.getFullPath(storeFileName));
 
-        log.info("uploadFileName={}", uploadFileName);
-
+        //인코딩작업
+        //Content-Disposition: attachment; filename="a.txt"
         String encodeUploadFileName = UriUtils.encode(uploadFileName, StandardCharsets.UTF_8);
         String contentDisposition = "attachment; filename=\"" + encodeUploadFileName + "\"";
-        //Content-Disposition: attachment; filename="a.txt"
 
 //        return new ResponseEntity<>(urlResource, HttpStatus.OK);
         return ResponseEntity.ok()
