@@ -7,6 +7,7 @@ import hello.upload.file.FileStore;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.autoconfigure.web.ServerProperties;
+import org.springframework.core.io.FileUrlResource;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
 import org.springframework.http.HttpHeaders;
@@ -67,7 +68,8 @@ public class ItemController {
     @GetMapping("/images/{filename}")
     public Resource downloadImage(@PathVariable String filename) throws MalformedURLException {
         // file:/Users/../9f718a91-ef9f-497e-8b5d-061e850fc03c.png
-        return new UrlResource("file:" + fileStore.getFullPath(filename));
+//        return new UrlResource("file:" + fileStore.getFullPath(filename));
+        return new FileUrlResource(fileStore.getFullPath(filename));
     }
 
     @GetMapping("/attach/{itemId}")
