@@ -6,17 +6,14 @@ import hello.upload.domain.UploadFile;
 import hello.upload.file.FileStore;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.boot.autoconfigure.web.ServerProperties;
 import org.springframework.core.io.FileUrlResource;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
 import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.util.UriUtils;
 
@@ -64,13 +61,13 @@ public class ItemController {
         return "item-view";
     }
 
-    @ResponseBody
-    @GetMapping("/images/{filename}")
-    public Resource downloadImage(@PathVariable String filename) throws MalformedURLException {
-        // file:/Users/../9f718a91-ef9f-497e-8b5d-061e850fc03c.png
-//        return new UrlResource("file:" + fileStore.getFullPath(filename));
-        return new FileUrlResource(fileStore.getFullPath(filename));
-    }
+//    @ResponseBody
+//    @GetMapping("/images/{filename}")
+//    public Resource downloadImage(@PathVariable String filename) throws MalformedURLException {
+//        // file:/Users/../9f718a91-ef9f-497e-8b5d-061e850fc03c.png
+////        return new UrlResource("file:" + fileStore.getFullPath(filename));
+//        return new FileUrlResource(fileStore.getFullPath(filename));
+//    }
 
     @GetMapping("/attach/{itemId}")
     public ResponseEntity<Resource> downloadAttach(@PathVariable Long itemId) throws MalformedURLException {
