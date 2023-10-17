@@ -78,12 +78,9 @@ public class ItemController {
 
         UrlResource urlResource = new UrlResource("file:" + fileStore.getFullPath(storeFileName));
 
-        //인코딩작업
-        //Content-Disposition: attachment; filename="a.txt"
-        String encodeUploadFileName = UriUtils.encode(uploadFileName, StandardCharsets.UTF_8);
-        String contentDisposition = "attachment; filename=\"" + encodeUploadFileName + "\"";
+        String encodeUploadFileName = UriUtils.encode(uploadFileName, StandardCharsets.UTF_8); //인코딩작업
+        String contentDisposition = "attachment; filename=\"" + encodeUploadFileName + "\""; //Content-Disposition: attachment; filename="a.txt"
 
-//        return new ResponseEntity<>(urlResource, HttpStatus.OK);
         return ResponseEntity.ok()
                 .header(HttpHeaders.CONTENT_DISPOSITION, contentDisposition)
                 .body(urlResource);
