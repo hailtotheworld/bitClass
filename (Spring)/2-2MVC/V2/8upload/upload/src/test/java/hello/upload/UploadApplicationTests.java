@@ -8,6 +8,12 @@ class UploadApplicationTests {
 
 	@Test
 	void contextLoads() {
+		System.out.println("true = " + true);
+	}
+
+	@Test
+	void contextLoads2() {
+		System.out.println("true2222 = " + true);
 	}
 
 }
