@@ -35,9 +35,10 @@ update member set money=10000 + 2000 where member_id = 'memberB';
 update member set money=10000 - 2000 where member_id = 'memberA';
 update member set money=10000 + 2000 where member_iddd = 'memberB';
 
-
 select * from member;
 insert into member(member_id, money) values ('memberA',10000);
 update member set money=500 where member_id = 'memberA';
 
 select * from member where member_id="memberA" for update;
+
+select * from member;
