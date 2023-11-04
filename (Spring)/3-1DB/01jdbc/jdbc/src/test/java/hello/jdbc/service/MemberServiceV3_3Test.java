@@ -50,6 +50,10 @@ public class MemberServiceV3_3Test {
         PlatformTransactionManager transactionManager() {
             return new DataSourceTransactionManager(dataSource());
         }
+        @Bean
+        MemberRepositoryV3 memberRepository() {
+            return new MemberRepositoryV3(dataSource());
+        }
     }
 
     @BeforeEach
@@ -62,7 +66,7 @@ public class MemberServiceV3_3Test {
         log.info("memberService class={}", memberService.getClass());
         log.info("memberRepository class={}", memberRepository.getClass());
         Assertions.assertThat(AopUtils.isAopProxy(memberService)).isTrue();
-        Assertions.assertThat(AopUtils.isAopProxy(memberRepository)).isTrue();
+        Assertions.assertThat(AopUtils.isAopProxy(memberRepository)).isFalse();
     }
 
     @Test
