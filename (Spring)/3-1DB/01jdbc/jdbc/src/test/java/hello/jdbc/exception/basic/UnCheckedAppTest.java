@@ -17,6 +17,16 @@ public class UnCheckedAppTest {
         assertThatThrownBy(() -> controller.request()).isInstanceOf(Exception.class);
     }
 
+    @Test
+    void printEx() {
+        Controller controller = new Controller();
+        try {
+            controller.request();
+        } catch (Exception e) {
+            log.info("ex", e);
+        }
+    }
+
     static class Controller {
         Service service = new Service();
 
@@ -30,8 +40,8 @@ public class UnCheckedAppTest {
         NetworkClient networkClient = new NetworkClient();
 
         public void logic() {
-            repository.call();
             networkClient.call();
+            repository.call();
         }
     }
 
