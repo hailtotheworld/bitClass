@@ -22,10 +22,24 @@ public class UnCheckedAppTest {
         Controller controller = new Controller();
         try {
             controller.request();
+        } catch (RuntimeConnectException e) {
+            log.info("ex첫번째", e);
         } catch (Exception e) {
-            log.info("ex", e);
+            log.info("ex두번째", e);
         }
     }
+
+//    @Test
+//    void catchTest() {
+//        try {
+//            throw new SQLException();
+//            throw new RuntimeConnectException();
+//        } catch (RuntimeConnectException e) {
+//            log.info("ex", e);
+//        } catch (SQLException e) {
+//            log.info("ex", e);
+//        }
+//    }
 
     static class Controller {
         Service service = new Service();
@@ -61,11 +75,14 @@ public class UnCheckedAppTest {
         }
 
         public void runSQL() throws SQLException {
-            throw new SQLException("ex");
+            throw new SQLException("SQL예외도 잡는다!! ex");
         }
     }
 
     static class RuntimeConnectException extends RuntimeException {
+        public RuntimeConnectException() {
+        }
+
         public RuntimeConnectException(String message) {
             super(message);
         }
