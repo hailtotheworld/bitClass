@@ -42,3 +42,10 @@ update member set money=500 where member_id = 'memberA';
 select * from member where member_id="memberA" for update;
 
 select * from member;
+
+
+SELECT concat('RENAME TABLE ',TABLE_SCHEMA,'.',TABLE_NAME,' TO ','2311jdbctest.',TABLE_NAME,';')
+FROM information_schema.tables
+WHERE TABLE_SCHEMA LIKE 'test';
+
+RENAME TABLE test.member TO 2311jdbctest.member;
