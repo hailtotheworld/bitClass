@@ -57,7 +57,6 @@ public class JdbcTemplateItemRepositoryV1 implements ItemRepository {
                 updateParam.getPrice(),
                 updateParam.getQuantity(),
                 itemId);
-
     }
 
     @Override

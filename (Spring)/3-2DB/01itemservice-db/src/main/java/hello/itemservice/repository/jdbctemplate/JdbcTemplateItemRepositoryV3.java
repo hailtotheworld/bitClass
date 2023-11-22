@@ -46,18 +46,21 @@ public class JdbcTemplateItemRepositoryV3 implements ItemRepository {
     public Item save(Item item) {
         SqlParameterSource param = new BeanPropertySqlParameterSource(item);
         Number key = jdbcInsert.executeAndReturnKey(param);
-
+        item.setId(key.longValue());
+        return item;
     }
 
     @Override
     public void update(Long itemId, ItemUpdateDto updateParam) {
         String sql = "update item set item_name=:itemName, price=:price, quantity=:quantity where id=:id";
 
-        new MapSqlParameterSource()
+        SqlParameterSource param = new MapSqlParameterSource()
                 .addValue("itemName", updateParam.getItemName())
                 .addValue("price", updateParam.getPrice())
                 .addValue("quantity", updateParam.getQuantity())
                 .addValue("id", itemId);
+
+        template.update(sql, param);
     }
 
     @Override
@@ -65,6 +68,8 @@ public class JdbcTemplateItemRepositoryV3 implements ItemRepository {
         String sql = "select id, item_name, price, quantity from item where id = :id";
         try {
             Map<String, Object> param = Map.of("id", id);
+//            MapSqlParameterSource param = new MapSqlParameterSource().addValue("id", id);
+
             Item item = template.queryForObject(sql, param, itemRowMapper()); // .queryForObject는 객체 한개 가져올때 사용한다
             //RowMapper는 결과가 없으면 EmptyResultDataAccessException가 발생한다
             //결과가 둘 이상이면 IncorrectResultSizeDataAccessException 예외가 발생한다.
