@@ -19,7 +19,7 @@ import java.util.NoSuchElementException;
  */
 @Slf4j
 //@RequiredArgsConstructor
-@Repository
+//@Repository
 public class MemberRepositoryV4_2 implements MemberRepository {
 
     private final DataSource dataSource;
