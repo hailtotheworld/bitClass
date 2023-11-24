@@ -1,6 +1,5 @@
 package hello.itemservice.domain;
 
-import hello.itemservice.EmbeddedDbSupport;
 import hello.itemservice.repository.ItemRepository;
 import hello.itemservice.repository.ItemSearchCond;
 import hello.itemservice.repository.ItemUpdateDto;
@@ -18,7 +17,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @Transactional
 @SpringBootTest
-class ItemRepositoryTestH2 {
+class ItemRepositoryTest {
 
     @Autowired
     ItemRepository itemRepository;
@@ -48,7 +47,7 @@ class ItemRepositoryTestH2 {
 
     //    @Commit    //@Rollback(false)
 //    @Transactional
-//    @Commit
+    @Commit
     @Test
     void save() {
         //given

@@ -26,9 +26,7 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
 //    runtimeOnly 'com.mysql:mysql-connector-j'
-    runtimeOnly 'mysql:mysql-connector-java'
-
-    runtimeOnly 'com.h2database:h2'
+	runtimeOnly 'mysql:mysql-connector-java'
 
     //JdbcTemplate 추가
     implementation 'org.springframework.boot:spring-boot-starter-jdbc'
@@ -36,6 +34,8 @@ dependencies {
     //테스트에서 lombok 사용
     testCompileOnly 'org.projectlombok:lombok'
     testAnnotationProcessor 'org.projectlombok:lombok'
+
+    testImplementation 'com.wix:wix-embedded-mysql:4.6.2'
 }
 
 tasks.named('test') {
