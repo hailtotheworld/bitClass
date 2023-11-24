@@ -16,7 +16,7 @@ import java.util.TimeZone;
 @ActiveProfiles("test")
 public abstract class EmbeddedDbSupport {
 
-    public static final String DB_URL = "jdbc:mysql://localhost:13306/2311dbtestcase?useSSL=false&useUnicode=true&serverTimezone=Asia/Seoul";
+    public static final String DB_URL = "jdbc:mysql://localhost:3306/2311dbtestcase?useSSL=false&useUnicode=true&serverTimezone=Asia/Seoul";
     private static EmbeddedMysql server;
     private static String USER = "newuser";
     private static String KEY = "0000";
