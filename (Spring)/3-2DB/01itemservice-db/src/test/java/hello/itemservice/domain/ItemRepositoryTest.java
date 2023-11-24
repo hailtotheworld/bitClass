@@ -22,8 +22,6 @@ class ItemRepositoryTest {
     @Autowired
     ItemRepository itemRepository;
 
-
-
 /*    @Autowired
     PlatformTransactionManager transactionManager;
     TransactionStatus status;
@@ -46,8 +44,6 @@ class ItemRepositoryTest {
     }
 
     //    @Commit    //@Rollback(false)
-//    @Transactional
-    @Commit
     @Test
     void save() {
         //given

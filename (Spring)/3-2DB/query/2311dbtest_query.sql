@@ -11,3 +11,4 @@ primary key (id)
 SELECT * FROM item;
 
 insert into item(item_name, price, quantity) values ('ItemTest', 10000, 10);
+
