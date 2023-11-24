@@ -8,6 +8,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.Commit;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
@@ -48,6 +49,7 @@ class ItemRepositoryTestH2 {
 //    @Transactional
 //    @Commit
     @Test
+    @Commit
     void save() {
         //given
         Item item = new Item("itemA", 10000, 10);
