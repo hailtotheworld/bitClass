@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--java아래있는 패키지디렉토리.파일명-->
+<mapper namespace="hello.itemservice.repository.mybatis.ItemMapper">
+
+    <!--자동생성키설정-->
+    <insert id="save" useGeneratedKeys="true" keyProperty="id">
+        insert into item (item_name, price, quantity)
+        values (#{itemName}, #{price}, #{quantity})
+    </insert>
+     <!--자바프로퍼티빈 방식이 적용된다-->
+
+    <update id="update">
+        update item
+        set item_name=#{updateParam.itemName},
+            price=#{updateParam.price},
+            quantity=#{updateParam.quantity}
+        where id = #{id}
+    </update>
+    <!--넘어오는 파라미터가 여러개면 @Param("여기지정해준문자열") 로 접근해야한다-->
+
+    <!--mybatis.type-aliases-package=hello.itemservice.domain 작성해줘서 resultType간단하게 작성가능-->
+    <select id="findById" resultType="Item">
+        select id, item_name, price, quantity
+        from item
+        where id = #{id}
+    </select>
+    <!--넘어오는 파라미터가 하나면 #{id} 혹은 #{param} 이런식으로 아무 문자열이나 넣어도 된다-->
+
+    <select id="findAll" resultType="Item">
+        select id, item_name, price, quantity
+        from Item
+        <where>
+            <if test="itemName != null and itemName != ''">
+                and item_name like concat('%',#{itemName},'%')
+            </if>
+            <if test="maxPrice != null">
+                and price &lt;= #{maxPrice}
+            </if>
+        </where>
+        <!-- 이스케이프 &lt; 사용 -->
+        <!--    <where>은 적절하게 where 문장을 만들어준다.
+                <if>가 모두 실패하게 되면 SQL where 를 만들지 않는다.
+                <if>가 하나라도 성공하면 처음 나타나는 and 를 where 로 변환해준다.-->
+    </select>
+
+</mapper>

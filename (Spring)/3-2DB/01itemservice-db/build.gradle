@@ -25,6 +25,11 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
+
+    //MyBatis 추가
+    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.0'
+
+    // MySQL 데이터베이스추가
 //    runtimeOnly 'com.mysql:mysql-connector-j'
 	runtimeOnly 'mysql:mysql-connector-java'
 
