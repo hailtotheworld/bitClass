@@ -17,6 +17,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class JpaItemRepositoryV2 implements ItemRepository {
 
+    // JpaRepository를 extends했던 인터페이스를 주입받아서 사용하는거다.
     private final SpringDataJpaItemRepository repository;
 
     @Override
