@@ -8,6 +8,8 @@ group = 'com.example'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
 
+ext["hibernate.version"] = "5.6.5.Final"
+
 configurations {
     compileOnly {
         extendsFrom annotationProcessor
@@ -25,22 +27,21 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
-
-    //MyBatis 추가
-    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.0'
-
     // MySQL 데이터베이스추가
 //    runtimeOnly 'com.mysql:mysql-connector-j'
-	runtimeOnly 'mysql:mysql-connector-java'
-
-    //JdbcTemplate 추가
-    implementation 'org.springframework.boot:spring-boot-starter-jdbc'
-
+    runtimeOnly 'mysql:mysql-connector-java'
     //테스트에서 lombok 사용
     testCompileOnly 'org.projectlombok:lombok'
     testAnnotationProcessor 'org.projectlombok:lombok'
 
-    testImplementation 'com.wix:wix-embedded-mysql:4.6.2'
+    //JdbcTemplate 추가
+    // implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+
+    //MyBatis 추가
+    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.0'
+
+    //JPA, 스프링 데이터 JPA 추가
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 }
 
 tasks.named('test') {
