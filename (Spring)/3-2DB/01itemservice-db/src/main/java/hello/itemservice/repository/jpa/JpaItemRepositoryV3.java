@@ -51,6 +51,7 @@ public class JpaItemRepositoryV3 implements ItemRepository {
         return Optional.ofNullable(findItem);
     }
 
+    /*
     public List<Item> findAllOld(ItemSearchCond cond) {
 
         String itemName = cond.getItemName();
@@ -75,6 +76,7 @@ public class JpaItemRepositoryV3 implements ItemRepository {
 
         return result;
     }
+    */
 
     @Override
     public List<Item> findAll(ItemSearchCond cond) {
@@ -106,6 +108,4 @@ public class JpaItemRepositoryV3 implements ItemRepository {
         }
         return null;
     }
-
-
 }
