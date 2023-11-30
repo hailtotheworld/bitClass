@@ -11,3 +11,5 @@ create table item
 delete from item;
 
 SELECT * FROM item;
+
+select * from orders;

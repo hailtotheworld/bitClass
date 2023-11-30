@@ -11,7 +11,7 @@ import lombok.Setter;
 public class Order {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String username;  // 정상,예외,잔고부족
