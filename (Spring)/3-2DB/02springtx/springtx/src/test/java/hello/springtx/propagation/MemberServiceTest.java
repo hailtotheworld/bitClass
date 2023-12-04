@@ -119,6 +119,7 @@ class MemberServiceTest {
      * memberRepository   @Transactional: ON
      * logRepository      @Transactional: ON Exception
      */
+    // 모두 롤백
     @Test
     void recoverException_fail() {
         //given

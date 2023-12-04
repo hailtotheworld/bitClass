@@ -9,8 +9,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.support.TransactionSynchronizationManager;
 
-import java.security.Provider;
-
 @Slf4j
 @SpringBootTest
 public class TxLevelTest {
@@ -24,7 +22,7 @@ public class TxLevelTest {
     }
 
     @TestConfiguration
-    static class TxLevelTestconfig {
+    static class TxLevelTestConfig {
         @Bean
         LevelService levelService(){
             return new LevelService();

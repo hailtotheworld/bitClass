@@ -51,6 +51,7 @@ public class TxBasicTest {
         public void nonTx() {
             log.info("call nonTx");
             boolean txActive = TransactionSynchronizationManager.isActualTransactionActive();
+            TransactionSynchronizationManager.isCurrentTransactionReadOnly();
             log.info("tx active={}", txActive);
         }
     }

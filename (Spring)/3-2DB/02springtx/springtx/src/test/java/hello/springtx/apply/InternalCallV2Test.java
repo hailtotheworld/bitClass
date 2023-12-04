@@ -38,7 +38,7 @@ public class InternalCallV2Test {
     }
 
     @Test
-    void internalCall() {
+    void internalCallV2() {
         callService.internal();
     }
 

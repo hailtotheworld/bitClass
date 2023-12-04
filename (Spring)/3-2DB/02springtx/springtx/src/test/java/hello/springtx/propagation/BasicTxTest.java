@@ -27,7 +27,6 @@ public class BasicTxTest {
 
     @TestConfiguration
     static class Config {
-
         // 스프링이 트랜잭션매니저 자동으로주입해주는데, 이렇게 수동주입하면 수동주입된게 사용된다.
         @Bean
         public PlatformTransactionManager transactionManager(DataSource dataSource) {
@@ -145,24 +144,5 @@ public class BasicTxTest {
 
         log.info("외부 트랜잭션 커밋");
         txManager.commit(outer); //Resuming suspended transaction after completion of inner transaction 중단했던 트랜잭션을 다시 시작
-
-        /*
-        ctrl alt v
-        Extract/Introduce → Introduce Variable
-        클래스타입 주소 = IntroduceVariable으로설정한부분;
-
-        eg1)
-        TransactionStatus inner = txManager.getTransaction(new DefaultTransactionAttribute());
-        →
-        DefaultTransactionAttribute definition = new DefaultTransactionAttribute();
-        TransactionStatus inner = txManager.getTransaction(definition);
-
-        eg2)
-        TransactionStatus inner = txManager.getTransaction(new DefaultTransactionAttribute());
-        →
-        TransactionStatus status = txManager.getTransaction(new DefaultTransactionAttribute());
-        TransactionStatus outer = status;
-         */
-
     }
 }

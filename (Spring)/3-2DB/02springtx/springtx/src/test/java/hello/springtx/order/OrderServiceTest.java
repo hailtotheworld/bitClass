@@ -44,6 +44,7 @@ class OrderServiceTest {
         assertThatThrownBy(() -> orderService.order(order)).isInstanceOf(RuntimeException.class);
 
         //then
+        //롤백되었으므로 데이터가 없어야한다
         Optional<Order> optionalOrder = orderRepository.findById(order.getId());
         assertThat(optionalOrder.isEmpty()).isTrue();
     }
