@@ -1,15 +1,18 @@
-drop table if exists item CASCADE;
-create table item
-(
-    id        bigint not null AUTO_INCREMENT,
-    item_name varchar(10),
-    price     integer,
-    quantity  integer,
-    primary key (id)
-);
 
-delete from item;
+insert into dept(dept_name,company_id) values ('회계',2);
+insert into dept(dept_name,company_id) values ('총무',3);
+insert into dept(dept_name) values ('회계');
+insert into company(company_name) values ('삼성전자');
 
-SELECT * FROM item;
 
-select * from orders;
+delete from dept;
+delete from company;
+
+delete from dept where dept_id = 13;
+
+select * from company;
+select * from dept;
+
+commit;
+
+delete from utest;
